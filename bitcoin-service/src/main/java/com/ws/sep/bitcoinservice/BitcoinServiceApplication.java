@@ -2,12 +2,19 @@ package com.ws.sep.bitcoinservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-public class BitcoinServiceApplication {
+@EnableFeignClients( "com.ws.sep.bitcoinservice" )
+@EnableDiscoveryClient
+public class BitcoinServiceApplication
+{
 
-	public static void main(String[] args) {
-		SpringApplication.run(BitcoinServiceApplication.class, args);
+	public static void main( String[] args )
+	{
+		SpringApplication.run( BitcoinServiceApplication.class, args );
+
 	}
 
 }
