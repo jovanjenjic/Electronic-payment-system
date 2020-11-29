@@ -9,18 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping( "/test3" )
+@RequestMapping( "/test1" )
 public class BankServiceController
 {
-
-    @Autowired
-    private IFeignClientProxy proxy;
-
     @GetMapping( value = "/" )
-    public String test()
+    public String messageBank()
     {
-        System.out.println("AAAAAA");
-        return "OKay";
+        return "Bank service";
     }
 
 

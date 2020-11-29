@@ -1,0 +1,27 @@
+
+
+spring:
+  application:
+    name: pay-pal-service
+
+server:
+  port: 8090
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.jks
+    key-store-password: password
+    key-alias: test
+    key-store-type: jks
+    key-store-provider: SUN
+
+#eureka:
+#  instance:
+#    hostname: localhost
+#    prefer-ip-address: false
+#    nonSecurePortEnabled: false
+#    securePortEnabled: true
+#    securePort: ${server.port}
+#  client:
+#    securePortEnabled: true
+#    serviceUrl:
+#      defaultZone: https://localhost:8761/eureka/
