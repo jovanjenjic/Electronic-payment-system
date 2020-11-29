@@ -13,7 +13,6 @@ public class PaypalController
     public String messagePaypal()
     {
         return "Paypal service";
-
     }
 
 }

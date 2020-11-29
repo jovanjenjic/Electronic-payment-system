@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping( "/test2" )
+@RequestMapping( "/test1" )
 public class BitcoinServiceController
 {
 
@@ -13,7 +13,6 @@ public class BitcoinServiceController
     public String messageBitcoin()
     {
         return "Bitcoin service";
-
     }
 
 }
