@@ -19,9 +19,10 @@ public class BankServiceController
     @GetMapping( value = "/" )
     public String test()
     {
-
-        return "Bank Service " + this.proxy.messageBitcoin() + " " + this.proxy.messagePaypal();
-
+        System.out.println("AAAAAA");
+        return "OKay";
     }
+
+
 
 }
