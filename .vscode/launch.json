@@ -7,13 +7,6 @@
         {
             "type": "java",
             "console": "internalConsole",
-            "name": "Debug (Launch) - Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "console": "internalConsole",
             "name": "bank",
             "request": "launch",
             "mainClass": "com.ws.sep.bankservice.BankServiceApplication",
@@ -30,7 +23,7 @@
         {
             "type": "java",
             "console": "internalConsole",
-            "name": "eurekar",
+            "name": "eureka",
             "request": "launch",
             "mainClass": "com.ws.sep.netflixeurekanamingserver.NetflixEurekaNamingServerApplication",
             "projectName": "netflix-eureka-naming-server"
@@ -50,6 +43,16 @@
             "request": "launch",
             "mainClass": "com.ws.sep.paypalservice.PayPalServiceApplication",
             "projectName": "pay-pal-service"
+        },
+        {
+            "type": "java",
+            "name": "seller",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ws.sep.seller.SellerApplication",
+            "projectName": "seller",
+            "args": ""
         }
     ]
 }

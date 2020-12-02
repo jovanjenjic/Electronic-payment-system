@@ -1,14 +1,13 @@
 package com.ws.sep.seller.services;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
+import java.util.HashSet;
 
 
 import javax.validation.Valid;
 
 
 import com.ws.sep.seller.models.Role;
-import com.ws.sep.seller.models.RoleName;
 import com.ws.sep.seller.models.Seller;
 import com.ws.sep.seller.payload.JwtResponse;
 import com.ws.sep.seller.payload.LoginRequest;
@@ -64,6 +63,17 @@ public class AuthService
 
     public ResponseEntity< ? > registerUser( @Valid @RequestBody SignUpRequest signUpRequest ) throws Exception
     {
+        if ( this.iSellerRepository.existsByEmail( signUpRequest.getEmail() ) )
+        {
+            return new ResponseEntity< String >( "email is already in use", HttpStatus.BAD_REQUEST );
+
+        }
+
+        if ( this.iSellerRepository.existsByPib( signUpRequest.getPib() ) )
+        {
+            return new ResponseEntity< String >( "pib is already in use", HttpStatus.BAD_REQUEST );
+
+        }
 
         // Creating user's account
         Seller user = new Seller();
@@ -74,11 +84,15 @@ public class AuthService
 
         user.setPib( 99999989L );
         user.setCreatedAt( LocalDateTime.now() );
-        Role userRole = iRoleRepository.findByName( RoleName.ROLE_ADMIN ).orElseThrow( () -> new Exception( "Ajoj" ) );
 
-        user.setRoles( Collections.singleton( userRole ) );
+        user.setRoles( new HashSet<>() );
+        for ( Long id : signUpRequest.getRolesIds() )
+        {
+            Role role = this.iRoleRepository.findById( id ).orElseThrow( () -> new Exception( "User role not found with id [ " + id + " ]" ) );
+            user.getRoles().add( role );
+        }
 
-        Seller result = iSellerRepository.save( user );
+        iSellerRepository.save( user );
 
         return new ResponseEntity< String >( "ok", HttpStatus.CREATED );
 

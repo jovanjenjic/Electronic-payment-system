@@ -15,4 +15,8 @@ public interface ISellerRepository extends JpaRepository< Seller, Long >
 
     Optional< Seller > findByEmail( String email );
 
+    Boolean existsByEmail( String email );
+
+    Boolean existsByPib( Long pib );
+
 }

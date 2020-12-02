@@ -16,7 +16,7 @@ public class JwtResponse
 
     public JwtResponse( String token )
     {
-        this.tokenType = token;
+        this.accessToken = token;
 
     }
 

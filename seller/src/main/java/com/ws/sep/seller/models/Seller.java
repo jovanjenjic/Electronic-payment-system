@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 
 import org.springframework.data.annotation.CreatedDate;
@@ -25,6 +27,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
+@Table( name = "seller", uniqueConstraints =
+{ @UniqueConstraint( columnNames =
+{ "email" } ), @UniqueConstraint( columnNames =
+{ "pib" } ) } )
 public class Seller
 {
 
@@ -49,7 +55,7 @@ public class Seller
     private Long pib;
 
     @ManyToMany( fetch = FetchType.EAGER )
-    @JoinTable( name = "user_roles", joinColumns = @JoinColumn( name = "user_id" ), inverseJoinColumns = @JoinColumn( name = "role_id" ) )
+    @JoinTable( name = "seller_roles", joinColumns = @JoinColumn( name = "seller_id" ), inverseJoinColumns = @JoinColumn( name = "role_id" ) )
     private Set< Role > roles = new HashSet< Role >();
 
     @CreatedDate

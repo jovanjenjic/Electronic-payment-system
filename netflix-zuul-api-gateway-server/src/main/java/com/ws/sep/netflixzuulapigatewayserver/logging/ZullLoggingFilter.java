@@ -10,6 +10,7 @@ import com.netflix.zuul.exception.ZuulException;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -32,9 +33,15 @@ public class ZullLoggingFilter extends ZuulFilter
         String resource = request.getRequestURI().toString();
         String path = "https://localhost:8084" + resource;
 
-        if ( resource.contains( "/api/auth" ) )
+        if ( resource.contains( "/api/auth/signin" ) )
         {
+            // everybody can signin
             return null;
+        }
+
+        else if ( resource.contains( "/api/auth/signup" ) )
+        {
+            path = "https://localhost:8084/api/auth/signup";
         }
 
         try
@@ -47,25 +54,31 @@ public class ZullLoggingFilter extends ZuulFilter
             // ! someone must die so that others can live
             HttpEntity< String > kamikazeEntity = new HttpEntity< String >( headers );
 
-            ResponseEntity< Object > response = restTemplate.postForEntity( path, kamikazeEntity, Object.class );
+            ResponseEntity< Object > response = restTemplate.exchange( path, HttpMethod.GET, kamikazeEntity, Object.class );
             // ResponseEntity< Object > forEntity = restTemplate.getForEntity( path,
             // kamikazeEntity, Object.class );
         }
-        catch ( HttpClientErrorException e )
+        catch ( Exception e )
         {
-            RequestContext context = RequestContext.getCurrentContext();
-            switch ( e.getRawStatusCode() )
+            // if(e instanceof )
+            System.err.println( e );
+            if ( e instanceof HttpClientErrorException )
             {
-                case 401:
-                    context.unset();
-                    context.setResponseStatusCode( HttpStatus.UNAUTHORIZED.value() );
-                    return null;
-                case 403:
-                    context.unset();
-                    context.setResponseStatusCode( HttpStatus.FORBIDDEN.value() );
-                    return null;
-                default:
-                    return null;
+
+                RequestContext context = RequestContext.getCurrentContext();
+                switch ( ( ( HttpClientErrorException ) e ).getRawStatusCode() )
+                {
+                    case 401:
+                        context.unset();
+                        context.setResponseStatusCode( HttpStatus.UNAUTHORIZED.value() );
+                        return null;
+                    case 403:
+                        context.unset();
+                        context.setResponseStatusCode( HttpStatus.FORBIDDEN.value() );
+                        return null;
+                    default:
+                        return null;
+                }
             }
 
         }
