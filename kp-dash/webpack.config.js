@@ -6,6 +6,7 @@ module.exports = {
   output: {
     path: `${__dirname}/dir`,
     filename: 'bundle.js',
+    publicPath: '/',
   },
   devtool: 'source-map',
   module: {
@@ -41,6 +42,9 @@ module.exports = {
         ],
       },
     ],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebPackPlugin({
