@@ -26,6 +26,9 @@ zuul:
   ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
   host:
     socket-timeout-millis: 30000
+  routes:
+    sample:
+      sensitive-headers:
   sslHostnameValidationEnabled: false
 ribbon:
   IsSecured: true
