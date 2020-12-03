@@ -3,9 +3,9 @@ import 'antd/dist/antd.css';
 
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import Login from './containers/Login';
-import Register from './containers/Register';
-import Home from './containers/home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Home from './pages/home';
 
 const App = () => {
 
