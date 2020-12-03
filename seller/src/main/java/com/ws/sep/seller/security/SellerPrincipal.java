@@ -34,10 +34,6 @@ public class SellerPrincipal implements UserDetails
 
     private String email;
 
-    private String username;
-
-    private String name;
-
     private Long pib;
 
     private LocalDateTime createdAt;
@@ -50,8 +46,6 @@ public class SellerPrincipal implements UserDetails
     public SellerPrincipal( Long id, String email, String password, Collection< ? extends GrantedAuthority > authorities )
     {
         this.id = id;
-        this.name = email;
-        this.username = email;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
@@ -121,7 +115,6 @@ public class SellerPrincipal implements UserDetails
     @Override
     public boolean isEnabled()
     {
-        // TODO Auto-generated method stub
         return true;
 
     }

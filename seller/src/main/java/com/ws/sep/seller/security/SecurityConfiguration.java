@@ -57,17 +57,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 
                 .antMatchers( "/", "/favicon.ico", "/**/*.png", "/**/*.gif", "/**/*.svg", "/**/*.jpg", "/**/*.html", "/**/*.css", "/**/*.js" ).permitAll()
 
-                .antMatchers( "/pay-pal-service/**" ).hasRole( "PAYPAL" )
-
-                .antMatchers( "/bank-service/**" ).hasRole( "BANK" )
-
-                .antMatchers( "/bitcoin-service/**" ).hasRole( "BITCOIN" )
-
-                .antMatchers( "/api/auth/signup" ).hasRole( "ADMIN" )
-
                 .antMatchers( "/api/auth/**" ).permitAll()
-
-                .antMatchers( "/api/user/checkUsernameAvailability", "/api/user/checkEmailAvailability" ).permitAll()
 
                 .anyRequest().authenticated();
 

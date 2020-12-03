@@ -24,9 +24,9 @@ import org.springframework.data.annotation.CreatedDate;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @NoArgsConstructor
+@Entity
 @Table( name = "seller", uniqueConstraints =
 { @UniqueConstraint( columnNames =
 { "email" } ), @UniqueConstraint( columnNames =
@@ -38,25 +38,19 @@ public class Seller
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 
-    // @NotBlank
-    // @NotNull
-    // @Size( min = 3, message = "password must have minimum 3 characters" )
     private String password;
 
-    // @Email( message = "email must be valid" )
-    // @Size( max = 100, message = "email can have maximum 100 characters" )
-    // @NotBlank
     private String email;
 
-    // @NotBlank
-    // @NaturalId
-    // @Size( min = 10000001, max = 99999999, message = "pib have to be in interval
-    // [10000001, 99999999]" )
     private Long pib;
 
     @ManyToMany( fetch = FetchType.EAGER )
     @JoinTable( name = "seller_roles", joinColumns = @JoinColumn( name = "seller_id" ), inverseJoinColumns = @JoinColumn( name = "role_id" ) )
     private Set< Role > roles = new HashSet< Role >();
+
+    @ManyToMany( fetch = FetchType.EAGER )
+    @JoinTable( name = "seller_types", joinColumns = @JoinColumn( name = "seller_id" ), inverseJoinColumns = @JoinColumn( name = "type_id" ) )
+    private Set< PaymentType > types = new HashSet< PaymentType >();
 
     @CreatedDate
     @Column( nullable = false, updatable = false )

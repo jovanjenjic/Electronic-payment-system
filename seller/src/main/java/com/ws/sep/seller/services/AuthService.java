@@ -1,14 +1,13 @@
 package com.ws.sep.seller.services;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-
-
-import javax.validation.Valid;
+import java.util.Collections;
 
 
 import com.ws.sep.seller.models.Role;
+import com.ws.sep.seller.models.RoleName;
 import com.ws.sep.seller.models.Seller;
+import com.ws.sep.seller.payload.ApiResponse;
 import com.ws.sep.seller.payload.JwtResponse;
 import com.ws.sep.seller.payload.LoginRequest;
 import com.ws.sep.seller.payload.SignUpRequest;
@@ -47,7 +46,7 @@ public class AuthService
     @Autowired
     private JwtTokenProvider provider;
 
-    public ResponseEntity< ? > authenticateUser( @RequestBody LoginRequest loginRequest )
+    public ResponseEntity< JwtResponse > authenticateUser( @RequestBody LoginRequest loginRequest )
     {
 
         Authentication authentication =
@@ -61,40 +60,42 @@ public class AuthService
     }
 
 
-    public ResponseEntity< ? > registerUser( @Valid @RequestBody SignUpRequest signUpRequest ) throws Exception
+    public ResponseEntity< ApiResponse > registerUser(@RequestBody SignUpRequest signUpRequest ) throws Exception
     {
         if ( this.iSellerRepository.existsByEmail( signUpRequest.getEmail() ) )
         {
-            return new ResponseEntity< String >( "email is already in use", HttpStatus.BAD_REQUEST );
+            // TODO: logger
+            return new ResponseEntity< ApiResponse >( new ApiResponse( "email is already in use", false ), HttpStatus.BAD_REQUEST );
 
         }
 
         if ( this.iSellerRepository.existsByPib( signUpRequest.getPib() ) )
         {
-            return new ResponseEntity< String >( "pib is already in use", HttpStatus.BAD_REQUEST );
+            // TODO: logger
+            return new ResponseEntity< ApiResponse >( new ApiResponse( "pib is already in use", false ), HttpStatus.BAD_REQUEST );
 
         }
 
-        // Creating user's account
-        Seller user = new Seller();
+        Seller seller = new Seller();
 
-        user.setEmail( signUpRequest.getEmail() );
+        seller.setEmail( signUpRequest.getEmail() );
+        seller.setPassword( passwordEncoder.encode( signUpRequest.getPassword() ) );
+        seller.setPib( signUpRequest.getPib() );
+        seller.setCreatedAt( LocalDateTime.now() );
 
-        user.setPassword( passwordEncoder.encode( signUpRequest.getPassword() ) );
+        Role userRole = this.iRoleRepository.findByName( RoleName.ROLE_USER ).orElseThrow( () -> new Exception( "User Role not set." ) );
 
-        user.setPib( 99999989L );
-        user.setCreatedAt( LocalDateTime.now() );
+        seller.setRoles( Collections.singleton( userRole ) );
 
-        user.setRoles( new HashSet<>() );
-        for ( Long id : signUpRequest.getRolesIds() )
-        {
-            Role role = this.iRoleRepository.findById( id ).orElseThrow( () -> new Exception( "User role not found with id [ " + id + " ]" ) );
-            user.getRoles().add( role );
-        }
+        Seller save = iSellerRepository.save( seller );
 
-        iSellerRepository.save( user );
+        System.out.println( save.getId() );
 
-        return new ResponseEntity< String >( "ok", HttpStatus.CREATED );
+        ResponseEntity< JwtResponse > authenticateUser = this.authenticateUser( new LoginRequest( signUpRequest.getEmail(), signUpRequest.getPassword() ) );
+
+        JwtResponse body = authenticateUser.getBody();
+
+        return new ResponseEntity< ApiResponse >( new ApiResponse( body.getAccessToken(), true ), HttpStatus.CREATED );
 
     }
 

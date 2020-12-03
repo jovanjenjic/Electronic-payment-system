@@ -35,7 +35,7 @@ public class ZullLoggingFilter extends ZuulFilter
 
         if ( resource.contains( "/api/auth/signin" ) )
         {
-            // everybody can signin
+            // everybody can sign in
             return null;
         }
 
@@ -55,8 +55,7 @@ public class ZullLoggingFilter extends ZuulFilter
             HttpEntity< String > kamikazeEntity = new HttpEntity< String >( headers );
 
             ResponseEntity< Object > response = restTemplate.exchange( path, HttpMethod.GET, kamikazeEntity, Object.class );
-            // ResponseEntity< Object > forEntity = restTemplate.getForEntity( path,
-            // kamikazeEntity, Object.class );
+            System.out.println( response.toString() );
         }
         catch ( Exception e )
         {

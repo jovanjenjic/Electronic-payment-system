@@ -1,8 +1,5 @@
 package com.ws.sep.seller.payload;
 
-import java.util.Set;
-
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +15,5 @@ public class SignUpRequest
     private Long pib;
 
     private String password;
-
-    private Set< Long > rolesIds;
 
 }

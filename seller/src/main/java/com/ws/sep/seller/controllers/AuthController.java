@@ -1,5 +1,8 @@
 package com.ws.sep.seller.controllers;
 
+import javax.validation.Valid;
+
+
 import com.ws.sep.seller.payload.LoginRequest;
 import com.ws.sep.seller.payload.SignUpRequest;
 import com.ws.sep.seller.services.AuthService;
@@ -22,7 +25,7 @@ public class AuthController
     private AuthService authService;
 
     @PostMapping( "/signup" )
-    public ResponseEntity< ? > register( @RequestBody SignUpRequest request ) throws Exception
+    public ResponseEntity< ? > register( @Valid @RequestBody SignUpRequest request ) throws Exception
     {
         return this.authService.registerUser( request );
 
@@ -30,7 +33,7 @@ public class AuthController
 
 
     @PostMapping( "/signin" )
-    public ResponseEntity< ? > signin( @RequestBody LoginRequest login )
+    public ResponseEntity< ? > signin( @Valid @RequestBody LoginRequest login )
     {
         return this.authService.authenticateUser( login );
 

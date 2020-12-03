@@ -51,7 +51,6 @@ public class JwtTokenProvider
     public boolean validateToken( String authToken )
     {
 
-        // FIXME: add check in db
         try
         {
             Jwts.parser().setSigningKey( jWTSuperSecretKey ).parseClaimsJws( authToken );
