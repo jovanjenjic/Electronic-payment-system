@@ -70,15 +70,12 @@ public class ZullLoggingFilter extends ZuulFilter
                     case 401:
                         context.unset();
                         context.setResponseStatusCode( HttpStatus.UNAUTHORIZED.value() );
-                        context.setResponseBody( "{message: Access denied}");
-                        
+
                         return null;
                     case 403:
                         context.unset();
                         context.setResponseStatusCode( HttpStatus.FORBIDDEN.value() );
-                        context.setResponseBody( "{message: Access denied}");
 
-                        return null;
                     default:
                         return null;
                 }
