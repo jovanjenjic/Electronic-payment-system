@@ -12,7 +12,7 @@ const layout = {
   },
 };
 
-const Register = ({ onFinish = () => { }, }) => {
+const Register = ({ onFinish = () => { }, form }) => {
   return (
     <FormContainer>
       <h2 className="title">Register</h2>
@@ -31,6 +31,9 @@ const Register = ({ onFinish = () => { }, }) => {
             {
               required: true,
               message: 'Please input your email!',
+            },
+            {
+              type: 'email'
             },
           ]}
         >

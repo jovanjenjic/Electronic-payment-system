@@ -13,7 +13,7 @@ const layout = {
   },
 };
 
-const Login = ({ onFinish = () => { }, }) => {
+const Login = ({ onFinish = () => { }, form }) => {
   return (
     <FormContainer>
       <h2 className="title">Login</h2>
@@ -24,6 +24,7 @@ const Login = ({ onFinish = () => { }, }) => {
           remember: true,
         }}
         onFinish={onFinish}
+        form={form}
       >
         <Form.Item
           label="Email"
@@ -32,6 +33,9 @@ const Login = ({ onFinish = () => { }, }) => {
             {
               required: true,
               message: 'Please input your email!',
+            },
+            {
+              type: 'email',
             },
           ]}
         >
