@@ -1,5 +1,6 @@
 package com.ws.sep.paypalservice.controllers;
 
+import com.paypal.base.rest.PayPalRESTException;
 import com.ws.sep.paypalservice.exceptions.AlreadyExistsException;
 import com.ws.sep.paypalservice.exceptions.InvalidValueException;
 import com.ws.sep.paypalservice.exceptions.SimpleException;
@@ -35,4 +36,11 @@ public class ExceptionController {
         return new ResponseEntity<>(returnMap, HttpStatus.valueOf(exception.getCode()));
     }
 
+
+    @ExceptionHandler(value = PayPalRESTException.class)
+    public ResponseEntity<?> paypalException(PayPalRESTException exception) {
+        HashMap<String, String> returnMap = new HashMap<>();
+        returnMap.put("message", exception.getMessage());
+        return new ResponseEntity<>(returnMap, HttpStatus.EXPECTATION_FAILED);
+    }
 }

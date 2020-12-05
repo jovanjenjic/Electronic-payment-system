@@ -1,6 +1,9 @@
 package com.ws.sep.paypalservice.controllers;
 
+import com.paypal.base.rest.PayPalRESTException;
+import com.ws.sep.paypalservice.dto.ExecutePaymentDTO;
 import com.ws.sep.paypalservice.dto.Field;
+import com.ws.sep.paypalservice.dto.OrderDTO;
 import com.ws.sep.paypalservice.dto.SellerInfoDTO;
 import com.ws.sep.paypalservice.enums.FieldType;
 import com.ws.sep.paypalservice.services.SellerInfoService;
@@ -35,13 +38,51 @@ public class PaypalController
     public ResponseEntity<?> addPayment(@RequestBody SellerInfoDTO sellerInfoDTO, @RequestHeader("Authorization") String token) {
         System.out.println(sellerInfoDTO.toString());
 
-        sellerInfoService.addPayment(sellerInfoDTO, token);
+        sellerInfoService.addPaymentCredentials(sellerInfoDTO, token);
 
         HashMap<String, String> retMessage = new HashMap<>();
         retMessage.put("status", "success");
         retMessage.put("message", "payment method added successfully!");
 
         return new ResponseEntity<>(retMessage, HttpStatus.CREATED);
+    }
+
+    @PostMapping(value = "/pay")
+    public ResponseEntity<?> pay(@RequestBody OrderDTO orderDTO, @RequestHeader("Authorization") String token) throws PayPalRESTException {
+        String url = sellerInfoService.createPayment(orderDTO, token);
+
+        HashMap<String, String> retObj = new HashMap<>();
+
+        HttpStatus status;
+        if (url.equals("")) {
+            retObj.put("message", "Failed to create pay");
+            status = HttpStatus.EXPECTATION_FAILED;
+        } else {
+            retObj.put("paymentUrl", url);
+            status = HttpStatus.OK;
+        }
+
+        return new ResponseEntity<>(retObj, status);
+    }
+
+    @PostMapping(value = "/pay/{id}/success")
+    public ResponseEntity<?> successPay(@RequestBody ExecutePaymentDTO executePaymentDTO, @PathVariable("id") Long orderId, @RequestHeader("Authorization") String token) {
+        sellerInfoService.executePaymenr(executePaymentDTO, orderId, token);
+
+        HashMap<String, String> retObj = new HashMap<>();
+        retObj.put("message", "payment executed successfully");
+
+        return new ResponseEntity<>(retObj, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/pay/{id}/cancel")
+    public ResponseEntity<?> cancelPay(@PathVariable("id") Long orderId) {
+        sellerInfoService.cancelOrderPayment(orderId);
+
+        HashMap<String, String> retObj = new HashMap<>();
+        retObj.put("message", "payment cancelled successfully");
+
+        return new ResponseEntity<>(retObj, HttpStatus.OK);
     }
 
 }
