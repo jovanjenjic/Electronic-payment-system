@@ -110,9 +110,6 @@ public class SellerInfoService {
         // calculate total amount for the sellerOrders
         Double total = new BigDecimal(orderDTO.getPrice() * orderDTO.getItems_count()).setScale(2, RoundingMode.HALF_UP).doubleValue();
         // set amount object
-
-        System.out.println("Total: " + String.format("%.2f", total));
-
         Amount amount = new Amount();
         amount.setCurrency(orderDTO.getCurrency());
         amount.setTotal(String.format(Locale.US,"%.2f", total));
@@ -184,8 +181,9 @@ public class SellerInfoService {
 
         SellerOrders order = optionalOrder.get();
 
-        if(order.getOrderState().equals(OrderState.SUCCESS))
-            throw new SimpleException(400, "Order already paid!");
+        if(Arrays.asList(OrderState.SUCCESS, OrderState.FAILED, OrderState.CANCELED).stream().anyMatch(t -> t.equals(order.getOrderState()))) {
+            throw new SimpleException(400, "Order is not valid for paymeent!");
+        }
 
         // payment execution
         Payment payment = new Payment();
