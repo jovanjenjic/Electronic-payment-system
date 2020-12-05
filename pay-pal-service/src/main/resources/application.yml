@@ -3,6 +3,17 @@
 spring:
   application:
     name: pay-pal-service
+  datasource:
+    initialization-mode: always
+    url: jdbc:mysql://localhost:3306/paypal?useSSL=false&createDatabaseIfNotExist=true
+    username: root
+    password: mandicnikola
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
 server:
   port: 8082
@@ -25,3 +36,5 @@ eureka:
     securePortEnabled: true
     serviceUrl:
       defaultZone: https://localhost:8761/eureka/
+
+jwt.secret: JWTSuperSecretKey

@@ -5,17 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 
 
 import org.springframework.data.annotation.CreatedDate;
@@ -48,7 +38,7 @@ public class Seller
     @JoinTable( name = "seller_roles", joinColumns = @JoinColumn( name = "seller_id" ), inverseJoinColumns = @JoinColumn( name = "role_id" ) )
     private Set< Role > roles = new HashSet< Role >();
 
-    @ManyToMany( fetch = FetchType.EAGER )
+    @ManyToMany( fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
     @JoinTable( name = "seller_types", joinColumns = @JoinColumn( name = "seller_id" ), inverseJoinColumns = @JoinColumn( name = "type_id" ) )
     private Set< PaymentType > types = new HashSet< PaymentType >();
 

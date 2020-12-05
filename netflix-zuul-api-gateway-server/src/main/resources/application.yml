@@ -24,6 +24,7 @@ eureka:
 
 zuul:
   ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
+  sensitiveHeaders:
   host:
     socket-timeout-millis: 30000
   routes:

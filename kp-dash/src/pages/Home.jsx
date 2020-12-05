@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { withAuth } from '../hoc/withAuth';
+
 const Home = () => {
 
-  return (<div>AAA</div>);
+  return (<div>HOME</div>);
 };
 
-export default Home;
+export default withAuth(Home);
