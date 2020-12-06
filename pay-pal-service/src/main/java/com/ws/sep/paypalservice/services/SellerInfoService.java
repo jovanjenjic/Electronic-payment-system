@@ -1,20 +1,26 @@
 package com.ws.sep.paypalservice.services;
 
 import com.paypal.api.payments.*;
+import com.paypal.api.payments.Currency;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.OAuthTokenCredential;
 import com.paypal.base.rest.PayPalRESTException;
-import com.ws.sep.paypalservice.dto.ExecutePaymentDTO;
-import com.ws.sep.paypalservice.dto.OrderDTO;
-import com.ws.sep.paypalservice.dto.SellerInfoDTO;
+import com.ws.sep.paypalservice.dto.*;
 import com.ws.sep.paypalservice.enums.OrderState;
+import com.ws.sep.paypalservice.enums.PlanState;
+import com.ws.sep.paypalservice.enums.SubscriptionState;
 import com.ws.sep.paypalservice.exceptions.AlreadyExistsException;
 import com.ws.sep.paypalservice.exceptions.InvalidValueException;
 import com.ws.sep.paypalservice.exceptions.SimpleException;
+import com.ws.sep.paypalservice.mappers.BillingPlanMapper;
+import com.ws.sep.paypalservice.model.BillingPlan;
 import com.ws.sep.paypalservice.model.SellerOrders;
 import com.ws.sep.paypalservice.model.SellerInfo;
+import com.ws.sep.paypalservice.model.Subscription;
+import com.ws.sep.paypalservice.repository.BillingPlanRepository;
 import com.ws.sep.paypalservice.repository.SellerOrderRepository;
 import com.ws.sep.paypalservice.repository.SellerInfoRepository;
+import com.ws.sep.paypalservice.repository.SubscriptionRepository;
 import com.ws.sep.paypalservice.utils.Urls;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -23,9 +29,13 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import utils.JwtUtil;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.net.MalformedURLException;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.*;
 
 @Service
@@ -36,6 +46,12 @@ public class SellerInfoService {
 
     @Autowired
     SellerOrderRepository sellerOrderRepository;
+
+    @Autowired
+    BillingPlanRepository billingPlanRepository;
+
+    @Autowired
+    SubscriptionRepository subscriptionRepository;
 
     @Autowired
     JwtUtil jwtUtil;
@@ -182,7 +198,7 @@ public class SellerInfoService {
         SellerOrders order = optionalOrder.get();
 
         if(Arrays.asList(OrderState.SUCCESS, OrderState.FAILED, OrderState.CANCELED).stream().anyMatch(t -> t.equals(order.getOrderState()))) {
-            throw new SimpleException(400, "Order is not valid for paymeent!");
+            throw new SimpleException(400, "Order is not valid for payment!");
         }
 
         // payment execution
@@ -217,4 +233,152 @@ public class SellerInfoService {
         sellerOrderRepository.save(order);
     }
 
+    // --> Billing plans and subscriptions
+    public ResponseEntity<?> createBillingPlan(BillingPlanDTO billingPlanDTO, String token) throws PayPalRESTException {
+        Long sellerId = jwtUtil.extractSellerId(token.substring(7));
+
+        // plan object to be built
+        Plan plan = new Plan();
+        plan.setName(billingPlanDTO.getName());
+        plan.setDescription(billingPlanDTO.getDescription());
+        plan.setType("fixed");
+
+        // Payment_definitions
+        PaymentDefinition paymentDefinition = new PaymentDefinition();
+        paymentDefinition.setName("Regular Payments");
+        paymentDefinition.setType("REGULAR");
+        paymentDefinition.setFrequency("MONTH");
+        paymentDefinition.setFrequencyInterval("1");
+        paymentDefinition.setCycles("12");
+
+        // Currency
+        Currency currency = new Currency();
+        currency.setCurrency(billingPlanDTO.getCurrency());
+        currency.setValue(String.format(Locale.US,"%.2f", billingPlanDTO.getValue()));
+        paymentDefinition.setAmount(currency);
+
+        // Charge_models
+        ChargeModels chargeModels = new com.paypal.api.payments.ChargeModels();
+        chargeModels.setType("SHIPPING");
+        chargeModels.setAmount(currency);
+        List<ChargeModels> chargeModelsList = new ArrayList<>();
+        chargeModelsList.add(chargeModels);
+        paymentDefinition.setChargeModels(chargeModelsList);
+
+        // Payment_definition
+        List<PaymentDefinition> paymentDefinitionList = new ArrayList<>();
+        paymentDefinitionList.add(paymentDefinition);
+        plan.setPaymentDefinitions(paymentDefinitionList);
+
+        // Success and cancel URLs
+        String successUrl = Urls.DASHBOARD_URL + "/payments/paypal/subscriptions/success";
+        String cancelUrl = Urls.DASHBOARD_URL + "/payments/paypal/subscriptions/cancel";
+
+        MerchantPreferences merchantPreferences = new MerchantPreferences();
+        merchantPreferences.setSetupFee(currency);
+        merchantPreferences.setCancelUrl(cancelUrl);
+        merchantPreferences.setReturnUrl(successUrl);
+        merchantPreferences.setMaxFailAttempts("0");
+        merchantPreferences.setAutoBillAmount("YES");
+        merchantPreferences.setInitialFailAmountAction("CONTINUE");
+        plan.setMerchantPreferences(merchantPreferences);
+
+        Plan createdPlan = plan.create(getApiContext(sellerId));
+
+        // Set up plan activate PATCH request
+        List<Patch> patchRequestList = new ArrayList<>();
+        Map<String, String> value = new HashMap<>();
+        value.put("state", "ACTIVE");
+
+        // Create update object to activate plan
+        Patch patch = new Patch();
+        patch.setPath("/");
+        patch.setValue(value);
+        patch.setOp("replace");
+        patchRequestList.add(patch);
+
+        createdPlan.update(getApiContext(sellerId), patchRequestList);
+
+        BillingPlan billingPlan = new BillingPlan();
+        billingPlan.setItemId(billingPlanDTO.getItemId());
+        billingPlan.setSellerId(sellerId);
+        billingPlan.setPlanId(createdPlan.getId());
+        billingPlan.setState(PlanState.ACTIVE);
+
+        billingPlan = billingPlanRepository.save(billingPlan);
+
+        BillingPlanResponse response = BillingPlanMapper.INSTANCE.planToResponse(billingPlan);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    public ResponseEntity<?> createSubscription(SubscriptionDTO subscriptionDTO, String token)  {
+        Long sellerId = jwtUtil.extractSellerId(token.substring(7));
+
+        Optional<BillingPlan> billingPlanOptional = billingPlanRepository.findById(subscriptionDTO.getPlanId());
+
+        if(billingPlanOptional.isEmpty())
+            throw new SimpleException(404, "Plan is not found for specified item");
+
+        BillingPlan billingPlan = billingPlanOptional.get();
+
+        LocalDateTime ldt = LocalDateTime.now();
+        ZonedDateTime zdt = ldt.atZone(ZoneOffset.UTC); //you might use a different zone
+        String startDate = zdt.toString();
+
+        // start creating agreement
+        Agreement agreement = new Agreement();
+        agreement.setName(subscriptionDTO.getName());
+        agreement.setDescription(subscriptionDTO.getDescription());
+        agreement.setStartDate(startDate);
+
+        // Set plan ID
+        Plan plan = new Plan();
+        plan.setId(billingPlan.getPlanId());
+        agreement.setPlan(plan);
+
+        // Add payer details
+        Payer payer = new Payer();
+        payer.setPaymentMethod("paypal");
+        agreement.setPayer(payer);
+
+        try {
+            agreement = agreement.create(getApiContext(sellerId));
+
+            Optional<Links> linksOptional = agreement.getLinks().stream().filter(link -> link.getRel().equals("approval_url")).findFirst();
+
+            // if we have approval link
+            if(linksOptional.isPresent()) {
+                Subscription subscription = new Subscription();
+                subscription.setCreatedAt(LocalDateTime.now());
+                subscription.setDescription(subscriptionDTO.getDescription());
+                subscription.setName(subscriptionDTO.getName());
+
+                subscription.setState(SubscriptionState.PENDING);
+                subscriptionRepository.save(subscription);
+
+                HashMap<String, String> retObj = new HashMap<>();
+                retObj.put("paymentUrl", linksOptional.get().getHref());
+
+                return new ResponseEntity<>(retObj, HttpStatus.CREATED);
+            }
+
+        } catch (PayPalRESTException e) {
+            throw new SimpleException(500, e.getMessage());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        HashMap<String, String> retObj = new HashMap<>();
+        retObj.put("message", "Failed to create subscription");
+
+        return new ResponseEntity<>(retObj, HttpStatus.EXPECTATION_FAILED);
+    }
+
+//    public ResponseEntity<?> executeSubscription(ExecuteSubscriptionDTO executeSubscriptionDTO, Long subscriptionId, String token) throws PayPalRESTException {
+//        Long sellerId = jwtUtil.extractSellerId(token.substring(7));
+//
+//    }
 }

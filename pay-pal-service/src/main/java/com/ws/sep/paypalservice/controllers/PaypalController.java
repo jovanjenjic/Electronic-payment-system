@@ -1,10 +1,7 @@
 package com.ws.sep.paypalservice.controllers;
 
 import com.paypal.base.rest.PayPalRESTException;
-import com.ws.sep.paypalservice.dto.ExecutePaymentDTO;
-import com.ws.sep.paypalservice.dto.Field;
-import com.ws.sep.paypalservice.dto.OrderDTO;
-import com.ws.sep.paypalservice.dto.SellerInfoDTO;
+import com.ws.sep.paypalservice.dto.*;
 import com.ws.sep.paypalservice.enums.FieldType;
 import com.ws.sep.paypalservice.services.SellerInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,6 +80,22 @@ public class PaypalController
         retObj.put("message", "payment cancelled successfully");
 
         return new ResponseEntity<>(retObj, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/billingPlan")
+    public ResponseEntity<?> createBillingPlan(@RequestBody BillingPlanDTO billingPlanDTO,  @RequestHeader("Authorization") String token) throws PayPalRESTException {
+        return sellerInfoService.createBillingPlan(billingPlanDTO, token);
+    }
+
+    @PostMapping(value = "/subscription")
+    public ResponseEntity<?> createSubscription(@RequestBody SubscriptionDTO subscriptionDTO, @RequestHeader("Authorization") String token) {
+        return sellerInfoService.createSubscription(subscriptionDTO, token);
+    }
+
+    @PostMapping(value = "/subscription/{id}/success")
+    public ResponseEntity<?> executeSubscription(@RequestBody ExecuteSubscriptionDTO executeSubscriptionDTO, @PathVariable("id") Long subscriptionId, @RequestHeader("Authorization") String token) {
+
+        return null;
     }
 
 }
