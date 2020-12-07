@@ -28,6 +28,10 @@ public class BillingPlan {
     /* paypal identifier of the plan */
     private String planId;
 
+    private String currency;
+
+    private String value;
+
     @Enumerated(EnumType.STRING)
     private PlanState state;
 

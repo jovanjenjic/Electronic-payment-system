@@ -13,6 +13,7 @@ import com.ws.sep.paypalservice.exceptions.AlreadyExistsException;
 import com.ws.sep.paypalservice.exceptions.InvalidValueException;
 import com.ws.sep.paypalservice.exceptions.SimpleException;
 import com.ws.sep.paypalservice.mappers.BillingPlanMapper;
+import com.ws.sep.paypalservice.mappers.SubscriptionMapper;
 import com.ws.sep.paypalservice.model.BillingPlan;
 import com.ws.sep.paypalservice.model.SellerOrders;
 import com.ws.sep.paypalservice.model.SellerInfo;
@@ -22,6 +23,7 @@ import com.ws.sep.paypalservice.repository.SellerOrderRepository;
 import com.ws.sep.paypalservice.repository.SellerInfoRepository;
 import com.ws.sep.paypalservice.repository.SubscriptionRepository;
 import com.ws.sep.paypalservice.utils.Urls;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -55,6 +57,9 @@ public class SellerInfoService {
 
     @Autowired
     JwtUtil jwtUtil;
+
+    String subscriptionSuccessUrl = Urls.DASHBOARD_URL + "/payments/paypal/subscriptions/{id}/success";
+    String subscriptionCancelUrl = Urls.DASHBOARD_URL + "/payments/paypal/subscriptions/{id}/cancel";
 
     @Transactional
     public void addPaymentCredentials(SellerInfoDTO sellerInfoDTO, String authToken) {
@@ -299,8 +304,7 @@ public class SellerInfoService {
 
         createdPlan.update(getApiContext(sellerId), patchRequestList);
 
-        BillingPlan billingPlan = new BillingPlan();
-        billingPlan.setItemId(billingPlanDTO.getItemId());
+        BillingPlan billingPlan = BillingPlanMapper.INSTANCE.planFromDto(billingPlanDTO);
         billingPlan.setSellerId(sellerId);
         billingPlan.setPlanId(createdPlan.getId());
         billingPlan.setState(PlanState.ACTIVE);
@@ -342,19 +346,39 @@ public class SellerInfoService {
         payer.setPaymentMethod("paypal");
         agreement.setPayer(payer);
 
+
+        Subscription subscription = new Subscription();
         try {
+            subscription.setState(SubscriptionState.PENDING);
+            subscription = subscriptionRepository.save(subscription);
+
+            // Currency
+            Currency currency = new Currency();
+            currency.setCurrency(billingPlan.getCurrency());
+            currency.setValue(billingPlan.getValue());
+
+            // merchant preferences for override
+            MerchantPreferences merchantPreferences = new MerchantPreferences();
+            merchantPreferences.setSetupFee(currency);
+            merchantPreferences.setCancelUrl(subscriptionCancelUrl.replace("{id}", String.valueOf(subscription.getId())));
+            merchantPreferences.setReturnUrl(subscriptionSuccessUrl.replace("{id}", String.valueOf(subscription.getId())));
+            merchantPreferences.setMaxFailAttempts("0");
+            merchantPreferences.setAutoBillAmount("YES");
+            merchantPreferences.setInitialFailAmountAction("CONTINUE");
+
+            agreement.setOverrideMerchantPreferences(merchantPreferences);
+
             agreement = agreement.create(getApiContext(sellerId));
 
             Optional<Links> linksOptional = agreement.getLinks().stream().filter(link -> link.getRel().equals("approval_url")).findFirst();
 
             // if we have approval link
             if(linksOptional.isPresent()) {
-                Subscription subscription = new Subscription();
                 subscription.setCreatedAt(LocalDateTime.now());
                 subscription.setDescription(subscriptionDTO.getDescription());
                 subscription.setName(subscriptionDTO.getName());
+                subscription.setBillingPlan(billingPlan);
 
-                subscription.setState(SubscriptionState.PENDING);
                 subscriptionRepository.save(subscription);
 
                 HashMap<String, String> retObj = new HashMap<>();
@@ -364,6 +388,8 @@ public class SellerInfoService {
             }
 
         } catch (PayPalRESTException e) {
+            subscription.setState(SubscriptionState.CANCELLED);
+            subscriptionRepository.save(subscription);
             throw new SimpleException(500, e.getMessage());
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -377,8 +403,84 @@ public class SellerInfoService {
         return new ResponseEntity<>(retObj, HttpStatus.EXPECTATION_FAILED);
     }
 
-//    public ResponseEntity<?> executeSubscription(ExecuteSubscriptionDTO executeSubscriptionDTO, Long subscriptionId, String token) throws PayPalRESTException {
-//        Long sellerId = jwtUtil.extractSellerId(token.substring(7));
-//
-//    }
+    public ResponseEntity<?> executeSubscription(ExecuteSubscriptionDTO executeSubscriptionDTO, Long subscriptionId, String token) {
+        Long sellerId = jwtUtil.extractSellerId(token.substring(7));
+
+        Agreement agreement = new Agreement();
+        agreement.setToken(executeSubscriptionDTO.getSubscriptionToken());
+
+        Optional<Subscription> subscriptionOptional = subscriptionRepository.findById(subscriptionId);
+
+        if(subscriptionOptional.isEmpty())
+            throw new SimpleException(404, "Not found specified subscription");
+
+        Subscription subscription = subscriptionOptional.get();
+
+        try {
+            Agreement activatedAgreement = agreement.execute(getApiContext(sellerId), agreement.getToken());
+
+            subscription.setState(SubscriptionState.ACTIVE);
+            subscription.setAgreementId(activatedAgreement.getId());
+
+            subscription = subscriptionRepository.save(subscription);
+
+            SubscriptionResponse subscriptionResponse = SubscriptionMapper.INSTANCE.mapToResponse(subscription);
+
+            return new ResponseEntity<>(subscriptionResponse, HttpStatus.OK);
+
+        } catch (PayPalRESTException e) {
+            throw new SimpleException(500, e.getMessage());
+        }
+    }
+
+    public ResponseEntity<?> cancelSubscription(Long subscriptionId, String token) {
+        Long sellerId = jwtUtil.extractSellerId(token.substring(7));
+
+        Optional<Subscription> subscriptionOptional = subscriptionRepository.findById(subscriptionId);
+
+        if(subscriptionOptional.isEmpty())
+            throw new SimpleException(404, "Not found specified subscription");
+
+        Subscription subscription = subscriptionOptional.get();
+
+        // case when subscription is ACTIVE and has agreementId
+        if(subscription.getState().equals(SubscriptionState.ACTIVE) && !StringUtils.isEmpty(subscription.getAgreementId())) {
+            Agreement agreement = new Agreement();
+            agreement.setId(subscription.getAgreementId());
+
+            Currency currency = new Currency();
+            currency.setValue(String.format(Locale.US,"%.2f", Double.valueOf("0")));
+            currency.setCurrency(subscription.getBillingPlan().getCurrency());
+
+            AgreementStateDescriptor agreementStateDescriptor = new AgreementStateDescriptor();
+            agreementStateDescriptor.setNote("Cancellation note");
+            agreementStateDescriptor.setAmount(currency);
+
+            try {
+                agreement.cancel(getApiContext(sellerId), agreementStateDescriptor);
+                subscription.setState(SubscriptionState.CANCELLED);
+                subscription = subscriptionRepository.save(subscription);
+
+                SubscriptionResponse subscriptionResponse = SubscriptionMapper.INSTANCE.mapToResponse(subscription);
+
+                return new ResponseEntity<>(subscriptionResponse, HttpStatus.OK);
+            } catch (PayPalRESTException e) {
+                throw new SimpleException(417, e.getMessage());
+            }
+        }
+
+        if(subscription.getState().equals(SubscriptionState.PENDING)) {
+            subscription.setState(SubscriptionState.CANCELLED);
+            subscription = subscriptionRepository.save(subscription);
+
+            SubscriptionResponse subscriptionResponse = SubscriptionMapper.INSTANCE.mapToResponse(subscription);
+
+            return new ResponseEntity<>(subscriptionResponse, HttpStatus.OK);
+        }
+
+        HashMap<String, String> retObj = new HashMap<>();
+        retObj.put("message", "Failed to cancel subscription");
+
+        return new ResponseEntity<>(retObj, HttpStatus.EXPECTATION_FAILED);
+    }
 }

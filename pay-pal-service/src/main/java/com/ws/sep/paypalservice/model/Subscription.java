@@ -35,4 +35,8 @@ public class Subscription {
     @CreatedDate
     private LocalDateTime createdAt;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "plan_id")
+    private BillingPlan billingPlan;
+
 }

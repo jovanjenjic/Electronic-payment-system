@@ -93,9 +93,13 @@ public class PaypalController
     }
 
     @PostMapping(value = "/subscription/{id}/success")
-    public ResponseEntity<?> executeSubscription(@RequestBody ExecuteSubscriptionDTO executeSubscriptionDTO, @PathVariable("id") Long subscriptionId, @RequestHeader("Authorization") String token) {
+    public ResponseEntity<?> executeSubscription(@RequestBody ExecuteSubscriptionDTO executeSubscriptionDTO, @PathVariable("id") Long subscriptionId, @RequestHeader("Authorization") String token) throws PayPalRESTException {
+        return sellerInfoService.executeSubscription(executeSubscriptionDTO, subscriptionId, token);
+    }
 
-        return null;
+    @PostMapping(value = "/subscription/{id}/cancel")
+    public ResponseEntity<?> cancelSubscription(@PathVariable("id") Long subscriptionId, @RequestHeader("Authorization") String token) {
+        return sellerInfoService.cancelSubscription(subscriptionId, token);
     }
 
 }
