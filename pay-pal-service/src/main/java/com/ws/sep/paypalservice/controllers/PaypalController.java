@@ -64,22 +64,12 @@ public class PaypalController
 
     @PostMapping(value = "/pay/{id}/success")
     public ResponseEntity<?> successPay(@RequestBody ExecutePaymentDTO executePaymentDTO, @PathVariable("id") Long orderId, @RequestHeader("Authorization") String token) {
-        sellerInfoService.executePaymenr(executePaymentDTO, orderId, token);
-
-        HashMap<String, String> retObj = new HashMap<>();
-        retObj.put("message", "payment executed successfully");
-
-        return new ResponseEntity<>(retObj, HttpStatus.OK);
+       return sellerInfoService.executePayment(executePaymentDTO, orderId, token);
     }
 
     @PostMapping(value = "/pay/{id}/cancel")
     public ResponseEntity<?> cancelPay(@PathVariable("id") Long orderId) {
-        sellerInfoService.cancelOrderPayment(orderId);
-
-        HashMap<String, String> retObj = new HashMap<>();
-        retObj.put("message", "payment cancelled successfully");
-
-        return new ResponseEntity<>(retObj, HttpStatus.OK);
+        return sellerInfoService.cancelOrderPayment(orderId);
     }
 
     @PostMapping(value = "/billingPlan")

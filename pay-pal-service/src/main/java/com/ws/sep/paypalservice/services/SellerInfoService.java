@@ -13,6 +13,7 @@ import com.ws.sep.paypalservice.exceptions.AlreadyExistsException;
 import com.ws.sep.paypalservice.exceptions.InvalidValueException;
 import com.ws.sep.paypalservice.exceptions.SimpleException;
 import com.ws.sep.paypalservice.mappers.BillingPlanMapper;
+import com.ws.sep.paypalservice.mappers.SellerOrderMapper;
 import com.ws.sep.paypalservice.mappers.SubscriptionMapper;
 import com.ws.sep.paypalservice.model.BillingPlan;
 import com.ws.sep.paypalservice.model.SellerOrders;
@@ -182,9 +183,11 @@ public class SellerInfoService {
 
         // if we have approval url
         if(linksOptional.isPresent()) {
+            String paymentUrl = linksOptional.get().getHref();
             sellerOrders.setOrderState(OrderState.PENDING);
+            sellerOrders.setPaymentUrl(paymentUrl);
             sellerOrderRepository.save(sellerOrders);
-            return linksOptional.get().getHref();
+            return paymentUrl;
         }
 
         sellerOrders.setOrderState(OrderState.FAILED);
@@ -192,7 +195,7 @@ public class SellerInfoService {
         return "";
     }
 
-    public void executePaymenr(ExecutePaymentDTO executePaymentDTO, Long orderId, String token) {
+    public ResponseEntity<?> executePayment(ExecutePaymentDTO executePaymentDTO, Long orderId, String token) {
         Long sellerId = jwtUtil.extractSellerId(token.substring(7));
 
         Optional<SellerOrders> optionalOrder = sellerOrderRepository.findById(orderId);
@@ -221,10 +224,14 @@ public class SellerInfoService {
         }
 
         order.setOrderState(OrderState.SUCCESS);
-        sellerOrderRepository.save(order);
+        SellerOrders savedOrder = sellerOrderRepository.save(order);
+
+        OrderResponse orderResponse = SellerOrderMapper.INSTANCE.mapToResponse(savedOrder);
+
+        return new ResponseEntity<>(orderResponse, HttpStatus.OK);
     }
 
-    public void cancelOrderPayment(Long orderId) {
+    public ResponseEntity<?> cancelOrderPayment(Long orderId) {
         Optional<SellerOrders> orderOptional = sellerOrderRepository.findById(orderId);
 
         if(orderOptional.isEmpty())
@@ -235,7 +242,11 @@ public class SellerInfoService {
             throw new SimpleException(400, "Order already cancelled");
 
         order.setOrderState(OrderState.CANCELED);
-        sellerOrderRepository.save(order);
+        order = sellerOrderRepository.save(order);
+
+        OrderResponse orderResponse = SellerOrderMapper.INSTANCE.mapToResponse(order);
+
+        return new ResponseEntity<>(orderResponse, HttpStatus.OK);
     }
 
     // --> Billing plans and subscriptions

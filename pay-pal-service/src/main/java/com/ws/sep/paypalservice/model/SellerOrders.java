@@ -4,6 +4,7 @@ import com.ws.sep.paypalservice.enums.OrderState;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class SellerOrders {
 
     @Id
@@ -28,6 +30,8 @@ public class SellerOrders {
     private String currency;
 
     private String description;
+
+    private String paymentUrl;
 
     @Enumerated(EnumType.STRING)
     private OrderState orderState;
