@@ -15,4 +15,6 @@ public class SubscriptionDTO {
 
     private String description;
 
+    private Long itemId;
+
 }

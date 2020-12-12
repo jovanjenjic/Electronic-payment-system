@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Card } from 'antd';
+import { Card, notification } from 'antd';
 import { ShoppingCartOutlined, SendOutlined } from '@ant-design/icons';
 
 import { ShopContext } from '../context/shop';
+
+import { PAYPAL_SUBSCRIPTION } from '../constants/url';
+import { post } from '../services/api';
+import { responseOk } from '../utils/responseOk';
 
 const { Meta } = Card;
 
@@ -21,7 +25,7 @@ const Container = styled.div`
 
 const CardWrapper = styled.div`
   margin: 10px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     cursor: pointer;
@@ -62,37 +66,76 @@ const dummyData = [
   },
 ];
 
+const subscribeMagazine = async (data) => {
+  try {
+    const authToken = localStorage.getItem('access_token');
+    const response = await post(PAYPAL_SUBSCRIPTION, data, authToken);
+
+    if (responseOk(response)) {
+      const { paymentUrl = '' } = await response.json();
+      window.open(paymentUrl);
+      return { error: false };
+    }
+  } catch (error) {
+    console.error(error);
+  }
+  return { error: true };
+};
 
 const Shop = () => {
+  const [api, context] = notification.useNotification();
 
   const { updateItems } = React.useContext(ShopContext);
 
   const handleClick = (id) => {
-    updateItems(prevItems => {
-      const foundItem = prevItems.find(v => v.id === id);
-      return foundItem ? [{ ...foundItem, count: (foundItem.count || 0) + 1 }] : [{ ...dummyData.find(v => v.id === id), count: 1 }];
+    updateItems((prevItems) => {
+      const foundItem = prevItems.find((v) => v.id === id);
+      return foundItem
+        ? [{ ...foundItem, count: (foundItem.count || 0) + 1 }]
+        : [{ ...dummyData.find((v) => v.id === id), count: 1 }];
     });
   };
 
-  // TODO: Add subscribe option here
+  const onSubscribe = async ({ id: itemId, title: name, description }) => {
+    const { error = true } = await subscribeMagazine({
+      itemId,
+      name: `Subscription ${name}`,
+      description,
+    });
+    if (error) {
+      api.error({
+        placement: 'topRight',
+        message: 'Failed to subscribe to the magazine',
+      });
+    }
+  };
 
   return (
     <Container>
+      {context}
       {dummyData.map(({ id, title, description, img, price }) => {
-
         return (
           <CardWrapper key={id}>
             <Card
               cover={
-                <img
-                  alt={`${id}-example`}
-                  src={img}
-                  style={{ height: 150 }}
-                />
+                <img alt={`${id}-example`} src={img} style={{ height: 150 }} />
               }
               actions={[
-                <div key="Shop" onClick={() => handleClick(id)} ><ShoppingCartOutlined key="Shop" style={{ marginRight: 10 }} /><span>Buy</span></div>,
-                <div key="Subscribe"> <SendOutlined key="Subscribe" style={{ marginRight: 10 }} />Subscribe</div>
+                <div key="Shop" onClick={() => handleClick(id)}>
+                  <ShoppingCartOutlined
+                    key="Shop"
+                    style={{ marginRight: 10 }}
+                  />
+                  <span>Buy</span>
+                </div>,
+                <div
+                  key="Subscribe"
+                  onClick={() => onSubscribe({ id, title, description })}
+                >
+                  {' '}
+                  <SendOutlined key="Subscribe" style={{ marginRight: 10 }} />
+                  Subscribe
+                </div>,
               ]}
             >
               <Meta

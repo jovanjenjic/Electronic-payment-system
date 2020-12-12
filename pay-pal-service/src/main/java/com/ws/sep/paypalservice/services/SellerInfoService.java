@@ -327,10 +327,24 @@ public class SellerInfoService {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    public Optional<BillingPlan> getBillingPlan(SubscriptionDTO subscriptionDTO) {
+        if(Optional.ofNullable(subscriptionDTO.getPlanId()).isPresent()) {
+            Optional<BillingPlan> billingPlanOptional = billingPlanRepository.findById(subscriptionDTO.getPlanId());
+            return billingPlanOptional;
+        }
+
+        if(Optional.ofNullable(subscriptionDTO.getItemId()).isPresent()) {
+            List<BillingPlan> billingPlans = billingPlanRepository.getBillingPlanForItem(subscriptionDTO.getItemId());
+            return billingPlans.stream().findFirst();
+        }
+
+        throw new SimpleException(404, "Plan is not found for specified item");
+    }
+
     public ResponseEntity<?> createSubscription(SubscriptionDTO subscriptionDTO, String token)  {
         Long sellerId = jwtUtil.extractSellerId(token.substring(7));
 
-        Optional<BillingPlan> billingPlanOptional = billingPlanRepository.findById(subscriptionDTO.getPlanId());
+        Optional<BillingPlan> billingPlanOptional = getBillingPlan(subscriptionDTO);
 
         if(billingPlanOptional.isEmpty())
             throw new SimpleException(404, "Plan is not found for specified item");

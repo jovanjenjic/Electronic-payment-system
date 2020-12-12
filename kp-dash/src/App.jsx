@@ -8,6 +8,8 @@ import Register from './pages/Register';
 import Home from './pages/home';
 import PaymentSuccess from './pages/PaymentSuccess';
 import PaymentCancel from './pages/PaymentCancel';
+import SubscriptionSuccess from './pages/SubscriptionSuccess';
+import SubscriptionCancel from './pages/SubscriptionCancel';
 
 import { AppContext } from './context/app';
 
@@ -31,6 +33,12 @@ const App = () => {
           <Route path="/payments/:paymentId/:paymentType/cancel">
             <PaymentCancel />
           </Route>
+          <Route path="/payments/paypal/subscriptions/:subscriptionId/success">
+            <SubscriptionSuccess />
+          </Route>
+          <Route path="/payments/paypal/subscriptions/:subscriptionId/cancel">
+            <SubscriptionCancel />
+          </Route>
           <Route path="/">
             <Home />
           </Route>
@@ -41,4 +49,3 @@ const App = () => {
 };
 
 export default App;
-
