@@ -15,6 +15,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.InputStream;
@@ -24,6 +25,7 @@ import java.security.NoSuchAlgorithmException;
 @SpringBootApplication
 @EnableFeignClients( "com.ws.sep.bitcoinservice" )
 @EnableDiscoveryClient
+@EnableScheduling
 public class BitcoinServiceApplication
 {
 

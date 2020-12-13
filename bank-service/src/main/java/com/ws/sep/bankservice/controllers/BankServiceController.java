@@ -13,7 +13,6 @@ public class BankServiceController
     public String messageBank()
     {
         return "Bank service";
-
     }
 
 }
