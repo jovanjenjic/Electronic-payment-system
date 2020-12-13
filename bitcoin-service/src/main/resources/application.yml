@@ -4,7 +4,7 @@ spring:
     name: bitcoin-service
   datasource:
     initialization-mode: always
-    url: jdbc:mysql://localhost:3306/paypal?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/bitcoin?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
     username: root
     password: JovanJenjic123!
   jpa:

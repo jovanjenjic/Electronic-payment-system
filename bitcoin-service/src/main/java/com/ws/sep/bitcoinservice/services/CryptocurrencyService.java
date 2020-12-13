@@ -41,13 +41,6 @@ public class CryptocurrencyService {
         formData.put("client_api_key", new Field(FieldType.STRING, "client_api_key"));
         return formData;
    }
-    public  HashMap callback(CallbackDTO callbackDTO) {
-
-        System.out.println("UDJES LIIIIIII");
-
-        return null;
-    }
-
 
     @Transactional
     public HashMap registerPayment(SellerInfoDTO sellerInfoDTO, String authToken) throws FileAlreadyExistsException {
@@ -198,7 +191,6 @@ public class CryptocurrencyService {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "Token " + cryptocurrencyPayment.getApiKey());
 
-        System.out.println("Udjes li ovde?");
         HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
         ResponseEntity<GetOrderResponseDTO> response = restTemplate.exchange(GlobalDataString.SENDBOX_ORDERS + "/" + orderIdDTO.getOrderId(), HttpMethod.GET, entity, GetOrderResponseDTO.class);
 

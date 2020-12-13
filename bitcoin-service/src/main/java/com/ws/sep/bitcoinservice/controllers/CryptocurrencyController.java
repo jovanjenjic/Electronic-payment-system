@@ -21,11 +21,6 @@ public class CryptocurrencyController {
         return new ResponseEntity<>(cryptocurrencyService.getFormForPayment(), HttpStatus.OK);
     }
 
-    @PostMapping( value = "/callback" )
-    public ResponseEntity<?> callback(@RequestBody CallbackDTO callbackDTO) {
-        return new ResponseEntity<>(cryptocurrencyService.callback(callbackDTO), HttpStatus.OK);
-    }
-
     @PostMapping( value = "/registerPayment" )
     public ResponseEntity<?> registerPayment(@RequestBody SellerInfoDTO sellerInfoDTO, @RequestHeader("Authorization") String token) throws FileAlreadyExistsException {
         return new ResponseEntity<>(cryptocurrencyService.registerPayment(sellerInfoDTO, token), HttpStatus.OK);
