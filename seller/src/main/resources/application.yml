@@ -17,9 +17,9 @@ spring:
     name: seller
   datasource:
     initialization-mode: always
-    url: jdbc:mysql://localhost:3306/seller?useSSL=false&createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/seller?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
     username: root
-    password: mandicnikola
+    password: JovanJenjic123!
   jpa:
     hibernate:
       ddl-auto: create-drop
