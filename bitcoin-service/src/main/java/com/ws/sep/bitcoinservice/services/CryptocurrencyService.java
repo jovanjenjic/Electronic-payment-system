@@ -173,10 +173,6 @@ public class CryptocurrencyService {
 
     @Transactional
     public GetOrderResponseDTO getOrder(OrderIdDTO orderIdDTO, String token) throws FileAlreadyExistsException {
-        System.out.println("DTO " + orderIdDTO.getOrderId().toString());
-        System.out.println("token" + token);
-
-
         Long sellerId = jwtUtil.extractSellerId(token.substring(7));
         CryptocurrencyPayment cryptocurrencyPayment = cryptocurrencyRepository.findOneBySellerId(sellerId);
 
@@ -210,7 +206,6 @@ public class CryptocurrencyService {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "Token " + cryptocurrencyPayment.getApiKey());
 
-        System.out.println("Udjes li ovde?");
         HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 
         ResponseEntity<ListOfOrderResponseDTO> response = restTemplate.exchange(GlobalDataString.SENDBOX_ORDERS, HttpMethod.GET, entity, ListOfOrderResponseDTO.class);

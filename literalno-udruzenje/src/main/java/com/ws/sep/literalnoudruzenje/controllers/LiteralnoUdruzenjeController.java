@@ -11,28 +11,6 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping( "/literalno-udruzenje" )
 public class LiteralnoUdruzenjeController
 {
-
-        @GetMapping( value = "/" )
-        public String responseLU()
-        {
-                return "Literalno udruzenje";
-
-        }
-
-
-        @PostMapping( value = "/pay-pal" )
-        public String responsePayPal()
-        {
-                System.out.println("AAAAAAAAAAAAAAAAAAAAAAA");
-//                RestTemplate restTemplate = new RestTemplate();
-//                String fooResourceUrl = "https://localhost:8765/pay-pal-service/test1/";
-//                ResponseEntity< String > response = restTemplate.getForEntity( fooResourceUrl, String.class );
-//                // assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
-                return "AAAAA";
-
-        }
-
-
         @GetMapping( value = "/bank" )
         public ResponseEntity< String > responseBank()
         {
