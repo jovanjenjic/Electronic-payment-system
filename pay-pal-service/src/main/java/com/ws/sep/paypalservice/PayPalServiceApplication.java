@@ -16,6 +16,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 import utils.JwtUtil;
 
@@ -26,6 +27,7 @@ import java.security.NoSuchAlgorithmException;
 @SpringBootApplication
 @EnableFeignClients( "com.ws.sep.paypalservice" )
 @EnableDiscoveryClient
+@EnableScheduling
 public class PayPalServiceApplication
 {
 

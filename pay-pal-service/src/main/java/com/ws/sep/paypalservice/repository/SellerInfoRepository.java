@@ -4,7 +4,7 @@ import com.ws.sep.paypalservice.model.SellerInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SellerInfoRepository extends JpaRepository<SellerInfo, Long> {
-    SellerInfo findOneById(Long id);
+    SellerInfo findOneBySellerId(Long id);
 
     boolean existsBySellerId(Long id);
 }

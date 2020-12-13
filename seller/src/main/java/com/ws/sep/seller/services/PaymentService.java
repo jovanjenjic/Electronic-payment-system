@@ -9,7 +9,9 @@ import com.ws.sep.seller.security.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class PaymentService {
@@ -48,6 +50,18 @@ public class PaymentService {
         sellerRepository.save(seller);
 
         return true;
+    }
+
+    public Set<PaymentType> getSellerPaymentTypes(String token) {
+        Long id = tokenProvider.getUserIdFromJWT(token.substring(7));
+
+        Optional<Seller> optionalSeller = sellerRepository.findById(id);
+
+        if(!optionalSeller.isPresent()) return new HashSet<>();
+
+        Seller seller = optionalSeller.get();
+
+        return seller.getTypes();
     }
 
 }

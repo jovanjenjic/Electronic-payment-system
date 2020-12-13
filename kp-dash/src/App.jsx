@@ -6,25 +6,46 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/home';
+import PaymentSuccess from './pages/PaymentSuccess';
+import PaymentCancel from './pages/PaymentCancel';
+import SubscriptionSuccess from './pages/SubscriptionSuccess';
+import SubscriptionCancel from './pages/SubscriptionCancel';
+
+import { AppContext } from './context/app';
 
 const App = () => {
+  /** `collapsed` side of the menu */
+  const [collapsed, updateCollapsed] = React.useState(false);
 
   return (
-    <Router>
-      <Switch>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/register">
-          <Register />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
+    <AppContext.Provider value={[collapsed, updateCollapsed]}>
+      <Router>
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/payments/:paymentId/:paymentType/success">
+            <PaymentSuccess />
+          </Route>
+          <Route path="/payments/:paymentId/:paymentType/cancel">
+            <PaymentCancel />
+          </Route>
+          <Route path="/payments/paypal/subscriptions/:subscriptionId/success">
+            <SubscriptionSuccess />
+          </Route>
+          <Route path="/payments/paypal/subscriptions/:subscriptionId/cancel">
+            <SubscriptionCancel />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </AppContext.Provider>
   );
 };
 
 export default App;
-

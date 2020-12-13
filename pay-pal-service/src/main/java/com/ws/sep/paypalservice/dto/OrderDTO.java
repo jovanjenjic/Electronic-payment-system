@@ -1,0 +1,22 @@
+package com.ws.sep.paypalservice.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrderDTO {
+
+    private Double price;
+
+    private int items_count;
+
+    private Long item_id;
+
+    private String currency;
+
+    private String description;
+
+}
