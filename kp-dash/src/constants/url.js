@@ -15,9 +15,17 @@ export const PAYPAL_PAYMENT_URL = `${PAYPAL_URL}/pay`;
 export const EXECUTE_PAYPAL_PAYMENT_URL = `${PAYPAL_PAYMENT_URL}/{paymentId}/success`;
 export const CANCEL_PAYPAL_PAYMENT_URL = `${PAYPAL_PAYMENT_URL}/{paymentId}/cancel`;
 
+export const PAYPAL_FORM_URL = `${PAYPAL_URL}/form`;
+
 // PAYPAL SUBSCRIPTION URLS
 export const PAYPAL_SUBSCRIPTION = `${PAYPAL_URL}/subscription`;
 export const EXECUTE_PAYPAL_SUBSCRIPTION = `${PAYPAL_SUBSCRIPTION}/{subscriptionId}/success`;
 export const CANCEL_PAYPAL_SUBSCRIPTION = `${PAYPAL_SUBSCRIPTION}/{subscriptionId}/cancel`;
 
+// BTC URLS
+export const BTC_URL = `${BASE_URL}/bitcoin-service/api`;
 
+// BTC FORM URL
+export const BTC_FORM_URL = `${BTC_URL}/getForm`;
+
+// TODO: Later add needed bank info and everything else

@@ -7,7 +7,7 @@ spring:
     initialization-mode: always
     url: jdbc:mysql://localhost:3306/paypal?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
     username: root
-    password: JovanJenjic123!
+    password: mandicnikola
   jpa:
     hibernate:
       ddl-auto: update
