@@ -4,7 +4,7 @@ import { useAsync } from 'react-async';
 import { useParams, useLocation, useHistory } from 'react-router-dom';
 import { Result, Button } from 'antd';
 
-import { EXECUTE_PAYPAL_PAYMENT_URL } from '../constants/url';
+import { BTC_SUCCESS_PAYMENT_URL, EXECUTE_PAYPAL_PAYMENT_URL } from '../constants/url';
 import { post } from '../services/api';
 import { responseOk } from '../utils/responseOk';
 
@@ -27,6 +27,7 @@ const resolveSearchParams = (search = '', paymentType = '') => {
 const resolveSuccessUrl = (paymentType = 'paypal', paymentId) => {
   let url = '';
   if (paymentType === 'paypal') url = EXECUTE_PAYPAL_PAYMENT_URL;
+  if (paymentType === 'bitcoin') return BTC_SUCCESS_PAYMENT_URL;
 
   // add for others later
 
@@ -39,11 +40,20 @@ const executePayment = async (
 ) => {
   const authToken = localStorage.getItem('access_token');
 
+  let paymentData = data;
+
   if (authToken) {
     /** `url` for the params */
     const url = resolveSuccessUrl(paymentType, paymentId);
 
-    const response = await post(url, data, authToken);
+    if (paymentType === 'bitcoin') {
+      paymentData = {
+        transactionId: paymentId,
+        isSuccess: true,
+      };
+    }
+
+    const response = await post(url, paymentData, authToken);
 
     if (responseOk(response)) return await response.json();
   }

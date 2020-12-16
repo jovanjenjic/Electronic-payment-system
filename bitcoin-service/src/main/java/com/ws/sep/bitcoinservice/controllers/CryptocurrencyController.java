@@ -16,12 +16,12 @@ public class CryptocurrencyController {
     @Autowired
     CryptocurrencyService cryptocurrencyService;
 
-    @GetMapping( value = "/getForm" )
+    @GetMapping( value = "/form" )
     public ResponseEntity<?> getForm() {
         return new ResponseEntity<>(cryptocurrencyService.getFormForPayment(), HttpStatus.OK);
     }
 
-    @PostMapping( value = "/registerPayment" )
+    @PostMapping( value = "/addPayment" )
     public ResponseEntity<?> registerPayment(@RequestBody SellerInfoDTO sellerInfoDTO, @RequestHeader("Authorization") String token) throws FileAlreadyExistsException {
         return new ResponseEntity<>(cryptocurrencyService.registerPayment(sellerInfoDTO, token), HttpStatus.OK);
     }

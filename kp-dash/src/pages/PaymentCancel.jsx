@@ -4,7 +4,7 @@ import { useAsync } from 'react-async';
 import { useParams, useHistory } from 'react-router-dom';
 import { Result, Button } from 'antd';
 
-import { CANCEL_PAYPAL_PAYMENT_URL } from '../constants/url';
+import { BTC_CANCEL_PAYMENT_URL, CANCEL_PAYPAL_PAYMENT_URL } from '../constants/url';
 import { post } from '../services/api';
 import { responseOk } from '../utils/responseOk';
 
@@ -13,7 +13,7 @@ import { responseOk } from '../utils/responseOk';
 const resolveCancelUrl = (paymentType = 'paypal', paymentId) => {
   let url = '';
   if (paymentType === 'paypal') url = CANCEL_PAYPAL_PAYMENT_URL;
-
+  if (paymentType === 'bitcoin') return BTC_CANCEL_PAYMENT_URL;
   // add for others later
 
   return url.replace('{paymentId}', paymentId);
@@ -22,11 +22,18 @@ const resolveCancelUrl = (paymentType = 'paypal', paymentId) => {
 const cancelPayment = async (_, { paymentId, paymentType = 'paypal' }) => {
   const authToken = localStorage.getItem('access_token');
 
+  const data = {};
+
   if (authToken) {
     /** `url` for the params */
     const url = resolveCancelUrl(paymentType, paymentId);
 
-    const response = await post(url, {}, authToken);
+    if (paymentType === 'bitcoin') {
+      data.transactionId = paymentId;
+      data.isSuccess = false;
+    }
+
+    const response = await post(url, data, authToken);
 
     if (responseOk(response)) return await response.json();
   }

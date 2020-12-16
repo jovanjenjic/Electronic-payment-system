@@ -9,6 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SellerInfoDTO {
 
-    private String sellerId;
     private String apiKey;
 }

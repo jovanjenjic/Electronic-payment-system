@@ -45,17 +45,19 @@ const Home = () => {
   /** `use` state hook for updating items in the shop */
   const [items, updateItems] = React.useState([]);
 
-  const { data: paymentTypes = [] } = useFetchPaymentTypes();
+  const { data: paymentTypes = [], reload: reloadPaymentTypes } = useFetchPaymentTypes();
+
+  const history = useHistory();
 
   /** `logout` handler */
   const logout = () => {
     localStorage.removeItem('access_token');
     updateCollapsed(() => []);
-    useHistory().push('/login');
+    history.push('/login');
   };
 
   return (
-    <ShopContext.Provider value={{ items, updateItems, paymentTypes }}>
+    <ShopContext.Provider value={{ items, updateItems, paymentTypes, reloadPaymentTypes }}>
       <Layout className="main-layout" style={{ height: window.innerHeight }}>
         <Sidebar />
         <Layout className="site-layout">
