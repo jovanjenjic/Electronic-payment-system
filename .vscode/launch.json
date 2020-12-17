@@ -6,6 +6,24 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Acquirer",
+            "console": "internalConsole",
+            "request": "launch",
+            "mainClass": "com.ws.sep.acquirer.AcquirerApplication",
+            "projectName": "acquirer",
+            "vmArgs": "-Dport=8087 -Ddb=acq1"
+        },
+        {
+            "type": "java",
+            "name": "Acquirer11",
+            "console": "integratedTerminal",
+            "request": "launch",
+            "mainClass": "com.ws.sep.acquirer.AcquirerApplication",
+            "projectName": "acquirer",
+            "vmArgs": "-Dport=8088 -Ddb=acq2"
+        },
+        {
+            "type": "java",
             "console": "internalConsole",
             "name": "bank",
             "request": "launch",
@@ -52,6 +70,16 @@
             "console": "internalConsole",
             "mainClass": "com.ws.sep.seller.SellerApplication",
             "projectName": "seller",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-IssuerApplication<issuer>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ws.sep.issuer.IssuerApplication",
+            "projectName": "issuer",
             "args": ""
         }
     ]

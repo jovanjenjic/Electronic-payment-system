@@ -4,7 +4,7 @@ logging:
       hibernate:
         SQL: DEBUG
 server:
-  port: 8084
+  port: 8086
   ssl:
     enabled: true
     key-store: classpath:keystore.jks
@@ -17,7 +17,7 @@ spring:
     name: seller
   datasource:
     initialization-mode: always
-    url: jdbc:mysql://localhost:3306/seller?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/pcc?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
     username: root
     password: 1234
   jpa:
@@ -27,14 +27,3 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
-eureka:
-  instance:
-    hostname: localhost
-    prefer-ip-address: false
-    nonSecurePortEnabled: false
-    securePortEnabled: true
-    securePort: ${server.port}
-  client:
-    securePortEnabled: true
-    serviceUrl:
-      defaultZone: https://localhost:8761/eureka/

@@ -2,12 +2,28 @@ package com.ws.sep.acquirer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-public class AcquirerApplication {
+@RestController
+public class AcquirerApplication
+{
 
-	public static void main(String[] args) {
-		SpringApplication.run(AcquirerApplication.class, args);
+	// mvn -Dspring-boot.run.jvmArguments="-Dport=8089 -Ddb=jj
+	// -Dscript=classpath:bank2.sql" spring-boot:run
+	public static void main( String[] args )
+	{
+		SpringApplication.run( AcquirerApplication.class, args );
+
+	}
+
+
+	@GetMapping( "/" )
+	public String get()
+	{
+		return "ok";
+
 	}
 
 }
