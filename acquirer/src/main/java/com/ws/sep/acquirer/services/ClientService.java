@@ -87,6 +87,12 @@ public class ClientService
 
         Transaction save = this.iTransactionRepository.save( newTransaction );
 
+        save.setErrorUrl( save.getErrorUrl() + save.getId().toString() );
+        save.setSuccessUrl( save.getSuccessUrl() + save.getId().toString() );
+        save.setFailedUrl( save.getFailedUrl() + save.getId().toString() );
+
+        this.iTransactionRepository.save( save );
+
         String url = UrlUtil.URL + request.getBankUrl() + "/api/acquirer/pay";
 
         return new ResponseEntity< PaymentResponse >( new PaymentResponse( save.getId(), url ), HttpStatus.OK );

@@ -149,6 +149,7 @@ public class MerchantService
         request.setErrorUrl( UrlUtil.DASHBOARD + UrlUtil.ERROR_URL );
         request.setSuccessUrl( UrlUtil.DASHBOARD + UrlUtil.SUCCESS_URL );
         request.setFailedUrl( UrlUtil.DASHBOARD + UrlUtil.FAILED_URL );
+        request.setBankUrl( bankInfo.getUrl() );
 
         String url = UrlUtil.ACQUIRER_BASE_URL.replace( "port", bankInfo.getUrl() );
 
