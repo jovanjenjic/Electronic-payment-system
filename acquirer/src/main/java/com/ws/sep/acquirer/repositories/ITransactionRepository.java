@@ -10,4 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface ITransactionRepository extends JpaRepository< Transaction, Long >
 {
 
+    Boolean existsByMerchantOrderIdAndMerchantId( Long id, String merchant );
+
 }

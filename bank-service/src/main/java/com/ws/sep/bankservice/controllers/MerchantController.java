@@ -3,6 +3,7 @@ package com.ws.sep.bankservice.controllers;
 import com.ws.sep.bankservice.dtos.ApiResponse;
 import com.ws.sep.bankservice.dtos.CreateMerchantRequest;
 import com.ws.sep.bankservice.dtos.OrderDTO;
+import com.ws.sep.bankservice.dtos.PaymentBankServiceResponse;
 import com.ws.sep.bankservice.services.MerchantService;
 
 
@@ -34,6 +35,14 @@ public class MerchantController
     public ResponseEntity< ? > retrieveUrlAndId( @RequestBody OrderDTO order, @RequestHeader( "Authorization" ) String token )
     {
         return this.merchantService.retrieveUrlAndId( order, token );
+
+    }
+
+
+    @PostMapping( "/payment" )
+    public ResponseEntity< ApiResponse > createPayment( @RequestBody PaymentBankServiceResponse payment )
+    {
+        return this.merchantService.createPayment( payment );
 
     }
 

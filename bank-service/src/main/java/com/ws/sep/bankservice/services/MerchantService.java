@@ -8,12 +8,15 @@ import java.util.Optional;
 import com.ws.sep.bankservice.dtos.ApiResponse;
 import com.ws.sep.bankservice.dtos.CreateMerchantRequest;
 import com.ws.sep.bankservice.dtos.OrderDTO;
+import com.ws.sep.bankservice.dtos.PaymentBankServiceResponse;
 import com.ws.sep.bankservice.dtos.PaymentRequest;
 import com.ws.sep.bankservice.exceptions.SimpleException;
 import com.ws.sep.bankservice.models.BankInfo;
 import com.ws.sep.bankservice.models.Merchant;
+import com.ws.sep.bankservice.models.Payment;
 import com.ws.sep.bankservice.repositories.IBankInfoRepository;
 import com.ws.sep.bankservice.repositories.IMerchantRepository;
+import com.ws.sep.bankservice.repositories.IPaymentRepository;
 
 
 import org.apache.commons.lang.RandomStringUtils;
@@ -39,6 +42,9 @@ public class MerchantService
 
     @Autowired
     private IMerchantRepository iMerchantRepository;
+
+    @Autowired
+    private IPaymentRepository iPaymentRepository;
 
     @Autowired
     PanBankIdUtil panBankIdUtil;
@@ -163,6 +169,16 @@ public class MerchantService
         }
 
         return response;
+
+    }
+
+
+    public ResponseEntity< ApiResponse > createPayment( PaymentBankServiceResponse payment )
+    {
+        Payment newPayment = new Payment( payment );
+        Payment save = this.iPaymentRepository.save( newPayment );
+
+        return new ResponseEntity< ApiResponse >( new ApiResponse( save.getId().toString(), true ), HttpStatus.CREATED );
 
     }
 

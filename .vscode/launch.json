@@ -11,16 +11,7 @@
             "request": "launch",
             "mainClass": "com.ws.sep.acquirer.AcquirerApplication",
             "projectName": "acquirer",
-            "vmArgs": "-Dport=8087 -Ddb=acq1"
-        },
-        {
-            "type": "java",
-            "name": "Acquirer11",
-            "console": "integratedTerminal",
-            "request": "launch",
-            "mainClass": "com.ws.sep.acquirer.AcquirerApplication",
-            "projectName": "acquirer",
-            "vmArgs": "-Dport=8088 -Ddb=acq2"
+            "vmArgs": "-Dport=8087 -Ddb=acq1 -Dscript=classpath:bank1.sql"
         },
         {
             "type": "java",

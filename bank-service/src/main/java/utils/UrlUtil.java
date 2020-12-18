@@ -11,10 +11,10 @@ public class UrlUtil
 
     public static final String SELLER_ADD_PAYMENT = LOCALHOST + "/seller/api/payment";
 
-    public static final String ERROR_URL = "/bank/error";
+    public static final String ERROR_URL = "/bank/error/";
 
-    public static final String FAILED_URL = "/bank/failed";
+    public static final String FAILED_URL = "/bank/failed/";
 
-    public static final String SUCCESS_URL = "/bank/success";
+    public static final String SUCCESS_URL = "/bank/success/";
 
 }

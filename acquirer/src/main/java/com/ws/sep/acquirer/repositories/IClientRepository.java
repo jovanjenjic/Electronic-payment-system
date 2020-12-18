@@ -17,4 +17,8 @@ public interface IClientRepository extends JpaRepository< Client, Long >
 
     Optional< Client > findByMerchantIdAndMerchantPassword( String id, String password );
 
+    Client findByMerchantId( String merchantId );
+
+    Client findByPan( String pan );
+
 }

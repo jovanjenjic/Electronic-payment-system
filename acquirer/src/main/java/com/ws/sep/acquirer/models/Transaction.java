@@ -26,11 +26,11 @@ public class Transaction
 
     private Date merchantTimestamp;
 
+    private Date acquirerTimestamp;
+
     private Long merchantOrderId;
 
     private String merchantId;
-
-    private TransactionStatus status;
 
     private String pan;
 
@@ -39,5 +39,7 @@ public class Transaction
     private String failedUrl;
 
     private String successUrl;
+
+    private TransactionStatus status;
 
 }
