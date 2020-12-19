@@ -155,6 +155,7 @@ public class MerchantService
         request.setErrorUrl( UrlUtil.DASHBOARD + UrlUtil.ERROR_URL );
         request.setSuccessUrl( UrlUtil.DASHBOARD + UrlUtil.SUCCESS_URL );
         request.setFailedUrl( UrlUtil.DASHBOARD + UrlUtil.FAILED_URL );
+
         request.setBankUrl( bankInfo.getUrl() );
 
         String url = UrlUtil.ACQUIRER_BASE_URL.replace( "port", bankInfo.getUrl() );
@@ -175,6 +176,8 @@ public class MerchantService
 
     public ResponseEntity< ApiResponse > createPayment( PaymentBankServiceResponse payment )
     {
+
+        // TODO add merchant id and password to PaymentBankServiceResponse, to compare
         Payment newPayment = new Payment( payment );
         Payment save = this.iPaymentRepository.save( newPayment );
 

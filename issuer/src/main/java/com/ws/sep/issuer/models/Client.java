@@ -1,4 +1,4 @@
-package com.ws.sep.pcc.models;
+package com.ws.sep.issuer.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,19 +12,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table( name = "client" )
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Table( name = "bank_info" )
-public class BankInfo
+@AllArgsConstructor
+public class Client
 {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 
-    private String panBankId;
+    private Double availableFounds;
 
-    private String url;
+    private String cardHolder;
+
+    private String cvv;
+
+    private String mm;
+
+    private String pan;
+
+    private String yy;
 
 }

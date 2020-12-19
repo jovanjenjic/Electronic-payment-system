@@ -4,7 +4,7 @@ logging:
       hibernate:
         SQL: DEBUG
 server:
-  port: 8086
+  port: ${port}
   ssl:
     enabled: true
     key-store: classpath:keystore.jks
@@ -17,9 +17,10 @@ spring:
     name: seller
   datasource:
     initialization-mode: always
-    url: jdbc:mysql://localhost:3306/pcc?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/${db}?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
     username: root
     password: 1234
+    data: ${script}
   jpa:
     hibernate:
       ddl-auto: update

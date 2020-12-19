@@ -1,15 +1,13 @@
 package com.ws.sep.pcc.repositories;
 
-import com.ws.sep.pcc.models.BankInfo;
+import com.ws.sep.pcc.models.PaymentRequest;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IBankInfoRepository extends JpaRepository< BankInfo, Long >
+public interface IPaymentRequestRepository extends JpaRepository< PaymentRequest, Long >
 {
-
-    BankInfo findByPanBankId( String panBankId );
 
 }

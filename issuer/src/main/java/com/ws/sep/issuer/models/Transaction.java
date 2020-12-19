@@ -1,22 +1,22 @@
-package com.ws.sep.acquirer.models;
+package com.ws.sep.issuer.models;
 
 import java.util.Date;
 
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
 @NoArgsConstructor
-@Entity
+@AllArgsConstructor
 public class Transaction
 {
 
@@ -24,25 +24,20 @@ public class Transaction
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 
-    private Double amount;
+    private Date issuerTimestamp;
 
-    private Date merchantTimestamp;
+    private Double amount;
 
     private Date acquirerTimestamp;
 
     private Long merchantOrderId;
 
-    private String merchantId;
-
     private String pan;
 
-    private String errorUrl;
-
-    private String failedUrl;
-
-    private String successUrl;
-
-    @Enumerated( EnumType.STRING )
     private TransactionStatus status;
+
+    private String acquirerBank;
+
+    private String acquirerPan;
 
 }
