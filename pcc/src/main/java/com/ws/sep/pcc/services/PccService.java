@@ -1,5 +1,9 @@
 package com.ws.sep.pcc.services;
 
+import java.util.Date;
+import java.util.Optional;
+
+
 import com.ws.sep.pcc.dtos.AcquireRequest;
 import com.ws.sep.pcc.dtos.IssuerResponse;
 import com.ws.sep.pcc.models.BankInfo;
@@ -9,6 +13,7 @@ import com.ws.sep.pcc.repositories.IPaymentRequestRepository;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -56,8 +61,14 @@ public class PccService
 
         String bankId = this.panBankIdUtil.getBankId( pan );
 
-        BankInfo bankInfo = this.iBankInfoRepository.findByPanBankId( bankId );
+        Optional< BankInfo > optionalBank = this.iBankInfoRepository.findByPanBankId( bankId );
 
+        if ( !optionalBank.isPresent() )
+        {
+            return new ResponseEntity<>( new IssuerResponse( false, false, new Date(), -1l ), HttpStatus.OK );
+        }
+
+        BankInfo bankInfo = optionalBank.get();
         RestTemplate restTemplate = new RestTemplate();
 
         String url = BANK_URL + bankInfo.getUrl() + ENDPOINT_URL;

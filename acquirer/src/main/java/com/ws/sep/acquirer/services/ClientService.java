@@ -239,12 +239,26 @@ public class ClientService
         RestTemplate restTemplate = new RestTemplate();
 
         ResponseEntity< PccResponse > responseEntity = restTemplate.postForEntity( PanBankIdUtil.PCC_URL, pccRequest, PccResponse.class );
-
         PccResponse body = responseEntity.getBody();
+
+        if ( body.getIssuerOrderId() == -1l )
+        {
+            transaction.setStatus( TransactionStatus.ERROR );
+            this.iTransactionRepository.save( transaction );
+
+            PaymentBankServiceResponse createBankServiceResponseIssuer =
+                    createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.ERROR, body.getIssuerOrderId(), body.getIssuerTimestamp() );
+            sendBankServiceResponse( createBankServiceResponseIssuer );
+
+            return new ResponseEntity<>( "Cant find bank", HttpStatus.BAD_REQUEST );
+        }
 
         if ( body.getAuthenticated() && body.getAuthorized() )
         {
             // ! ok
+            transaction.setStatus( TransactionStatus.SUCCESS );
+            this.iTransactionRepository.save( transaction );
+
             PaymentBankServiceResponse createBankServiceResponseIssuer =
                     createBankServiceResponseIssuer( card, transaction, true, PaymentStatus.SUCCESS, body.getIssuerOrderId(), body.getIssuerTimestamp() );
             Long sendBankServiceResponse = sendBankServiceResponse( createBankServiceResponseIssuer );
@@ -258,11 +272,18 @@ public class ClientService
 
         if ( !body.getAuthenticated() )
         {
+
+            transaction.setStatus( TransactionStatus.ERROR );
+            this.iTransactionRepository.save( transaction );
+
             PaymentBankServiceResponse createBankServiceResponseIssuer =
                     createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.ERROR, body.getIssuerOrderId(), body.getIssuerTimestamp() );
             Long sendBankServiceResponse = sendBankServiceResponse( createBankServiceResponseIssuer );
             return new ResponseEntity<>( transaction.getErrorUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
         }
+
+        transaction.setStatus( TransactionStatus.FAILED );
+        this.iTransactionRepository.save( transaction );
 
         PaymentBankServiceResponse createBankServiceResponseIssuer =
                 createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.FAILURE, body.getIssuerOrderId(), body.getIssuerTimestamp() );
