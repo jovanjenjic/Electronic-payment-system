@@ -6,6 +6,15 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Acquirer",
+            "console": "internalConsole",
+            "request": "launch",
+            "mainClass": "com.ws.sep.acquirer.AcquirerApplication",
+            "projectName": "acquirer",
+            "vmArgs": "-Dport=8087 -Ddb=acq1 -Dscript=classpath:bank1.sql"
+        },
+        {
+            "type": "java",
             "console": "internalConsole",
             "name": "bank",
             "request": "launch",
@@ -52,6 +61,37 @@
             "console": "internalConsole",
             "mainClass": "com.ws.sep.seller.SellerApplication",
             "projectName": "seller",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "issuer",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ws.sep.issuer.IssuerApplication",
+            "projectName": "issuer",
+            "args": "",
+            "vmArgs": "-Dport=8086 -Ddb=iss1 -Dscript=classpath:bank1.sql"
+        },
+        {
+            "type": "java",
+            "name": "pcc",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ws.sep.pcc.PccApplication",
+            "projectName": "pcc",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-LiteralnoUdruzenjeApplication<literalno-udruzenje>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ws.sep.literalnoudruzenje.LiteralnoUdruzenjeApplication",
+            "projectName": "literalno-udruzenje",
             "args": ""
         }
     ]
