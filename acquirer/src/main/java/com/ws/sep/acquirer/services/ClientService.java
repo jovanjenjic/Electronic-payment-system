@@ -248,6 +248,10 @@ public class ClientService
             PaymentBankServiceResponse createBankServiceResponseIssuer =
                     createBankServiceResponseIssuer( card, transaction, true, PaymentStatus.SUCCESS, body.getIssuerOrderId(), body.getIssuerTimestamp() );
             Long sendBankServiceResponse = sendBankServiceResponse( createBankServiceResponseIssuer );
+
+            merchant.setAvailableFounds( merchant.getAvailableFounds() + transaction.getAmount() );
+            this.iClientRepository.save( merchant );
+
             return new ResponseEntity<>( transaction.getSuccessUrl() + sendBankServiceResponse.toString(), HttpStatus.CREATED );
 
         }

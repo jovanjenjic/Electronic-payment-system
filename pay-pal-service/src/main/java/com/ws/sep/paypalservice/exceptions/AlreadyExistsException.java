@@ -6,7 +6,7 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class AlreadyExistsException extends RuntimeException {
-
+    
     private String message;
 
 }
