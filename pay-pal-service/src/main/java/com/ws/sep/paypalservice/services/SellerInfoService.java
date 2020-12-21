@@ -25,6 +25,8 @@ import com.ws.sep.paypalservice.repository.SellerInfoRepository;
 import com.ws.sep.paypalservice.repository.SubscriptionRepository;
 import com.ws.sep.paypalservice.utils.Urls;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -59,6 +61,8 @@ public class SellerInfoService {
     @Autowired
     JwtUtil jwtUtil;
 
+    Logger logger = LoggerFactory.getLogger(SellerInfoService.class);
+
     String subscriptionSuccessUrl = Urls.DASHBOARD_URL + "/payments/paypal/subscriptions/{id}/success";
     String subscriptionCancelUrl = Urls.DASHBOARD_URL + "/payments/paypal/subscriptions/{id}/cancel";
 
@@ -67,14 +71,18 @@ public class SellerInfoService {
         Long sellerId = jwtUtil.extractSellerId(authToken.substring(7));
 
         // check if payment already exists
-        if(sellerInfoRepository.existsBySellerId(sellerId))
+        if(sellerInfoRepository.existsBySellerId(sellerId)) {
+            logger.error("Payment already exists for the user. User ID: " + sellerId.toString());
             throw new AlreadyExistsException("Payment already exists for the user");
+        }
 
         if(sellerInfoDTO.getClient_id() == null || sellerInfoDTO.getClient_id().isEmpty()) {
+            logger.error("Client_id cannot be null or empty. User ID: " + sellerId.toString());
             throw new InvalidValueException("client_id", "client_id cannot be null or empty");
         }
 
         if(sellerInfoDTO.getClient_secret() == null || sellerInfoDTO.getClient_secret().isEmpty()) {
+            logger.error("client_secret cannot be null. User ID: " + sellerId.toString());
             throw new InvalidValueException("client_secret", "client_secret cannot be null");
         }
 
@@ -101,14 +109,17 @@ public class SellerInfoService {
         sellerInfo.setClient_id(sellerInfoDTO.getClient_id());
         sellerInfo.setClient_secret(sellerInfoDTO.getClient_secret());
 
+        logger.info("Successful user registration on payment system. User ID: " + sellerId.toString());
         sellerInfoRepository.save(sellerInfo);
     }
 
 
     public APIContext getApiContext(Long sellerId) throws PayPalRESTException {
         // check if paypal exists for the specified user
-        if(!sellerInfoRepository.existsBySellerId(sellerId))
+        if(!sellerInfoRepository.existsBySellerId(sellerId)) {
+            logger.error("Configuration not exists for the seller.");
             throw new SimpleException(404, "Configuration not exists for the seller");
+        }
 
         SellerInfo sellerInfo = sellerInfoRepository.findOneBySellerId(sellerId);
 
@@ -120,6 +131,7 @@ public class SellerInfoService {
         APIContext context = new APIContext(oAuthTokenCredential.getAccessToken());
         context.setConfigurationMap(configMap);
 
+        logger.info("Successful returned api context.");
         return context;
     }
 
@@ -192,6 +204,8 @@ public class SellerInfoService {
 
         sellerOrders.setOrderState(OrderState.FAILED);
         sellerOrderRepository.save(sellerOrders);
+
+        logger.info("Successful created payment. User ID: " + sellerId.toString());
         return "";
     }
 
@@ -200,12 +214,15 @@ public class SellerInfoService {
 
         Optional<SellerOrders> optionalOrder = sellerOrderRepository.findById(orderId);
 
-        if(optionalOrder.isEmpty())
+        if(optionalOrder.isEmpty()) {
+            logger.error("No specified order. User ID: " + sellerId);
             throw new SimpleException(404, "No specified order");
+        }
 
         SellerOrders order = optionalOrder.get();
 
         if(Arrays.asList(OrderState.SUCCESS, OrderState.FAILED, OrderState.CANCELED).stream().anyMatch(t -> t.equals(order.getOrderState()))) {
+            logger.error("Order is not valid for payment!. User ID: " + sellerId);
             throw new SimpleException(400, "Order is not valid for payment!");
         }
 
@@ -220,6 +237,7 @@ public class SellerInfoService {
         } catch (PayPalRESTException e) {
             order.setOrderState(OrderState.FAILED);
             sellerOrderRepository.save(order);
+            logger.error("Failed to execute payment!. User ID: " + sellerId);
             throw new SimpleException(417, "Failed to execute payment");
         }
 
@@ -228,24 +246,30 @@ public class SellerInfoService {
 
         OrderResponse orderResponse = SellerOrderMapper.INSTANCE.mapToResponse(savedOrder);
 
+        logger.info("Successful executed payment. User ID: " + sellerId.toString());
         return new ResponseEntity<>(orderResponse, HttpStatus.OK);
     }
 
     public ResponseEntity<?> cancelOrderPayment(Long orderId) {
         Optional<SellerOrders> orderOptional = sellerOrderRepository.findById(orderId);
 
-        if(orderOptional.isEmpty())
+        if(orderOptional.isEmpty()) {
+            logger.error("No specified order.");
             throw new SimpleException(404, "No specified order");
+        }
 
         SellerOrders order = orderOptional.get();
-        if(order.getOrderState().equals(OrderState.CANCELED))
+        if(order.getOrderState().equals(OrderState.CANCELED)) {
+            logger.error("Order already cancelled.");
             throw new SimpleException(400, "Order already cancelled");
+        }
 
         order.setOrderState(OrderState.CANCELED);
         order = sellerOrderRepository.save(order);
 
         OrderResponse orderResponse = SellerOrderMapper.INSTANCE.mapToResponse(order);
 
+        logger.info("Successful canceled payment.");
         return new ResponseEntity<>(orderResponse, HttpStatus.OK);
     }
 
@@ -324,20 +348,24 @@ public class SellerInfoService {
 
         BillingPlanResponse response = BillingPlanMapper.INSTANCE.planToResponse(billingPlan);
 
+        logger.info("Successful created billing plan. User ID: " + sellerId.toString());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     public Optional<BillingPlan> getBillingPlan(SubscriptionDTO subscriptionDTO) {
         if(Optional.ofNullable(subscriptionDTO.getPlanId()).isPresent()) {
             Optional<BillingPlan> billingPlanOptional = billingPlanRepository.findById(subscriptionDTO.getPlanId());
+            logger.info("Successfully returned billing plan");
             return billingPlanOptional;
         }
 
         if(Optional.ofNullable(subscriptionDTO.getItemId()).isPresent()) {
             List<BillingPlan> billingPlans = billingPlanRepository.getBillingPlanForItem(subscriptionDTO.getItemId());
+            logger.info("Successfully returned billing plan");
             return billingPlans.stream().findFirst();
         }
 
+        logger.error("Plan is not found for specified item.");
         throw new SimpleException(404, "Plan is not found for specified item");
     }
 
@@ -346,8 +374,10 @@ public class SellerInfoService {
 
         Optional<BillingPlan> billingPlanOptional = getBillingPlan(subscriptionDTO);
 
-        if(billingPlanOptional.isEmpty())
+        if(billingPlanOptional.isEmpty()) {
+            logger.error("Plan is not found for specified item. User ID: " + sellerId.toString());
             throw new SimpleException(404, "Plan is not found for specified item");
+        }
 
         BillingPlan billingPlan = billingPlanOptional.get();
 
@@ -409,22 +439,27 @@ public class SellerInfoService {
                 HashMap<String, String> retObj = new HashMap<>();
                 retObj.put("paymentUrl", linksOptional.get().getHref());
 
+                logger.info("Successfully created subscription. User ID: " + sellerId.toString());
                 return new ResponseEntity<>(retObj, HttpStatus.CREATED);
             }
 
         } catch (PayPalRESTException e) {
             subscription.setState(SubscriptionState.CANCELLED);
             subscriptionRepository.save(subscription);
+            logger.error("Failed to create subscription. User ID: " + sellerId.toString());
             throw new SimpleException(500, e.getMessage());
         } catch (MalformedURLException e) {
+            logger.error("Failed to create subscription. User ID: " + sellerId.toString());
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
+            logger.error("Failed to create subscription. User ID: " + sellerId.toString());
             e.printStackTrace();
         }
 
         HashMap<String, String> retObj = new HashMap<>();
         retObj.put("message", "Failed to create subscription");
 
+        logger.error("Failed to create subscription. User ID: " + sellerId.toString());
         return new ResponseEntity<>(retObj, HttpStatus.EXPECTATION_FAILED);
     }
 
@@ -436,8 +471,10 @@ public class SellerInfoService {
 
         Optional<Subscription> subscriptionOptional = subscriptionRepository.findById(subscriptionId);
 
-        if(subscriptionOptional.isEmpty())
+        if(subscriptionOptional.isEmpty()) {
+            logger.error("Not found specified subscription. User ID: " + sellerId.toString());
             throw new SimpleException(404, "Not found specified subscription");
+        }
 
         Subscription subscription = subscriptionOptional.get();
 
@@ -451,9 +488,11 @@ public class SellerInfoService {
 
             SubscriptionResponse subscriptionResponse = SubscriptionMapper.INSTANCE.mapToResponse(subscription);
 
+            logger.info("Successfully executed subscription. User ID: " + sellerId.toString());
             return new ResponseEntity<>(subscriptionResponse, HttpStatus.OK);
 
         } catch (PayPalRESTException e) {
+            logger.error("Failed to executed subscription. User ID: " + sellerId.toString());
             throw new SimpleException(500, e.getMessage());
         }
     }
@@ -463,8 +502,10 @@ public class SellerInfoService {
 
         Optional<Subscription> subscriptionOptional = subscriptionRepository.findById(subscriptionId);
 
-        if(subscriptionOptional.isEmpty())
+        if(subscriptionOptional.isEmpty()) {
+            logger.error("Not found specified subscription. User ID: " + sellerId.toString());
             throw new SimpleException(404, "Not found specified subscription");
+        }
 
         Subscription subscription = subscriptionOptional.get();
 
@@ -488,8 +529,10 @@ public class SellerInfoService {
 
                 SubscriptionResponse subscriptionResponse = SubscriptionMapper.INSTANCE.mapToResponse(subscription);
 
+                logger.info("Successfully canceled subscription. User ID: " + sellerId.toString());
                 return new ResponseEntity<>(subscriptionResponse, HttpStatus.OK);
             } catch (PayPalRESTException e) {
+                logger.error("Failed to cancel subscription. User ID: " + sellerId.toString());
                 throw new SimpleException(417, e.getMessage());
             }
         }
@@ -500,12 +543,14 @@ public class SellerInfoService {
 
             SubscriptionResponse subscriptionResponse = SubscriptionMapper.INSTANCE.mapToResponse(subscription);
 
+            logger.info("Successfully canceled subscription. User ID: " + sellerId.toString());
             return new ResponseEntity<>(subscriptionResponse, HttpStatus.OK);
         }
 
         HashMap<String, String> retObj = new HashMap<>();
         retObj.put("message", "Failed to cancel subscription");
 
+        logger.error("Failed to cancel subscription. User ID: " + sellerId.toString());
         return new ResponseEntity<>(retObj, HttpStatus.EXPECTATION_FAILED);
     }
 }

@@ -1,0 +1,28 @@
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+server:
+  port: 8085
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.jks
+    key-store-password: password
+    key-alias: test
+    key-store-type: jks
+    key-store-provider: SUN
+spring:
+  application:
+    name: seller
+  datasource:
+    initialization-mode: always
+    url: jdbc:mysql://localhost:3306/pcc?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+    username: root
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
