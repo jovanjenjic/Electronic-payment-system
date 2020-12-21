@@ -6,6 +6,8 @@ import com.ws.sep.seller.payload.PaymentTypeRequest;
 import com.ws.sep.seller.repositories.IPaymentTypeRepository;
 import com.ws.sep.seller.repositories.ISellerRepository;
 import com.ws.sep.seller.security.JwtTokenProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,8 @@ public class PaymentService {
 
     @Autowired
     JwtTokenProvider tokenProvider;
+
+    Logger logger = LoggerFactory.getLogger(PaymentService.class);
 
     public boolean addPaymentType(PaymentTypeRequest paymentTypeRequest, String authToken) {
         Long id = tokenProvider.getUserIdFromJWT(authToken.substring(7));
@@ -61,6 +65,7 @@ public class PaymentService {
 
         Seller seller = optionalSeller.get();
 
+        logger.info("Successfully returned type of payment.");
         return seller.getTypes();
     }
 
