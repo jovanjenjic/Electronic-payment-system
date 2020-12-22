@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Popover, Badge } from 'antd';
+import { useHistory } from 'react-router-dom';
 
 import { ShoppingCartOutlined, CreditCardOutlined } from '@ant-design/icons';
 
@@ -10,7 +11,11 @@ import { responseOk } from '../utils/responseOk';
 
 import { ShopContext } from '../context/shop';
 import { PAYPAL, BITCOIN, BANK } from '../constants/paymentTypes';
-import { BTC_CREATE_PAYMENT_URL, PAYPAL_PAYMENT_URL } from '../constants/url';
+import {
+  BTC_CREATE_PAYMENT_URL,
+  PAYPAL_PAYMENT_URL,
+  BANK_CREATE_PAYMENT_URL,
+} from '../constants/url';
 
 const Container = styled.div`
   &:hover {
@@ -94,7 +99,7 @@ const createPaymentBtc = async ({
       receiveCurrency: 'BTC',
       description,
       title: description,
-      customToken: 'bla bla'
+      customToken: 'bla bla',
     },
     authToken
   );
@@ -109,7 +114,35 @@ const createPaymentBtc = async ({
   return { error: true };
 };
 
+const createPaymentBank = async ({ price, count, id }, history) => {
+  const authToken = localStorage.getItem('access_token');
+
+  try {
+    const response = await post(
+      BANK_CREATE_PAYMENT_URL,
+      {
+        amount: count * price,
+        timestamp: new Date().toISOString(),
+        merchantOrderId: id,
+      },
+      authToken
+    );
+
+    if (responseOk(response)) {
+      const result = await response.json();
+      history.push('/bank/payment', result);
+      return { error: false };
+    }
+  } catch (error) {
+    console.error(error);
+  }
+
+  return { error: true };
+};
+
 const ShoppingCart = () => {
+  const history = useHistory();
+
   const { items = [], paymentTypes, updateItems } = React.useContext(
     ShopContext
   );
@@ -129,6 +162,13 @@ const ShoppingCart = () => {
 
   const handleBtc = async () => {
     const { error } = await createPaymentBtc(item);
+    if (!error) {
+      updateItems(() => []);
+    }
+  };
+
+  const handleBank = async () => {
+    const { error } = await createPaymentBank(item, history);
     if (!error) {
       updateItems(() => []);
     }
@@ -158,7 +198,7 @@ const ShoppingCart = () => {
                 </ImgContainer>
               )}
               {types.includes(BANK) && (
-                <ImgContainer>
+                <ImgContainer onClick={handleBank}>
                   <CreditCardOutlined />
                 </ImgContainer>
               )}

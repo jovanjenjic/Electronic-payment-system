@@ -30,7 +30,11 @@ export const BTC_URL = `${BASE_URL}/bitcoin-service/api`;
 export const BTC_FORM_URL = `${BTC_URL}/form`;
 export const BTC_ADD_PAYMENT_URL = `${BTC_URL}/addPayment`;
 export const BTC_CREATE_PAYMENT_URL = `${BTC_URL}/createOrder`;
-export const BTC_SUCCESS_PAYMENT_URL = `${BTC_URL}/setStateOfTransaction`
-export const BTC_CANCEL_PAYMENT_URL = `${BTC_URL}/setStateOfTransaction`
+export const BTC_SUCCESS_PAYMENT_URL = `${BTC_URL}/setStateOfTransaction`;
+export const BTC_CANCEL_PAYMENT_URL = `${BTC_URL}/setStateOfTransaction`;
 
 // TODO: Later add needed bank info and everything else
+export const BANK_URL = `${BASE_URL}/bank-service/api`;
+
+export const BANK_ADD_PAYMENT_URL = `${BANK_URL}/merchant/`;
+export const BANK_CREATE_PAYMENT_URL = `${BANK_ADD_PAYMENT_URL}create`;
