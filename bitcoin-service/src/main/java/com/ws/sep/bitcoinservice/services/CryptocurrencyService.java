@@ -43,8 +43,7 @@ public class CryptocurrencyService {
 
     public  HashMap getFormForPayment() {
         HashMap<String, Field> formData = new HashMap<>();
-        formData.put("client_api_key", new Field(FieldType.STRING, "client_api_key"));
-        logger.info("Successfully returned form");
+        formData.put("apiKey", new Field(FieldType.STRING, "apiKey"));
         return formData;
    }
 
@@ -56,12 +55,6 @@ public class CryptocurrencyService {
             logger.error("User already exists. User ID: " + sellerId.toString());
             throw new FileAlreadyExistsException("Payment already exists for the user");
         }
-
-        if(sellerInfoDTO.getSellerId() == null || sellerInfoDTO.getSellerId().isEmpty()) {
-            logger.error("User id cannot be null or empty. User ID: " + sellerId);
-            throw new InvalidValueException("SellerId", "SellerId cannot be null or empty");
-        }
-
 
         if(sellerInfoDTO.getApiKey() == null || sellerInfoDTO.getApiKey().isEmpty()) {
             logger.error("SellerApiKey cannot be null or empty. User ID: " + sellerId);

@@ -72,6 +72,12 @@ public class MerchantService
             return new ResponseEntity< ApiResponse >( new ApiResponse( "Cant find bank with bank code [" + bankId + "]", false ), HttpStatus.BAD_REQUEST );
         }
 
+        if ( request.getPan().length() != 16 )
+        {
+            return new ResponseEntity< ApiResponse >( new ApiResponse( "Card number must have 16 digits!", false ), HttpStatus.BAD_REQUEST );
+
+        }
+
         BankInfo bankInfo = optionalBankInfo.get();
 
         Merchant newMerchant = new Merchant();

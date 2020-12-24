@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Popover, Badge } from 'antd';
+import { useHistory } from 'react-router-dom';
 
 import { ShoppingCartOutlined, CreditCardOutlined } from '@ant-design/icons';
 
@@ -10,7 +11,11 @@ import { responseOk } from '../utils/responseOk';
 
 import { ShopContext } from '../context/shop';
 import { PAYPAL, BITCOIN, BANK } from '../constants/paymentTypes';
-import { PAYPAL_PAYMENT_URL } from '../constants/url';
+import {
+  BTC_CREATE_PAYMENT_URL,
+  PAYPAL_PAYMENT_URL,
+  BANK_CREATE_PAYMENT_URL,
+} from '../constants/url';
 
 const Container = styled.div`
   &:hover {
@@ -76,7 +81,68 @@ const createPaymentPaypal = async ({
   return { error: true };
 };
 
+const createPaymentBtc = async ({
+  price,
+  description,
+  count,
+  currency = 'EUR',
+  id,
+}) => {
+  const authToken = localStorage.getItem('access_token');
+
+  const response = await post(
+    BTC_CREATE_PAYMENT_URL,
+    {
+      priceAmount: price * count,
+      orderId: id,
+      priceCurrency: currency,
+      receiveCurrency: 'BTC',
+      description,
+      title: description,
+      customToken: 'bla bla',
+    },
+    authToken
+  );
+
+  if (responseOk(response)) {
+    const { payment_url: paymentUrl = '' } = await response.json();
+    // open payment url
+    window.open(paymentUrl);
+    return { error: false };
+  }
+
+  return { error: true };
+};
+
+const createPaymentBank = async ({ price, count, id }, history) => {
+  const authToken = localStorage.getItem('access_token');
+
+  try {
+    const response = await post(
+      BANK_CREATE_PAYMENT_URL,
+      {
+        amount: count * price,
+        timestamp: new Date().toISOString(),
+        merchantOrderId: id,
+      },
+      authToken
+    );
+
+    if (responseOk(response)) {
+      const result = await response.json();
+      history.push('/bank/payment', result);
+      return { error: false };
+    }
+  } catch (error) {
+    console.error(error);
+  }
+
+  return { error: true };
+};
+
 const ShoppingCart = () => {
+  const history = useHistory();
+
   const { items = [], paymentTypes, updateItems } = React.useContext(
     ShopContext
   );
@@ -94,12 +160,26 @@ const ShoppingCart = () => {
     }
   };
 
+  const handleBtc = async () => {
+    const { error } = await createPaymentBtc(item);
+    if (!error) {
+      updateItems(() => []);
+    }
+  };
+
+  const handleBank = async () => {
+    const { error } = await createPaymentBank(item, history);
+    if (!error) {
+      updateItems(() => []);
+    }
+  };
+
   return (
     <Container>
       <Popover
         title={
           <Title>
-            <ShoppingCart />
+            <ShoppingCartOutlined />
             {`Cart`}
           </Title>
         }
@@ -113,12 +193,12 @@ const ShoppingCart = () => {
                 </ImgContainer>
               )}
               {types.includes(BITCOIN) && (
-                <ImgContainer>
+                <ImgContainer onClick={handleBtc}>
                   <img src="../img/btc.png" style={imgStyle} />
                 </ImgContainer>
               )}
               {types.includes(BANK) && (
-                <ImgContainer>
+                <ImgContainer onClick={handleBank}>
                   <CreditCardOutlined />
                 </ImgContainer>
               )}
