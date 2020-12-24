@@ -24,6 +24,14 @@ public class ClientController
     @Autowired
     private ClientService clientService;
 
+    @GetMapping( "/" )
+    public String get()
+    {
+        return "ok";
+
+    }
+
+
     @PostMapping( value = "/" )
     public ResponseEntity< ApiResponse > createClient( @RequestBody CreateClientRequest request )
     {

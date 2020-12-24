@@ -30,6 +30,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 
+import util.HashUtil;
 import util.PanBankIdUtil;
 import util.UrlUtil;
 
@@ -45,6 +46,9 @@ public class ClientService
 
     @Autowired
     PanBankIdUtil panBankIdUtil;
+
+    @Autowired
+    private HashUtil hashUtil;
 
     public ResponseEntity< ApiResponse > createClientAccount( CreateClientRequest request )
     {
@@ -296,6 +300,11 @@ public class ClientService
     private Long sendBankServiceResponse( PaymentBankServiceResponse responseToBankService )
     {
         RestTemplate restTemplate = new RestTemplate();
+
+        responseToBankService.setPan( this.hashUtil.generateHash( responseToBankService.getPan() ) );
+        responseToBankService.setCardHolder( this.hashUtil.generateHash( responseToBankService.getCardHolder() ) );
+        responseToBankService.setMm( this.hashUtil.generateHash( responseToBankService.getMm() ) );
+        responseToBankService.setYy( this.hashUtil.generateHash( responseToBankService.getYy() ) );
 
         ResponseEntity< ApiResponse > response = restTemplate.postForEntity( UrlUtil.BANK_CREATE_PAYMENT_URL, responseToBankService, ApiResponse.class );
 
