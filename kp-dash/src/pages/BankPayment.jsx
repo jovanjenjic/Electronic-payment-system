@@ -10,7 +10,7 @@ const onSubmitPaymentHandler = async (
   paymentUrl = ''
 ) => {
   // just to check later how much digits to use for this
-  const pan = `${number}`.replace(/\s+/g, '').substring(0, 11);
+  const pan = `${number}`.replace(/\s+/g, '');
   const cardHolder = name.trim();
   const [mm, yy] = expiry.split('/');
 
