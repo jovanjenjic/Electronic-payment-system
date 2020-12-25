@@ -48,16 +48,14 @@ public class PccService
         paymentRequest.setAcquirerTimestamp( request.getAcquirerTimestamp() );
         paymentRequest.setAmount( request.getAmount() );
         paymentRequest.setCardHolder( request.getCardHolder() );
-        paymentRequest.setCvv( request.getCvv() );
-        // paymentRequest.setIssuerOrderId();
-        // paymentRequest.setIssuerTimestamp(issuerTimestamp);
-        paymentRequest.setMm( request.getMm() );
-        paymentRequest.setPan( request.getPan() );
-        paymentRequest.setYy( request.getYy() );
+        paymentRequest.setCvv( EncryptDecrypt.encryptString( request.getCvv() ) );
+        paymentRequest.setMm( EncryptDecrypt.encryptString( request.getMm() ) );
+        paymentRequest.setPan( EncryptDecrypt.encryptString( request.getPan() ) );
+        paymentRequest.setYy( EncryptDecrypt.encryptString( request.getYy() ) );
 
         this.iPaymentRequestRepository.save( paymentRequest );
 
-        String pan = EncryptDecrypt.decrypt( request.getPan() );
+        String pan = request.getPan();
 
         String bankId = this.panBankIdUtil.getBankId( pan );
 

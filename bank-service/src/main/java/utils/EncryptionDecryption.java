@@ -75,52 +75,64 @@ public class EncryptionDecryption
     }
 
 
-    public static String encryptString( String input ) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException,
-            InvalidKeyException, BadPaddingException, IllegalBlockSizeException
+    public static String encryptString( String input )
     {
-        SecretKey generateKey = EncryptionDecryption.generateKey( NUMBER );
-        IvParameterSpec generateIv = EncryptionDecryption.generateIv();
+        try
+        {
 
-        String encrypt = EncryptionDecryption.encrypt( EncryptionDecryption.algorithm, input, generateKey, generateIv );
+            SecretKey generateKey = EncryptionDecryption.generateKey( NUMBER );
+            IvParameterSpec generateIv = EncryptionDecryption.generateIv();
 
-        String IvParameterSpecsString = Base64.getEncoder().encodeToString( generateIv.getIV() );
-        String keyString = Base64.getEncoder().encodeToString( generateKey.getEncoded() );
+            String encrypt = EncryptionDecryption.encrypt( EncryptionDecryption.algorithm, input, generateKey, generateIv );
 
-        
-        // 24 44 ostalo
+            String IvParameterSpecsString = Base64.getEncoder().encodeToString( generateIv.getIV() );
+            String keyString = Base64.getEncoder().encodeToString( generateKey.getEncoded() );
 
-        String encryptedValue = IvParameterSpecsString + keyString + encrypt;
+            String encryptedValue = IvParameterSpecsString + keyString + encrypt;
 
-        System.err.println( "encrypted " + encrypt );
-        System.err.println( "iv " + IvParameterSpecsString );
-        System.err.println( "key " + keyString );
-        System.err.println( "whole " + encryptedValue );
+            System.err.println( "encrypted " + encrypt );
+            System.err.println( "iv " + IvParameterSpecsString );
+            System.err.println( "key " + keyString );
+            System.err.println( "whole " + encryptedValue );
 
-        return encryptedValue;
+            return encryptedValue;
+        }
+        catch ( Exception e )
+        {
+            return null;
+        }
 
     }
 
 
-    public static String decryptString( String input ) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException,
-            InvalidKeyException, BadPaddingException, IllegalBlockSizeException
+    public static String decryptString( String input )
     {
-        String ivParameterString = input.substring( 0, 24 );
-        String keyString = input.substring( 24, 68 );
-        String value = input.substring( 68 );
+        try
+        {
 
-        System.err.println( "iv " + ivParameterString );
-        System.err.println( "key " + keyString );
-        System.err.println( "value " + value );
-        System.err.println( "input " + input );
+            String ivParameterString = input.substring( 0, 24 );
+            String keyString = input.substring( 24, 68 );
+            String value = input.substring( 68 );
 
-        byte[] decodedKey = Base64.getDecoder().decode( keyString );
-        byte[] decodedIvParStr = Base64.getDecoder().decode( ivParameterString );
-        SecretKey originalKey = new SecretKeySpec( decodedKey, 0, decodedKey.length, "AES" );
-        IvParameterSpec ivParameters = EncryptionDecryption.generateIv( decodedIvParStr );
+            System.err.println( "iv " + ivParameterString );
+            System.err.println( "key " + keyString );
+            System.err.println( "value " + value );
+            System.err.println( "input " + input );
 
-        String decrypt = EncryptionDecryption.decrypt( EncryptionDecryption.algorithm, value, originalKey, ivParameters );
+            byte[] decodedKey = Base64.getDecoder().decode( keyString );
+            byte[] decodedIvParStr = Base64.getDecoder().decode( ivParameterString );
+            SecretKey originalKey = new SecretKeySpec( decodedKey, 0, decodedKey.length, "AES" );
+            IvParameterSpec ivParameters = EncryptionDecryption.generateIv( decodedIvParStr );
 
-        return decrypt;
+            String decrypt = EncryptionDecryption.decrypt( EncryptionDecryption.algorithm, value, originalKey, ivParameters );
+
+            return decrypt;
+
+        }
+        catch ( Exception e )
+        {
+            return null;
+        }
 
     }
 

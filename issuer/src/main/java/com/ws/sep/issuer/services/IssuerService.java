@@ -18,6 +18,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+
+import util.EncryptDecrypt;
+
 @Service
 public class IssuerService
 {
@@ -43,7 +46,7 @@ public class IssuerService
         transaction.setStatus( TransactionStatus.CREATED );
 
         Transaction save = this.iTransactionRepository.save( transaction );
-        Optional< Client > optionalClient = this.iClientRepository.findByPan( request.getPan() );
+        Optional< Client > optionalClient = this.iClientRepository.findByCardHolder( request.getCardHolder() );
 
         if ( !optionalClient.isPresent() )
         {
@@ -54,8 +57,12 @@ public class IssuerService
 
         Client client = optionalClient.get();
 
-        if ( !client.getCardHolder().equals( request.getCardHolder() ) || !client.getCvv().equals( request.getCvv() )
-                || !client.getMm().equals( request.getMm() ) || !client.getYy().equals( request.getYy() ) )
+        String cvv = EncryptDecrypt.decryptString( client.getCvv() );
+        String mm = EncryptDecrypt.decryptString( client.getMm() );
+        String yy = EncryptDecrypt.decryptString( client.getYy() );
+        String pan = EncryptDecrypt.decryptString( client.getPan() );
+
+        if ( !pan.equals( request.getPan() ) || !cvv.equals( request.getCvv() ) || !mm.equals( request.getMm() ) || !yy.equals( request.getYy() ) )
         {
             save.setStatus( TransactionStatus.ERROR );
             this.iTransactionRepository.save( save );

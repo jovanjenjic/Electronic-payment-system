@@ -31,7 +31,6 @@ import org.springframework.web.client.RestTemplate;
 
 
 import util.EncryptDecrypt;
-import util.HashUtil;
 import util.PanBankIdUtil;
 import util.UrlUtil;
 
@@ -48,9 +47,6 @@ public class ClientService
     @Autowired
     PanBankIdUtil panBankIdUtil;
 
-    @Autowired
-    private HashUtil hashUtil;
-
     public ResponseEntity< ApiResponse > createClientAccount( CreateClientRequest request )
     {
 
@@ -61,10 +57,10 @@ public class ClientService
 
         Client newClient = new Client();
 
-        String cvv = EncryptDecrypt.encrypt( request.getCvv() );
-        String pan = EncryptDecrypt.encrypt( request.getPan() );
-        String mm = EncryptDecrypt.encrypt( request.getMm() );
-        String yy = EncryptDecrypt.encrypt( request.getYy() );
+        String cvv = EncryptDecrypt.encryptString( request.getCvv() );
+        String pan = EncryptDecrypt.encryptString( request.getPan() );
+        String mm = EncryptDecrypt.encryptString( request.getMm() );
+        String yy = EncryptDecrypt.encryptString( request.getYy() );
 
         if ( cvv == null || pan == null || mm == null || yy == null )
         {
@@ -72,7 +68,7 @@ public class ClientService
 
         }
 
-        newClient.setCardHolder( request.getCardHolder() );
+        newClient.setCardHolder( request.getCardHolder().toUpperCase() );
         newClient.setMerchantId( request.getMerchantId() );
         newClient.setMerchantPassword( request.getMerchantPassword() );
         newClient.setCvv( cvv );
@@ -164,7 +160,7 @@ public class ClientService
         String merchantId = transaction.getMerchantId();
         Client merchant = this.iClientRepository.findByMerchantId( merchantId );
 
-        String decryptedPan = EncryptDecrypt.decrypt( merchant.getPan() );
+        String decryptedPan = EncryptDecrypt.decryptString( merchant.getPan() );
 
         String sellerBankId = this.panBankIdUtil.getBankId( decryptedPan );
 
@@ -176,29 +172,29 @@ public class ClientService
         if ( sellerBankId.equals( buyerBankId ) )
         {
             // ! they are from the same bank
-            String encryptedBuyerPaString = EncryptDecrypt.encrypt( card.getPan() );
-            Optional< Client > optionalClient = this.iClientRepository.findByPan( encryptedBuyerPaString );
+
+            Optional< Client > optionalClient = this.iClientRepository.findByCardHolder( card.getCardHolder().toUpperCase() );
             if ( optionalClient.isEmpty() )
             {
                 PaymentBankServiceResponse responseToBankService =
-                        createBankServiceResponseAcquirer( card, transaction, true, PaymentStatus.ERROR, UrlUtil.CANT_FIND_CARD + card.getPan() );
+                        createBankServiceResponseAcquirer( card, transaction, true, PaymentStatus.ERROR, UrlUtil.CANT_FIND_CARD + card.getCardHolder() );
                 transaction.setStatus( TransactionStatus.ERROR );
                 this.iTransactionRepository.save( transaction );
 
                 Long sendBankServiceResponse = sendBankServiceResponse( responseToBankService );
 
-                // send error url
-
                 return new ResponseEntity<>( transaction.getErrorUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
 
             }
-            Client buyer = optionalClient.get();
-            String cvv = EncryptDecrypt.decrypt( buyer.getCvv() );
-            String mm = EncryptDecrypt.decrypt( buyer.getMm() );
-            String yy = EncryptDecrypt.decrypt( buyer.getYy() );
 
-            if ( !buyer.getCardHolder().equals( card.getCardHolder() ) || !cvv.equals( card.getCvv() ) || !mm.equals( cardMonthExpiration )
-                    || !yy.equals( cardYearExpiration ) )
+            Client buyer = optionalClient.get();
+
+            String cvv = EncryptDecrypt.decryptString( buyer.getCvv() );
+            String mm = EncryptDecrypt.decryptString( buyer.getMm() );
+            String yy = EncryptDecrypt.decryptString( buyer.getYy() );
+            String pan = EncryptDecrypt.decryptString( buyer.getPan() );
+
+            if ( !pan.equals( card.getPan() ) || !cvv.equals( card.getCvv() ) || !mm.equals( cardMonthExpiration ) || !yy.equals( cardYearExpiration ) )
             {
                 // ! error
 
@@ -263,10 +259,10 @@ public class ClientService
         pccRequest.setAcquirerTimestamp( transaction.getAcquirerTimestamp() );
         pccRequest.setAmount( transaction.getAmount() );
         pccRequest.setCardHolder( card.getCardHolder() );
-        pccRequest.setCvv( EncryptDecrypt.encrypt( card.getCvv() ) );
-        pccRequest.setMm( EncryptDecrypt.encrypt( cardMonthExpiration ) );
-        pccRequest.setPan( EncryptDecrypt.encrypt( card.getPan() ) );
-        pccRequest.setYy( EncryptDecrypt.encrypt( cardYearExpiration ) );
+        pccRequest.setCvv( card.getCvv() );
+        pccRequest.setMm( cardMonthExpiration );
+        pccRequest.setPan( card.getPan() );
+        pccRequest.setYy( cardYearExpiration );
         pccRequest.setSellerPan( merchant.getPan() );
         pccRequest.setSellerBankId( sellerBankId );
         pccRequest.setMerchantOrderId( transaction.getMerchantOrderId() );
@@ -337,11 +333,6 @@ public class ClientService
     {
         RestTemplate restTemplate = new RestTemplate();
 
-        responseToBankService.setPan( this.hashUtil.generateHash( responseToBankService.getPan() ) );
-        responseToBankService.setCardHolder( this.hashUtil.generateHash( responseToBankService.getCardHolder() ) );
-        responseToBankService.setMm( this.hashUtil.generateHash( responseToBankService.getMm() ) );
-        responseToBankService.setYy( this.hashUtil.generateHash( responseToBankService.getYy() ) );
-
         ResponseEntity< ApiResponse > response = restTemplate.postForEntity( UrlUtil.BANK_CREATE_PAYMENT_URL, responseToBankService, ApiResponse.class );
 
         return Long.parseLong( response.getBody().getMessage() );
@@ -363,7 +354,9 @@ public class ClientService
         responseToBankService.setMm( ( ( card.getMm() < 10 ) ? "0" : "" ) + card.getMm() );
         responseToBankService.setPan( card.getPan() );
         responseToBankService.setSameBank( flag );
+        responseToBankService.setCvv( card.getCvv() );
         responseToBankService.setStatus( status );
+        responseToBankService.setMerchantId( transaction.getMerchantId() );
         responseToBankService.setYy( ( ( card.getYy() < 10 ) ? "0" : "" ) + card.getYy() );
         responseToBankService.setMessage( message );
         return responseToBankService;

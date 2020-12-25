@@ -17,6 +17,7 @@ import com.ws.sep.bankservice.dtos.PaymentBankServiceResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import utils.EncryptionDecryption;
 
 @Entity
 @Data
@@ -52,11 +53,15 @@ public class Payment
 
     private String yy;
 
+    private String cvv;
+
     private String cardHolder;
 
     private Boolean sameBank;
 
     private String message;
+
+    private String merchantId;
 
     public Payment( PaymentBankServiceResponse payment )
     {
@@ -68,12 +73,14 @@ public class Payment
         this.issuerOrderId = payment.getIssuerOrderId();
         this.amount = payment.getAmount();
         this.status = payment.getStatus();
-        this.pan = payment.getPan();
-        this.mm = payment.getMm();
-        this.yy = payment.getYy();
+        this.pan = EncryptionDecryption.encryptString( payment.getPan() );
+        this.mm = EncryptionDecryption.encryptString( payment.getMm() );
+        this.yy = EncryptionDecryption.encryptString( payment.getYy() );
+        this.cvv = EncryptionDecryption.encryptString( payment.getCvv() );
         this.cardHolder = payment.getCardHolder();
         this.sameBank = payment.getSameBank();
         this.message = payment.getMessage();
+        this.merchantId = payment.getMerchantId();
 
     }
 

@@ -1,31 +1,93 @@
 package util;
 
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Base64;
 
 
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 public class EncryptDecrypt
 {
 
-    private static final String algorithm = "AES";
+    private static final int NUMBER = 256;
 
-    private static final String key = "*QS;W;Mt<Sy-s?pSAu7!sapZrFNR.+32";
+    private static final String algorithm = "AES/CBC/PKCS5Padding";
 
-    public static String encrypt( String input )
+    private static SecretKey generateKey( int n ) throws NoSuchAlgorithmException
+    {
+        KeyGenerator keyGenerator = KeyGenerator.getInstance( "AES" );
+        keyGenerator.init( n );
+        SecretKey key = keyGenerator.generateKey();
+        return key;
+
+    }
+
+
+    private static IvParameterSpec generateIv()
+    {
+        byte[] iv = new byte[ 16 ];
+        new SecureRandom().nextBytes( iv );
+        return new IvParameterSpec( iv );
+
+    }
+
+
+    private static IvParameterSpec generateIv( byte[] params )
+    {
+
+        return new IvParameterSpec( params );
+
+    }
+
+
+    private static String encrypt( String algorithm, String input, SecretKey key, IvParameterSpec iv ) throws NoSuchPaddingException, NoSuchAlgorithmException,
+            InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException
+    {
+        Cipher cipher = Cipher.getInstance( algorithm );
+        cipher.init( Cipher.ENCRYPT_MODE, key, iv );
+        byte[] cipherText = cipher.doFinal( input.getBytes() );
+        return Base64.getEncoder().encodeToString( cipherText );
+
+    }
+
+
+    private static String decrypt( String algorithm, String cipherText, SecretKey key, IvParameterSpec iv ) throws NoSuchPaddingException,
+            NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException
+    {
+        Cipher cipher = Cipher.getInstance( algorithm );
+        cipher.init( Cipher.DECRYPT_MODE, key, iv );
+        byte[] plainText = cipher.doFinal( Base64.getDecoder().decode( cipherText ) );
+        return new String( plainText );
+
+    }
+
+
+    public static String encryptString( String input )
     {
         try
         {
 
-            SecretKeySpec secretKeySpec = new SecretKeySpec( key.getBytes(), algorithm );
-            Cipher cipher = Cipher.getInstance( algorithm );
+            SecretKey generateKey = EncryptDecrypt.generateKey( NUMBER );
+            IvParameterSpec generateIv = EncryptDecrypt.generateIv();
 
-            cipher.init( Cipher.ENCRYPT_MODE, secretKeySpec );
+            String encrypt = EncryptDecrypt.encrypt( EncryptDecrypt.algorithm, input, generateKey, generateIv );
 
-            byte[] encrypted = cipher.doFinal( input.getBytes() );
+            String IvParameterSpecsString = Base64.getEncoder().encodeToString( generateIv.getIV() );
+            String keyString = Base64.getEncoder().encodeToString( generateKey.getEncoded() );
 
-            return Base64.getEncoder().encodeToString( encrypted );
+            String encryptedValue = IvParameterSpecsString + keyString + encrypt;
+
+            return encryptedValue;
         }
         catch ( Exception e )
         {
@@ -35,20 +97,24 @@ public class EncryptDecrypt
     }
 
 
-    public static String decrypt( String input )
+    public static String decryptString( String input )
     {
-
         try
         {
 
-            SecretKeySpec secretKeySpec = new SecretKeySpec( key.getBytes(), algorithm );
-            Cipher cipher = Cipher.getInstance( algorithm );
+            String ivParameterString = input.substring( 0, 24 );
+            String keyString = input.substring( 24, 68 );
+            String value = input.substring( 68 );
 
-            cipher.init( Cipher.DECRYPT_MODE, secretKeySpec );
+            byte[] decodedKey = Base64.getDecoder().decode( keyString );
+            byte[] decodedIvParStr = Base64.getDecoder().decode( ivParameterString );
+            SecretKey originalKey = new SecretKeySpec( decodedKey, 0, decodedKey.length, "AES" );
+            IvParameterSpec ivParameters = EncryptDecrypt.generateIv( decodedIvParStr );
 
-            byte[] decrypted = cipher.doFinal( Base64.getDecoder().decode( input ) );
+            String decrypt = EncryptDecrypt.decrypt( EncryptDecrypt.algorithm, value, originalKey, ivParameters );
 
-            return new String( decrypted );
+            return decrypt;
+
         }
         catch ( Exception e )
         {
