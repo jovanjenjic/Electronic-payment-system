@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 
 
-import com.ws.sep.seller.controllers.PaymentController;
 import com.ws.sep.seller.models.Role;
 import com.ws.sep.seller.models.RoleName;
 import com.ws.sep.seller.models.Seller;
@@ -49,9 +48,10 @@ public class AuthService
     @Autowired
     private JwtTokenProvider provider;
 
-    Logger logger = LoggerFactory.getLogger(AuthService.class);
+    Logger logger = LoggerFactory.getLogger( AuthService.class );
 
-    public ResponseEntity< JwtResponse > authenticateUser( @RequestBody LoginRequest loginRequest ) {
+    public ResponseEntity< JwtResponse > authenticateUser( @RequestBody LoginRequest loginRequest )
+    {
         Authentication authentication =
                 authenticationManager.authenticate( new UsernamePasswordAuthenticationToken( loginRequest.getEmail(), loginRequest.getPassword() ) );
 
@@ -59,24 +59,25 @@ public class AuthService
 
         String jwt = provider.generateToken( authentication );
 
-        logger.info("Logged in to the system.");
+        logger.info( "Logged in to the system." );
         return ResponseEntity.ok( new JwtResponse( jwt ) );
+
     }
 
 
-    public ResponseEntity< ApiResponse > registerUser(@RequestBody SignUpRequest signUpRequest ) throws Exception
+    public ResponseEntity< ApiResponse > registerUser( @RequestBody SignUpRequest signUpRequest ) throws Exception
     {
         if ( this.iSellerRepository.existsByEmail( signUpRequest.getEmail() ) )
         {
             // TODO: logger
-            logger.warn("Register : Email is already in use.");
+            logger.warn( "Register : Email is already in use." );
             return new ResponseEntity< ApiResponse >( new ApiResponse( "email is already in use", false ), HttpStatus.BAD_REQUEST );
         }
 
         if ( this.iSellerRepository.existsByPib( signUpRequest.getPib() ) )
         {
             // TODO: logger
-            logger.warn("Register : PIB is already in use.");
+            logger.warn( "Register : PIB is already in use." );
             return new ResponseEntity< ApiResponse >( new ApiResponse( "pib is already in use", false ), HttpStatus.BAD_REQUEST );
         }
 
@@ -91,14 +92,15 @@ public class AuthService
 
         seller.setRoles( Collections.singleton( userRole ) );
 
-        Seller save = iSellerRepository.save( seller );
+        iSellerRepository.save( seller );
 
         ResponseEntity< JwtResponse > authenticateUser = this.authenticateUser( new LoginRequest( signUpRequest.getEmail(), signUpRequest.getPassword() ) );
 
         JwtResponse body = authenticateUser.getBody();
 
-        logger.info("Register : Successful registration in the system.");
+        logger.info( "Register : Successful registration in the system." );
         return new ResponseEntity< ApiResponse >( new ApiResponse( body.getAccessToken(), true ), HttpStatus.CREATED );
+
     }
 
 }

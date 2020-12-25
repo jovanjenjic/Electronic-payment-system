@@ -180,7 +180,8 @@ public class ClientService
             Optional< Client > optionalClient = this.iClientRepository.findByPan( encryptedBuyerPaString );
             if ( optionalClient.isEmpty() )
             {
-                PaymentBankServiceResponse responseToBankService = createBankServiceResponseAcquirer( card, transaction, true, PaymentStatus.ERROR );
+                PaymentBankServiceResponse responseToBankService =
+                        createBankServiceResponseAcquirer( card, transaction, true, PaymentStatus.ERROR, UrlUtil.CANT_FIND_CARD + card.getPan() );
                 transaction.setStatus( TransactionStatus.ERROR );
                 this.iTransactionRepository.save( transaction );
 
@@ -201,7 +202,8 @@ public class ClientService
             {
                 // ! error
 
-                PaymentBankServiceResponse responseToBankService = createBankServiceResponseAcquirer( card, transaction, true, PaymentStatus.ERROR );
+                PaymentBankServiceResponse responseToBankService =
+                        createBankServiceResponseAcquirer( card, transaction, true, PaymentStatus.ERROR, UrlUtil.CREDIT_CARD_NOT_AUTHENTICATED );
                 transaction.setStatus( TransactionStatus.ERROR );
                 this.iTransactionRepository.save( transaction );
 
@@ -219,7 +221,8 @@ public class ClientService
                 if ( buyer.getAvailableFounds() < transaction.getAmount() )
                 {
                     // ! not enough funds
-                    PaymentBankServiceResponse responseToBankService = createBankServiceResponseAcquirer( card, transaction, true, PaymentStatus.FAILURE );
+                    PaymentBankServiceResponse responseToBankService =
+                            createBankServiceResponseAcquirer( card, transaction, true, PaymentStatus.FAILURE, UrlUtil.NO_FUNDS );
 
                     transaction.setStatus( TransactionStatus.FAILED );
                     this.iTransactionRepository.save( transaction );
@@ -239,7 +242,8 @@ public class ClientService
                     transaction.setStatus( TransactionStatus.SUCCESS );
                     this.iTransactionRepository.save( transaction );
 
-                    PaymentBankServiceResponse responseToBankService = createBankServiceResponseAcquirer( card, transaction, true, PaymentStatus.SUCCESS );
+                    PaymentBankServiceResponse responseToBankService =
+                            createBankServiceResponseAcquirer( card, transaction, true, PaymentStatus.SUCCESS, UrlUtil.SUCCESS );
 
                     Long sendBankServiceResponse = sendBankServiceResponse( responseToBankService );
 
@@ -282,8 +286,8 @@ public class ClientService
             transaction.setStatus( TransactionStatus.ERROR );
             this.iTransactionRepository.save( transaction );
 
-            PaymentBankServiceResponse createBankServiceResponseIssuer =
-                    createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.ERROR, body.getIssuerOrderId(), body.getIssuerTimestamp() );
+            PaymentBankServiceResponse createBankServiceResponseIssuer = createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.ERROR,
+                    body.getIssuerOrderId(), body.getIssuerTimestamp(), UrlUtil.CANT_FIND_CARD );
             sendBankServiceResponse( createBankServiceResponseIssuer );
 
             return new ResponseEntity<>( "Pcc cant find bank", HttpStatus.BAD_REQUEST );
@@ -295,8 +299,8 @@ public class ClientService
             transaction.setStatus( TransactionStatus.SUCCESS );
             this.iTransactionRepository.save( transaction );
 
-            PaymentBankServiceResponse createBankServiceResponseIssuer =
-                    createBankServiceResponseIssuer( card, transaction, true, PaymentStatus.SUCCESS, body.getIssuerOrderId(), body.getIssuerTimestamp() );
+            PaymentBankServiceResponse createBankServiceResponseIssuer = createBankServiceResponseIssuer( card, transaction, true, PaymentStatus.SUCCESS,
+                    body.getIssuerOrderId(), body.getIssuerTimestamp(), UrlUtil.SUCCESS );
             Long sendBankServiceResponse = sendBankServiceResponse( createBankServiceResponseIssuer );
 
             merchant.setAvailableFounds( merchant.getAvailableFounds() + transaction.getAmount() );
@@ -312,8 +316,8 @@ public class ClientService
             transaction.setStatus( TransactionStatus.ERROR );
             this.iTransactionRepository.save( transaction );
 
-            PaymentBankServiceResponse createBankServiceResponseIssuer =
-                    createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.ERROR, body.getIssuerOrderId(), body.getIssuerTimestamp() );
+            PaymentBankServiceResponse createBankServiceResponseIssuer = createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.ERROR,
+                    body.getIssuerOrderId(), body.getIssuerTimestamp(), UrlUtil.CREDIT_CARD_NOT_AUTHENTICATED );
             Long sendBankServiceResponse = sendBankServiceResponse( createBankServiceResponseIssuer );
             return new ResponseEntity<>( transaction.getErrorUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
         }
@@ -321,8 +325,8 @@ public class ClientService
         transaction.setStatus( TransactionStatus.FAILED );
         this.iTransactionRepository.save( transaction );
 
-        PaymentBankServiceResponse createBankServiceResponseIssuer =
-                createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.FAILURE, body.getIssuerOrderId(), body.getIssuerTimestamp() );
+        PaymentBankServiceResponse createBankServiceResponseIssuer = createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.FAILURE,
+                body.getIssuerOrderId(), body.getIssuerTimestamp(), UrlUtil.NO_FUNDS );
         Long sendBankServiceResponse = sendBankServiceResponse( createBankServiceResponseIssuer );
         return new ResponseEntity<>( transaction.getFailedUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
 
@@ -345,7 +349,8 @@ public class ClientService
     }
 
 
-    private PaymentBankServiceResponse createBankServiceResponseAcquirer( CreditCardInfo card, Transaction transaction, Boolean flag, PaymentStatus status )
+    private PaymentBankServiceResponse createBankServiceResponseAcquirer( CreditCardInfo card, Transaction transaction, Boolean flag, PaymentStatus status,
+            String message )
     {
         PaymentBankServiceResponse responseToBankService = new PaymentBankServiceResponse();
 
@@ -360,15 +365,16 @@ public class ClientService
         responseToBankService.setSameBank( flag );
         responseToBankService.setStatus( status );
         responseToBankService.setYy( ( ( card.getYy() < 10 ) ? "0" : "" ) + card.getYy() );
+        responseToBankService.setMessage( message );
         return responseToBankService;
 
     }
 
 
     private PaymentBankServiceResponse createBankServiceResponseIssuer( CreditCardInfo card, Transaction transaction, Boolean flag, PaymentStatus status,
-            Long id, Date timestamp )
+            Long id, Date timestamp, String message )
     {
-        PaymentBankServiceResponse createBankServiceResponseAcquirer = createBankServiceResponseAcquirer( card, transaction, flag, status );
+        PaymentBankServiceResponse createBankServiceResponseAcquirer = createBankServiceResponseAcquirer( card, transaction, flag, status, message );
 
         createBankServiceResponseAcquirer.setIssuerOrderId( id );
         createBankServiceResponseAcquirer.setIssuerTimestamp( timestamp );

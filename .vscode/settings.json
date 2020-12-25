@@ -1,6 +1,6 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
-    "window.zoomLevel": -0.5,
+    "window.zoomLevel": -1,
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#fb07e9",
         "activityBar.activeBorder": "#575e02",
