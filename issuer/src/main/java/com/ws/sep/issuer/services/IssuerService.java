@@ -43,7 +43,6 @@ public class IssuerService
         transaction.setStatus( TransactionStatus.CREATED );
 
         Transaction save = this.iTransactionRepository.save( transaction );
-
         Optional< Client > optionalClient = this.iClientRepository.findByPan( request.getPan() );
 
         if ( !optionalClient.isPresent() )

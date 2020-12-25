@@ -56,6 +56,8 @@ public class Payment
 
     private Boolean sameBank;
 
+    private String message;
+
     public Payment( PaymentBankServiceResponse payment )
     {
         this.merchantTimestamp = payment.getMerchantTimestamp();
@@ -71,6 +73,7 @@ public class Payment
         this.yy = payment.getYy();
         this.cardHolder = payment.getCardHolder();
         this.sameBank = payment.getSameBank();
+        this.message = payment.getMessage();
 
     }
 

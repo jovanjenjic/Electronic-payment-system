@@ -42,4 +42,6 @@ public class PaymentBankServiceResponse
 
     private Boolean sameBank;
 
+    private String message;
+
 }

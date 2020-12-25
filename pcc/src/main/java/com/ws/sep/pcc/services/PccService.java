@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 
+import util.EncryptDecrypt;
 import util.PanBankIdUtil;
 
 @Service
@@ -40,7 +41,6 @@ public class PccService
 
     public ResponseEntity< IssuerResponse > forwardRequest( AcquireRequest request )
     {
-        // TODO save request
 
         PaymentRequest paymentRequest = new PaymentRequest();
 
@@ -57,7 +57,7 @@ public class PccService
 
         this.iPaymentRequestRepository.save( paymentRequest );
 
-        String pan = request.getPan();
+        String pan = EncryptDecrypt.decrypt( request.getPan() );
 
         String bankId = this.panBankIdUtil.getBankId( pan );
 
