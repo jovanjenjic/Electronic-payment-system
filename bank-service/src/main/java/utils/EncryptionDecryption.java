@@ -90,15 +90,12 @@ public class EncryptionDecryption
 
             String encryptedValue = IvParameterSpecsString + keyString + encrypt;
 
-            System.err.println( "encrypted " + encrypt );
-            System.err.println( "iv " + IvParameterSpecsString );
-            System.err.println( "key " + keyString );
-            System.err.println( "whole " + encryptedValue );
-
             return encryptedValue;
         }
         catch ( Exception e )
         {
+            // TODO: log
+
             return null;
         }
 
@@ -114,11 +111,6 @@ public class EncryptionDecryption
             String keyString = input.substring( 24, 68 );
             String value = input.substring( 68 );
 
-            System.err.println( "iv " + ivParameterString );
-            System.err.println( "key " + keyString );
-            System.err.println( "value " + value );
-            System.err.println( "input " + input );
-
             byte[] decodedKey = Base64.getDecoder().decode( keyString );
             byte[] decodedIvParStr = Base64.getDecoder().decode( ivParameterString );
             SecretKey originalKey = new SecretKeySpec( decodedKey, 0, decodedKey.length, "AES" );
@@ -131,6 +123,8 @@ public class EncryptionDecryption
         }
         catch ( Exception e )
         {
+            // TODO: log
+
             return null;
         }
 

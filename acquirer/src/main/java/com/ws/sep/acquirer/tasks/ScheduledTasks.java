@@ -15,7 +15,6 @@ import com.ws.sep.acquirer.repositories.ITransactionRepository;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -30,7 +29,7 @@ public class ScheduledTasks
     @Autowired
     private ITransactionRepository iTransactionRepository;
 
-    @Scheduled( fixedDelay = 60 * 1000 )
+    @Scheduled( fixedDelay = 60 * 60 * 1000 )
     public void updateTransactions()
     {
 
@@ -63,8 +62,7 @@ public class ScheduledTasks
 
         RestTemplate restTemplate = new RestTemplate();
 
-        ResponseEntity< ApiResponse > postForEntity = restTemplate.postForEntity( UrlUtil.BANK_CREATE_PAYMENT_URL, responseToBankService, ApiResponse.class );
-        System.err.println( postForEntity );
+        restTemplate.postForEntity( UrlUtil.BANK_CREATE_PAYMENT_URL, responseToBankService, ApiResponse.class );
 
     }
 

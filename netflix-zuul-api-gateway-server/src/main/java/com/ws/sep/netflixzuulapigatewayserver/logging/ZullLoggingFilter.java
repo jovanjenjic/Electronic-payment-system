@@ -60,7 +60,6 @@ public class ZullLoggingFilter extends ZuulFilter
         catch ( Exception e )
         {
             // if(e instanceof )
-            System.err.println( e );
             if ( e instanceof HttpClientErrorException )
             {
 

@@ -76,6 +76,7 @@ public class EncryptDecrypt
     {
         try
         {
+            // TODO: log starting encrypting
 
             SecretKey generateKey = EncryptDecrypt.generateKey( NUMBER );
             IvParameterSpec generateIv = EncryptDecrypt.generateIv();
@@ -91,6 +92,8 @@ public class EncryptDecrypt
         }
         catch ( Exception e )
         {
+            // TODO: log error
+
             return null;
         }
 
@@ -101,6 +104,7 @@ public class EncryptDecrypt
     {
         try
         {
+            // TODO: log starting decrypting
 
             String ivParameterString = input.substring( 0, 24 );
             String keyString = input.substring( 24, 68 );
@@ -118,6 +122,8 @@ public class EncryptDecrypt
         }
         catch ( Exception e )
         {
+            // TODO: log error
+
             return null;
         }
 

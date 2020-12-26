@@ -13,7 +13,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 
-import util.EncryptDecrypt;
 import util.HashUtil;
 import util.PanBankIdUtil;
 
@@ -28,16 +27,6 @@ public class AcquirerApplication
 	public static void main( String[] args )
 	{
 		SpringApplication.run( AcquirerApplication.class, args );
-
-		String[] text =
-		{ "1111117777777777", "Pera Peric", "12", "22", "123", "2222225555555555", "Misa Misic", "12", "22", "123", "9999994444444444", "Joca Jocic", "12",
-				"22", "123", "8888883333333333", "Mika Mikic", "12", "22", "123" };
-
-		for ( String s : text )
-		{
-			System.err.println( s );
-			System.err.println( EncryptDecrypt.encryptString( s ) );
-		}
 
 	}
 

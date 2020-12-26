@@ -91,6 +91,8 @@ public class EncryptDecrypt
         }
         catch ( Exception e )
         {
+            // TODO: log
+
             return null;
         }
 
@@ -118,6 +120,8 @@ public class EncryptDecrypt
         }
         catch ( Exception e )
         {
+            // TODO: log
+
             return null;
         }
 
