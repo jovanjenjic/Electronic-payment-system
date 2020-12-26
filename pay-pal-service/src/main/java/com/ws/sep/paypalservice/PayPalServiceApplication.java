@@ -9,7 +9,6 @@ import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -22,7 +21,6 @@ import utils.JwtUtil;
 
 import java.io.InputStream;
 import java.security.KeyStore;
-import java.security.NoSuchAlgorithmException;
 
 @SpringBootApplication
 @EnableFeignClients( "com.ws.sep.paypalservice" )
@@ -38,7 +36,7 @@ public class PayPalServiceApplication
 	}
 
 	@Bean
-	public DiscoveryClient.DiscoveryClientOptionalArgs discoveryClientOptionalArgs() throws NoSuchAlgorithmException {
+	public DiscoveryClient.DiscoveryClientOptionalArgs discoveryClientOptionalArgs() {
 		DiscoveryClient.DiscoveryClientOptionalArgs args = new DiscoveryClient.DiscoveryClientOptionalArgs();
 		System.setProperty("javax.net.ssl.keyStore", "src/main/resources/keystore.jks");
 		System.setProperty("javax.net.ssl.keyStorePassword", "password");
