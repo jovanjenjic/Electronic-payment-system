@@ -19,4 +19,6 @@ public class BillingPlanDTO {
 
     private String name;
 
+    private Long total_months;
+
 }

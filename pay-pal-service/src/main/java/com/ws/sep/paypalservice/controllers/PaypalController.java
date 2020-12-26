@@ -94,7 +94,7 @@ public class PaypalController
     }
 
     @PostMapping(value = "/subscription/{id}/success")
-    public ResponseEntity<?> executeSubscription(@RequestBody ExecuteSubscriptionDTO executeSubscriptionDTO, @PathVariable("id") Long subscriptionId, @RequestHeader("Authorization") String token) throws PayPalRESTException {
+    public ResponseEntity<?> executeSubscription(@RequestBody ExecuteSubscriptionDTO executeSubscriptionDTO, @PathVariable("id") Long subscriptionId, @RequestHeader("Authorization") String token) {
         logger.info("INFO - /pay");
         return sellerInfoService.executeSubscription(executeSubscriptionDTO, subscriptionId, token);
     }

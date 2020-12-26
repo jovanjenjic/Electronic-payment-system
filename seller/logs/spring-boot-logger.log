@@ -1160,3 +1160,461 @@
 2020-12-25 23:13:56,853 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-7] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
 2020-12-25 23:14:09,655 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-2] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
 2020-12-25 23:17:09,279 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 15:27:34,217 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2020-12-26 15:27:35,100 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-12-26 15:27:36,132 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-26 15:27:36,297 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 155ms. Found 3 JPA repository interfaces.
+2020-12-26 15:27:36,459 WARN org.springframework.boot.actuate.endpoint.EndpointId [main] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-12-26 15:27:36,599 INFO org.springframework.cloud.context.scope.GenericScope [main] BeanFactory id=1fcd5db8-b656-3780-b378-6702082dec77
+2020-12-26 15:27:37,005 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8084 (https)
+2020-12-26 15:27:37,021 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["https-jsse-nio-8084"]
+2020-12-26 15:27:37,023 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2020-12-26 15:27:37,024 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-26 15:27:37,268 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2020-12-26 15:27:37,268 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2148 ms
+2020-12-26 15:27:37,471 WARN com.netflix.config.sources.URLConfigurationSource [main] No URLs will be polled as dynamic configuration sources.
+2020-12-26 15:27:37,472 INFO com.netflix.config.sources.URLConfigurationSource [main] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-12-26 15:27:37,486 INFO com.netflix.config.DynamicPropertyFactory [main] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@78318ac2
+2020-12-26 15:27:37,761 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-26 15:27:38,027 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-26 15:27:38,097 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-26 15:27:38,365 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2020-12-26 15:27:38,754 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2020-12-26 15:27:39,034 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-12-26 15:27:40,393 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [main] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-26 15:27:40,399 ERROR com.zaxxer.hikari.pool.HikariPool [task-1] HikariPool-1 - Exception during pool initialization.
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1224)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1255)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-12-26 15:27:40,401 WARN org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator [task-1] HHH000342: Could not obtain connection to query metadata
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1224)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1255)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-12-26 15:27:40,412 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-12-26 15:27:40,421 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@58a8ea6f, org.springframework.security.web.context.SecurityContextPersistenceFilter@3f45dfec, org.springframework.security.web.header.HeaderWriterFilter@537b3be1, org.springframework.web.filter.CorsFilter@2e6b379c, org.springframework.security.web.authentication.logout.LogoutFilter@1a139347, com.ws.sep.seller.security.JwtAuthenticationFilter@3cdfbbef, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7b52b18a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5477d90e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e7e7a7e, org.springframework.security.web.session.SessionManagementFilter@5604b85, org.springframework.security.web.access.ExceptionTranslationFilter@114b203, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6a0c7af6]
+2020-12-26 15:27:41,060 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using JSON encoding codec LegacyJacksonJson
+2020-12-26 15:27:41,060 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using JSON decoding codec LegacyJacksonJson
+2020-12-26 15:27:41,069 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-12-26 15:27:41,199 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using XML encoding codec XStreamXml
+2020-12-26 15:27:41,200 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using XML decoding codec XStreamXml
+2020-12-26 15:27:41,586 WARN com.netflix.config.sources.URLConfigurationSource [main] No URLs will be polled as dynamic configuration sources.
+2020-12-26 15:27:41,586 INFO com.netflix.config.sources.URLConfigurationSource [main] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-12-26 15:27:42,076 ERROR com.zaxxer.hikari.pool.HikariPool [task-1] HikariPool-1 - Exception during pool initialization.
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:43)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:60)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:67)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.getTables(InformationExtractorJdbcDatabaseMetaDataImpl.java:333)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:120)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:65)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:207)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:316)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-12-26 15:27:42,078 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [task-1] SQL Error: 1045, SQLState: 28000
+2020-12-26 15:27:42,079 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [task-1] Access denied for user 'root'@'localhost' (using password: YES)
+2020-12-26 15:27:42,180 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [main] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-12-26 15:27:42,261 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [main] Setting initial instance status as: STARTING
+2020-12-26 15:27:42,267 INFO com.netflix.discovery.DiscoveryClient [main] Initializing Eureka in region us-east-1
+2020-12-26 15:27:42,281 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [main] Resolving eureka endpoints via configuration
+2020-12-26 15:27:42,489 INFO com.netflix.discovery.DiscoveryClient [main] Disable delta property : false
+2020-12-26 15:27:42,490 INFO com.netflix.discovery.DiscoveryClient [main] Single vip registry refresh property : null
+2020-12-26 15:27:42,490 INFO com.netflix.discovery.DiscoveryClient [main] Force full registry fetch : false
+2020-12-26 15:27:42,490 INFO com.netflix.discovery.DiscoveryClient [main] Application is null : false
+2020-12-26 15:27:42,490 INFO com.netflix.discovery.DiscoveryClient [main] Registered Applications size is zero : true
+2020-12-26 15:27:42,490 INFO com.netflix.discovery.DiscoveryClient [main] Application version is -1: true
+2020-12-26 15:27:42,490 INFO com.netflix.discovery.DiscoveryClient [main] Getting all instance registry info from the eureka server
+2020-12-26 15:27:42,778 INFO com.netflix.discovery.DiscoveryClient [main] The response status is 200
+2020-12-26 15:27:42,781 INFO com.netflix.discovery.DiscoveryClient [main] Starting heartbeat executor: renew interval is: 30
+2020-12-26 15:27:42,784 INFO com.netflix.discovery.InstanceInfoReplicator [main] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-12-26 15:27:42,787 INFO com.netflix.discovery.DiscoveryClient [main] Discovery Client initialized at timestamp 1608992862786 with initial instances count: 1
+2020-12-26 15:27:42,789 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [main] Registering application SELLER with eureka with status UP
+2020-12-26 15:27:42,789 INFO com.netflix.discovery.DiscoveryClient$3 [main] Saw local status change event StatusChangeEvent [timestamp=1608992862789, current=UP, previous=STARTING]
+2020-12-26 15:27:42,791 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_SELLER/DESKTOP-B4MQFE7:seller:8084: registering service...
+2020-12-26 15:27:42,791 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["https-jsse-nio-8084"]
+2020-12-26 15:27:42,830 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_SELLER/DESKTOP-B4MQFE7:seller:8084 - registration status: 204
+2020-12-26 15:27:43,021 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8084 (https) with context path ''
+2020-12-26 15:27:43,022 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [main] Updating port to 8084
+2020-12-26 15:27:43,346 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-12-26 15:27:43,378 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IRoleRepository' defined in com.ws.sep.seller.repositories.IRoleRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaMappingContext' while setting bean property 'mappingContext'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+2020-12-26 15:27:43,382 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-26 15:27:43,382 WARN org.springframework.beans.factory.support.DisposableBeanAdapter [main] Invocation of destroy method failed on bean with name 'entityManagerFactory': javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+2020-12-26 15:27:43,383 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-26 15:27:43,384 INFO com.netflix.discovery.DiscoveryClient [main] Shutting down DiscoveryClient ...
+2020-12-26 15:27:46,386 INFO com.netflix.discovery.DiscoveryClient [main] Unregistering ...
+2020-12-26 15:27:46,395 INFO com.netflix.discovery.DiscoveryClient [main] DiscoveryClient_SELLER/DESKTOP-B4MQFE7:seller:8084 - deregister  status: 200
+2020-12-26 15:27:46,404 INFO com.netflix.discovery.DiscoveryClient [main] Completed shut down of DiscoveryClient
+2020-12-26 15:27:46,405 INFO org.apache.juli.logging.DirectJDKLog [main] Pausing ProtocolHandler ["https-jsse-nio-8084"]
+2020-12-26 15:27:46,591 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping service [Tomcat]
+2020-12-26 15:27:46,595 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping ProtocolHandler ["https-jsse-nio-8084"]
+2020-12-26 15:27:46,638 INFO org.apache.juli.logging.DirectJDKLog [main] Destroying ProtocolHandler ["https-jsse-nio-8084"]
+2020-12-26 15:27:46,649 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-12-26 15:27:46,655 ERROR org.springframework.boot.SpringApplication [main] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IRoleRepository' defined in com.ws.sep.seller.repositories.IRoleRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaMappingContext' while setting bean property 'mappingContext'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:342)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1697)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1442)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:624)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:612)
+	at org.springframework.data.repository.config.DeferredRepositoryInitializationListener.onApplicationEvent(DeferredRepositoryInitializationListener.java:51)
+	at org.springframework.data.repository.config.DeferredRepositoryInitializationListener.onApplicationEvent(DeferredRepositoryInitializationListener.java:36)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:404)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:361)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:898)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:554)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:405)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.ws.sep.seller.SellerApplication.main(SellerApplication.java:38)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1794)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	... 28 common frames omitted
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:403)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:47)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:69)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:60)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:67)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.getTables(InformationExtractorJdbcDatabaseMetaDataImpl.java:333)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:120)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:65)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:207)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:316)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	... 4 common frames omitted
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:43)
+	... 19 common frames omitted
+2020-12-26 15:28:30,457 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2020-12-26 15:28:30,999 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-12-26 15:28:31,559 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-26 15:28:31,627 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 64ms. Found 3 JPA repository interfaces.
+2020-12-26 15:28:31,705 WARN org.springframework.boot.actuate.endpoint.EndpointId [main] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-12-26 15:28:31,799 INFO org.springframework.cloud.context.scope.GenericScope [main] BeanFactory id=1fcd5db8-b656-3780-b378-6702082dec77
+2020-12-26 15:28:32,029 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8084 (https)
+2020-12-26 15:28:32,036 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["https-jsse-nio-8084"]
+2020-12-26 15:28:32,036 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2020-12-26 15:28:32,036 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-26 15:28:32,168 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2020-12-26 15:28:32,168 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1156 ms
+2020-12-26 15:28:32,225 WARN com.netflix.config.sources.URLConfigurationSource [main] No URLs will be polled as dynamic configuration sources.
+2020-12-26 15:28:32,225 INFO com.netflix.config.sources.URLConfigurationSource [main] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-12-26 15:28:32,232 INFO com.netflix.config.DynamicPropertyFactory [main] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@472c9f88
+2020-12-26 15:28:32,316 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-26 15:28:32,380 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-26 15:28:32,405 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-26 15:28:32,449 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2020-12-26 15:28:32,524 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2020-12-26 15:28:32,589 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-12-26 15:28:32,699 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2020-12-26 15:28:32,708 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-12-26 15:28:33,167 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [main] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-26 15:28:33,182 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4cf01c41, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a819901, org.springframework.security.web.header.HeaderWriterFilter@7a730479, org.springframework.web.filter.CorsFilter@57bac3f0, org.springframework.security.web.authentication.logout.LogoutFilter@6d9428f3, com.ws.sep.seller.security.JwtAuthenticationFilter@3386ed8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@eb91027, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b2db389, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@55f6f965, org.springframework.security.web.session.SessionManagementFilter@4ef31221, org.springframework.security.web.access.ExceptionTranslationFilter@39b85a73, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1d1c63af]
+2020-12-26 15:28:33,321 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-26 15:28:33,327 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-26 15:28:33,579 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using JSON encoding codec LegacyJacksonJson
+2020-12-26 15:28:33,579 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using JSON decoding codec LegacyJacksonJson
+2020-12-26 15:28:33,678 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using XML encoding codec XStreamXml
+2020-12-26 15:28:33,679 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using XML decoding codec XStreamXml
+2020-12-26 15:28:34,009 WARN com.netflix.config.sources.URLConfigurationSource [main] No URLs will be polled as dynamic configuration sources.
+2020-12-26 15:28:34,009 INFO com.netflix.config.sources.URLConfigurationSource [main] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-12-26 15:28:34,470 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [main] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-12-26 15:28:34,541 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [main] Setting initial instance status as: STARTING
+2020-12-26 15:28:34,546 INFO com.netflix.discovery.DiscoveryClient [main] Initializing Eureka in region us-east-1
+2020-12-26 15:28:34,560 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [main] Resolving eureka endpoints via configuration
+2020-12-26 15:28:34,738 INFO com.netflix.discovery.DiscoveryClient [main] Disable delta property : false
+2020-12-26 15:28:34,738 INFO com.netflix.discovery.DiscoveryClient [main] Single vip registry refresh property : null
+2020-12-26 15:28:34,738 INFO com.netflix.discovery.DiscoveryClient [main] Force full registry fetch : false
+2020-12-26 15:28:34,738 INFO com.netflix.discovery.DiscoveryClient [main] Application is null : false
+2020-12-26 15:28:34,738 INFO com.netflix.discovery.DiscoveryClient [main] Registered Applications size is zero : true
+2020-12-26 15:28:34,739 INFO com.netflix.discovery.DiscoveryClient [main] Application version is -1: true
+2020-12-26 15:28:34,739 INFO com.netflix.discovery.DiscoveryClient [main] Getting all instance registry info from the eureka server
+2020-12-26 15:28:34,921 INFO com.netflix.discovery.DiscoveryClient [main] The response status is 200
+2020-12-26 15:28:34,923 INFO com.netflix.discovery.DiscoveryClient [main] Starting heartbeat executor: renew interval is: 30
+2020-12-26 15:28:34,925 INFO com.netflix.discovery.InstanceInfoReplicator [main] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-12-26 15:28:34,928 INFO com.netflix.discovery.DiscoveryClient [main] Discovery Client initialized at timestamp 1608992914927 with initial instances count: 2
+2020-12-26 15:28:34,929 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [main] Registering application SELLER with eureka with status UP
+2020-12-26 15:28:34,929 INFO com.netflix.discovery.DiscoveryClient$3 [main] Saw local status change event StatusChangeEvent [timestamp=1608992914929, current=UP, previous=STARTING]
+2020-12-26 15:28:34,931 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["https-jsse-nio-8084"]
+2020-12-26 15:28:34,931 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_SELLER/DESKTOP-B4MQFE7:seller:8084: registering service...
+2020-12-26 15:28:34,958 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_SELLER/DESKTOP-B4MQFE7:seller:8084 - registration status: 204
+2020-12-26 15:28:35,144 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8084 (https) with context path ''
+2020-12-26 15:28:35,144 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [main] Updating port to 8084
+2020-12-26 15:28:35,411 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-12-26 15:28:35,610 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Spring Data repositories initialized!
+2020-12-26 15:28:35,622 INFO org.springframework.boot.StartupInfoLogger [main] Started SellerApplication in 5.796 seconds (JVM running for 6.673)
+2020-12-26 15:28:36,029 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(1)-192.168.0.10] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-26 15:28:36,029 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-192.168.0.10] Initializing Servlet 'dispatcherServlet'
+2020-12-26 15:28:36,036 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-192.168.0.10] Completed initialization in 6 ms
+2020-12-26 15:29:31,434 INFO com.ws.sep.seller.controllers.AuthController [https-jsse-nio-8084-exec-6] INFO - /signin
+2020-12-26 15:29:31,608 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-6] select seller0_.id as id1_1_, seller0_.created_at as created_2_1_, seller0_.email as email3_1_, seller0_.password as password4_1_, seller0_.pib as pib5_1_ from seller seller0_ where seller0_.email=?
+2020-12-26 15:29:31,632 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-6] select types0_.seller_id as seller_i1_3_0_, types0_.type_id as type_id2_3_0_, paymenttyp1_.id as id1_4_1_, paymenttyp1_.type as type2_4_1_ from seller_types types0_ inner join types paymenttyp1_ on types0_.type_id=paymenttyp1_.id where types0_.seller_id=?
+2020-12-26 15:29:31,662 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-6] select roles0_.seller_id as seller_i1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from seller_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.seller_id=?
+2020-12-26 15:29:31,943 INFO com.ws.sep.seller.services.AuthService [https-jsse-nio-8084-exec-6] Logged in to the system.
+2020-12-26 15:30:25,418 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-3] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 15:31:10,302 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-5] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 15:32:09,329 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-6] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 15:33:25,975 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-1] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 15:33:34,741 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 15:38:34,743 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 15:43:34,745 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 15:48:34,747 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 15:53:34,749 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 15:55:30,135 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2020-12-26 15:55:30,873 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-12-26 15:55:31,924 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-26 15:55:32,023 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 91ms. Found 3 JPA repository interfaces.
+2020-12-26 15:55:32,200 WARN org.springframework.boot.actuate.endpoint.EndpointId [main] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-12-26 15:55:32,373 INFO org.springframework.cloud.context.scope.GenericScope [main] BeanFactory id=1fcd5db8-b656-3780-b378-6702082dec77
+2020-12-26 15:55:32,737 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8084 (https)
+2020-12-26 15:55:32,747 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["https-jsse-nio-8084"]
+2020-12-26 15:55:32,747 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2020-12-26 15:55:32,747 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-26 15:55:32,917 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2020-12-26 15:55:32,917 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2028 ms
+2020-12-26 15:55:33,002 WARN com.netflix.config.sources.URLConfigurationSource [main] No URLs will be polled as dynamic configuration sources.
+2020-12-26 15:55:33,002 INFO com.netflix.config.sources.URLConfigurationSource [main] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-12-26 15:55:33,013 INFO com.netflix.config.DynamicPropertyFactory [main] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@3ba3f40d
+2020-12-26 15:55:33,182 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-26 15:55:33,282 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-26 15:55:33,326 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-26 15:55:33,405 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2020-12-26 15:55:33,646 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2020-12-26 15:55:33,784 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-12-26 15:55:34,066 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2020-12-26 15:55:34,083 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-12-26 15:55:34,558 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [main] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-26 15:55:34,610 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7b795db7, org.springframework.security.web.context.SecurityContextPersistenceFilter@1b19712f, org.springframework.security.web.header.HeaderWriterFilter@5df7a065, org.springframework.web.filter.CorsFilter@586486c, org.springframework.security.web.authentication.logout.LogoutFilter@45e639ee, com.ws.sep.seller.security.JwtAuthenticationFilter@79ba0285, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@510e4d79, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5342eec5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b849fa6, org.springframework.security.web.session.SessionManagementFilter@6dc9a56e, org.springframework.security.web.access.ExceptionTranslationFilter@351ede23, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5abc5854]
+2020-12-26 15:55:34,838 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] create table roles (id bigint not null auto_increment, name varchar(60), primary key (id)) engine=InnoDB
+2020-12-26 15:55:34,903 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] create table seller (id bigint not null auto_increment, created_at datetime not null, email varchar(255), password varchar(255), pib bigint, primary key (id)) engine=InnoDB
+2020-12-26 15:55:34,950 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] create table seller_roles (seller_id bigint not null, role_id bigint not null, primary key (seller_id, role_id)) engine=InnoDB
+2020-12-26 15:55:35,007 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] create table seller_types (seller_id bigint not null, type_id bigint not null, primary key (seller_id, type_id)) engine=InnoDB
+2020-12-26 15:55:35,036 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] create table types (id bigint not null auto_increment, type varchar(60), primary key (id)) engine=InnoDB
+2020-12-26 15:55:35,078 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table roles drop index UK_nb4h0p6txrmfc0xbrd1kglp9t
+2020-12-26 15:55:35,088 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table roles add constraint UK_nb4h0p6txrmfc0xbrd1kglp9t unique (name)
+2020-12-26 15:55:35,113 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table seller drop index UKcrgbovyy4gvgsum2yyb3fbfn7
+2020-12-26 15:55:35,117 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table seller add constraint UKcrgbovyy4gvgsum2yyb3fbfn7 unique (email)
+2020-12-26 15:55:35,147 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table seller drop index UKnsf0yh5x4kb6cwjh7s82rexy8
+2020-12-26 15:55:35,148 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table seller add constraint UKnsf0yh5x4kb6cwjh7s82rexy8 unique (pib)
+2020-12-26 15:55:35,177 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table types drop index UK4tchu0t1cxvps06xylvdhu0ik
+2020-12-26 15:55:35,179 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table types add constraint UK4tchu0t1cxvps06xylvdhu0ik unique (type)
+2020-12-26 15:55:35,224 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using JSON encoding codec LegacyJacksonJson
+2020-12-26 15:55:35,225 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using JSON decoding codec LegacyJacksonJson
+2020-12-26 15:55:35,227 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table seller_roles add constraint FKd9udck8wcatkui48557l7k7hg foreign key (role_id) references roles (id)
+2020-12-26 15:55:35,324 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table seller_roles add constraint FKa25f332e8t8wbwqsgqdm1qnt5 foreign key (seller_id) references seller (id)
+2020-12-26 15:55:35,396 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using XML encoding codec XStreamXml
+2020-12-26 15:55:35,396 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [main] Using XML decoding codec XStreamXml
+2020-12-26 15:55:35,468 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table seller_types add constraint FKfhquhyw59vs5ka1uodbmrrb8n foreign key (type_id) references types (id)
+2020-12-26 15:55:35,586 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table seller_types add constraint FKg46ee9gweuq1jsibld9qu00fl foreign key (seller_id) references seller (id)
+2020-12-26 15:55:35,695 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-26 15:55:35,703 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-26 15:55:35,960 WARN com.netflix.config.sources.URLConfigurationSource [main] No URLs will be polled as dynamic configuration sources.
+2020-12-26 15:55:35,962 INFO com.netflix.config.sources.URLConfigurationSource [main] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-12-26 15:55:36,491 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [main] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-12-26 15:55:36,583 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [main] Setting initial instance status as: STARTING
+2020-12-26 15:55:36,595 INFO com.netflix.discovery.DiscoveryClient [main] Initializing Eureka in region us-east-1
+2020-12-26 15:55:36,610 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [main] Resolving eureka endpoints via configuration
+2020-12-26 15:55:36,802 INFO com.netflix.discovery.DiscoveryClient [main] Disable delta property : false
+2020-12-26 15:55:36,802 INFO com.netflix.discovery.DiscoveryClient [main] Single vip registry refresh property : null
+2020-12-26 15:55:36,802 INFO com.netflix.discovery.DiscoveryClient [main] Force full registry fetch : false
+2020-12-26 15:55:36,802 INFO com.netflix.discovery.DiscoveryClient [main] Application is null : false
+2020-12-26 15:55:36,802 INFO com.netflix.discovery.DiscoveryClient [main] Registered Applications size is zero : true
+2020-12-26 15:55:36,802 INFO com.netflix.discovery.DiscoveryClient [main] Application version is -1: true
+2020-12-26 15:55:36,802 INFO com.netflix.discovery.DiscoveryClient [main] Getting all instance registry info from the eureka server
+2020-12-26 15:55:37,060 INFO com.netflix.discovery.DiscoveryClient [main] The response status is 200
+2020-12-26 15:55:37,063 INFO com.netflix.discovery.DiscoveryClient [main] Starting heartbeat executor: renew interval is: 30
+2020-12-26 15:55:37,066 INFO com.netflix.discovery.InstanceInfoReplicator [main] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-12-26 15:55:37,071 INFO com.netflix.discovery.DiscoveryClient [main] Discovery Client initialized at timestamp 1608994537070 with initial instances count: 3
+2020-12-26 15:55:37,073 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [main] Registering application SELLER with eureka with status UP
+2020-12-26 15:55:37,074 INFO com.netflix.discovery.DiscoveryClient$3 [main] Saw local status change event StatusChangeEvent [timestamp=1608994537074, current=UP, previous=STARTING]
+2020-12-26 15:55:37,076 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["https-jsse-nio-8084"]
+2020-12-26 15:55:37,076 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_SELLER/DESKTOP-B4MQFE7:seller:8084: registering service...
+2020-12-26 15:55:37,110 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_SELLER/DESKTOP-B4MQFE7:seller:8084 - registration status: 204
+2020-12-26 15:55:37,320 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8084 (https) with context path ''
+2020-12-26 15:55:37,320 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [main] Updating port to 8084
+2020-12-26 15:55:37,638 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-12-26 15:55:37,870 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Spring Data repositories initialized!
+2020-12-26 15:55:37,882 INFO org.springframework.boot.StartupInfoLogger [main] Started SellerApplication in 8.567 seconds (JVM running for 9.841)
+2020-12-26 15:55:38,356 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(3)-192.168.0.10] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-26 15:55:38,356 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(3)-192.168.0.10] Initializing Servlet 'dispatcherServlet'
+2020-12-26 15:55:38,363 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(3)-192.168.0.10] Completed initialization in 7 ms
+2020-12-26 15:55:51,749 INFO com.ws.sep.seller.controllers.AuthController [https-jsse-nio-8084-exec-6] INFO - /signin
+2020-12-26 15:55:51,912 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-6] select seller0_.id as id1_1_, seller0_.created_at as created_2_1_, seller0_.email as email3_1_, seller0_.password as password4_1_, seller0_.pib as pib5_1_ from seller seller0_ where seller0_.email=?
+2020-12-26 15:55:51,934 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-6] select types0_.seller_id as seller_i1_3_0_, types0_.type_id as type_id2_3_0_, paymenttyp1_.id as id1_4_1_, paymenttyp1_.type as type2_4_1_ from seller_types types0_ inner join types paymenttyp1_ on types0_.type_id=paymenttyp1_.id where types0_.seller_id=?
+2020-12-26 15:55:51,941 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-6] select roles0_.seller_id as seller_i1_2_0_, roles0_.role_id as role_id2_2_0_, role1_.id as id1_0_1_, role1_.name as name2_0_1_ from seller_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.seller_id=?
+2020-12-26 15:55:52,203 INFO com.ws.sep.seller.services.AuthService [https-jsse-nio-8084-exec-6] Logged in to the system.
+2020-12-26 15:56:00,341 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-10] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 15:56:00,752 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-1] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 15:56:00,767 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-2] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 15:56:00,777 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-2] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 15:56:00,783 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-2] select paymenttyp0_.id as id1_4_, paymenttyp0_.type as type2_4_ from types paymenttyp0_ where paymenttyp0_.type=?
+2020-12-26 15:56:00,802 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-2] insert into types (type) values (?)
+2020-12-26 15:56:00,817 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-2] insert into seller_types (seller_id, type_id) values (?, ?)
+2020-12-26 15:56:00,881 INFO com.ws.sep.seller.controllers.PaymentController [https-jsse-nio-8084-exec-2] Successful seller update.
+2020-12-26 15:56:14,837 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-3] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 15:56:29,783 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-4] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 15:57:51,315 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-10] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 16:00:36,805 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 16:05:36,807 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 16:10:36,809 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 16:13:25,358 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-5] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 16:13:52,673 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-6] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 16:14:54,135 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [https-jsse-nio-8084-exec-1] select seller0_.id as id1_1_0_, seller0_.created_at as created_2_1_0_, seller0_.email as email3_1_0_, seller0_.password as password4_1_0_, seller0_.pib as pib5_1_0_, roles1_.seller_id as seller_i1_2_1_, role2_.id as role_id2_2_1_, role2_.id as id1_0_2_, role2_.name as name2_0_2_, types3_.seller_id as seller_i1_3_3_, paymenttyp4_.id as type_id2_3_3_, paymenttyp4_.id as id1_4_4_, paymenttyp4_.type as type2_4_4_ from seller seller0_ left outer join seller_roles roles1_ on seller0_.id=roles1_.seller_id left outer join roles role2_ on roles1_.role_id=role2_.id left outer join seller_types types3_ on seller0_.id=types3_.seller_id left outer join types paymenttyp4_ on types3_.type_id=paymenttyp4_.id where seller0_.id=?
+2020-12-26 16:15:36,810 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 16:20:36,812 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 16:25:36,812 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 16:30:32,669 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 16:35:32,670 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 16:40:32,671 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 16:45:32,672 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 16:50:32,674 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-12-26 16:55:32,675 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration

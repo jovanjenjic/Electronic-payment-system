@@ -277,6 +277,12 @@ public class SellerInfoService {
     public ResponseEntity<?> createBillingPlan(BillingPlanDTO billingPlanDTO, String token) throws PayPalRESTException {
         Long sellerId = jwtUtil.extractSellerId(token.substring(7));
 
+        Optional<Long> cyclesOptional = Optional.ofNullable(billingPlanDTO.getTotal_months());
+
+        if(cyclesOptional.isEmpty()) throw new SimpleException(404, "Please input total months");
+
+        String cycles = String.valueOf(cyclesOptional.get());
+
         // plan object to be built
         Plan plan = new Plan();
         plan.setName(billingPlanDTO.getName());
@@ -289,13 +295,18 @@ public class SellerInfoService {
         paymentDefinition.setType("REGULAR");
         paymentDefinition.setFrequency("MONTH");
         paymentDefinition.setFrequencyInterval("1");
-        paymentDefinition.setCycles("12");
+        paymentDefinition.setCycles(cycles);
 
         // Currency
         Currency currency = new Currency();
         currency.setCurrency(billingPlanDTO.getCurrency());
         currency.setValue(String.format(Locale.US,"%.2f", billingPlanDTO.getValue()));
         paymentDefinition.setAmount(currency);
+
+        // shipping is free and setup is free
+        currency = new Currency();
+        currency.setCurrency(billingPlanDTO.getCurrency());
+        currency.setValue("0");
 
         // Charge_models
         ChargeModels chargeModels = new com.paypal.api.payments.ChargeModels();
@@ -410,7 +421,7 @@ public class SellerInfoService {
             // Currency
             Currency currency = new Currency();
             currency.setCurrency(billingPlan.getCurrency());
-            currency.setValue(billingPlan.getValue());
+            currency.setValue("0");
 
             // merchant preferences for override
             MerchantPreferences merchantPreferences = new MerchantPreferences();
