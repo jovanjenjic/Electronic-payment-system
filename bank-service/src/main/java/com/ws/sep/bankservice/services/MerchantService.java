@@ -158,6 +158,7 @@ public class MerchantService
         request.setMerchantPassword( merchant.getMerchantPassword() );
         request.setMerchantTimestamp( order.getTimestamp() );
 
+        // TODO change this so that message about payment can be retrieved
         request.setErrorUrl( UrlUtil.DASHBOARD + UrlUtil.ERROR_URL );
         request.setSuccessUrl( UrlUtil.DASHBOARD + UrlUtil.SUCCESS_URL );
         request.setFailedUrl( UrlUtil.DASHBOARD + UrlUtil.FAILED_URL );
@@ -183,7 +184,6 @@ public class MerchantService
     public ResponseEntity< ApiResponse > createPayment( PaymentBankServiceResponse payment )
     {
 
-        // TODO add merchant id and password to PaymentBankServiceResponse, to compare
         Payment newPayment = new Payment( payment );
         Payment save = this.iPaymentRepository.save( newPayment );
 

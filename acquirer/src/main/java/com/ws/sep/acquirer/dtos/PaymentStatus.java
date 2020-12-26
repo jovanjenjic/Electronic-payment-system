@@ -2,5 +2,5 @@ package com.ws.sep.acquirer.dtos;
 
 public enum PaymentStatus
 {
-    STARTED, SUCCESS, FAILURE, ERROR
+    STARTED, SUCCESS, FAILURE, ERROR, EXPIRED
 }

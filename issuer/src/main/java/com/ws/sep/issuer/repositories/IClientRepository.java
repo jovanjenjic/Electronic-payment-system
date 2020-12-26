@@ -15,4 +15,6 @@ public interface IClientRepository extends JpaRepository< Client, Long >
 
     Optional< Client > findByPan( String pan );
 
+    Optional< Client > findByCardHolder( String cardHolder );
+
 }

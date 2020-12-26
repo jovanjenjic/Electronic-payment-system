@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 
+import util.EncryptDecrypt;
 import util.PanBankIdUtil;
 
 @Service
@@ -40,7 +41,6 @@ public class PccService
 
     public ResponseEntity< IssuerResponse > forwardRequest( AcquireRequest request )
     {
-        // TODO save request
 
         PaymentRequest paymentRequest = new PaymentRequest();
 
@@ -48,12 +48,10 @@ public class PccService
         paymentRequest.setAcquirerTimestamp( request.getAcquirerTimestamp() );
         paymentRequest.setAmount( request.getAmount() );
         paymentRequest.setCardHolder( request.getCardHolder() );
-        paymentRequest.setCvv( request.getCvv() );
-        // paymentRequest.setIssuerOrderId();
-        // paymentRequest.setIssuerTimestamp(issuerTimestamp);
-        paymentRequest.setMm( request.getMm() );
-        paymentRequest.setPan( request.getPan() );
-        paymentRequest.setYy( request.getYy() );
+        paymentRequest.setCvv( EncryptDecrypt.encryptString( request.getCvv() ) );
+        paymentRequest.setMm( EncryptDecrypt.encryptString( request.getMm() ) );
+        paymentRequest.setPan( EncryptDecrypt.encryptString( request.getPan() ) );
+        paymentRequest.setYy( EncryptDecrypt.encryptString( request.getYy() ) );
 
         this.iPaymentRequestRepository.save( paymentRequest );
 

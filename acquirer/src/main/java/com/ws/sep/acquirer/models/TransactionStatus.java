@@ -2,5 +2,5 @@ package com.ws.sep.acquirer.models;
 
 public enum TransactionStatus
 {
-    CREATED, SUCCESS, ERROR, FAILED,
+    CREATED, SUCCESS, ERROR, FAILED, EXPIRED
 }

@@ -34,6 +34,8 @@ public class PaymentBankServiceResponse
 
     private String pan;
 
+    private String cvv;
+
     private String mm;
 
     private String yy;
@@ -41,5 +43,9 @@ public class PaymentBankServiceResponse
     private String cardHolder;
 
     private Boolean sameBank;
+
+    private String message;
+
+    private String merchantId;
 
 }
