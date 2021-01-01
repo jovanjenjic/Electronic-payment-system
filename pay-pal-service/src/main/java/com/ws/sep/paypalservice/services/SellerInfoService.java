@@ -188,24 +188,27 @@ public class SellerInfoService {
 
         payment.setRedirectUrls(redirectUrls);
 
-        Payment createdPayment = payment.create(context);
+        try {
+            Payment createdPayment = payment.create(context);
+            // find approval url using lambda expressions
+            Optional<Links> linksOptional = createdPayment.getLinks().stream().filter(link -> link.getRel().equals("approval_url")).findFirst();
+            sellerOrders.setPaymentId(createdPayment.getId());
+            // if we have approval url
+            if(linksOptional.isPresent()) {
+                String paymentUrl = linksOptional.get().getHref();
+                sellerOrders.setOrderState(OrderState.PENDING);
+                sellerOrders.setPaymentUrl(paymentUrl);
+                sellerOrderRepository.save(sellerOrders);
+                return paymentUrl;
+            }
 
-        // find approval url using lambda expressions
-        Optional<Links> linksOptional = createdPayment.getLinks().stream().filter(link -> link.getRel().equals("approval_url")).findFirst();
-
-        // if we have approval url
-        if(linksOptional.isPresent()) {
-            String paymentUrl = linksOptional.get().getHref();
-            sellerOrders.setOrderState(OrderState.PENDING);
-            sellerOrders.setPaymentUrl(paymentUrl);
+            sellerOrders.setOrderState(OrderState.FAILED);
             sellerOrderRepository.save(sellerOrders);
-            return paymentUrl;
+
+            logger.info("Successful created payment. User ID: " + sellerId.toString());
+        } catch (PayPalRESTException e) {
+            throw new SimpleException(404, "Error occurred while creating payment");
         }
-
-        sellerOrders.setOrderState(OrderState.FAILED);
-        sellerOrderRepository.save(sellerOrders);
-
-        logger.info("Successful created payment. User ID: " + sellerId.toString());
         return "";
     }
 

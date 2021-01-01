@@ -38,6 +38,8 @@ public class SellerOrders {
 
     private Long sellerId;
 
+    private String paymentId;
+
     @CreatedDate
     private LocalDateTime createdAt;
 }
