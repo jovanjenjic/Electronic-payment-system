@@ -49,7 +49,7 @@ public class UserPrincipal implements UserDetails {
         List< GrantedAuthority > authorities =
                 user.getRoles().stream().map( role -> new SimpleGrantedAuthority( role.getName().name() ) ).collect( Collectors.toList() );
 
-        return new UserPrincipal(user.getId(), user.getName(), user.getPassword(), authorities);
+        return new UserPrincipal(user.getId(), user.getEmail(), user.getPassword(), authorities);
     }
 
 
