@@ -13,16 +13,16 @@ import javax.validation.constraints.Positive;
 @NoArgsConstructor
 public class RegisterDTO {
 
-    @Length(min = 4)
+    @Length(min = 4, message = "name must have length greater or equal to 4")
     private String name;
 
-    @Email
+    @Email(message = "please enter valid email")
     private String email;
 
-    @Length(min = 4)
+    @Length(min = 4, message = "password must have length greater or equal to 4")
     private String password;
 
-    @Positive
+    @Positive(message = "pib must be positive")
     private Long pib;
 
 }
