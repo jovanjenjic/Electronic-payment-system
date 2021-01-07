@@ -10,6 +10,7 @@ import com.ws.sep.literalnoudruzenje.model.Roles;
 import com.ws.sep.literalnoudruzenje.model.User;
 import com.ws.sep.literalnoudruzenje.repository.RolesRepository;
 import com.ws.sep.literalnoudruzenje.repository.UserRepository;
+import com.ws.sep.literalnoudruzenje.utils.EncryptionDecryption;
 import com.ws.sep.literalnoudruzenje.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,7 @@ public class UserService {
 
     public UserResponseDTO registerUser(RegisterDTO registerDTO) throws SimpleException {
         User user = UserMapper.INSTANCE.mapRequestToUser(registerDTO);
-        Roles userRole = rolesRepository.findByName(RoleName.ROLE_USER).orElseThrow(() -> new SimpleException(404, "User Role not set." ));
+        Roles userRole = rolesRepository.findByName(registerDTO.getRole()).orElseThrow(() -> new SimpleException(404, "User Role not set." ));
 
         user.setRoles(Collections.singleton(userRole));
 
@@ -51,7 +52,7 @@ public class UserService {
         Optional<User> userOptional = userRepository.findByEmail(loginDTO.getEmail());
         if(
                 userOptional.isPresent()
-                && new BCryptPasswordEncoder().matches(loginDTO.getPassword(), userOptional.get().getPassword())
+                && loginDTO.getPassword().equals(EncryptionDecryption.decryptString(userOptional.get().getPassword()))
         ) {
             User user = userOptional.get();
             UserResponseDTO userResponseDTO = UserMapper.INSTANCE.mapUserToResponse(user);

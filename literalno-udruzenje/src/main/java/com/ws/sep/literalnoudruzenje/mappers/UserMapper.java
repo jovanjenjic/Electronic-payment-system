@@ -3,6 +3,7 @@ package com.ws.sep.literalnoudruzenje.mappers;
 import com.ws.sep.literalnoudruzenje.dto.RegisterDTO;
 import com.ws.sep.literalnoudruzenje.dto.UserResponseDTO;
 import com.ws.sep.literalnoudruzenje.model.User;
+import com.ws.sep.literalnoudruzenje.utils.EncryptionDecryption;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -20,7 +21,7 @@ public interface UserMapper {
 
     @Named("passwordPrepare")
     static String preparePassword(String password) {
-        return new BCryptPasswordEncoder().encode(password);
+        return EncryptionDecryption.encryptString(password);
     }
 
     UserResponseDTO mapUserToResponse(User user);

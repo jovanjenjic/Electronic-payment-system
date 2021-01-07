@@ -1,5 +1,6 @@
 package com.ws.sep.literalnoudruzenje.dto;
 
+import com.ws.sep.literalnoudruzenje.model.RoleName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,5 +25,7 @@ public class RegisterDTO {
 
     @Positive(message = "pib must be positive")
     private Long pib;
+
+    private RoleName role = RoleName.ROLE_USER;
 
 }
