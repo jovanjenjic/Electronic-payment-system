@@ -30,7 +30,7 @@ public class JwtUtil {
 
     public Long extractUserId(String token) {
         Claims claims = extractAllClaims(token);
-        Long id = Long.getLong((String) claims.get("id"));
+        Long id = ((Integer) claims.get("id")).longValue();
         return id;
     }
 
