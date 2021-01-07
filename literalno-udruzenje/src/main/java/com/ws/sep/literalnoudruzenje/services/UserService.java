@@ -12,10 +12,12 @@ import com.ws.sep.literalnoudruzenje.repository.RolesRepository;
 import com.ws.sep.literalnoudruzenje.repository.UserRepository;
 import com.ws.sep.literalnoudruzenje.utils.EncryptionDecryption;
 import com.ws.sep.literalnoudruzenje.utils.JwtUtil;
+import com.ws.sep.literalnoudruzenje.utils.Urls;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
 import java.util.Optional;
@@ -32,6 +34,9 @@ public class UserService {
     @Autowired
     JwtUtil jwtUtil;
 
+    @Autowired
+    RestTemplate restTemplate;
+
     public UserResponseDTO registerUser(RegisterDTO registerDTO) throws SimpleException {
         User user = UserMapper.INSTANCE.mapRequestToUser(registerDTO);
         Roles userRole = rolesRepository.findByName(registerDTO.getRole()).orElseThrow(() -> new SimpleException(404, "User Role not set." ));
@@ -39,6 +44,11 @@ public class UserService {
         user.setRoles(Collections.singleton(userRole));
 
         user = userRepository.save(user);
+
+        // case if user is seller
+        if(registerDTO.getRole().equals(RoleName.ROLE_SELLER)) {
+            restTemplate.postForObject(Urls.KP_SELLER_URL + "/auth/signup", registerDTO, String.class);
+        }
 
         UserResponseDTO userResponseDTO = UserMapper.INSTANCE.mapUserToResponse(user);
 
