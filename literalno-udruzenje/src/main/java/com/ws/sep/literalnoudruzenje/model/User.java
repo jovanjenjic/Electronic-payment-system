@@ -27,6 +27,10 @@ public class User {
 
     private Long pib;
 
+    @ManyToMany( fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+    @JoinTable( name = "user_payment_types", joinColumns = @JoinColumn( name = "user_id" ), inverseJoinColumns = @JoinColumn( name = "type_id" ) )
+    private Set< PaymentTypes > types = new HashSet< >();
+
     @ManyToMany( fetch = FetchType.EAGER )
     @JoinTable( name = "user_roles", joinColumns = @JoinColumn( name = "user_id" ), inverseJoinColumns = @JoinColumn( name = "role_id" ) )
     private Set< Roles > roles = new HashSet<>();

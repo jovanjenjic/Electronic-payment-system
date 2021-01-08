@@ -1,5 +1,7 @@
 package com.ws.sep.literalnoudruzenje.controllers;
 
+import com.ws.sep.literalnoudruzenje.dto.BankInfoDTO;
+import com.ws.sep.literalnoudruzenje.dto.BtcInfoDTO;
 import com.ws.sep.literalnoudruzenje.dto.PaypalInfoDTO;
 import com.ws.sep.literalnoudruzenje.services.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +19,17 @@ public class PaymentController {
 
     @PostMapping(value ="/paypal/register")
     public ResponseEntity<?> registerPaypal(@RequestBody @Valid PaypalInfoDTO paypalInfoDTO, @RequestHeader("Authorization") String token) {
-        return paymentService.registerPaypal(paypalInfoDTO, token);
+        return paymentService.registerPayment(paypalInfoDTO, token);
     }
 
     @PostMapping(value ="/bank/register")
-    public ResponseEntity<?> registerBank() {
-        return null;
+    public ResponseEntity<?> registerBank(@RequestBody @Valid BankInfoDTO bankInfoDTO, @RequestHeader("Authorization") String token) {
+        return paymentService.registerPayment(bankInfoDTO, token);
     }
 
     @PostMapping(value ="/btc/register")
-    public ResponseEntity<?> registerBtc() {
-        return null;
+    public ResponseEntity<?> registerBtc(@RequestBody @Valid BtcInfoDTO btcInfoDTO, @RequestHeader("Authorization") String token) {
+        return paymentService.registerPayment(btcInfoDTO, token);
     }
 
 }

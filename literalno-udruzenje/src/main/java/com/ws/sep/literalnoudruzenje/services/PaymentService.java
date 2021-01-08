@@ -1,5 +1,7 @@
 package com.ws.sep.literalnoudruzenje.services;
 
+import com.ws.sep.literalnoudruzenje.dto.BankInfoDTO;
+import com.ws.sep.literalnoudruzenje.dto.BtcInfoDTO;
 import com.ws.sep.literalnoudruzenje.dto.KpLoginResponse;
 import com.ws.sep.literalnoudruzenje.dto.PaypalInfoDTO;
 import com.ws.sep.literalnoudruzenje.exceptions.SimpleException;
@@ -58,7 +60,9 @@ public class PaymentService {
         }
     }
 
-    public ResponseEntity<?> registerPaypal(PaypalInfoDTO paypalInfoDTO, String token) {
+    // TODO: Add type after success response
+
+    public ResponseEntity<?> registerPayment(Object paymentInfo, String token) {
         Long userId = jwtUtil.extractUserId(token.substring(7));
 
         User user = userRepository.findById(userId).orElseThrow(() -> new SimpleException(404, "User not found"));
@@ -69,14 +73,22 @@ public class PaymentService {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", kpToken);
 
+        String url = "";
+
+        if(paymentInfo.getClass() == PaypalInfoDTO.class) url = Urls.PAYPAL_URL + "/addPayment";
+        if(paymentInfo.getClass() == BtcInfoDTO.class) url = Urls.BTC_URL + "/addPayment";
+        if(paymentInfo.getClass() == BankInfoDTO.class) url = Urls.BANK_URL + "/merchant/";
+
+
         try {
-            HttpEntity<PaypalInfoDTO> httpEntity = new HttpEntity<>(paypalInfoDTO, headers);
-            restTemplate.postForObject(Urls.PAYPAL_URL + "/addPayment", httpEntity, String.class);
+            HttpEntity<Object> httpEntity = new HttpEntity<>(paymentInfo, headers);
+            restTemplate.postForObject(url, httpEntity, String.class);
             HashMap<String, String> response = new HashMap<>();
-            response.put("message", "paypal added successfully!");
+            response.put("message", "payment added successfully!");
             return new ResponseEntity<>(response, HttpStatus.CREATED);
         } catch (RestClientResponseException e) {
-            throw new SimpleException(409, "Error occured while adding paypal type");
+            throw new SimpleException(409, "Error occured while adding payment type");
         }
     }
+
 }
