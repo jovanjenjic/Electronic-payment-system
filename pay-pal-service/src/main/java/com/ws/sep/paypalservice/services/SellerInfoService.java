@@ -136,7 +136,7 @@ public class SellerInfoService {
     }
 
     @Transactional
-    public String createPayment(OrderDTO orderDTO, String token) throws PayPalRESTException {
+    public ResponseEntity<?> createPayment(OrderDTO orderDTO, String token) throws PayPalRESTException, SimpleException {
         Long sellerId = jwtUtil.extractSellerId(token.substring(7));
 
         APIContext context = getApiContext(sellerId);
@@ -170,6 +170,7 @@ public class SellerInfoService {
         sellerOrders.setPrice(orderDTO.getPrice());
         sellerOrders.setItemsCount(orderDTO.getItems_count());
         sellerOrders.setItemId(orderDTO.getItem_id());
+        sellerOrders.setOrderId(orderDTO.getOrderId());
         sellerOrders.setCurrency(orderDTO.getCurrency());
         sellerOrders.setDescription(orderDTO.getDescription());
         sellerOrders.setOrderState(OrderState.CREATED);
@@ -181,8 +182,8 @@ public class SellerInfoService {
 
         // prepare redirect urls
         RedirectUrls redirectUrls = new RedirectUrls();
-        String successUrl = Urls.DASHBOARD_URL + "/payments/" + sellerOrders.getId() + "/paypal/success";
-        String cancelUrl = Urls.DASHBOARD_URL + "/payments/" + sellerOrders.getId() + "/paypal/cancel";
+        String successUrl = Urls.DASHBOARD_URL + "/payments/" + orderDTO.getOrderId() + "/paypal/success";
+        String cancelUrl = Urls.DASHBOARD_URL + "/payments/" + orderDTO.getOrderId() + "/paypal/cancel";
         redirectUrls.setCancelUrl(cancelUrl);
         redirectUrls.setReturnUrl(successUrl);
 
@@ -199,7 +200,7 @@ public class SellerInfoService {
                 sellerOrders.setOrderState(OrderState.PENDING);
                 sellerOrders.setPaymentUrl(paymentUrl);
                 sellerOrderRepository.save(sellerOrders);
-                return paymentUrl;
+                return new ResponseEntity<>(new ApiResponse(sellerOrders.getId(), paymentUrl), HttpStatus.CREATED);
             }
 
             sellerOrders.setOrderState(OrderState.FAILED);
@@ -209,7 +210,9 @@ public class SellerInfoService {
         } catch (PayPalRESTException e) {
             throw new SimpleException(404, "Error occurred while creating payment");
         }
-        return "";
+        HashMap<String, String> retObj = new HashMap<>();
+        retObj.put("message", "Failed to create pay");
+        return new ResponseEntity<>(retObj, HttpStatus.EXPECTATION_FAILED);
     }
 
     public ResponseEntity<?> executePayment(ExecutePaymentDTO executePaymentDTO, Long orderId, String token) {

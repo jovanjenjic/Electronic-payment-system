@@ -52,21 +52,7 @@ public class PaypalController
     @PostMapping(value = "/pay")
     public ResponseEntity<?> pay(@RequestBody OrderDTO orderDTO, @RequestHeader("Authorization") String token) throws PayPalRESTException {
         logger.info("INFO - /pay");
-
-        String url = sellerInfoService.createPayment(orderDTO, token);
-
-        HashMap<String, String> retObj = new HashMap<>();
-
-        HttpStatus status;
-        if (url.equals("")) {
-            retObj.put("message", "Failed to create pay");
-            status = HttpStatus.EXPECTATION_FAILED;
-        } else {
-            retObj.put("paymentUrl", url);
-            status = HttpStatus.OK;
-        }
-
-        return new ResponseEntity<>(retObj, status);
+        return sellerInfoService.createPayment(orderDTO, token);
     }
 
     @PostMapping(value = "/pay/{id}/success")

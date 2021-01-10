@@ -1,20 +1,28 @@
 export const BASE_URL = 'https://localhost:8765';
 
+export const LU_URL = 'https://localhost:8090';
+
 // AUTH URLS
-export const AUTH_URL = `${BASE_URL}/seller/api/auth`;
-export const LOGIN_URL = `${AUTH_URL}/signin`;
-export const REGISTER_URL = `${AUTH_URL}/signup`;
+export const AUTH_URL = `${LU_URL}/auth`;
+export const LOGIN_URL = `${AUTH_URL}/login`;
+export const REGISTER_URL = `${AUTH_URL}/register`;
 
 // SELERS URLS
-export const SELLER_URL = `${BASE_URL}/seller/api`;
-export const PAYMENT_TYPE_URL = `${SELLER_URL}/payment`;
+// export const SELLER_URL = `${BASE_URL}/seller/api`;
+// export const PAYMENT_TYPE_URL = `${SELLER_URL}/payment`;
+export const PAYMENT_TYPE_URL = `${LU_URL}/payment/types`;
 
 // PAYPAL URL
 export const PAYPAL_URL = `${BASE_URL}/pay-pal-service/api`;
-export const PAYPAL_PAYMENT_URL = `${PAYPAL_URL}/pay`;
-export const PAYPAL_ADD_PAYMENT_URL = `${PAYPAL_URL}/addPayment`;
-export const EXECUTE_PAYPAL_PAYMENT_URL = `${PAYPAL_PAYMENT_URL}/{paymentId}/success`;
-export const CANCEL_PAYPAL_PAYMENT_URL = `${PAYPAL_PAYMENT_URL}/{paymentId}/cancel`;
+// export const PAYPAL_PAYMENT_URL = `${PAYPAL_URL}/pay`;
+// export const PAYPAL_ADD_PAYMENT_URL = `${PAYPAL_URL}/addPayment`;
+// export const EXECUTE_PAYPAL_PAYMENT_URL = `${PAYPAL_PAYMENT_URL}/{paymentId}/success`;
+// export const CANCEL_PAYPAL_PAYMENT_URL = `${PAYPAL_PAYMENT_URL}/{paymentId}/cancel`;
+export const PAYPAL_PAYMENT_URL = `${LU_URL}/payment/order`;
+export const PAYPAL_ADD_PAYMENT_URL = `${LU_URL}/payment/paypal/register`;
+export const EXECUTE_PAYPAL_PAYMENT_URL = `${LU_URL}/payment/paypal/{paymentId}/execute`;
+export const CANCEL_PAYPAL_PAYMENT_URL = `${LU_URL}/payment/paypal/{paymentId}/cancel`;
+
 
 export const PAYPAL_FORM_URL = `${PAYPAL_URL}/form`;
 
@@ -28,13 +36,17 @@ export const BTC_URL = `${BASE_URL}/bitcoin-service/api`;
 
 // BTC FORM URL
 export const BTC_FORM_URL = `${BTC_URL}/form`;
-export const BTC_ADD_PAYMENT_URL = `${BTC_URL}/addPayment`;
-export const BTC_CREATE_PAYMENT_URL = `${BTC_URL}/createOrder`;
-export const BTC_SUCCESS_PAYMENT_URL = `${BTC_URL}/setStateOfTransaction`;
-export const BTC_CANCEL_PAYMENT_URL = `${BTC_URL}/setStateOfTransaction`;
+export const BTC_ADD_PAYMENT_URL = `${LU_URL}/payment/btc/register`;
+export const BTC_CREATE_PAYMENT_URL = `${LU_URL}/payment/order`;
+export const BTC_SUCCESS_PAYMENT_URL = `${LU_URL}/payment/btc/transaction/update`;
+export const BTC_CANCEL_PAYMENT_URL = `${LU_URL}/payment/btc/transaction/update`;
 
 // TODO: Later add needed bank info and everything else
 export const BANK_URL = `${BASE_URL}/bank-service/api`;
 
 export const BANK_ADD_PAYMENT_URL = `${BANK_URL}/merchant/`;
 export const BANK_CREATE_PAYMENT_URL = `${BANK_ADD_PAYMENT_URL}create`;
+
+
+export const ITEMS_URL = `${LU_URL}/item`;
+export const ALL_ITEMS_URL = `${ITEMS_URL}/all`;

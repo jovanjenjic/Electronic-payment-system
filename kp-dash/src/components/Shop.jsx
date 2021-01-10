@@ -10,6 +10,8 @@ import { PAYPAL_SUBSCRIPTION } from '../constants/url';
 import { post } from '../services/api';
 import { responseOk } from '../utils/responseOk';
 
+import useFetchItems from '../hooks/useFetchItems';
+
 const { Meta } = Card;
 
 const Container = styled.div`
@@ -49,23 +51,6 @@ const Description = styled.div`
   }
 `;
 
-const dummyData = [
-  {
-    id: 1,
-    price: 3,
-    description: 'Nice boook',
-    title: 'Konan',
-    img: '../img/book.jpg',
-  },
-  {
-    id: 2,
-    price: 5,
-    description: 'Boom',
-    title: 'Varvarin',
-    img: '../img/book.jpg',
-  },
-];
-
 const subscribeMagazine = async (data) => {
   try {
     const authToken = localStorage.getItem('access_token');
@@ -87,12 +72,14 @@ const Shop = () => {
 
   const { updateItems } = React.useContext(ShopContext);
 
+  const { data: allItems = [] } = useFetchItems();
+
   const handleClick = (id) => {
     updateItems((prevItems) => {
       const foundItem = prevItems.find((v) => v.id === id);
       return foundItem
         ? [{ ...foundItem, count: (foundItem.count || 0) + 1 }]
-        : [{ ...dummyData.find((v) => v.id === id), count: 1 }];
+        : [{ ...allItems.find((v) => v.id === id), count: 1 }];
     });
   };
 
@@ -113,7 +100,7 @@ const Shop = () => {
   return (
     <Container>
       {context}
-      {dummyData.map(({ id, title, description, img, price }) => {
+      {allItems.map(({ id, title, description, img = '../img/book.jpg', price }) => {
         return (
           <CardWrapper key={id}>
             <Card

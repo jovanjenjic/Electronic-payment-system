@@ -33,7 +33,7 @@ public class ZullLoggingFilter extends ZuulFilter
         String resource = request.getRequestURI().toString();
         String path = "https://localhost:8084" + resource;
 
-        if ( resource.contains( "/api/auth/signin" ) )
+        if ( resource.contains( "/api/auth/signin" ) || resource.contains("/api/form") || resource.contains("/api/form") )
         {
             // everybody can sign in
             return null;

@@ -1,17 +1,10 @@
 package com.ws.sep.literalnoudruzenje.services;
 
-import com.ws.sep.literalnoudruzenje.dto.BankInfoDTO;
-import com.ws.sep.literalnoudruzenje.dto.BtcInfoDTO;
-import com.ws.sep.literalnoudruzenje.dto.KpLoginResponse;
-import com.ws.sep.literalnoudruzenje.dto.PaypalInfoDTO;
+import com.google.gson.Gson;
+import com.ws.sep.literalnoudruzenje.dto.*;
 import com.ws.sep.literalnoudruzenje.exceptions.SimpleException;
-import com.ws.sep.literalnoudruzenje.model.PaymentType;
-import com.ws.sep.literalnoudruzenje.model.PaymentTypes;
-import com.ws.sep.literalnoudruzenje.model.RoleName;
-import com.ws.sep.literalnoudruzenje.model.User;
-import com.ws.sep.literalnoudruzenje.repository.PaymentTypesRepository;
-import com.ws.sep.literalnoudruzenje.repository.RolesRepository;
-import com.ws.sep.literalnoudruzenje.repository.UserRepository;
+import com.ws.sep.literalnoudruzenje.model.*;
+import com.ws.sep.literalnoudruzenje.repository.*;
 import com.ws.sep.literalnoudruzenje.utils.EncryptionDecryption;
 import com.ws.sep.literalnoudruzenje.utils.JwtUtil;
 import com.ws.sep.literalnoudruzenje.utils.Urls;
@@ -24,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Optional;
 
@@ -37,7 +31,13 @@ public class PaymentService {
     RolesRepository rolesRepository;
 
     @Autowired
+    ItemRepository itemRepository;
+
+    @Autowired
     PaymentTypesRepository paymentTypesRepository;
+
+    @Autowired
+    OrderRepository orderRepository;
 
     @Autowired
     JwtUtil jwtUtil;
@@ -45,14 +45,14 @@ public class PaymentService {
     @Autowired
     RestTemplate restTemplate;
 
-    public void checkIfSeller(User user) throws SimpleException {
+    private void checkIfSeller(User user) throws SimpleException {
         user.getRoles().stream()
                 .filter(v -> v.getName().equals(RoleName.ROLE_SELLER))
                 .findFirst()
                 .orElseThrow(() -> new SimpleException(403, "User is not seller"));
     }
 
-    public void checkIfPaymentTypeAlreadyExists(User user, Object paymentInfo) throws SimpleException {
+    private void checkIfPaymentTypeAlreadyExists(User user, Object paymentInfo) throws SimpleException {
         PaymentType paymentType = null;
 
         if(paymentInfo.getClass() == PaypalInfoDTO.class) paymentType = PaymentType.PAYPAL;
@@ -70,7 +70,14 @@ public class PaymentService {
         if(paymentTypeOptional.isPresent()) throw new SimpleException(409, "Payment method already exists");
     }
 
-    public void updateUserPaymentTypes(User user, Object paymentInfo) throws SimpleException {
+    private void checkIfSellerHasPaymentType(User user, PaymentType paymentType) throws SimpleException {
+        user.getTypes().stream()
+                .filter(v -> v.getType().equals(paymentType))
+                .findFirst()
+                .orElseThrow(() -> new SimpleException(404, "Seller does not have provided type"));
+    }
+
+    private void updateUserPaymentTypes(User user, Object paymentInfo) throws SimpleException {
         PaymentType paymentType = null;
 
         if(paymentInfo.getClass() == PaypalInfoDTO.class) paymentType = PaymentType.PAYPAL;
@@ -85,7 +92,7 @@ public class PaymentService {
         userRepository.save(user);
     }
 
-    public String loginToKp(User user) throws SimpleException {
+    private String loginToKp(User user) throws SimpleException {
         try {
             HashMap<String, String> reqBody = new HashMap<>();
             reqBody.put("email", user.getEmail());
@@ -98,6 +105,20 @@ public class PaymentService {
         } catch (Exception e) {
             throw new SimpleException(403, "Failed to log user to KP");
         }
+    }
+
+    // TODO: Check bank how to extract this
+    private Long extractKpId(String paymentJSONResponse, PaymentType paymentType) {
+        if(paymentType.equals(PaymentType.PAYPAL)) {
+            return new Gson().fromJson(paymentJSONResponse, PaymentResponseDTO.class).getKp_id();
+        }
+        if(paymentType.equals(PaymentType.BTC)) {
+            return new Gson().fromJson(paymentJSONResponse, PaymentResponseDTO.class).getKp_id();
+        }
+        if(paymentType.equals(PaymentType.BANK)) {
+            // TODO: And check here
+        }
+        return 0L;
     }
 
     public ResponseEntity<?> registerPayment(Object paymentInfo, String token) {
@@ -134,4 +155,159 @@ public class PaymentService {
         }
     }
 
+
+    public ResponseEntity<?> createOrder(CreateOrderDTO createOrderDTO, String token) throws SimpleException {
+        // id used to set user which has order
+        Long userId = jwtUtil.extractUserId(token.substring(7));
+
+        User user = userRepository.findById(userId).orElseThrow(() -> new SimpleException(404, "User not found"));
+
+        Item item = itemRepository.findById(createOrderDTO.getItemId()).orElseThrow(() -> new SimpleException(404, "Item not found"));
+
+        // get seller for the item
+        User seller = item.getUser();
+
+        // Check if seller has payment type provided for the order
+        checkIfSellerHasPaymentType(seller, createOrderDTO.getPaymentType());
+
+        String kpToken = loginToKp(seller);
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", kpToken);
+
+        // start flow of the order creation
+        Order order = new Order();
+        order.setCreatedAt(LocalDateTime.now());
+        order.setCurrency(createOrderDTO.getCurrency());
+        order.setItem(item);
+        order.setItemsCount(createOrderDTO.getItemsCount());
+        order.setPaymentType(createOrderDTO.getPaymentType());
+        order.setPrice(createOrderDTO.getPrice());
+        order.setOrderState(OrderState.CREATED);
+        order.setDescription(item.getName() + " / " +item.getDescription());
+        order.setUser(user);
+        // save order to the DB
+        order = orderRepository.save(order);
+
+        String url = "";
+        Object orderRequest = null;
+        if(createOrderDTO.getPaymentType().equals(PaymentType.PAYPAL)){
+            url = Urls.PAYPAL_URL + "/pay";
+            orderRequest = new PaypalCreateOrderDTO(createOrderDTO, order);
+        }
+        else if(createOrderDTO.getPaymentType().equals(PaymentType.BTC)) {
+            url = Urls.BTC_URL + "/createOrder";
+            orderRequest = new BtcCreateOrderDTO(createOrderDTO, order);
+        }
+        else if(createOrderDTO.getPaymentType().equals(PaymentType.BANK)) {
+            url = Urls.BANK_URL + "/merchant/create";
+            orderRequest = new BankCreateOrderDTO(createOrderDTO, order);
+        } else throw new SimpleException(409, "Weird payment type");
+
+        try {
+            HttpEntity<Object> httpEntity = new HttpEntity<>(orderRequest, headers);
+            String response = restTemplate.postForObject(url, httpEntity, String.class);
+            order.setKp_id(extractKpId(response, createOrderDTO.getPaymentType()));
+            orderRepository.save(order);
+            return ResponseEntity.ok(response);
+
+        } catch (RestClientResponseException e) {
+            System.out.println(e.getMessage());
+            order.setOrderState(OrderState.FAILED);
+            orderRepository.save(order);
+            throw new SimpleException(409, "Error occurred while creating order type");
+        }
+    }
+
+    public ResponseEntity<?> executePaypalPayment(PaypalExecuteDTO paypalExecuteDTO, Long orderId) throws SimpleException {
+
+        Order order = orderRepository.findById(orderId).orElseThrow(() -> new SimpleException(404, "Order not found"));
+
+        // seller for the specified item
+        User seller = order.getItem().getUser();
+
+        String kpToken = loginToKp(seller);
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", kpToken);
+
+        String url = Urls.PAYPAL_URL + "/pay/" + order.getKp_id() + "/success";
+
+        try {
+            HttpEntity<PaypalExecuteDTO> httpEntity = new HttpEntity<>(paypalExecuteDTO, headers);
+            String response = restTemplate.postForObject(url, httpEntity, String.class);
+            order.setOrderState(OrderState.SUCCESS);
+            orderRepository.save(order);
+            return ResponseEntity.ok(response);
+
+        } catch (RestClientResponseException e) {
+            System.out.println(e.getMessage());
+            order.setOrderState(OrderState.FAILED);
+            orderRepository.save(order);
+            throw new SimpleException(409, "Error occurred while executing payment");
+        }
+    }
+
+    public ResponseEntity<?> cancelPaypalPayment(Long orderId) {
+        Order order = orderRepository.findById(orderId).orElseThrow(() -> new SimpleException(404, "Order not found"));
+
+        // seller for the specified item
+        User seller = order.getItem().getUser();
+
+        String cancelUrl = Urls.PAYPAL_URL + "/pay/" + order.getKp_id() + "/cancel";
+
+        String kpToken = loginToKp(seller);
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", kpToken);
+
+        try {
+            HttpEntity<Object> httpEntity = new HttpEntity<>(new HashMap<String, String>(), headers);
+            String response = restTemplate.postForObject(cancelUrl, httpEntity, String.class);
+            order.setOrderState(OrderState.CANCELED);
+            orderRepository.save(order);
+            return ResponseEntity.ok(response);
+
+        } catch (RestClientResponseException e) {
+            System.out.println(e.getMessage());
+            order.setOrderState(OrderState.FAILED);
+            orderRepository.save(order);
+            throw new SimpleException(409, "Error occurred while executing payment");
+        }
+    }
+
+    public ResponseEntity<?> updateBtcTransaction(BtcExecuteDTO btcExecuteDTO) {
+        Order order = orderRepository.findById(btcExecuteDTO.getTransactionId())
+                .orElseThrow(() -> new SimpleException(404, "Order not found"));
+
+        User seller = order.getItem().getUser();
+
+        String url = Urls.BTC_URL + "/setStateOfTransaction";
+
+        String kpToken = loginToKp(seller);
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", kpToken);
+
+        btcExecuteDTO.setTransactionId(order.getKp_id());
+
+        try {
+            HttpEntity<BtcExecuteDTO> httpEntity = new HttpEntity<>(btcExecuteDTO, headers);
+            String response = restTemplate.postForObject(url, httpEntity, String.class);
+            order.setOrderState(btcExecuteDTO.getIsSuccess() ? OrderState.SUCCESS :  OrderState.CANCELED);
+            orderRepository.save(order);
+            return ResponseEntity.ok(response);
+
+        } catch (RestClientResponseException e) {
+            System.out.println(e.getMessage());
+            order.setOrderState(OrderState.FAILED);
+            orderRepository.save(order);
+            throw new SimpleException(409, "Error occurred while executing payment");
+        }
+    }
+
+    public ResponseEntity<?> getSellerPaymentTypes(String token) {
+        // id used to set user which has order
+        Long userId = jwtUtil.extractUserId(token.substring(7));
+
+        User user = userRepository.findById(userId).orElseThrow(() -> new SimpleException(404, "User not found"));
+
+        return ResponseEntity.ok(user.getTypes());
+    }
 }

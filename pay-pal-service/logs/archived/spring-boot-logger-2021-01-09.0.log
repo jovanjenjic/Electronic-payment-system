@@ -1,0 +1,710 @@
+2021-01-07 22:54:10,625 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2021-01-07 22:54:10,713 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-07 22:54:12,133 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-01-07 22:54:15,227 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-07 22:54:15,450 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 207ms. Found 4 JPA repository interfaces.
+2021-01-07 22:54:15,771 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-01-07 22:54:16,159 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=1b685050-0c8d-37e5-84c6-cae20a25fb3d
+2021-01-07 22:54:17,187 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8082 (https)
+2021-01-07 22:54:17,201 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-07 22:54:17,203 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-07 22:54:17,203 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-07 22:54:17,463 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-07 22:54:17,463 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 5123 ms
+2021-01-07 22:54:17,639 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-07 22:54:17,640 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-07 22:54:17,660 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@7944c3a4
+2021-01-07 22:54:18,080 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-07 22:54:18,104 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
+2021-01-07 22:54:18,307 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-07 22:54:18,546 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-01-07 22:54:18,950 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-07 22:54:19,254 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2021-01-07 22:54:19,534 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
+2021-01-07 22:54:19,535 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
+2021-01-07 22:54:19,581 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2021-01-07 22:54:19,612 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-07 22:54:20,082 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
+2021-01-07 22:54:20,083 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
+2021-01-07 22:54:20,873 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-07 22:54:20,874 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-07 22:54:21,086 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-07 22:54:21,823 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-07 22:54:21,842 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-07 22:54:21,918 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
+2021-01-07 22:54:23,560 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2021-01-07 22:54:23,682 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-01-07 22:54:23,904 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2021-01-07 22:54:23,921 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2021-01-07 22:54:23,974 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2021-01-07 22:54:24,108 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
+2021-01-07 22:54:24,109 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2021-01-07 22:54:24,109 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
+2021-01-07 22:54:24,110 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
+2021-01-07 22:54:24,111 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2021-01-07 22:54:24,111 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
+2021-01-07 22:54:24,111 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2021-01-07 22:54:24,515 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
+2021-01-07 22:54:24,520 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
+2021-01-07 22:54:24,524 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2021-01-07 22:54:24,529 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1610056464528 with initial instances count: 1
+2021-01-07 22:54:24,533 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application PAY-PAL-SERVICE with eureka with status UP
+2021-01-07 22:54:24,534 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1610056464534, current=UP, previous=STARTING]
+2021-01-07 22:54:24,537 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-9EJEK3C:pay-pal-service:8082: registering service...
+2021-01-07 22:54:24,537 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-07 22:54:24,596 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-9EJEK3C:pay-pal-service:8082 - registration status: 204
+2021-01-07 22:54:25,177 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8082 (https) with context path ''
+2021-01-07 22:54:25,178 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8082
+2021-01-07 22:54:25,380 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2021-01-07 22:54:26,256 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2021-01-07 22:54:26,275 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-07 22:54:26,278 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started PayPalServiceApplication in 17.187 seconds (JVM running for 20.036)
+2021-01-07 22:54:26,444 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(1)-192.168.1.2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-07 22:54:26,445 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-192.168.1.2] Initializing Servlet 'dispatcherServlet'
+2021-01-07 22:54:26,456 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-192.168.1.2] Completed initialization in 11 ms
+2021-01-07 22:54:27,720 INFO com.ws.sep.paypalservice.services.SellerInfoService [scheduling-1] Successful returned api context.
+2021-01-07 22:54:28,609 ERROR com.paypal.base.HttpConnection [scheduling-1] Error code : 404 with response : {"name":"INVALID_RESOURCE_ID","message":"The requested resource ID was not found","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"eabd5223ccffc"}
+2021-01-07 22:54:28,622 ERROR com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Failed to get payment information
+2021-01-07 22:54:28,671 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-07 22:59:24,116 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-07 23:04:24,132 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-07 23:09:24,144 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-07 23:14:24,150 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-07 23:20:13,901 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2021-01-07 23:20:13,939 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-07 23:20:14,371 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-01-07 23:20:15,563 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-07 23:20:15,852 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 275ms. Found 4 JPA repository interfaces.
+2021-01-07 23:20:16,043 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-01-07 23:20:16,226 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=1b685050-0c8d-37e5-84c6-cae20a25fb3d
+2021-01-07 23:20:16,757 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8082 (https)
+2021-01-07 23:20:16,765 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-07 23:20:16,765 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-07 23:20:16,765 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-07 23:20:16,899 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-07 23:20:16,899 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2505 ms
+2021-01-07 23:20:16,978 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-07 23:20:16,979 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-07 23:20:16,991 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@5d108829
+2021-01-07 23:20:17,187 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-07 23:20:17,200 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
+2021-01-07 23:20:17,245 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-07 23:20:17,318 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-01-07 23:20:17,459 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-07 23:20:17,570 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2021-01-07 23:20:17,748 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2021-01-07 23:20:17,769 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-07 23:20:17,847 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
+2021-01-07 23:20:17,847 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
+2021-01-07 23:20:17,994 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
+2021-01-07 23:20:17,994 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
+2021-01-07 23:20:18,487 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-07 23:20:18,487 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-07 23:20:18,555 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-07 23:20:18,857 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-07 23:20:18,880 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-07 23:20:19,067 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
+2021-01-07 23:20:19,724 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2021-01-07 23:20:19,771 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-01-07 23:20:19,854 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2021-01-07 23:20:19,862 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2021-01-07 23:20:19,878 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2021-01-07 23:20:19,931 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
+2021-01-07 23:20:19,931 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2021-01-07 23:20:19,931 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
+2021-01-07 23:20:19,931 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
+2021-01-07 23:20:19,931 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2021-01-07 23:20:19,932 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
+2021-01-07 23:20:19,932 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2021-01-07 23:20:20,173 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
+2021-01-07 23:20:20,176 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
+2021-01-07 23:20:20,178 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2021-01-07 23:20:20,182 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1610058020181 with initial instances count: 3
+2021-01-07 23:20:20,184 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application PAY-PAL-SERVICE with eureka with status UP
+2021-01-07 23:20:20,184 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1610058020184, current=UP, previous=STARTING]
+2021-01-07 23:20:20,186 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-9EJEK3C:pay-pal-service:8082: registering service...
+2021-01-07 23:20:20,186 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-07 23:20:20,228 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-9EJEK3C:pay-pal-service:8082 - registration status: 204
+2021-01-07 23:20:20,427 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8082 (https) with context path ''
+2021-01-07 23:20:20,428 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8082
+2021-01-07 23:20:20,508 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2021-01-07 23:20:21,140 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2021-01-07 23:20:21,154 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-07 23:20:21,156 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started PayPalServiceApplication in 7.724 seconds (JVM running for 9.169)
+2021-01-07 23:20:21,239 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-07 23:20:21,660 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(10)-192.168.1.2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-07 23:20:21,660 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(10)-192.168.1.2] Initializing Servlet 'dispatcherServlet'
+2021-01-07 23:20:21,671 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(10)-192.168.1.2] Completed initialization in 10 ms
+2021-01-07 23:25:19,934 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-07 23:30:19,937 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-07 23:35:19,949 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-07 23:40:19,953 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-07 23:41:41,476 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-4] INFO - /addPayment
+2021-01-07 23:41:41,907 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-4] Successful user registration on payment system. User ID: 3
+2021-01-07 23:45:19,960 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 19:28:00,896 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2021-01-08 19:28:00,922 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-08 19:28:01,446 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-01-08 19:28:02,098 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-08 19:28:02,176 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 73ms. Found 4 JPA repository interfaces.
+2021-01-08 19:28:02,264 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-01-08 19:28:02,362 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=1b685050-0c8d-37e5-84c6-cae20a25fb3d
+2021-01-08 19:28:02,769 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8082 (https)
+2021-01-08 19:28:02,775 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-08 19:28:02,776 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-08 19:28:02,776 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-08 19:28:02,906 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-08 19:28:02,906 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1446 ms
+2021-01-08 19:28:02,966 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-08 19:28:02,967 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-08 19:28:02,974 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@63d7e0d9
+2021-01-08 19:28:03,119 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-08 19:28:03,127 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
+2021-01-08 19:28:03,155 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-08 19:28:03,201 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-01-08 19:28:03,291 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-08 19:28:03,370 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2021-01-08 19:28:03,515 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2021-01-08 19:28:03,525 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-08 19:28:03,615 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
+2021-01-08 19:28:03,616 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
+2021-01-08 19:28:03,746 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
+2021-01-08 19:28:03,746 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
+2021-01-08 19:28:04,098 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-08 19:28:04,099 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-08 19:28:04,145 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-08 19:28:04,481 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-08 19:28:04,491 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-08 19:28:04,787 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
+2021-01-08 19:28:05,240 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2021-01-08 19:28:05,274 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-01-08 19:28:05,349 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2021-01-08 19:28:05,355 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2021-01-08 19:28:05,368 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2021-01-08 19:28:05,544 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
+2021-01-08 19:28:05,545 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2021-01-08 19:28:05,545 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
+2021-01-08 19:28:05,545 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
+2021-01-08 19:28:05,545 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2021-01-08 19:28:05,545 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
+2021-01-08 19:28:05,545 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2021-01-08 19:28:05,735 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
+2021-01-08 19:28:05,737 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
+2021-01-08 19:28:05,739 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2021-01-08 19:28:05,742 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1610130485741 with initial instances count: 3
+2021-01-08 19:28:05,744 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application PAY-PAL-SERVICE with eureka with status UP
+2021-01-08 19:28:05,745 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1610130485745, current=UP, previous=STARTING]
+2021-01-08 19:28:05,746 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-08 19:28:05,746 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-B4MQFE7:pay-pal-service:8082: registering service...
+2021-01-08 19:28:05,774 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-B4MQFE7:pay-pal-service:8082 - registration status: 204
+2021-01-08 19:28:05,962 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8082 (https) with context path ''
+2021-01-08 19:28:05,963 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8082
+2021-01-08 19:28:06,218 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2021-01-08 19:28:06,565 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2021-01-08 19:28:06,576 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-08 19:28:06,577 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started PayPalServiceApplication in 6.371 seconds (JVM running for 7.578)
+2021-01-08 19:28:06,613 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-08 19:28:07,006 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(1)-192.168.0.10] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-08 19:28:07,007 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-192.168.0.10] Initializing Servlet 'dispatcherServlet'
+2021-01-08 19:28:07,013 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-192.168.0.10] Completed initialization in 6 ms
+2021-01-08 19:29:00,194 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-9] INFO - /addPayment
+2021-01-08 19:29:00,557 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-9] Successful user registration on payment system. User ID: 3
+2021-01-08 19:33:05,549 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 19:38:05,551 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 19:43:05,552 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 19:48:05,562 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 19:53:05,565 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 19:58:05,566 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 19:58:06,622 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-08 19:58:06,747 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-08 20:03:05,571 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 20:08:05,573 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 20:13:05,575 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 20:18:05,577 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 20:23:05,579 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 20:28:05,580 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 20:28:06,749 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-08 20:28:06,769 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-08 20:33:05,581 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 20:38:05,582 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 20:43:05,585 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 20:48:05,587 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 21:34:02,484 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2021-01-08 21:34:02,555 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-08 21:34:03,490 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-01-08 21:34:05,391 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-08 21:34:05,514 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 115ms. Found 4 JPA repository interfaces.
+2021-01-08 21:34:05,691 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-01-08 21:34:05,900 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=1b685050-0c8d-37e5-84c6-cae20a25fb3d
+2021-01-08 21:34:06,794 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8082 (https)
+2021-01-08 21:34:06,806 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-08 21:34:06,807 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-08 21:34:06,808 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-08 21:34:06,990 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-08 21:34:06,990 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 3447 ms
+2021-01-08 21:34:07,099 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-08 21:34:07,100 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-08 21:34:07,111 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@586b95ac
+2021-01-08 21:34:07,378 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-08 21:34:07,392 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
+2021-01-08 21:34:07,445 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-08 21:34:07,528 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-01-08 21:34:07,723 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-08 21:34:07,835 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2021-01-08 21:34:08,007 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2021-01-08 21:34:08,022 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-08 21:34:08,194 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
+2021-01-08 21:34:08,194 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
+2021-01-08 21:34:08,384 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
+2021-01-08 21:34:08,385 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
+2021-01-08 21:34:09,027 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-08 21:34:09,027 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-08 21:34:09,111 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-08 21:34:09,226 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-08 21:34:09,240 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-08 21:34:09,391 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
+2021-01-08 21:34:10,017 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2021-01-08 21:34:10,063 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-01-08 21:34:10,169 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2021-01-08 21:34:10,178 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2021-01-08 21:34:10,195 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2021-01-08 21:34:10,268 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
+2021-01-08 21:34:10,269 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2021-01-08 21:34:10,269 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
+2021-01-08 21:34:10,270 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
+2021-01-08 21:34:10,271 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2021-01-08 21:34:10,272 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
+2021-01-08 21:34:10,272 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2021-01-08 21:34:10,494 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
+2021-01-08 21:34:10,497 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
+2021-01-08 21:34:10,501 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2021-01-08 21:34:10,510 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1610138050508 with initial instances count: 0
+2021-01-08 21:34:10,514 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application PAY-PAL-SERVICE with eureka with status UP
+2021-01-08 21:34:10,515 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1610138050515, current=UP, previous=STARTING]
+2021-01-08 21:34:10,521 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-08 21:34:10,522 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-9EJEK3C:pay-pal-service:8082: registering service...
+2021-01-08 21:34:10,637 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-9EJEK3C:pay-pal-service:8082 - registration status: 204
+2021-01-08 21:34:10,849 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8082 (https) with context path ''
+2021-01-08 21:34:10,850 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8082
+2021-01-08 21:34:10,947 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2021-01-08 21:34:11,633 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2021-01-08 21:34:11,648 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-08 21:34:11,651 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started PayPalServiceApplication in 10.112 seconds (JVM running for 13.284)
+2021-01-08 21:34:11,712 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-08 21:34:12,085 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(7)-192.168.1.2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-08 21:34:12,085 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(7)-192.168.1.2] Initializing Servlet 'dispatcherServlet'
+2021-01-08 21:34:12,093 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(7)-192.168.1.2] Completed initialization in 7 ms
+2021-01-08 21:34:40,509 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Disable delta property : false
+2021-01-08 21:34:40,510 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Single vip registry refresh property : null
+2021-01-08 21:34:40,510 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Force full registry fetch : false
+2021-01-08 21:34:40,510 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Application is null : false
+2021-01-08 21:34:40,510 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Registered Applications size is zero : true
+2021-01-08 21:34:40,511 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Application version is -1: false
+2021-01-08 21:34:40,511 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Getting all instance registry info from the eureka server
+2021-01-08 21:34:40,693 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] The response status is 200
+2021-01-08 21:39:10,276 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 21:44:10,278 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 21:49:10,286 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 21:54:10,288 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 21:59:10,304 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 21:59:51,141 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2021-01-08 21:59:51,200 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-08 21:59:51,851 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-01-08 21:59:53,429 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-08 21:59:53,812 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 340ms. Found 4 JPA repository interfaces.
+2021-01-08 21:59:54,053 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-01-08 21:59:54,306 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=1b685050-0c8d-37e5-84c6-cae20a25fb3d
+2021-01-08 21:59:55,067 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8082 (https)
+2021-01-08 21:59:55,076 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-08 21:59:55,077 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-08 21:59:55,078 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-08 21:59:55,236 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-08 21:59:55,237 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 3362 ms
+2021-01-08 21:59:55,393 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-08 21:59:55,394 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-08 21:59:55,409 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@5dd7f0cf
+2021-01-08 21:59:55,659 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-08 21:59:55,670 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
+2021-01-08 21:59:55,716 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-08 21:59:55,803 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-01-08 21:59:56,027 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-08 21:59:56,200 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2021-01-08 21:59:56,390 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2021-01-08 21:59:56,407 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-08 21:59:56,426 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
+2021-01-08 21:59:56,426 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
+2021-01-08 21:59:56,586 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
+2021-01-08 21:59:56,586 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
+2021-01-08 21:59:57,094 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-08 21:59:57,094 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-08 21:59:57,171 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-08 21:59:57,387 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-08 21:59:57,399 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-08 21:59:57,443 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
+2021-01-08 21:59:58,039 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2021-01-08 21:59:58,088 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-01-08 21:59:58,184 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2021-01-08 21:59:58,191 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2021-01-08 21:59:58,209 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2021-01-08 21:59:58,270 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
+2021-01-08 21:59:58,270 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2021-01-08 21:59:58,270 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
+2021-01-08 21:59:58,270 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
+2021-01-08 21:59:58,271 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2021-01-08 21:59:58,271 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
+2021-01-08 21:59:58,271 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2021-01-08 21:59:58,515 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
+2021-01-08 21:59:58,518 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
+2021-01-08 21:59:58,521 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2021-01-08 21:59:58,524 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1610139598523 with initial instances count: 3
+2021-01-08 21:59:58,527 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application PAY-PAL-SERVICE with eureka with status UP
+2021-01-08 21:59:58,527 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1610139598527, current=UP, previous=STARTING]
+2021-01-08 21:59:58,529 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-9EJEK3C:pay-pal-service:8082: registering service...
+2021-01-08 21:59:58,529 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-08 21:59:58,563 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-9EJEK3C:pay-pal-service:8082 - registration status: 204
+2021-01-08 21:59:58,774 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8082 (https) with context path ''
+2021-01-08 21:59:58,775 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8082
+2021-01-08 21:59:58,841 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2021-01-08 21:59:59,285 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2021-01-08 21:59:59,298 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-08 21:59:59,300 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started PayPalServiceApplication in 8.805 seconds (JVM running for 11.108)
+2021-01-08 21:59:59,351 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-08 21:59:59,594 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(3)-192.168.1.2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-08 21:59:59,594 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(3)-192.168.1.2] Initializing Servlet 'dispatcherServlet'
+2021-01-08 21:59:59,602 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(3)-192.168.1.2] Completed initialization in 7 ms
+2021-01-08 22:02:16,724 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-6] INFO - /addPayment
+2021-01-08 22:02:17,058 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-6] Successful user registration on payment system. User ID: 3
+2021-01-08 22:04:58,289 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-08 22:09:58,293 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 14:18:31,404 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2021-01-09 14:18:31,463 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-09 14:18:32,403 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-01-09 14:18:33,968 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-09 14:18:34,114 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 136ms. Found 4 JPA repository interfaces.
+2021-01-09 14:18:34,308 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-01-09 14:18:34,488 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=1b685050-0c8d-37e5-84c6-cae20a25fb3d
+2021-01-09 14:18:35,472 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8082 (https)
+2021-01-09 14:18:35,481 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-09 14:18:35,482 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-09 14:18:35,482 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-09 14:18:35,652 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-09 14:18:35,653 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 3226 ms
+2021-01-09 14:18:35,855 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-09 14:18:35,855 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-09 14:18:35,867 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@5a4b604a
+2021-01-09 14:18:36,090 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-09 14:18:36,109 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
+2021-01-09 14:18:36,154 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-09 14:18:36,214 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-01-09 14:18:36,413 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-09 14:18:36,793 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2021-01-09 14:18:37,266 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2021-01-09 14:18:37,272 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
+2021-01-09 14:18:37,272 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
+2021-01-09 14:18:37,317 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-09 14:18:37,500 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
+2021-01-09 14:18:37,500 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
+2021-01-09 14:18:38,089 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-09 14:18:38,090 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-09 14:18:38,173 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-09 14:18:38,820 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-09 14:18:38,834 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-09 14:18:39,418 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
+2021-01-09 14:18:40,328 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2021-01-09 14:18:40,393 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-01-09 14:18:40,529 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2021-01-09 14:18:40,541 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2021-01-09 14:18:40,572 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2021-01-09 14:18:40,921 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
+2021-01-09 14:18:40,921 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2021-01-09 14:18:40,921 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
+2021-01-09 14:18:40,921 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
+2021-01-09 14:18:40,922 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2021-01-09 14:18:40,922 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
+2021-01-09 14:18:40,922 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2021-01-09 14:18:41,337 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
+2021-01-09 14:18:41,339 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
+2021-01-09 14:18:41,342 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2021-01-09 14:18:41,346 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1610198321345 with initial instances count: 2
+2021-01-09 14:18:41,349 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application PAY-PAL-SERVICE with eureka with status UP
+2021-01-09 14:18:41,349 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1610198321349, current=UP, previous=STARTING]
+2021-01-09 14:18:41,351 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-B4MQFE7:pay-pal-service:8082: registering service...
+2021-01-09 14:18:41,351 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-09 14:18:41,389 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-B4MQFE7:pay-pal-service:8082 - registration status: 204
+2021-01-09 14:18:41,807 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8082 (https) with context path ''
+2021-01-09 14:18:41,808 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8082
+2021-01-09 14:18:42,229 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2021-01-09 14:18:42,853 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2021-01-09 14:18:42,899 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 14:18:42,901 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started PayPalServiceApplication in 12.682 seconds (JVM running for 14.934)
+2021-01-09 14:18:42,983 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 14:18:43,623 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(10)-192.168.0.10] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-09 14:18:43,623 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(10)-192.168.0.10] Initializing Servlet 'dispatcherServlet'
+2021-01-09 14:18:43,634 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(10)-192.168.0.10] Completed initialization in 10 ms
+2021-01-09 14:23:40,927 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 14:28:40,930 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 14:33:40,932 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 14:38:40,933 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 14:43:40,935 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 14:48:40,936 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 14:48:42,987 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 14:48:43,036 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 14:53:40,937 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 14:58:40,938 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 15:03:40,941 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 15:08:40,942 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 15:13:40,945 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 15:18:40,952 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 15:18:43,047 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 15:18:43,089 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 15:23:40,954 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 15:28:40,955 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 15:33:40,957 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 15:38:40,961 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 15:43:40,961 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 15:48:40,962 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 15:48:43,092 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 15:48:43,110 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 15:53:40,965 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 15:58:40,966 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 16:03:40,968 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 16:08:40,970 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 16:13:40,972 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 16:18:40,975 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 16:18:43,110 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 16:18:43,127 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 17:48:19,430 WARN com.zaxxer.hikari.pool.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h25m11s797ms322µs).
+2021-01-09 17:48:22,755 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 17:53:22,757 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 17:58:22,759 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 18:03:22,762 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 18:08:22,765 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 18:13:22,771 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 18:13:24,907 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 18:13:24,964 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 18:18:22,773 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 18:23:22,776 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 18:28:22,778 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 18:33:22,780 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 18:38:22,781 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 18:43:22,790 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 18:43:24,967 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 18:43:25,016 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 18:48:22,792 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 18:53:22,794 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 18:58:22,796 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 19:03:22,798 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 19:08:22,798 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 19:12:10,156 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2021-01-09 19:12:10,207 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-09 19:12:11,022 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-01-09 19:12:11,899 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-09 19:12:11,992 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 86ms. Found 4 JPA repository interfaces.
+2021-01-09 19:12:12,111 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-01-09 19:12:12,262 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=1b685050-0c8d-37e5-84c6-cae20a25fb3d
+2021-01-09 19:12:13,056 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8082 (https)
+2021-01-09 19:12:13,071 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-09 19:12:13,072 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-09 19:12:13,072 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-09 19:12:13,260 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-09 19:12:13,261 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2219 ms
+2021-01-09 19:12:13,352 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-09 19:12:13,353 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-09 19:12:13,360 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@5a4b604a
+2021-01-09 19:12:13,609 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-09 19:12:13,627 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
+2021-01-09 19:12:13,678 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-09 19:12:13,889 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-01-09 19:12:14,085 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-09 19:12:14,273 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2021-01-09 19:12:14,456 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
+2021-01-09 19:12:14,457 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
+2021-01-09 19:12:14,490 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2021-01-09 19:12:14,512 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-09 19:12:14,639 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
+2021-01-09 19:12:14,639 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
+2021-01-09 19:12:15,141 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-09 19:12:15,141 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-09 19:12:15,204 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-09 19:12:15,843 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-09 19:12:15,855 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-09 19:12:16,112 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
+2021-01-09 19:12:16,739 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2021-01-09 19:12:16,787 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-01-09 19:12:16,887 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2021-01-09 19:12:16,892 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2021-01-09 19:12:16,910 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2021-01-09 19:12:17,127 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
+2021-01-09 19:12:17,128 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2021-01-09 19:12:17,128 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
+2021-01-09 19:12:17,128 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
+2021-01-09 19:12:17,128 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2021-01-09 19:12:17,128 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
+2021-01-09 19:12:17,128 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2021-01-09 19:12:17,411 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
+2021-01-09 19:12:17,415 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
+2021-01-09 19:12:17,421 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2021-01-09 19:12:17,424 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1610215937423 with initial instances count: 5
+2021-01-09 19:12:17,426 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application PAY-PAL-SERVICE with eureka with status UP
+2021-01-09 19:12:17,426 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1610215937426, current=UP, previous=STARTING]
+2021-01-09 19:12:17,428 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-B4MQFE7:pay-pal-service:8082: registering service...
+2021-01-09 19:12:17,428 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-09 19:12:17,468 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-B4MQFE7:pay-pal-service:8082 - registration status: 204
+2021-01-09 19:12:17,688 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8082 (https) with context path ''
+2021-01-09 19:12:17,689 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8082
+2021-01-09 19:12:18,035 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2021-01-09 19:12:18,438 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2021-01-09 19:12:18,457 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 19:12:18,460 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started PayPalServiceApplication in 9.598 seconds (JVM running for 12.853)
+2021-01-09 19:12:18,526 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 19:12:19,055 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(1)-192.168.0.10] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-09 19:12:19,056 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-192.168.0.10] Initializing Servlet 'dispatcherServlet'
+2021-01-09 19:12:19,062 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-192.168.0.10] Completed initialization in 6 ms
+2021-01-09 19:13:33,008 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-5] INFO - /addPayment
+2021-01-09 19:13:33,356 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-5] Successful user registration on payment system. User ID: 3
+2021-01-09 19:17:17,131 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 19:22:17,134 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 19:27:17,136 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 19:32:17,139 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 19:37:17,141 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 19:42:17,143 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 19:42:18,536 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 19:42:18,602 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 19:47:17,145 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 19:52:17,146 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 19:57:17,149 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 20:02:17,149 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 20:07:17,150 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 20:12:17,153 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 20:12:18,604 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 20:12:18,612 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 20:17:17,154 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 20:22:17,156 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 20:27:17,159 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 20:32:17,160 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 20:37:17,161 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 20:42:17,168 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 20:42:18,614 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 20:42:18,625 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 20:47:17,170 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 20:52:17,171 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 20:57:17,173 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 21:02:17,176 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 21:07:17,178 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 21:12:17,180 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 21:12:18,626 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 21:12:18,648 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 21:17:17,182 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 21:22:17,183 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 21:27:17,185 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 21:32:17,187 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 21:37:17,189 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 21:42:17,189 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 21:42:18,649 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 21:42:18,663 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 21:47:17,191 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 21:52:17,194 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 21:57:17,197 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 22:02:17,199 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 22:07:17,201 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 22:12:17,202 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 22:12:18,664 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 22:12:18,699 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 22:17:17,205 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 22:20:52,613 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-3] INFO - /pay
+2021-01-09 22:20:54,301 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-3] Successful returned api context.
+2021-01-09 22:22:17,207 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 22:27:17,208 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 22:27:23,773 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /pay
+2021-01-09 22:27:24,705 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-10] Successful returned api context.
+2021-01-09 22:32:17,209 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 22:37:17,210 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 22:42:17,221 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 22:42:18,709 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 22:42:18,722 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 22:47:17,223 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 22:51:10,676 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2021-01-09 22:51:10,706 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-09 22:51:11,216 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-01-09 22:51:11,853 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-09 22:51:11,931 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 73ms. Found 4 JPA repository interfaces.
+2021-01-09 22:51:12,024 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-01-09 22:51:12,138 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=1b685050-0c8d-37e5-84c6-cae20a25fb3d
+2021-01-09 22:51:12,621 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8082 (https)
+2021-01-09 22:51:12,629 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-09 22:51:12,630 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-09 22:51:12,630 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-09 22:51:12,767 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-09 22:51:12,767 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1539 ms
+2021-01-09 22:51:12,824 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-09 22:51:12,824 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-09 22:51:12,831 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@671061a3
+2021-01-09 22:51:12,992 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-09 22:51:13,000 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
+2021-01-09 22:51:13,033 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-09 22:51:13,088 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-01-09 22:51:13,211 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-09 22:51:13,289 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2021-01-09 22:51:13,388 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2021-01-09 22:51:13,399 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-09 22:51:13,466 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
+2021-01-09 22:51:13,466 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
+2021-01-09 22:51:13,607 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
+2021-01-09 22:51:13,608 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
+2021-01-09 22:51:13,951 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-01-09 22:51:13,952 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-09 22:51:13,996 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-09 22:51:14,070 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-09 22:51:14,085 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-09 22:51:14,702 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
+2021-01-09 22:51:15,018 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2021-01-09 22:51:15,054 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-01-09 22:51:15,118 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2021-01-09 22:51:15,125 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2021-01-09 22:51:15,142 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2021-01-09 22:51:15,327 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
+2021-01-09 22:51:15,328 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2021-01-09 22:51:15,328 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
+2021-01-09 22:51:15,328 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
+2021-01-09 22:51:15,328 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2021-01-09 22:51:15,328 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
+2021-01-09 22:51:15,328 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2021-01-09 22:51:15,560 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
+2021-01-09 22:51:15,562 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
+2021-01-09 22:51:15,564 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2021-01-09 22:51:15,566 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1610229075565 with initial instances count: 5
+2021-01-09 22:51:15,568 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application PAY-PAL-SERVICE with eureka with status UP
+2021-01-09 22:51:15,568 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1610229075568, current=UP, previous=STARTING]
+2021-01-09 22:51:15,570 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-B4MQFE7:pay-pal-service:8082: registering service...
+2021-01-09 22:51:15,570 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8082"]
+2021-01-09 22:51:15,628 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_PAY-PAL-SERVICE/DESKTOP-B4MQFE7:pay-pal-service:8082 - registration status: 204
+2021-01-09 22:51:15,814 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8082 (https) with context path ''
+2021-01-09 22:51:15,815 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8082
+2021-01-09 22:51:16,089 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2021-01-09 22:51:16,377 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2021-01-09 22:51:16,388 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 22:51:16,389 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started PayPalServiceApplication in 6.495 seconds (JVM running for 7.629)
+2021-01-09 22:51:16,424 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-01-09 22:51:16,728 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(4)-192.168.0.10] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-09 22:51:16,729 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(4)-192.168.0.10] Initializing Servlet 'dispatcherServlet'
+2021-01-09 22:51:16,734 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(4)-192.168.0.10] Completed initialization in 5 ms
+2021-01-09 22:52:16,682 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-6] INFO - /pay
+2021-01-09 22:52:17,845 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-6] Successful returned api context.
+2021-01-09 22:56:15,331 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 23:01:15,332 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 23:03:36,754 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-3] INFO - /pay
+2021-01-09 23:03:38,170 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-3] Successful returned api context.
+2021-01-09 23:06:15,334 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 23:10:47,593 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /pay
+2021-01-09 23:10:48,484 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-10] Successful returned api context.
+2021-01-09 23:11:15,336 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 23:13:16,342 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-7] INFO - /pay
+2021-01-09 23:13:17,206 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-7] Successful returned api context.
+2021-01-09 23:14:19,734 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-4] INFO - /pay
+2021-01-09 23:14:20,585 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-4] Successful returned api context.
+2021-01-09 23:14:56,465 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-5] INFO - /pay
+2021-01-09 23:14:57,300 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-5] Successful returned api context.
+2021-01-09 23:16:15,338 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 23:21:15,341 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-01-09 23:21:16,429 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-01-09 23:21:16,469 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, Checkbox } from 'antd';
 
 import { FormContainer } from '../components/styledForm';
 
@@ -8,6 +8,13 @@ const layout = {
     span: 8,
   },
   wrapperCol: {
+    span: 16,
+  },
+};
+
+const tailLayout = {
+  wrapperCol: {
+    offset: 8,
     span: 16,
   },
 };
@@ -41,6 +48,19 @@ const Register = ({ onFinish = () => { }, form }) => {
         </Form.Item>
 
         <Form.Item
+          label="Name"
+          name="name"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your name!',
+            }
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
           label="PIB"
           name="pib"
           rules={[
@@ -68,6 +88,14 @@ const Register = ({ onFinish = () => { }, form }) => {
           ]}
         >
           <Input.Password />
+        </Form.Item>
+
+        <Form.Item
+          name="seller"
+          valuePropName="checked"
+          {...tailLayout}
+        >
+          <Checkbox>Seller</Checkbox>
         </Form.Item>
 
         <Button type="primary" block htmlType="submit" className="form-button">

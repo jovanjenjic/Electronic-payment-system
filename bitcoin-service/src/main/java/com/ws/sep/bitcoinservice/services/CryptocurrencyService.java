@@ -147,8 +147,8 @@ public class CryptocurrencyService {
 
         params.put("title", transactionDetailsDTO.getTitle());
         params.put("description", transactionDetailsDTO.getDescription());
-        params.put("success_url", GlobalDataString.DASHBOARD + "/payments/" + paymentInformation.getId() + "/bitcoin/success");
-        params.put("cancel_url", GlobalDataString.DASHBOARD + "/payments/" + paymentInformation.getId() + "/bitcoin/cancel");
+        params.put("success_url", GlobalDataString.DASHBOARD + "/payments/" + paymentInformation.getOrderId() + "/bitcoin/success");
+        params.put("cancel_url", GlobalDataString.DASHBOARD + "/payments/" + paymentInformation.getOrderId() + "/bitcoin/cancel");
 
         HttpEntity<Map<String, String>> entity = new HttpEntity<>(params, headers);
         ResponseEntity<CreateOrderResponseDTO> response = restTemplate.postForEntity(GlobalDataString.SENDBOX_ORDERS, entity, CreateOrderResponseDTO.class);
@@ -156,8 +156,11 @@ public class CryptocurrencyService {
         paymentInformation.setPaymentId(response.getBody().getId());
         paymentInformarmationRepository.save(paymentInformation);
 
+        CreateOrderResponseDTO createOrderResponseDTO = response.getBody();
+        createOrderResponseDTO.setKp_id(paymentInformation.getId());
+
         logger.info("Successful create transaction. User ID: " + sellerId.toString());
-        return response.getBody();
+        return createOrderResponseDTO;
     }
 
     @Transactional

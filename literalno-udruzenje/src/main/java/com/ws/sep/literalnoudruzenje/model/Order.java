@@ -1,21 +1,17 @@
-package com.ws.sep.paypalservice.model;
+package com.ws.sep.literalnoudruzenje.model;
 
-import com.ws.sep.paypalservice.enums.OrderState;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "user_orders")
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
-public class SellerOrders {
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,23 +21,27 @@ public class SellerOrders {
 
     private int itemsCount;
 
-    private Long itemId;
-
-    private Long orderId;
+    private Long kp_id;
 
     private String currency;
 
     private String description;
 
-    private String paymentUrl;
+    @Enumerated(EnumType.STRING)
+    private PaymentType paymentType;
 
     @Enumerated(EnumType.STRING)
     private OrderState orderState;
 
-    private Long sellerId;
-
-    private String paymentId;
-
     @CreatedDate
     private LocalDateTime createdAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "item_id")
+    private Item item;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 }

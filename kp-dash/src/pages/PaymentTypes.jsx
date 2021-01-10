@@ -42,7 +42,7 @@ const PaymentFormTypeContainer = styled.div`
 
 const resolveUrl = (type = 'PAYPAL') => {
   // TODO: Add another payment methods
-  if (type === 'BITCOIN') {
+  if (type === 'BTC') {
     return BTC_ADD_PAYMENT_URL;
   }
 
@@ -153,7 +153,7 @@ const PaymentTypes = () => {
         value={value}
         onChange={(value) => updatevalue(value)}
       >
-        {['PAYPAL', 'BITCOIN', 'BANK'].map((v) => (
+        {['PAYPAL', 'BTC', 'BANK'].map((v) => (
           <Select.Option key={v} value={v}>{`${v[0]}${v
             .slice(1)
             .toLowerCase()}`}</Select.Option>

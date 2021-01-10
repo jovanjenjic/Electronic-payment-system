@@ -52,7 +52,6 @@ const Title = styled.div`
 
 const createPaymentPaypal = async ({
   price,
-  description,
   count,
   currency = 'EUR',
   id,
@@ -63,10 +62,10 @@ const createPaymentPaypal = async ({
     PAYPAL_PAYMENT_URL,
     {
       price,
-      items_count: count,
-      item_id: id,
+      itemsCount: count,
+      itemId: id,
       currency,
-      description,
+      paymentType: 'PAYPAL'
     },
     authToken
   );
@@ -83,7 +82,6 @@ const createPaymentPaypal = async ({
 
 const createPaymentBtc = async ({
   price,
-  description,
   count,
   currency = 'EUR',
   id,
@@ -93,13 +91,11 @@ const createPaymentBtc = async ({
   const response = await post(
     BTC_CREATE_PAYMENT_URL,
     {
-      priceAmount: price * count,
-      orderId: id,
-      priceCurrency: currency,
-      receiveCurrency: 'BTC',
-      description,
-      title: description,
-      customToken: 'bla bla',
+      price,
+      itemsCount: count,
+      itemId: id,
+      currency,
+      paymentType: 'BTC'
     },
     authToken
   );
@@ -113,6 +109,8 @@ const createPaymentBtc = async ({
 
   return { error: true };
 };
+
+// TODO: update bank also later
 
 const createPaymentBank = async ({ price, count, id }, history) => {
   const authToken = localStorage.getItem('access_token');
@@ -187,21 +185,21 @@ const ShoppingCart = () => {
           <div>
             <ItemList items={items} />
             <PaymentGroup>
-              {types.includes(PAYPAL) && (
-                <ImgContainer onClick={handlePaypal}>
-                  <img src="../img/paypal.png" style={imgStyle} />
-                </ImgContainer>
-              )}
-              {types.includes(BITCOIN) && (
-                <ImgContainer onClick={handleBtc}>
-                  <img src="../img/btc.png" style={imgStyle} />
-                </ImgContainer>
-              )}
-              {types.includes(BANK) && (
-                <ImgContainer onClick={handleBank}>
-                  <CreditCardOutlined />
-                </ImgContainer>
-              )}
+              {/* {types.includes(PAYPAL) && ( */}
+              <ImgContainer onClick={handlePaypal}>
+                <img src="../img/paypal.png" style={imgStyle} />
+              </ImgContainer>
+              {/* )} */}
+              {/* {types.includes(BITCOIN) && ( */}
+              <ImgContainer onClick={handleBtc}>
+                <img src="../img/btc.png" style={imgStyle} />
+              </ImgContainer>
+              {/* )} */}
+              {/* {types.includes(BANK) && ( */}
+              <ImgContainer onClick={handleBank}>
+                <CreditCardOutlined />
+              </ImgContainer>
+              {/* )} */}
             </PaymentGroup>
           </div>
         }

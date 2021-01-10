@@ -28,7 +28,7 @@ const LoginContainer = () => {
         placement: 'topRight',
         message: 'Login success'
       });
-      localStorage.setItem('access_token', result.accessToken);
+      localStorage.setItem('access_token', result.access_token);
       setTimeout(() => {
         history.push('/');
       }, 1000)
