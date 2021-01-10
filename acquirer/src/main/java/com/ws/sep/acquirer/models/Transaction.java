@@ -42,6 +42,8 @@ public class Transaction
 
     private String successUrl;
 
+    private Long paymentId;
+
     @Enumerated( EnumType.STRING )
     private TransactionStatus status;
 

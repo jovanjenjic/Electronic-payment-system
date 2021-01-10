@@ -111,6 +111,8 @@ public class ClientService
         newTransaction.setAcquirerTimestamp( new Date() );
         newTransaction.setStatus( TransactionStatus.CREATED );
 
+        newTransaction.setPaymentId( request.getPaymentId() );
+
         Transaction save = this.iTransactionRepository.save( newTransaction );
 
         save.setErrorUrl( save.getErrorUrl() );
@@ -183,7 +185,7 @@ public class ClientService
 
                 Long sendBankServiceResponse = sendBankServiceResponse( responseToBankService );
 
-                return new ResponseEntity<>( transaction.getErrorUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
+                return new ResponseEntity<>( transaction.getErrorUrl(), HttpStatus.BAD_REQUEST );
 
             }
 
@@ -207,7 +209,7 @@ public class ClientService
 
                 // send error url
 
-                return new ResponseEntity<>( transaction.getErrorUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
+                return new ResponseEntity<>( transaction.getErrorUrl(), HttpStatus.BAD_REQUEST );
 
             }
             else
@@ -226,7 +228,7 @@ public class ClientService
                     Long sendBankServiceResponse = sendBankServiceResponse( responseToBankService );
 
                     // send failed url
-                    return new ResponseEntity<>( transaction.getFailedUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
+                    return new ResponseEntity<>( transaction.getFailedUrl(), HttpStatus.BAD_REQUEST );
                 }
                 else
                 {
@@ -244,7 +246,7 @@ public class ClientService
                     Long sendBankServiceResponse = sendBankServiceResponse( responseToBankService );
 
                     // send success url
-                    return new ResponseEntity<>( transaction.getSuccessUrl() + sendBankServiceResponse.toString(), HttpStatus.CREATED );
+                    return new ResponseEntity<>( transaction.getSuccessUrl(), HttpStatus.CREATED );
 
                 }
             }
@@ -302,7 +304,7 @@ public class ClientService
             merchant.setAvailableFounds( merchant.getAvailableFounds() + transaction.getAmount() );
             this.iClientRepository.save( merchant );
 
-            return new ResponseEntity<>( transaction.getSuccessUrl() + sendBankServiceResponse.toString(), HttpStatus.CREATED );
+            return new ResponseEntity<>( transaction.getSuccessUrl(), HttpStatus.CREATED );
 
         }
 
@@ -315,7 +317,7 @@ public class ClientService
             PaymentBankServiceResponse createBankServiceResponseIssuer = createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.ERROR,
                     body.getIssuerOrderId(), body.getIssuerTimestamp(), UrlUtil.CREDIT_CARD_NOT_AUTHENTICATED );
             Long sendBankServiceResponse = sendBankServiceResponse( createBankServiceResponseIssuer );
-            return new ResponseEntity<>( transaction.getErrorUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
+            return new ResponseEntity<>( transaction.getErrorUrl(), HttpStatus.BAD_REQUEST );
         }
 
         transaction.setStatus( TransactionStatus.FAILED );
@@ -324,8 +326,7 @@ public class ClientService
         PaymentBankServiceResponse createBankServiceResponseIssuer = createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.FAILURE,
                 body.getIssuerOrderId(), body.getIssuerTimestamp(), UrlUtil.NO_FUNDS );
         Long sendBankServiceResponse = sendBankServiceResponse( createBankServiceResponseIssuer );
-        // FIXME merchant order id umesto sendBankServiceResponse.toString()
-        return new ResponseEntity<>( transaction.getFailedUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
+        return new ResponseEntity<>( transaction.getFailedUrl(), HttpStatus.BAD_REQUEST );
 
     }
 
@@ -361,6 +362,7 @@ public class ClientService
         responseToBankService.setMerchantId( transaction.getMerchantId() );
         responseToBankService.setYy( ( ( card.getYy() < 10 ) ? "0" : "" ) + card.getYy() );
         responseToBankService.setMessage( message );
+        responseToBankService.setPaymentId( transaction.getPaymentId() );
         return responseToBankService;
 
     }

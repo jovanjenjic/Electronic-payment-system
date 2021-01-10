@@ -14,4 +14,6 @@ public class PaymentResponse
 
     private String paymentUrl;
 
+    private Long kp_id;
+
 }

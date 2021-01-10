@@ -1,6 +1,7 @@
 package com.ws.sep.bankservice.services;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -14,6 +15,7 @@ import com.ws.sep.bankservice.exceptions.SimpleException;
 import com.ws.sep.bankservice.models.BankInfo;
 import com.ws.sep.bankservice.models.Merchant;
 import com.ws.sep.bankservice.models.Payment;
+import com.ws.sep.bankservice.models.PaymentStatus;
 import com.ws.sep.bankservice.repositories.IBankInfoRepository;
 import com.ws.sep.bankservice.repositories.IMerchantRepository;
 import com.ws.sep.bankservice.repositories.IPaymentRepository;
@@ -147,10 +149,19 @@ public class MerchantService
             return new ResponseEntity< ApiResponse >( new ApiResponse( "Cant find bank", false ), HttpStatus.BAD_REQUEST );
 
         }
-        // FIXME napravi objekat PAYMENT
+        Payment newPayment = new Payment();
+        newPayment.setMerchantId( order.getMerchantOrderId().toString() );
+        newPayment.setMerchantTimestamp( order.getTimestamp() );
+        newPayment.setAmount( order.getAmount() );
+        newPayment.setStatus( PaymentStatus.STARTED );
+
+        Payment save = this.iPaymentRepository.save( newPayment );
+
         BankInfo bankInfo = optionalBankInfo.get();
 
         PaymentRequest request = new PaymentRequest();
+
+        request.setPaymentId( save.getId() );
 
         request.setAmount( order.getAmount() );
         request.setMerchantId( merchant.getMerchantId() );
@@ -158,10 +169,9 @@ public class MerchantService
         request.setMerchantPassword( merchant.getMerchantPassword() );
         request.setMerchantTimestamp( order.getTimestamp() );
 
-        // TODO change this so that message about payment can be retrieved
-        request.setErrorUrl( UrlUtil.DASHBOARD + UrlUtil.ERROR_URL );
-        request.setSuccessUrl( UrlUtil.DASHBOARD + UrlUtil.SUCCESS_URL );
-        request.setFailedUrl( UrlUtil.DASHBOARD + UrlUtil.FAILED_URL );
+        request.setErrorUrl( UrlUtil.DASHBOARD + UrlUtil.ERROR_URL + order.getMerchantOrderId() );
+        request.setSuccessUrl( UrlUtil.DASHBOARD + UrlUtil.SUCCESS_URL + order.getMerchantOrderId() );
+        request.setFailedUrl( UrlUtil.DASHBOARD + UrlUtil.FAILED_URL + order.getMerchantOrderId() );
 
         request.setBankUrl( bankInfo.getUrl() );
 
@@ -176,7 +186,9 @@ public class MerchantService
             return new ResponseEntity< ApiResponse >( ( ApiResponse ) response.getBody(), HttpStatus.BAD_REQUEST );
         }
 
-        // FIXME dodaj i payment.getId() u ovaj objekat
+        
+        LinkedHashMap  r = ( LinkedHashMap ) response.getBody();
+        r.put("kp_id", save.getId());
         return response;
 
     }
@@ -186,6 +198,7 @@ public class MerchantService
     {
 
         Payment newPayment = new Payment( payment );
+        newPayment.setId( payment.getPaymentId() );
         Payment save = this.iPaymentRepository.save( newPayment );
 
         return new ResponseEntity< ApiResponse >( new ApiResponse( save.getId().toString(), true ), HttpStatus.CREATED );

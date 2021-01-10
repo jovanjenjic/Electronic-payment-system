@@ -59,6 +59,7 @@ public class ScheduledTasks
         responseToBankService.setMerchantTimestamp( transaction.getMerchantTimestamp() );
         responseToBankService.setStatus( PaymentStatus.EXPIRED );
         responseToBankService.setMessage( "EXPIRED" );
+        responseToBankService.setPaymentId( transaction.getPaymentId() );
 
         RestTemplate restTemplate = new RestTemplate();
 
