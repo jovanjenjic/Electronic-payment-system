@@ -23,12 +23,15 @@ export const PAYPAL_ADD_PAYMENT_URL = `${LU_URL}/payment/paypal/register`;
 export const EXECUTE_PAYPAL_PAYMENT_URL = `${LU_URL}/payment/paypal/{paymentId}/execute`;
 export const CANCEL_PAYPAL_PAYMENT_URL = `${LU_URL}/payment/paypal/{paymentId}/cancel`;
 
-
 export const PAYPAL_FORM_URL = `${PAYPAL_URL}/form`;
 
 // PAYPAL SUBSCRIPTION URLS
-export const PAYPAL_SUBSCRIPTION = `${PAYPAL_URL}/subscription`;
-export const EXECUTE_PAYPAL_SUBSCRIPTION = `${PAYPAL_SUBSCRIPTION}/{subscriptionId}/success`;
+// export const PAYPAL_SUBSCRIPTION = `${PAYPAL_URL}/subscription`;
+// export const EXECUTE_PAYPAL_SUBSCRIPTION = `${PAYPAL_SUBSCRIPTION}/{subscriptionId}/success`;
+// export const CANCEL_PAYPAL_SUBSCRIPTION = `${PAYPAL_SUBSCRIPTION}/{subscriptionId}/cancel`;
+
+export const PAYPAL_SUBSCRIPTION = `${LU_URL}/payment/paypal/subscription`;
+export const EXECUTE_PAYPAL_SUBSCRIPTION = `${PAYPAL_SUBSCRIPTION}/{subscriptionId}/execute`;
 export const CANCEL_PAYPAL_SUBSCRIPTION = `${PAYPAL_SUBSCRIPTION}/{subscriptionId}/cancel`;
 
 // BTC URLS
@@ -46,7 +49,6 @@ export const BANK_URL = `${BASE_URL}/bank-service/api`;
 
 export const BANK_ADD_PAYMENT_URL = `${BANK_URL}/merchant/`;
 export const BANK_CREATE_PAYMENT_URL = `${BANK_ADD_PAYMENT_URL}create`;
-
 
 export const ITEMS_URL = `${LU_URL}/item`;
 export const ALL_ITEMS_URL = `${ITEMS_URL}/all`;

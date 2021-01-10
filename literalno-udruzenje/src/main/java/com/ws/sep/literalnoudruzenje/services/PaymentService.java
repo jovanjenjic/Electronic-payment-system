@@ -40,10 +40,14 @@ public class PaymentService {
     OrderRepository orderRepository;
 
     @Autowired
+    SubscriptionRepository subscriptionRepository;
+
+    @Autowired
     JwtUtil jwtUtil;
 
     @Autowired
     RestTemplate restTemplate;
+
 
     private void checkIfSeller(User user) throws SimpleException {
         user.getRoles().stream()
@@ -310,4 +314,118 @@ public class PaymentService {
 
         return ResponseEntity.ok(user.getTypes());
     }
+
+    public ResponseEntity<?> createBillingPlanForItem(CreateBillingPlanDTO createBillingPlanDTO) throws SimpleException {
+        Item item = itemRepository.findById(createBillingPlanDTO.getItemId())
+                .orElseThrow(() -> new SimpleException(404, "Item not found"));
+
+        User seller = item.getUser();
+
+        String kpToken = loginToKp(seller);
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", kpToken);
+
+        String url = Urls.PAYPAL_URL + "/billingPlan";
+
+        try {
+            HttpEntity<CreateBillingPlanDTO> httpEntity = new HttpEntity<>(createBillingPlanDTO, headers);
+            String response = restTemplate.postForObject(url, httpEntity, String.class);
+            return ResponseEntity.ok(response);
+
+        } catch (RestClientResponseException e) {
+            throw new SimpleException(409, "Error occurred while creating billing plan");
+        }
+    }
+
+    public ResponseEntity<?> createSubscription(CreateSubscriptionDTO createSubscriptionDTO, String token) throws SimpleException {
+        // id used to set user which has order
+        Long userId = jwtUtil.extractUserId(token.substring(7));
+
+        User user = userRepository.findById(userId).orElseThrow(() -> new SimpleException(404, "User not found"));
+
+        Subscription subscription = createSubscriptionDTO.getSubscription();
+        subscription.setState(SubscriptionState.ACTIVE);
+
+        Item item = itemRepository.findById(createSubscriptionDTO.getItemId())
+                .orElseThrow(() -> new SimpleException(404, "Item not found"));
+        subscription.setItem(item);
+        subscription.setUser(user);
+        subscription = subscriptionRepository.save(subscription);
+
+        createSubscriptionDTO.setSubscriptionId(subscription.getId());
+
+        User seller = item.getUser();
+
+        String kpToken = loginToKp(seller);
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", kpToken);
+
+        String url = Urls.PAYPAL_URL + "/subscription";
+
+        try {
+            HttpEntity<CreateSubscriptionDTO> httpEntity = new HttpEntity<>(createSubscriptionDTO, headers);
+            String response = restTemplate.postForObject(url, httpEntity, String.class);
+
+            Long kp_id = new Gson().fromJson(response, PaymentResponseDTO.class).getKp_id();
+            subscription.setKp_id(kp_id);
+            subscriptionRepository.save(subscription);
+            return ResponseEntity.ok(response);
+
+        } catch (RestClientResponseException e) {
+            subscription.setState(SubscriptionState.FAILED);
+            subscriptionRepository.save(subscription);
+            throw new SimpleException(409, "Error occurred while creating subscription");
+        }
+    }
+
+    public ResponseEntity<?> executeSubscription(ExecuteSubscriptionDTO executeSubscriptionDTO, Long subscriptionId) {
+        Subscription subscription = subscriptionRepository.findById(subscriptionId)
+                                .orElseThrow(() -> new SimpleException(404, "Subscription not found with specified id"));
+
+        User seller = subscription.getItem().getUser();
+        String kpToken = loginToKp(seller);
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", kpToken);
+
+        String url = Urls.PAYPAL_URL + "/subscription/" + subscription.getKp_id() + "/success";
+
+        try {
+            HttpEntity<ExecuteSubscriptionDTO> httpEntity = new HttpEntity<>(executeSubscriptionDTO, headers);
+            String response = restTemplate.postForObject(url, httpEntity, String.class);
+            subscription.setState(SubscriptionState.ACTIVE);
+            subscriptionRepository.save(subscription);
+            return ResponseEntity.ok(response);
+
+        } catch (RestClientResponseException e) {
+            subscription.setState(SubscriptionState.FAILED);
+            subscriptionRepository.save(subscription);
+            throw new SimpleException(409, "Error occurred while executing subscription");
+        }
+    }
+
+    public ResponseEntity<?> cancelSubscription(Long subscriptionId) throws SimpleException {
+        Subscription subscription = subscriptionRepository.findById(subscriptionId)
+                .orElseThrow(() -> new SimpleException(404, "Subscription not found with specified id"));
+
+        User seller = subscription.getItem().getUser();
+
+        String url = Urls.PAYPAL_URL + "/subscription/" + subscription.getKp_id() + "/cancel";
+
+        String kpToken = loginToKp(seller);
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", kpToken);
+
+        try {
+            HttpEntity<Object> httpEntity = new HttpEntity<>(new HashMap<String, String>(), headers);
+            String response = restTemplate.postForObject(url, httpEntity, String.class);
+            subscription.setState(SubscriptionState.CANCELLED);
+            subscriptionRepository.save(subscription);
+            return ResponseEntity.ok(response);
+
+        } catch (RestClientResponseException e) {
+            throw new SimpleException(409, "Error occurred while canceling subscription");
+        }
+
+    }
+
 }

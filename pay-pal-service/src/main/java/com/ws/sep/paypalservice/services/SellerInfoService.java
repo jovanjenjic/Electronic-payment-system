@@ -432,8 +432,10 @@ public class SellerInfoService {
             // merchant preferences for override
             MerchantPreferences merchantPreferences = new MerchantPreferences();
             merchantPreferences.setSetupFee(currency);
-            merchantPreferences.setCancelUrl(subscriptionCancelUrl.replace("{id}", String.valueOf(subscription.getId())));
-            merchantPreferences.setReturnUrl(subscriptionSuccessUrl.replace("{id}", String.valueOf(subscription.getId())));
+            merchantPreferences.setCancelUrl(subscriptionCancelUrl
+                    .replace("{id}", String.valueOf(subscriptionDTO.getSubscriptionId())));
+            merchantPreferences.setReturnUrl(subscriptionSuccessUrl
+                    .replace("{id}", String.valueOf(subscriptionDTO.getSubscriptionId())));
             merchantPreferences.setMaxFailAttempts("0");
             merchantPreferences.setAutoBillAmount("YES");
             merchantPreferences.setInitialFailAmountAction("CONTINUE");
@@ -455,6 +457,7 @@ public class SellerInfoService {
 
                 HashMap<String, String> retObj = new HashMap<>();
                 retObj.put("paymentUrl", linksOptional.get().getHref());
+                retObj.put("kp_id", String.valueOf(subscription.getId()));
 
                 logger.info("Successfully created subscription. User ID: " + sellerId.toString());
                 return new ResponseEntity<>(retObj, HttpStatus.CREATED);

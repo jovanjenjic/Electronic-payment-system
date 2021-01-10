@@ -17,4 +17,7 @@ public class SubscriptionDTO {
 
     private Long itemId;
 
+    // id of the sub in lu or some shop
+    private Long subscriptionId;
+
 }
