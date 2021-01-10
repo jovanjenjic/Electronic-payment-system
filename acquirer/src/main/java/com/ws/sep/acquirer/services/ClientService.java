@@ -324,6 +324,7 @@ public class ClientService
         PaymentBankServiceResponse createBankServiceResponseIssuer = createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.FAILURE,
                 body.getIssuerOrderId(), body.getIssuerTimestamp(), UrlUtil.NO_FUNDS );
         Long sendBankServiceResponse = sendBankServiceResponse( createBankServiceResponseIssuer );
+        // FIXME merchant order id umesto sendBankServiceResponse.toString()
         return new ResponseEntity<>( transaction.getFailedUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
 
     }
@@ -333,6 +334,7 @@ public class ClientService
     {
         RestTemplate restTemplate = new RestTemplate();
 
+        // FIXME ovde trebas da ixzmenis objekat iz bank servisa
         ResponseEntity< ApiResponse > response = restTemplate.postForEntity( UrlUtil.BANK_CREATE_PAYMENT_URL, responseToBankService, ApiResponse.class );
 
         return Long.parseLong( response.getBody().getMessage() );

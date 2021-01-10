@@ -147,7 +147,7 @@ public class MerchantService
             return new ResponseEntity< ApiResponse >( new ApiResponse( "Cant find bank", false ), HttpStatus.BAD_REQUEST );
 
         }
-
+        // FIXME napravi objekat PAYMENT
         BankInfo bankInfo = optionalBankInfo.get();
 
         PaymentRequest request = new PaymentRequest();
@@ -176,6 +176,7 @@ public class MerchantService
             return new ResponseEntity< ApiResponse >( ( ApiResponse ) response.getBody(), HttpStatus.BAD_REQUEST );
         }
 
+        // FIXME dodaj i payment.getId() u ovaj objekat
         return response;
 
     }
