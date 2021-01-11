@@ -31,6 +31,26 @@ public class PaymentController {
         return paymentService.cancelPaypalPayment(orderId);
     }
 
+    @PostMapping(value = "paypal/billingPlan", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> createBillingPlan(@RequestBody @Valid CreateBillingPlanDTO createBillingPlanDTO) {
+        return paymentService.createBillingPlanForItem(createBillingPlanDTO);
+    }
+
+    @PostMapping(value = "paypal/subscription", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> createSubscription(@RequestBody CreateSubscriptionDTO createSubscriptionDTO, @RequestHeader("Authorization") String token) {
+        return paymentService.createSubscription(createSubscriptionDTO, token);
+    }
+
+    @PostMapping(value = "paypal/subscription/{id}/execute", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> executeSubscription(@RequestBody @Valid ExecuteSubscriptionDTO executeSubscriptionDTO, @PathVariable("id") Long subscriptionId) {
+        return paymentService.executeSubscription(executeSubscriptionDTO, subscriptionId);
+    }
+
+    @PostMapping(value = "paypal/subscription/{id}/cancel", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> cancelSubscription(@PathVariable("id") Long subscriptionId) {
+        return paymentService.cancelSubscription(subscriptionId);
+    }
+
     @PostMapping(value ="/bank/register")
     public ResponseEntity<?> registerBank(@RequestBody @Valid BankInfoDTO bankInfoDTO, @RequestHeader("Authorization") String token) {
         return paymentService.registerPayment(bankInfoDTO, token);
