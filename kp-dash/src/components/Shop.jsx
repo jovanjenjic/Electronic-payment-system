@@ -16,7 +16,7 @@ const { Meta } = Card;
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 25% 25% 25% 25% 25%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
   padding: 20px;
 
   @media only screen and (max-width: 600px) {

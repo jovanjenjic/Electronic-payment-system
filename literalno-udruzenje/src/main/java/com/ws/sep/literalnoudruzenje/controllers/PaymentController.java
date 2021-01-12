@@ -56,6 +56,21 @@ public class PaymentController {
         return paymentService.registerPayment(bankInfoDTO, token);
     }
 
+    @PostMapping(value = "bank/{id}/success")
+    public ResponseEntity<?> successBankPayment(@PathVariable("id") Long orderId) {
+        return paymentService.setSuccessBankPayment(orderId);
+    }
+
+    @PostMapping(value = "bank/{id}/failed")
+    public ResponseEntity<?> failedBankPayment(@PathVariable("id") Long orderId) {
+        return paymentService.setFailedBankPayment(orderId);
+    }
+
+    @PostMapping(value = "bank/{id}/cancel")
+    public ResponseEntity<?> cancelBankPayment(@PathVariable("id") Long orderId) {
+        return paymentService.setCancelBankPayment(orderId);
+    }
+
     @PostMapping(value ="/btc/register")
     public ResponseEntity<?> registerBtc(@RequestBody @Valid BtcInfoDTO btcInfoDTO, @RequestHeader("Authorization") String token) {
         return paymentService.registerPayment(btcInfoDTO, token);

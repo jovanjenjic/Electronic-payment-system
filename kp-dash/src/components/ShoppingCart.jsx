@@ -112,16 +112,18 @@ const createPaymentBtc = async ({
 
 // TODO: update bank also later
 
-const createPaymentBank = async ({ price, count, id }, history) => {
+const createPaymentBank = async ({ price, count, id, currency = 'EUR' }, history) => {
   const authToken = localStorage.getItem('access_token');
 
   try {
     const response = await post(
       BANK_CREATE_PAYMENT_URL,
       {
-        amount: count * price,
-        timestamp: new Date().toISOString(),
-        merchantOrderId: id,
+        price,
+        itemsCount: count,
+        itemId: id,
+        currency,
+        paymentType: 'BANK'
       },
       authToken
     );

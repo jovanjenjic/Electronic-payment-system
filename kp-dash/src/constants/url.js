@@ -47,8 +47,14 @@ export const BTC_CANCEL_PAYMENT_URL = `${LU_URL}/payment/btc/transaction/update`
 // TODO: Later add needed bank info and everything else
 export const BANK_URL = `${BASE_URL}/bank-service/api`;
 
-export const BANK_ADD_PAYMENT_URL = `${BANK_URL}/merchant/`;
-export const BANK_CREATE_PAYMENT_URL = `${BANK_ADD_PAYMENT_URL}create`;
+// export const BANK_ADD_PAYMENT_URL = `${BANK_URL}/merchant/`;
+// export const BANK_CREATE_PAYMENT_URL = `${BANK_ADD_PAYMENT_URL}create`;
+export const BANK_ADD_PAYMENT_URL = `${LU_URL}/payment/bank/register`;
+export const BANK_CREATE_PAYMENT_URL = `${LU_URL}/payment/order`;
+export const BANK_PAYMENT_SUCCESS_URL = `${LU_URL}/payment/bank/{paymentId}/success`;
+export const BANK_PAYMENT_CANCEL_URL = `${LU_URL}/payment/bank/{paymentId}/cancel`;
+export const BANK_PAYMENT_FAILED_URL = `${LU_URL}/payment/bank/{paymentId}/failed`;
+
 
 export const ITEMS_URL = `${LU_URL}/item`;
 export const ALL_ITEMS_URL = `${ITEMS_URL}/all`;

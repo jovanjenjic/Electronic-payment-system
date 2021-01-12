@@ -120,7 +120,7 @@ public class PaymentService {
             return new Gson().fromJson(paymentJSONResponse, PaymentResponseDTO.class).getKp_id();
         }
         if(paymentType.equals(PaymentType.BANK)) {
-            // TODO: And check here
+            return new Gson().fromJson(paymentJSONResponse, PaymentResponseDTO.class).getKp_id();
         }
         return 0L;
     }
@@ -425,7 +425,27 @@ public class PaymentService {
         } catch (RestClientResponseException e) {
             throw new SimpleException(409, "Error occurred while canceling subscription");
         }
+    }
 
+    public ResponseEntity<?> setSuccessBankPayment(Long orderId) throws SimpleException {
+        Order order = orderRepository.findById(orderId).orElseThrow(() -> new SimpleException(404, "Order not found"));
+        order.setOrderState(OrderState.SUCCESS);
+        order = orderRepository.save(order);
+        return ResponseEntity.ok(order);
+    }
+
+    public ResponseEntity<?> setCancelBankPayment(Long orderId) throws SimpleException {
+        Order order = orderRepository.findById(orderId).orElseThrow(() -> new SimpleException(404, "Order not found"));
+        order.setOrderState(OrderState.CANCELED);
+        order = orderRepository.save(order);
+        return ResponseEntity.ok(order);
+    }
+
+    public ResponseEntity<?> setFailedBankPayment(Long orderId) throws SimpleException {
+        Order order = orderRepository.findById(orderId).orElseThrow(() -> new SimpleException(404, "Order not found"));
+        order.setOrderState(OrderState.FAILED);
+        order = orderRepository.save(order);
+        return ResponseEntity.ok(order);
     }
 
 }
