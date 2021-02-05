@@ -9,6 +9,8 @@ import com.ws.sep.bankservice.services.MerchantService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -43,6 +45,15 @@ public class MerchantController
     public ResponseEntity< ApiResponse > createPayment( @RequestBody PaymentBankServiceResponse payment )
     {
         return this.merchantService.createPayment( payment );
+
+    }
+
+
+    @GetMapping( value =
+    { "/transaction", "/transaction/{status}" } )
+    public ResponseEntity< ? > getTransactions( @RequestHeader( "Authorization" ) String token, @PathVariable( required = false ) String status )
+    {
+        return this.merchantService.getTransactions( token, status );
 
     }
 

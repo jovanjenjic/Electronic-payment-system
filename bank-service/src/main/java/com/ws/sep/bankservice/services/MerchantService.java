@@ -2,6 +2,7 @@ package com.ws.sep.bankservice.services;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -186,9 +187,8 @@ public class MerchantService
             return new ResponseEntity< ApiResponse >( ( ApiResponse ) response.getBody(), HttpStatus.BAD_REQUEST );
         }
 
-        
-        LinkedHashMap  r = ( LinkedHashMap ) response.getBody();
-        r.put("kp_id", save.getId());
+        LinkedHashMap r = ( LinkedHashMap ) response.getBody();
+        r.put( "kp_id", save.getId() );
         return response;
 
     }
@@ -202,6 +202,34 @@ public class MerchantService
         Payment save = this.iPaymentRepository.save( newPayment );
 
         return new ResponseEntity< ApiResponse >( new ApiResponse( save.getId().toString(), true ), HttpStatus.CREATED );
+
+    }
+
+
+    public ResponseEntity< ? > getTransactions( String token, String status )
+    {
+
+        Long extractSellerId = this.jwtUtil.extractSellerId( token );
+
+        Merchant merchant = this.iMerchantRepository.findById( extractSellerId ).get();
+
+        if ( status == null )
+        {
+            List< Payment > findByMerchantId = this.iPaymentRepository.findByMerchantId( merchant.getMerchantId() );
+            return new ResponseEntity<>( findByMerchantId, HttpStatus.OK );
+        }
+
+        try
+        {
+            PaymentStatus valueOf = PaymentStatus.valueOf( status );
+
+            List< Payment > findByMerchantIdAndStatus = this.iPaymentRepository.findByMerchantIdAndStatus( merchant.getMerchantId(), valueOf );
+            return new ResponseEntity<>( findByMerchantIdAndStatus, HttpStatus.OK );
+        }
+        catch ( Exception e )
+        {
+            return new ResponseEntity<>( new ApiResponse( "Wrong status [" + status + "]", false ), HttpStatus.BAD_REQUEST );
+        }
 
     }
 
