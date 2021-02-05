@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,14 @@ public class MerchantController
     public ResponseEntity< ApiResponse > createMerchant( @RequestBody CreateMerchantRequest request, @RequestHeader( "Authorization" ) String token )
     {
         return this.merchantService.createMerchant( request, token );
+
+    }
+
+
+    @PutMapping( value = "/" )
+    public ResponseEntity< ApiResponse > updateMerchant( @RequestBody CreateMerchantRequest request, @RequestHeader( "Authorization" ) String token )
+    {
+        return this.merchantService.updateMerchant( request, token );
 
     }
 

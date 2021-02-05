@@ -40,6 +40,14 @@ public class ClientController
     }
 
 
+    @PostMapping( value = "/update" )
+    public ResponseEntity< ApiResponse > updateClient( @RequestBody CreateClientRequest request )
+    {
+        return this.clientService.updateClientAccount( request );
+
+    }
+
+
     @PostMapping( "/acquirer/generate" )
     public ResponseEntity< ? > generatePaymentResponse( @RequestBody PaymentRequest request )
     {

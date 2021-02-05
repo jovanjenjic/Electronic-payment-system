@@ -129,6 +129,47 @@ public class MerchantService
     }
 
 
+    public ResponseEntity< ApiResponse > updateMerchant( CreateMerchantRequest request, String token )
+    {
+
+        Long sellerId = this.jwtUtil.extractSellerId( token );
+
+        String bankId = this.panBankIdUtil.getBankId( request.getPan() );
+
+        Optional< BankInfo > optionalBankInfo = this.iBankInfoRepository.findByPanBankId( bankId );
+
+        if ( !optionalBankInfo.isPresent() )
+        {
+            return new ResponseEntity< ApiResponse >( new ApiResponse( "Cant find bank with bank code [" + bankId + "]", false ), HttpStatus.BAD_REQUEST );
+        }
+
+        if ( request.getPan().length() != 16 )
+        {
+            return new ResponseEntity< ApiResponse >( new ApiResponse( "Card number must have 16 digits!", false ), HttpStatus.BAD_REQUEST );
+
+        }
+        BankInfo bankInfo = optionalBankInfo.get();
+
+        Merchant merchant = this.iMerchantRepository.findById( sellerId ).get();
+        String url = "https://localhost:" + bankInfo.getUrl() + "/api/update";
+
+        request.setMerchantId( merchant.getMerchantId() );
+        request.setMerchantPassword( merchant.getMerchantPassword() );
+
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity< ApiResponse > response = restTemplate.postForEntity( url, request, ApiResponse.class );
+
+        if ( response.getBody().getSuccess() )
+        {
+            merchant.setPanBankId( bankId );
+            this.iMerchantRepository.save( merchant );
+        }
+
+        return response;
+
+    }
+
+
     public ResponseEntity< ? > retrieveUrlAndId( OrderDTO order, String token )
     {
 

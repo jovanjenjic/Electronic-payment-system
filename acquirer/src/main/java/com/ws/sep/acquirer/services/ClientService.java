@@ -380,4 +380,34 @@ public class ClientService
 
     }
 
+
+    public ResponseEntity< ApiResponse > updateClientAccount( CreateClientRequest request )
+    {
+
+        Optional< Client > findByMerchantIdAndMerchantPassword =
+                this.iClientRepository.findByMerchantIdAndMerchantPassword( request.getMerchantId(), request.getMerchantPassword() );
+
+        if ( !findByMerchantIdAndMerchantPassword.isPresent() )
+        {
+            return new ResponseEntity<>( new ApiResponse( "Credentials do not match", false ), HttpStatus.OK );
+        }
+
+        Client client = findByMerchantIdAndMerchantPassword.get();
+
+        String cvv = EncryptDecrypt.encryptString( request.getCvv() );
+        String pan = EncryptDecrypt.encryptString( request.getPan() );
+        String mm = EncryptDecrypt.encryptString( request.getMm() );
+        String yy = EncryptDecrypt.encryptString( request.getYy() );
+
+        client.setCardHolder( request.getCardHolder() );
+        client.setCvv( cvv );
+        client.setMm( mm );
+        client.setPan( pan );
+        client.setYy( yy );
+
+        this.iClientRepository.save( client );
+        return new ResponseEntity<>( new ApiResponse( "Updated", true ), HttpStatus.OK );
+
+    }
+
 }
