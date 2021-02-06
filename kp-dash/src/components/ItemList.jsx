@@ -50,10 +50,13 @@ const ItemTable = styled.table`
   }
 `;
 
-const ItemList = ({ items = [] }) => {
+const ItemList = ({ items = [], user = {} }) => {
 
   /** `calc` total price of the items */
-  const totalPrice = items.reduce((acc, curr) => acc + curr.price * curr.count, 0)
+  const totalPrice = items.reduce((acc, curr) => acc + curr.price * curr.count, 0);
+
+  /** `discount` for the memberships */
+  const maxDiscount = Math.max(...(user.subscriptionList || []).map(v => v.discount));
 
   return (
     <ItemTable>
@@ -78,7 +81,7 @@ const ItemList = ({ items = [] }) => {
           <td colSpan={2}>
             Total
           </td>
-          <td>{totalPrice}€</td>
+          <td>{totalPrice}€{maxDiscount && items.length ? ` - ${maxDiscount}% = ${(totalPrice * (1 - maxDiscount / 100)).toFixed(2)}€` : ''}</td>
         </tr>
       </tfoot>
     </ItemTable>

@@ -160,6 +160,39 @@ public class PaymentService {
     }
 
 
+    public ResponseEntity<?> updatePaymentType(Object paymentInfo, String token) {
+        Long userId = jwtUtil.extractUserId(token.substring(7));
+
+        User user = userRepository.findById(userId).orElseThrow(() -> new SimpleException(404, "User not found"));
+        // check if user is seller
+        checkIfSeller(user);
+
+        String kpToken = loginToKp(user);
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", kpToken);
+
+        String url = "";
+
+        if(paymentInfo.getClass() == BankInfoDTO.class) url = Urls.BANK_URL + "/merchant/";
+        if(paymentInfo.getClass() == PaypalInfoDTO.class) url = Urls.PAYPAL_URL + "/updatePayment";
+        if(paymentInfo.getClass() == BtcInfoDTO.class) url = Urls.BTC_URL + "/addPayment";
+
+        try {
+            HttpEntity<Object> httpEntity = new HttpEntity<>(paymentInfo, headers);
+            restTemplate.put(url, httpEntity, String.class);
+
+            HashMap<String, String> response = new HashMap<>();
+            updateUserPaymentTypes(user, paymentInfo);
+            response.put("message", "payment updated successfully!");
+
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (RestClientResponseException e) {
+            throw new SimpleException(409, "Error occured while updating payment type");
+        }
+
+    }
+
+
     public ResponseEntity<?> createOrder(CreateOrderDTO createOrderDTO, String token) throws SimpleException {
         // id used to set user which has order
         Long userId = jwtUtil.extractUserId(token.substring(7));

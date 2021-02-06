@@ -25,4 +25,8 @@ public class ItemController {
     public ResponseEntity<?> getAllItems() {
         return itemService.getAllItems();
     }
+
+
+    @GetMapping(value = "/memberships")
+    public ResponseEntity<?> getAllMemberships() { return itemService.getAllMemberships(); }
 }

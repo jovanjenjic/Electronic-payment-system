@@ -5,6 +5,7 @@ import com.ws.sep.literalnoudruzenje.dto.ItemResponseDTO;
 import com.ws.sep.literalnoudruzenje.exceptions.SimpleException;
 import com.ws.sep.literalnoudruzenje.mappers.ItemMapper;
 import com.ws.sep.literalnoudruzenje.model.Item;
+import com.ws.sep.literalnoudruzenje.model.ItemType;
 import com.ws.sep.literalnoudruzenje.model.RoleName;
 import com.ws.sep.literalnoudruzenje.model.User;
 import com.ws.sep.literalnoudruzenje.repository.ItemRepository;
@@ -52,8 +53,15 @@ public class ItemService {
 
     public ResponseEntity<?> getAllItems() {
         ItemMapper itemMapper = ItemMapper.INSTANCE;
-        List<ItemResponseDTO> itemResponseDTOList = itemRepository.findAll().stream().map(i ->  itemMapper.mapItemToResponse(i)).collect(Collectors.toList());
+        List<ItemResponseDTO> itemResponseDTOList = itemRepository.findAllByItemType(ItemType.MAGAZINE).stream().map(i ->  itemMapper.mapItemToResponse(i)).collect(Collectors.toList());
         return new ResponseEntity<>(itemResponseDTOList, HttpStatus.OK);
     }
+
+    public ResponseEntity<?> getAllMemberships() {
+        ItemMapper itemMapper = ItemMapper.INSTANCE;
+        List<ItemResponseDTO> itemResponseDTOList = itemRepository.findAllByItemType(ItemType.MEMBERSHIP).stream().map(i ->  itemMapper.mapItemToResponse(i)).collect(Collectors.toList());
+        return new ResponseEntity<>(itemResponseDTOList, HttpStatus.OK);
+    }
+
 
 }

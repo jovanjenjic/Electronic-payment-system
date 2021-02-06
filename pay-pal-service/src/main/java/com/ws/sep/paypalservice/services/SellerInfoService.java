@@ -42,6 +42,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class SellerInfoService {
@@ -113,8 +114,40 @@ public class SellerInfoService {
         sellerInfoRepository.save(sellerInfo);
     }
 
+    public ResponseEntity<?> updatePaymentCredentials(SellerInfoDTO sellerInfoDTO, String authToken) {
+        Long sellerId = jwtUtil.extractSellerId(authToken.substring(7));
 
-    public APIContext getApiContext(Long sellerId) throws PayPalRESTException {
+        // check if payment already exists
+        if(!sellerInfoRepository.existsBySellerId(sellerId)) {
+            logger.error("Payment method not exists for the user. User ID: " + sellerId.toString());
+            throw new AlreadyExistsException("Payment not exists for the user");
+        }
+
+        SellerInfo sellerInfo = sellerInfoRepository.findOneBySellerId(sellerId);
+
+        if(sellerInfoDTO.getClient_id() == null || sellerInfoDTO.getClient_id().isEmpty()) {
+            logger.error("Client_id cannot be null or empty. User ID: " + sellerId.toString());
+            throw new InvalidValueException("client_id", "client_id cannot be null or empty");
+        }
+        sellerInfo.setClient_id(sellerInfoDTO.getClient_id());
+
+        if(sellerInfoDTO.getClient_secret() == null || sellerInfoDTO.getClient_secret().isEmpty()) {
+            logger.error("client_secret cannot be null. User ID: " + sellerId.toString());
+            throw new InvalidValueException("client_secret", "client_secret cannot be null");
+        }
+
+        sellerInfo.setClient_secret(sellerInfoDTO.getClient_secret());
+        sellerInfoRepository.save(sellerInfo);
+
+        HashMap<String, String> retMessage = new HashMap<>();
+        retMessage.put("status", "success");
+        retMessage.put("message", "payment method updated successfully!");
+
+        return new ResponseEntity<>(retMessage, HttpStatus.OK);
+    }
+
+
+        public APIContext getApiContext(Long sellerId) throws PayPalRESTException {
         // check if paypal exists for the specified user
         if(!sellerInfoRepository.existsBySellerId(sellerId)) {
             logger.error("Configuration not exists for the seller.");
@@ -572,5 +605,20 @@ public class SellerInfoService {
 
         logger.error("Failed to cancel subscription. User ID: " + sellerId.toString());
         return new ResponseEntity<>(retObj, HttpStatus.EXPECTATION_FAILED);
+    }
+
+    public List<OrderResponse> getSellerOrders(String state, String token) {
+        Long sellerId = jwtUtil.extractSellerId(token.substring(7));
+
+        List<SellerOrders> orders = !StringUtils.isEmpty(state) ? sellerOrderRepository.queryForSellerOrders(sellerId, OrderState.valueOf(state)) :
+                sellerOrderRepository.findAllBySellerId(sellerId);
+
+        List<OrderResponse> responses = orders.stream().map(v -> SellerOrderMapper.INSTANCE.mapToResponse(v)).collect(Collectors.toList());
+        return responses;
+    }
+
+    public OrderResponse getOrder(Long orderId) {
+        SellerOrders order = sellerOrderRepository.findById(orderId).orElseThrow(() -> new SimpleException(404, "order not found"));
+        return SellerOrderMapper.INSTANCE.mapToResponse(order);
     }
 }

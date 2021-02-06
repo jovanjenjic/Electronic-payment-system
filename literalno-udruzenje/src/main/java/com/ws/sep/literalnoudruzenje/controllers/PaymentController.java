@@ -21,6 +21,11 @@ public class PaymentController {
         return paymentService.registerPayment(paypalInfoDTO, token);
     }
 
+    @PutMapping(value ="/paypal/register")
+    public ResponseEntity<?> updatePaypal(@RequestBody @Valid PaypalInfoDTO paypalInfoDTO, @RequestHeader("Authorization") String token) {
+        return paymentService.updatePaymentType(paypalInfoDTO, token);
+    }
+
     @PostMapping(value ="/paypal/{id}/execute", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> executePaypalPayment(@RequestBody @Valid PaypalExecuteDTO paypalExecuteDTO, @PathVariable("id") Long orderId) {
         return paymentService.executePaypalPayment(paypalExecuteDTO, orderId);

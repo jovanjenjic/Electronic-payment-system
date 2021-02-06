@@ -12,6 +12,7 @@ import Sidebar from '../components/Sidebar';
 import Shop from '../components/Shop';
 import PaymentMethods from './PaymentTypes';
 import ShoppingCart from '../components/ShoppingCart';
+import Subscriptions from './Subscriptions';
 
 import { withAuth } from '../hoc/withAuth';
 import useFetchPaymentTypes from '../hooks/useFetchPaymentTypes';
@@ -20,6 +21,10 @@ import { AppContext } from '../context/app';
 import { ShopContext } from '../context/shop';
 
 import './home.css';
+import { get } from '../services/api';
+import { CURRENT_URL } from '../constants/url';
+import { responseOk } from '../utils/responseOk';
+import { useAsync } from 'react-async';
 
 const { Header } = Layout;
 
@@ -37,7 +42,22 @@ const Logout = styled.div`
   }
 `;
 
+const fetchCurrentUser = async ({ authToken }) => {
+  try {
+    const response = await get(
+      CURRENT_URL,
+      authToken
+    );
+    if (responseOk(response)) return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+  return {};
+};
+
 const Home = () => {
+  const authToken = localStorage.getItem('access_token');
+
   const [collapsed, updateCollapsed] = React.useContext(AppContext);
 
   const toggle = () => updateCollapsed((state) => !state);
@@ -56,8 +76,18 @@ const Home = () => {
     history.push('/login');
   };
 
+  /** `use` async hook for fetching user */
+  const { data: user = {}, reload: reloadUser } = useAsync({
+    promiseFn: fetchCurrentUser,
+    authToken,
+    watch: authToken
+  });
+
+  /** `indicator is user seller` */
+  const isUserSeller = (user.roles || []).some(v => v.name === 'ROLE_SELLER');
+
   return (
-    <ShopContext.Provider value={{ items, updateItems, paymentTypes, reloadPaymentTypes }}>
+    <ShopContext.Provider value={{ items, updateItems, paymentTypes, reloadPaymentTypes, user, reloadUser }}>
       <Layout className="main-layout" style={{ height: window.innerHeight }}>
         <Sidebar />
         <Layout className="site-layout">
@@ -77,8 +107,13 @@ const Home = () => {
             </RightNav>
           </Header>
           <Switch>
-            <Route path="/payment-methods">
-              <PaymentMethods />
+            {isUserSeller && (
+              <Route path="/payment-methods">
+                <PaymentMethods />
+              </Route>
+            )}
+            <Route path="/memberships">
+              <Subscriptions />
             </Route>
             <Route path="/">
               <Shop />

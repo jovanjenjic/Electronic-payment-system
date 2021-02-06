@@ -6,6 +6,7 @@ export const LU_URL = 'https://localhost:8090';
 export const AUTH_URL = `${LU_URL}/auth`;
 export const LOGIN_URL = `${AUTH_URL}/login`;
 export const REGISTER_URL = `${AUTH_URL}/register`;
+export const CURRENT_URL = `${AUTH_URL}/current`;
 
 // SELERS URLS
 // export const SELLER_URL = `${BASE_URL}/seller/api`;
@@ -55,6 +56,6 @@ export const BANK_PAYMENT_SUCCESS_URL = `${LU_URL}/payment/bank/{paymentId}/succ
 export const BANK_PAYMENT_CANCEL_URL = `${LU_URL}/payment/bank/{paymentId}/cancel`;
 export const BANK_PAYMENT_FAILED_URL = `${LU_URL}/payment/bank/{paymentId}/failed`;
 
-
 export const ITEMS_URL = `${LU_URL}/item`;
 export const ALL_ITEMS_URL = `${ITEMS_URL}/all`;
+export const MEMBERSHIPS_URL = `${ITEMS_URL}/memberships`;

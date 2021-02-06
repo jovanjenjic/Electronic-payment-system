@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Card } from 'antd';
+import { Card, notification } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
+import useFetchMemberships from '../hooks/useFetchMemberships';
+import { responseOk } from '../utils/responseOk';
+import { post } from '../services/api';
+import { PAYPAL_SUBSCRIPTION } from '../constants/url';
 
-import { ShopContext } from '../context/shop';
-
-import useFetchItems from '../hooks/useFetchItems';
-
-const { Meta } = Card;
 
 const Container = styled.div`
   display: grid;
@@ -47,23 +46,48 @@ const Description = styled.div`
   }
 `;
 
-const Shop = () => {
-  const { updateItems } = React.useContext(ShopContext);
+const { Meta } = Card;
 
-  const { data: allItems = [] } = useFetchItems();
 
-  const handleClick = (id) => {
-    updateItems((prevItems) => {
-      const foundItem = prevItems.find((v) => v.id === id);
-      return foundItem
-        ? [{ ...foundItem, count: (foundItem.count || 0) + 1 }]
-        : [{ ...allItems.find((v) => v.id === id), count: 1 }];
+const subscribeMagazine = async (data) => {
+  try {
+    const authToken = localStorage.getItem('access_token');
+    const response = await post(PAYPAL_SUBSCRIPTION, data, authToken);
+
+    if (responseOk(response)) {
+      const { paymentUrl = '' } = await response.json();
+      window.open(paymentUrl);
+      return { error: false };
+    }
+  } catch (error) {
+    console.error(error);
+  }
+  return { error: true };
+};
+
+const Subscriptions = () => {
+  const [api, context] = notification.useNotification();
+
+  const { data: memberships = [] } = useFetchMemberships();
+
+  const handleClick = async ({ id: itemId, name, description }) => {
+    const { error = true } = await subscribeMagazine({
+      itemId,
+      name,
+      description,
     });
+    if (error) {
+      api.error({
+        placement: 'topRight',
+        message: 'Failed to subscribe to the magazine',
+      });
+    }
   };
 
   return (
     <Container>
-      {allItems.map(({ id, title, description, img = '../img/book.jpg', price }) => {
+      {context}
+      {memberships.map(({ id, name, description, img = '../img/discount.png', price }) => {
         return (
           <CardWrapper key={id}>
             <Card
@@ -71,20 +95,20 @@ const Shop = () => {
                 <img alt={`${id}-example`} src={img} style={{ height: 150 }} />
               }
               actions={[
-                <div key="Shop" onClick={() => handleClick(id)}>
+                <div key="Shop" onClick={() => handleClick({ id, name, description })}>
                   <ShoppingCartOutlined
                     key="Shop"
                     style={{ marginRight: 10 }}
                   />
-                  <span>Buy</span>
+                  <span>Buy membership</span>
                 </div>
               ]}
             >
               <Meta
-                title={title}
+                title={name}
                 description={
                   <Description>
-                    <p>{description}</p>
+                    <p><strong>{description}</strong></p>
                     <div className="price">{`Price: ${price} EUR`}</div>
                   </Description>
                 }
@@ -97,4 +121,5 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default Subscriptions;
+

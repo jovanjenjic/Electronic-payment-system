@@ -22,8 +22,6 @@ const RegisterContainer = () => {
   const history = useHistory();
 
   const onFinish = async values => {
-    console.log('aaa => ', values);
-
     const data = values.seller ?
       {
         ...values,

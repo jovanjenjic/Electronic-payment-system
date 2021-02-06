@@ -37,4 +37,9 @@ public class AuthController {
         return userService.loginUser(loginData);
     }
 
+    @GetMapping("/current")
+    public ResponseEntity<?> getCurrentUser(@RequestHeader("Authorization") String token) throws SimpleException {
+        return userService.getCurrentUser(token);
+    }
+
 }

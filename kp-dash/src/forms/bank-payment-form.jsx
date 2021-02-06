@@ -180,7 +180,27 @@ const Container = styled.div`
   }
 `;
 
-const BankPaymentForm = ({ onSubmit = () => {} }) => {
+const hideChars = (value = '') => {
+  if (!value.length) return value;
+  if (value.length < 6) {
+    let i;
+    let val = '';
+    for (i = 0; i < value.length; i++) {
+      if (Number.isInteger(+value[i]) && value[i] !== ' ') val = val + '*';
+      else val = val + value[i];
+    }
+    return val;
+  }
+  let i;
+  let val = '';
+  for (i = 0; i < 6; i++) {
+    if (Number.isInteger(+value[i]) && value[i] !== ' ') val = val + '*';
+    else val = val + value[i];
+  }
+  return val + value.slice(6);
+};
+
+const BankPaymentForm = ({ onSubmit = () => { } }) => {
   const [fields, updateFields] = React.useState({
     number: '',
     name: '',
@@ -195,7 +215,8 @@ const BankPaymentForm = ({ onSubmit = () => {} }) => {
   /** `handler` used for the input change */
   const handleInputChange = ({ target }) => {
     if (target.name === 'number') {
-      target.value = formatCreditCardNumber(target.value);
+      if (target.value.length > fields.number.length) target.value = formatCreditCardNumber(fields.number + target.value.slice(target.value.length - 1));
+      else target.value = fields.number.slice(0, fields.number.length - 1);
     } else if (target.name === 'expiry') {
       target.value = formatExpirationDate(target.value);
     } else if (target.name === 'cvc') {
@@ -233,17 +254,18 @@ const BankPaymentForm = ({ onSubmit = () => {} }) => {
         <h1>Bank registration</h1>
         <h4>Populate credit card info</h4>
         <Card
-          number={fields.number}
+          number={hideChars(fields.number)}
           name={fields.name}
           expiry={fields.expiry}
           cvc={fields.cvc}
           focused={fields.focused}
           callback={handleCallback}
+          preview
         />
         <form ref={form} onSubmit={handleSubmit}>
           <div className="form-group">
             <input
-              type="tel"
+              value={hideChars(fields.number)}
               name="number"
               className="form-control"
               placeholder="Card Number"

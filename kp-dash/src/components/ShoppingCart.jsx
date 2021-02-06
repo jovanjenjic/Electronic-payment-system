@@ -10,7 +10,6 @@ import { post } from '../services/api';
 import { responseOk } from '../utils/responseOk';
 
 import { ShopContext } from '../context/shop';
-import { PAYPAL, BITCOIN, BANK } from '../constants/paymentTypes';
 import {
   BTC_CREATE_PAYMENT_URL,
   PAYPAL_PAYMENT_URL,
@@ -143,32 +142,35 @@ const createPaymentBank = async ({ price, count, id, currency = 'EUR' }, history
 const ShoppingCart = () => {
   const history = useHistory();
 
-  const { items = [], paymentTypes, updateItems } = React.useContext(
+  const { items = [], paymentTypes, updateItems, user } = React.useContext(
     ShopContext
   );
 
   const [item = { count: 0 }] = items;
+
+  /** `discount` for the memberships */
+  const maxDiscount = Math.max(...(user.subscriptionList || []).map(v => v.discount));
 
   // TODO: Send request for payments here payments here
   /** `types` name */
   const types = paymentTypes.map((v) => v.type);
 
   const handlePaypal = async () => {
-    const { error } = await createPaymentPaypal(item);
+    const { error } = await createPaymentPaypal({ ...item, price: (item.price * (1 - maxDiscount / 100)).toFixed(2) });
     if (!error) {
       updateItems(() => []);
     }
   };
 
   const handleBtc = async () => {
-    const { error } = await createPaymentBtc(item);
+    const { error } = await createPaymentBtc({ ...item, price: (item.price * (1 - maxDiscount / 100)).toFixed(2) });
     if (!error) {
       updateItems(() => []);
     }
   };
 
   const handleBank = async () => {
-    const { error } = await createPaymentBank(item, history);
+    const { error } = await createPaymentBank({ ...item, price: (item.price * (1 - maxDiscount / 100)).toFixed(2) }, history);
     if (!error) {
       updateItems(() => []);
     }
@@ -185,7 +187,7 @@ const ShoppingCart = () => {
         }
         content={
           <div>
-            <ItemList items={items} />
+            <ItemList items={items} user={user} />
             <PaymentGroup>
               {/* {types.includes(PAYPAL) && ( */}
               <ImgContainer onClick={handlePaypal}>

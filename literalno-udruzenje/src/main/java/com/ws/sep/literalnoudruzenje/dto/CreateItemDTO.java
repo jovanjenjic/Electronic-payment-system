@@ -1,5 +1,6 @@
 package com.ws.sep.literalnoudruzenje.dto;
 
+import com.ws.sep.literalnoudruzenje.model.ItemType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,5 +23,9 @@ public class CreateItemDTO {
 
     @NotBlank(message = "description cannot be blank")
     private String description;
+
+    private ItemType itemType = ItemType.MAGAZINE;
+
+    private Double discount = 0d;
 
 }

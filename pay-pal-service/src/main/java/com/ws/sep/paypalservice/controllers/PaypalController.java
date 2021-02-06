@@ -3,6 +3,7 @@ package com.ws.sep.paypalservice.controllers;
 import com.paypal.base.rest.PayPalRESTException;
 import com.ws.sep.paypalservice.dto.*;
 import com.ws.sep.paypalservice.enums.FieldType;
+import com.ws.sep.paypalservice.enums.OrderState;
 import com.ws.sep.paypalservice.services.SellerInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping( "/api" )
@@ -47,6 +49,11 @@ public class PaypalController
         retMessage.put("message", "payment method added successfully!");
 
         return new ResponseEntity<>(retMessage, HttpStatus.CREATED);
+    }
+
+    @PutMapping(value = "/updatePayment")
+    public ResponseEntity<?> updatePayment(@RequestBody SellerInfoDTO sellerInfoDTO, @RequestHeader("Authorization") String token) {
+        return sellerInfoService.updatePaymentCredentials(sellerInfoDTO, token);
     }
 
     @PostMapping(value = "/pay")
@@ -89,6 +96,16 @@ public class PaypalController
     public ResponseEntity<?> cancelSubscription(@PathVariable("id") Long subscriptionId, @RequestHeader("Authorization") String token) {
         logger.info("INFO - /subscription/{id}/success");
         return sellerInfoService.cancelSubscription(subscriptionId, token);
+    }
+
+    @GetMapping(value = "/orders")
+    public ResponseEntity<?> getOrders(@RequestParam Map<String, String> params, @RequestHeader("Authorization") String token) {
+        return ResponseEntity.ok(sellerInfoService.getSellerOrders(params.getOrDefault("state", ""), token));
+    }
+
+    @GetMapping(value = "/orders/{id}")
+    public ResponseEntity<?> getOrder(@PathVariable("id") Long orderId, @RequestHeader("Authorization") String token) {
+        return ResponseEntity.ok(sellerInfoService.getOrder(orderId));
     }
 
 }

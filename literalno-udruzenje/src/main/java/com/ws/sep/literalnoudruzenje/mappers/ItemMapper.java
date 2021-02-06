@@ -18,6 +18,8 @@ public interface ItemMapper {
     @Mapping(source = "createItemDTO.price", target = "price")
     @Mapping(source = "createItemDTO.name", target = "name")
     @Mapping(source = "createItemDTO.description", target = "description")
+    @Mapping(source = "createItemDTO.itemType", target = "itemType")
+    @Mapping(source = "createItemDTO.discount", target = "discount")
     @Mapping(source="user", target = "user")
     Item mapRequestToItem(CreateItemDTO createItemDTO, User user);
 

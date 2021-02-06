@@ -18,6 +18,12 @@ public class Item {
 
     private String name;
 
+    // discount used for customer
+    private Double discount = 10d;
+
+    @Enumerated(EnumType.STRING)
+    private ItemType itemType = ItemType.MAGAZINE;
+
     private String description;
 
     @ManyToOne(fetch = FetchType.EAGER)

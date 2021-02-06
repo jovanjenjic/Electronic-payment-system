@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --progress --profile --watch --content-base src/ --https --hot --port 3000",
+    "start": "webpack serve --progress --profile --watch --content-base src/ --hot --port 3000",
     "build": "webpack"
   },
   "keywords": [],
@@ -13,6 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "antd": "^4.9.1",
+    "axios": "^0.21.1",
+    "node-fetch": "^2.6.1",
     "react": "^17.0.1",
     "react-async": "^10.0.1",
     "react-credit-cards": "^0.8.3",

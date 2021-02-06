@@ -1,6 +1,5 @@
 package com.ws.sep.literalnoudruzenje.dto;
 
-import com.ws.sep.literalnoudruzenje.model.ItemType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,18 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemResponseDTO {
+public class SubscriptionListItemDTO {
 
-    private Long id;
-
-    private Double price;
+    private Double discount;
 
     private String name;
 
     private String description;
-
-    private Long user_id;
-
-    private ItemType itemType = ItemType.MAGAZINE;
 
 }
