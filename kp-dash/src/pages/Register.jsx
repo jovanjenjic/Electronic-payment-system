@@ -22,7 +22,16 @@ const RegisterContainer = () => {
   const history = useHistory();
 
   const onFinish = async values => {
-    const response = await post(REGISTER_URL, values);
+    const data = values.seller ?
+      {
+        ...values,
+        role: 'ROLE_SELLER'
+      } : {
+        ...values,
+        role: 'ROLE_USER'
+      };
+
+    const response = await post(REGISTER_URL, data);
 
     if (responseOk(response)) {
       const result = await response.json();
@@ -30,7 +39,7 @@ const RegisterContainer = () => {
         placement: 'topRight',
         message: 'Register success'
       });
-      localStorage.setItem('access_token', result.message);
+      localStorage.setItem('access_token', result.access_token);
       setTimeout(() => {
         history.push('/');
       }, 1000)

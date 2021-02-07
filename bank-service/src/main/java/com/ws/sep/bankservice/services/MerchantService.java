@@ -1,6 +1,8 @@
 package com.ws.sep.bankservice.services;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -14,6 +16,7 @@ import com.ws.sep.bankservice.exceptions.SimpleException;
 import com.ws.sep.bankservice.models.BankInfo;
 import com.ws.sep.bankservice.models.Merchant;
 import com.ws.sep.bankservice.models.Payment;
+import com.ws.sep.bankservice.models.PaymentStatus;
 import com.ws.sep.bankservice.repositories.IBankInfoRepository;
 import com.ws.sep.bankservice.repositories.IMerchantRepository;
 import com.ws.sep.bankservice.repositories.IPaymentRepository;
@@ -126,6 +129,47 @@ public class MerchantService
     }
 
 
+    public ResponseEntity< ApiResponse > updateMerchant( CreateMerchantRequest request, String token )
+    {
+
+        Long sellerId = this.jwtUtil.extractSellerId( token );
+
+        String bankId = this.panBankIdUtil.getBankId( request.getPan() );
+
+        Optional< BankInfo > optionalBankInfo = this.iBankInfoRepository.findByPanBankId( bankId );
+
+        if ( !optionalBankInfo.isPresent() )
+        {
+            return new ResponseEntity< ApiResponse >( new ApiResponse( "Cant find bank with bank code [" + bankId + "]", false ), HttpStatus.BAD_REQUEST );
+        }
+
+        if ( request.getPan().length() != 16 )
+        {
+            return new ResponseEntity< ApiResponse >( new ApiResponse( "Card number must have 16 digits!", false ), HttpStatus.BAD_REQUEST );
+
+        }
+        BankInfo bankInfo = optionalBankInfo.get();
+
+        Merchant merchant = this.iMerchantRepository.findById( sellerId ).get();
+        String url = "https://localhost:" + bankInfo.getUrl() + "/api/update";
+
+        request.setMerchantId( merchant.getMerchantId() );
+        request.setMerchantPassword( merchant.getMerchantPassword() );
+
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity< ApiResponse > response = restTemplate.postForEntity( url, request, ApiResponse.class );
+
+        if ( response.getBody().getSuccess() )
+        {
+            merchant.setPanBankId( bankId );
+            this.iMerchantRepository.save( merchant );
+        }
+
+        return response;
+
+    }
+
+
     public ResponseEntity< ? > retrieveUrlAndId( OrderDTO order, String token )
     {
 
@@ -147,10 +191,19 @@ public class MerchantService
             return new ResponseEntity< ApiResponse >( new ApiResponse( "Cant find bank", false ), HttpStatus.BAD_REQUEST );
 
         }
+        Payment newPayment = new Payment();
+        newPayment.setMerchantId( order.getMerchantOrderId().toString() );
+        newPayment.setMerchantTimestamp( order.getTimestamp() );
+        newPayment.setAmount( order.getAmount() );
+        newPayment.setStatus( PaymentStatus.STARTED );
+
+        Payment save = this.iPaymentRepository.save( newPayment );
 
         BankInfo bankInfo = optionalBankInfo.get();
 
         PaymentRequest request = new PaymentRequest();
+
+        request.setPaymentId( save.getId() );
 
         request.setAmount( order.getAmount() );
         request.setMerchantId( merchant.getMerchantId() );
@@ -158,10 +211,9 @@ public class MerchantService
         request.setMerchantPassword( merchant.getMerchantPassword() );
         request.setMerchantTimestamp( order.getTimestamp() );
 
-        // TODO change this so that message about payment can be retrieved
-        request.setErrorUrl( UrlUtil.DASHBOARD + UrlUtil.ERROR_URL );
-        request.setSuccessUrl( UrlUtil.DASHBOARD + UrlUtil.SUCCESS_URL );
-        request.setFailedUrl( UrlUtil.DASHBOARD + UrlUtil.FAILED_URL );
+        request.setErrorUrl( UrlUtil.DASHBOARD + UrlUtil.ERROR_URL + order.getMerchantOrderId() );
+        request.setSuccessUrl( UrlUtil.DASHBOARD + UrlUtil.SUCCESS_URL + order.getMerchantOrderId() );
+        request.setFailedUrl( UrlUtil.DASHBOARD + UrlUtil.FAILED_URL + order.getMerchantOrderId() );
 
         request.setBankUrl( bankInfo.getUrl() );
 
@@ -176,6 +228,8 @@ public class MerchantService
             return new ResponseEntity< ApiResponse >( ( ApiResponse ) response.getBody(), HttpStatus.BAD_REQUEST );
         }
 
+        LinkedHashMap r = ( LinkedHashMap ) response.getBody();
+        r.put( "kp_id", save.getId() );
         return response;
 
     }
@@ -185,9 +239,38 @@ public class MerchantService
     {
 
         Payment newPayment = new Payment( payment );
+        newPayment.setId( payment.getPaymentId() );
         Payment save = this.iPaymentRepository.save( newPayment );
 
         return new ResponseEntity< ApiResponse >( new ApiResponse( save.getId().toString(), true ), HttpStatus.CREATED );
+
+    }
+
+
+    public ResponseEntity< ? > getTransactions( String token, String status )
+    {
+
+        Long extractSellerId = this.jwtUtil.extractSellerId( token );
+
+        Merchant merchant = this.iMerchantRepository.findById( extractSellerId ).get();
+
+        if ( status == null )
+        {
+            List< Payment > findByMerchantId = this.iPaymentRepository.findByMerchantId( merchant.getMerchantId() );
+            return new ResponseEntity<>( findByMerchantId, HttpStatus.OK );
+        }
+
+        try
+        {
+            PaymentStatus valueOf = PaymentStatus.valueOf( status );
+
+            List< Payment > findByMerchantIdAndStatus = this.iPaymentRepository.findByMerchantIdAndStatus( merchant.getMerchantId(), valueOf );
+            return new ResponseEntity<>( findByMerchantIdAndStatus, HttpStatus.OK );
+        }
+        catch ( Exception e )
+        {
+            return new ResponseEntity<>( new ApiResponse( "Wrong status [" + status + "]", false ), HttpStatus.BAD_REQUEST );
+        }
 
     }
 

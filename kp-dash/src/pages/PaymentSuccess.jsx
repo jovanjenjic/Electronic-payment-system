@@ -4,7 +4,7 @@ import { useAsync } from 'react-async';
 import { useParams, useLocation, useHistory } from 'react-router-dom';
 import { Result, Button } from 'antd';
 
-import { BTC_SUCCESS_PAYMENT_URL, EXECUTE_PAYPAL_PAYMENT_URL } from '../constants/url';
+import { BTC_SUCCESS_PAYMENT_URL, EXECUTE_PAYPAL_PAYMENT_URL, BANK_PAYMENT_SUCCESS_URL } from '../constants/url';
 import { post } from '../services/api';
 import { responseOk } from '../utils/responseOk';
 
@@ -25,7 +25,7 @@ const resolveSearchParams = (search = '', paymentType = '') => {
 // TODO: Add here also urls for the bank and the crypto payments
 /** `Helper` method for resolving payment urls  */
 const resolveSuccessUrl = (paymentType = 'paypal', paymentId) => {
-  let url = '';
+  let url = BANK_PAYMENT_SUCCESS_URL;
   if (paymentType === 'paypal') url = EXECUTE_PAYPAL_PAYMENT_URL;
   if (paymentType === 'bitcoin') return BTC_SUCCESS_PAYMENT_URL;
 

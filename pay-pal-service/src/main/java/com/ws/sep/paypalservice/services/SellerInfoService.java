@@ -42,6 +42,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class SellerInfoService {
@@ -113,8 +114,40 @@ public class SellerInfoService {
         sellerInfoRepository.save(sellerInfo);
     }
 
+    public ResponseEntity<?> updatePaymentCredentials(SellerInfoDTO sellerInfoDTO, String authToken) {
+        Long sellerId = jwtUtil.extractSellerId(authToken.substring(7));
 
-    public APIContext getApiContext(Long sellerId) throws PayPalRESTException {
+        // check if payment already exists
+        if(!sellerInfoRepository.existsBySellerId(sellerId)) {
+            logger.error("Payment method not exists for the user. User ID: " + sellerId.toString());
+            throw new AlreadyExistsException("Payment not exists for the user");
+        }
+
+        SellerInfo sellerInfo = sellerInfoRepository.findOneBySellerId(sellerId);
+
+        if(sellerInfoDTO.getClient_id() == null || sellerInfoDTO.getClient_id().isEmpty()) {
+            logger.error("Client_id cannot be null or empty. User ID: " + sellerId.toString());
+            throw new InvalidValueException("client_id", "client_id cannot be null or empty");
+        }
+        sellerInfo.setClient_id(sellerInfoDTO.getClient_id());
+
+        if(sellerInfoDTO.getClient_secret() == null || sellerInfoDTO.getClient_secret().isEmpty()) {
+            logger.error("client_secret cannot be null. User ID: " + sellerId.toString());
+            throw new InvalidValueException("client_secret", "client_secret cannot be null");
+        }
+
+        sellerInfo.setClient_secret(sellerInfoDTO.getClient_secret());
+        sellerInfoRepository.save(sellerInfo);
+
+        HashMap<String, String> retMessage = new HashMap<>();
+        retMessage.put("status", "success");
+        retMessage.put("message", "payment method updated successfully!");
+
+        return new ResponseEntity<>(retMessage, HttpStatus.OK);
+    }
+
+
+        public APIContext getApiContext(Long sellerId) throws PayPalRESTException {
         // check if paypal exists for the specified user
         if(!sellerInfoRepository.existsBySellerId(sellerId)) {
             logger.error("Configuration not exists for the seller.");
@@ -136,7 +169,7 @@ public class SellerInfoService {
     }
 
     @Transactional
-    public String createPayment(OrderDTO orderDTO, String token) throws PayPalRESTException {
+    public ResponseEntity<?> createPayment(OrderDTO orderDTO, String token) throws PayPalRESTException, SimpleException {
         Long sellerId = jwtUtil.extractSellerId(token.substring(7));
 
         APIContext context = getApiContext(sellerId);
@@ -170,6 +203,7 @@ public class SellerInfoService {
         sellerOrders.setPrice(orderDTO.getPrice());
         sellerOrders.setItemsCount(orderDTO.getItems_count());
         sellerOrders.setItemId(orderDTO.getItem_id());
+        sellerOrders.setOrderId(orderDTO.getOrderId());
         sellerOrders.setCurrency(orderDTO.getCurrency());
         sellerOrders.setDescription(orderDTO.getDescription());
         sellerOrders.setOrderState(OrderState.CREATED);
@@ -181,8 +215,8 @@ public class SellerInfoService {
 
         // prepare redirect urls
         RedirectUrls redirectUrls = new RedirectUrls();
-        String successUrl = Urls.DASHBOARD_URL + "/payments/" + sellerOrders.getId() + "/paypal/success";
-        String cancelUrl = Urls.DASHBOARD_URL + "/payments/" + sellerOrders.getId() + "/paypal/cancel";
+        String successUrl = Urls.DASHBOARD_URL + "/payments/" + orderDTO.getOrderId() + "/paypal/success";
+        String cancelUrl = Urls.DASHBOARD_URL + "/payments/" + orderDTO.getOrderId() + "/paypal/cancel";
         redirectUrls.setCancelUrl(cancelUrl);
         redirectUrls.setReturnUrl(successUrl);
 
@@ -199,7 +233,7 @@ public class SellerInfoService {
                 sellerOrders.setOrderState(OrderState.PENDING);
                 sellerOrders.setPaymentUrl(paymentUrl);
                 sellerOrderRepository.save(sellerOrders);
-                return paymentUrl;
+                return new ResponseEntity<>(new ApiResponse(sellerOrders.getId(), paymentUrl), HttpStatus.CREATED);
             }
 
             sellerOrders.setOrderState(OrderState.FAILED);
@@ -209,7 +243,9 @@ public class SellerInfoService {
         } catch (PayPalRESTException e) {
             throw new SimpleException(404, "Error occurred while creating payment");
         }
-        return "";
+        HashMap<String, String> retObj = new HashMap<>();
+        retObj.put("message", "Failed to create pay");
+        return new ResponseEntity<>(retObj, HttpStatus.EXPECTATION_FAILED);
     }
 
     public ResponseEntity<?> executePayment(ExecutePaymentDTO executePaymentDTO, Long orderId, String token) {
@@ -429,8 +465,10 @@ public class SellerInfoService {
             // merchant preferences for override
             MerchantPreferences merchantPreferences = new MerchantPreferences();
             merchantPreferences.setSetupFee(currency);
-            merchantPreferences.setCancelUrl(subscriptionCancelUrl.replace("{id}", String.valueOf(subscription.getId())));
-            merchantPreferences.setReturnUrl(subscriptionSuccessUrl.replace("{id}", String.valueOf(subscription.getId())));
+            merchantPreferences.setCancelUrl(subscriptionCancelUrl
+                    .replace("{id}", String.valueOf(subscriptionDTO.getSubscriptionId())));
+            merchantPreferences.setReturnUrl(subscriptionSuccessUrl
+                    .replace("{id}", String.valueOf(subscriptionDTO.getSubscriptionId())));
             merchantPreferences.setMaxFailAttempts("0");
             merchantPreferences.setAutoBillAmount("YES");
             merchantPreferences.setInitialFailAmountAction("CONTINUE");
@@ -452,6 +490,7 @@ public class SellerInfoService {
 
                 HashMap<String, String> retObj = new HashMap<>();
                 retObj.put("paymentUrl", linksOptional.get().getHref());
+                retObj.put("kp_id", String.valueOf(subscription.getId()));
 
                 logger.info("Successfully created subscription. User ID: " + sellerId.toString());
                 return new ResponseEntity<>(retObj, HttpStatus.CREATED);
@@ -566,5 +605,20 @@ public class SellerInfoService {
 
         logger.error("Failed to cancel subscription. User ID: " + sellerId.toString());
         return new ResponseEntity<>(retObj, HttpStatus.EXPECTATION_FAILED);
+    }
+
+    public List<OrderResponse> getSellerOrders(String state, String token) {
+        Long sellerId = jwtUtil.extractSellerId(token.substring(7));
+
+        List<SellerOrders> orders = !StringUtils.isEmpty(state) ? sellerOrderRepository.queryForSellerOrders(sellerId, OrderState.valueOf(state)) :
+                sellerOrderRepository.findAllBySellerId(sellerId);
+
+        List<OrderResponse> responses = orders.stream().map(v -> SellerOrderMapper.INSTANCE.mapToResponse(v)).collect(Collectors.toList());
+        return responses;
+    }
+
+    public OrderResponse getOrder(Long orderId) {
+        SellerOrders order = sellerOrderRepository.findById(orderId).orElseThrow(() -> new SimpleException(404, "order not found"));
+        return SellerOrderMapper.INSTANCE.mapToResponse(order);
     }
 }

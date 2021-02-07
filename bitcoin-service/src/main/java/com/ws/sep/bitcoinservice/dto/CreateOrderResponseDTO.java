@@ -31,4 +31,6 @@ public class CreateOrderResponseDTO {
 
     @JsonProperty(value = "token")
     private String token;
+
+    private Long kp_id;
 }

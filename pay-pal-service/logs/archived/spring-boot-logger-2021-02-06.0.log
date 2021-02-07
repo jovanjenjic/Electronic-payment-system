@@ -1,0 +1,261 @@
+2021-02-06 00:01:09,734 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 00:01:11,527 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 00:01:11,541 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 00:06:09,761 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 00:11:09,764 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 00:16:09,767 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 00:21:09,768 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 00:26:09,770 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 00:31:09,772 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 00:31:11,542 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 00:31:11,552 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 00:36:09,773 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 00:41:09,776 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 00:46:09,777 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 00:51:09,778 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 00:56:09,779 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 01:01:09,781 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 01:01:11,554 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 01:01:11,560 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 01:06:09,784 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 01:11:09,786 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 01:16:09,789 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 01:21:09,790 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 01:26:09,792 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 01:31:09,794 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 01:31:11,562 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 01:31:11,570 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 01:36:09,795 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 01:41:09,797 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 01:46:09,799 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 01:51:09,800 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 01:56:09,802 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 02:01:09,804 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 02:01:11,572 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 02:01:11,593 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 02:06:09,806 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 02:11:09,808 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 02:16:09,810 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 02:21:09,812 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 02:26:09,814 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 11:29:36,569 WARN com.zaxxer.hikari.pool.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9h25s463ms708µs99ns).
+2021-02-06 16:48:03,584 WARN com.zaxxer.hikari.pool.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5h18m27s56ms918µs101ns).
+2021-02-06 16:49:02,229 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 16:49:04,009 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 16:49:04,020 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 16:54:02,230 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 16:59:02,234 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 17:03:22,256 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-3] INFO - /form
+2021-02-06 17:03:27,328 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-2] INFO - /form
+2021-02-06 17:04:02,238 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 17:07:16,543 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /form
+2021-02-06 17:09:02,239 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 17:14:02,242 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 17:19:02,245 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 17:19:04,030 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 17:19:04,115 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 17:24:02,246 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 17:29:02,247 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 17:31:16,689 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-7] INFO - /form
+2021-02-06 17:34:02,249 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 17:39:02,250 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 17:44:02,251 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 17:49:02,253 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 17:49:04,124 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 17:49:04,238 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 17:51:48,387 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-2] INFO - /subscription
+2021-02-06 17:51:48,708 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-2] Successfully returned billing plan
+2021-02-06 17:51:51,274 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-2] Successful returned api context.
+2021-02-06 17:51:52,260 ERROR com.paypal.base.HttpConnection [https-jsse-nio-8082-exec-2] Error code : 400 with response : {"name":"VALIDATION_ERROR","debug_id":"b2dbbe45f59ae","message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-agreements#errors","details":[{"field":"name","issue":"Field is mandatory. 127 single-byte alphanumeric characters."}]}
+2021-02-06 17:51:52,349 ERROR com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-2] Failed to create subscription. User ID: 8
+2021-02-06 17:51:52,357 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [https-jsse-nio-8082-exec-2] Resolved [SimpleException(code=500, message=Error code : 400 with response : {"name":"VALIDATION_ERROR","debug_id":"b2dbbe45f59ae","message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-agreements#errors","details":[{"field":"name","issue":"Field is mandatory. 127 single-byte alphanumeric characters."}]})]
+2021-02-06 17:54:02,254 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 17:54:46,457 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-5] INFO - /subscription
+2021-02-06 17:54:46,462 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-5] Successfully returned billing plan
+2021-02-06 17:54:47,321 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-5] Successful returned api context.
+2021-02-06 17:54:48,201 ERROR com.paypal.base.HttpConnection [https-jsse-nio-8082-exec-5] Error code : 400 with response : {"name":"VALIDATION_ERROR","debug_id":"c5bd6e343e7f1","message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-agreements#errors","details":[{"field":"name","issue":"Field is mandatory. 127 single-byte alphanumeric characters."}]}
+2021-02-06 17:54:48,224 ERROR com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-5] Failed to create subscription. User ID: 8
+2021-02-06 17:54:48,227 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [https-jsse-nio-8082-exec-5] Resolved [SimpleException(code=500, message=Error code : 400 with response : {"name":"VALIDATION_ERROR","debug_id":"c5bd6e343e7f1","message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-agreements#errors","details":[{"field":"name","issue":"Field is mandatory. 127 single-byte alphanumeric characters."}]})]
+2021-02-06 17:59:02,255 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 18:04:02,256 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 18:05:24,668 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-8] INFO - /subscription
+2021-02-06 18:05:24,724 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-8] Successfully returned billing plan
+2021-02-06 18:05:25,806 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-8] Successful returned api context.
+2021-02-06 18:05:26,647 ERROR com.paypal.base.HttpConnection [https-jsse-nio-8082-exec-8] Error code : 400 with response : {"name":"VALIDATION_ERROR","debug_id":"dd6c07432b556","message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-agreements#errors","details":[{"field":"name","issue":"Field is mandatory. 127 single-byte alphanumeric characters."}]}
+2021-02-06 18:05:26,659 ERROR com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-8] Failed to create subscription. User ID: 8
+2021-02-06 18:05:26,667 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [https-jsse-nio-8082-exec-8] Resolved [SimpleException(code=500, message=Error code : 400 with response : {"name":"VALIDATION_ERROR","debug_id":"dd6c07432b556","message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-agreements#errors","details":[{"field":"name","issue":"Field is mandatory. 127 single-byte alphanumeric characters."}]})]
+2021-02-06 18:06:45,463 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-5] INFO - /subscription
+2021-02-06 18:06:45,466 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-5] Successfully returned billing plan
+2021-02-06 18:06:46,338 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-5] Successful returned api context.
+2021-02-06 18:06:48,259 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-5] Successfully created subscription. User ID: 8
+2021-02-06 18:07:23,949 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /pay
+2021-02-06 18:07:24,854 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-10] Successful returned api context.
+2021-02-06 18:07:25,984 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-10] Successfully executed subscription. User ID: 8
+2021-02-06 18:09:02,259 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 18:13:43,181 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-7] INFO - /pay
+2021-02-06 18:13:44,124 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-7] Successful returned api context.
+2021-02-06 18:13:45,219 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-7] Successfully executed subscription. User ID: 8
+2021-02-06 18:13:51,368 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-4] INFO - /pay
+2021-02-06 18:13:52,216 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-4] Successful returned api context.
+2021-02-06 18:13:53,265 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-4] Successfully executed subscription. User ID: 8
+2021-02-06 18:14:02,262 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 18:14:36,708 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-5] INFO - /pay
+2021-02-06 18:14:37,554 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-5] Successful returned api context.
+2021-02-06 18:14:38,666 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-5] Successfully executed subscription. User ID: 8
+2021-02-06 18:14:46,368 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /pay
+2021-02-06 18:14:47,198 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-10] Successful returned api context.
+2021-02-06 18:14:48,274 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-10] Successfully executed subscription. User ID: 8
+2021-02-06 18:15:00,951 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-1] INFO - /pay
+2021-02-06 18:15:01,762 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-1] Successful returned api context.
+2021-02-06 18:15:02,929 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-1] Successfully executed subscription. User ID: 8
+2021-02-06 18:15:09,749 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-3] INFO - /pay
+2021-02-06 18:15:10,610 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-3] Successful returned api context.
+2021-02-06 18:15:11,683 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-3] Successfully executed subscription. User ID: 8
+2021-02-06 18:19:02,263 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 18:19:04,241 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 18:19:04,261 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 18:23:55,589 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-5] INFO - /form
+2021-02-06 18:24:02,264 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 18:24:15,455 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /form
+2021-02-06 18:24:17,768 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-1] INFO - /form
+2021-02-06 18:29:02,266 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 18:34:02,270 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 18:39:02,272 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 18:44:02,273 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 18:49:02,274 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 18:49:04,263 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 18:49:04,288 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 18:54:02,276 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 18:59:02,277 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 19:04:02,279 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 19:09:02,279 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 19:14:02,280 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 19:19:02,280 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 19:19:04,290 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 19:19:04,302 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 19:24:02,283 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 19:29:02,284 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 19:30:10,371 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-4] INFO - /form
+2021-02-06 19:32:17,807 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-9] INFO - /form
+2021-02-06 19:34:02,285 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 19:39:02,286 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 19:44:02,287 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 19:49:02,289 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 19:49:04,304 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 19:49:04,328 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 19:54:02,291 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 19:55:52,544 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-3] INFO - /subscription
+2021-02-06 19:55:52,590 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-3] Successfully returned billing plan
+2021-02-06 19:55:53,810 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-3] Successful returned api context.
+2021-02-06 19:55:55,608 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-3] Successfully created subscription. User ID: 8
+2021-02-06 19:56:29,066 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-2] INFO - /pay
+2021-02-06 19:56:29,849 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-2] Successful returned api context.
+2021-02-06 19:56:30,941 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-2] Successfully executed subscription. User ID: 8
+2021-02-06 19:59:02,292 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 20:04:02,294 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 20:09:02,298 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 20:14:02,300 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 20:19:02,302 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 20:19:04,334 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 20:19:04,441 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 20:24:02,303 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 20:24:52,838 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-5] INFO - /addPayment
+2021-02-06 20:24:53,845 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-5] Successful user registration on payment system. User ID: 3
+2021-02-06 20:27:16,922 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-9] INFO - /pay
+2021-02-06 20:27:18,336 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-9] Successful returned api context.
+2021-02-06 20:27:47,191 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-6] INFO - /pay/{id}/cancel
+2021-02-06 20:27:47,215 INFO com.ws.sep.paypalservice.services.SellerInfoService [https-jsse-nio-8082-exec-6] Successful canceled payment.
+2021-02-06 20:29:02,312 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 20:32:10,438 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-2] INFO - /form
+2021-02-06 20:32:53,739 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-8] INFO - /form
+2021-02-06 20:33:52,233 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-9] INFO - /form
+2021-02-06 20:33:58,073 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-6] INFO - /form
+2021-02-06 20:34:02,314 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 20:34:07,862 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-7] INFO - /form
+2021-02-06 20:39:02,317 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 20:39:44,128 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-8] INFO - /form
+2021-02-06 20:40:01,955 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-9] INFO - /form
+2021-02-06 20:40:33,662 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-6] INFO - /form
+2021-02-06 20:40:43,063 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-7] INFO - /form
+2021-02-06 20:43:05,454 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-8] INFO - /form
+2021-02-06 20:43:15,907 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-9] INFO - /form
+2021-02-06 20:44:00,316 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-6] INFO - /form
+2021-02-06 20:44:02,318 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 20:44:17,535 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-7] INFO - /form
+2021-02-06 20:44:44,320 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-4] INFO - /form
+2021-02-06 20:44:48,107 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-5] INFO - /form
+2021-02-06 20:44:53,557 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /form
+2021-02-06 20:44:58,679 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-1] INFO - /form
+2021-02-06 20:47:00,112 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-4] INFO - /form
+2021-02-06 20:48:37,290 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-9] INFO - /form
+2021-02-06 20:49:02,320 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 20:49:04,451 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 20:49:04,568 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 20:50:10,312 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-3] INFO - /form
+2021-02-06 20:50:11,028 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-2] INFO - /form
+2021-02-06 20:50:28,726 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-8] INFO - /form
+2021-02-06 20:50:40,915 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-9] INFO - /form
+2021-02-06 20:51:06,555 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-6] INFO - /form
+2021-02-06 20:51:10,907 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-7] INFO - /form
+2021-02-06 20:51:23,552 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-4] INFO - /form
+2021-02-06 20:51:33,132 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-5] INFO - /form
+2021-02-06 20:52:06,430 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /form
+2021-02-06 20:53:01,803 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-1] INFO - /form
+2021-02-06 20:53:28,151 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-3] INFO - /form
+2021-02-06 20:54:02,322 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 20:54:50,165 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-5] INFO - /form
+2021-02-06 20:55:32,590 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /form
+2021-02-06 20:55:38,118 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-1] INFO - /form
+2021-02-06 20:58:27,251 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-4] INFO - /form
+2021-02-06 20:58:36,416 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-5] INFO - /form
+2021-02-06 20:59:02,323 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 20:59:03,654 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /form
+2021-02-06 21:04:02,325 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 21:04:38,898 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-7] INFO - /form
+2021-02-06 21:08:42,700 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-8] INFO - /form
+2021-02-06 21:09:02,325 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 21:10:48,580 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-1] INFO - /form
+2021-02-06 21:11:08,224 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-3] INFO - /form
+2021-02-06 21:11:16,392 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-2] INFO - /form
+2021-02-06 21:11:35,037 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-8] INFO - /form
+2021-02-06 21:12:16,806 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-9] INFO - /form
+2021-02-06 21:12:44,158 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-6] INFO - /form
+2021-02-06 21:12:57,487 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-7] INFO - /form
+2021-02-06 21:13:06,925 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-4] INFO - /form
+2021-02-06 21:13:16,588 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-5] INFO - /form
+2021-02-06 21:13:51,596 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /form
+2021-02-06 21:13:58,814 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-1] INFO - /form
+2021-02-06 21:14:02,328 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 21:14:10,353 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-3] INFO - /form
+2021-02-06 21:14:44,129 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-2] INFO - /form
+2021-02-06 21:14:51,976 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-8] INFO - /form
+2021-02-06 21:14:54,260 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-9] INFO - /form
+2021-02-06 21:15:19,269 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-6] INFO - /form
+2021-02-06 21:15:26,805 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-7] INFO - /form
+2021-02-06 21:16:14,909 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-4] INFO - /form
+2021-02-06 21:16:49,436 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-5] INFO - /form
+2021-02-06 21:16:54,163 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /form
+2021-02-06 21:17:12,708 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-1] INFO - /form
+2021-02-06 21:17:41,880 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-3] INFO - /form
+2021-02-06 21:17:58,536 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-2] INFO - /form
+2021-02-06 21:19:02,330 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 21:19:04,570 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 21:19:04,631 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 21:20:03,869 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /form
+2021-02-06 21:23:54,226 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-7] INFO - /form
+2021-02-06 21:24:02,331 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 21:24:15,248 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-4] INFO - /form
+2021-02-06 21:29:02,332 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 21:34:02,335 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 21:39:02,336 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 21:44:02,337 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 21:49:02,339 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 21:49:04,636 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-06 21:49:04,698 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-06 21:54:02,341 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 21:59:02,342 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 22:00:36,076 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [https-jsse-nio-8082-exec-8] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' not supported]
+2021-02-06 22:04:02,369 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 22:06:20,415 INFO com.ws.sep.paypalservice.controllers.PaypalController [https-jsse-nio-8082-exec-10] INFO - /form
+2021-02-06 22:09:02,377 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-06 22:14:02,384 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration

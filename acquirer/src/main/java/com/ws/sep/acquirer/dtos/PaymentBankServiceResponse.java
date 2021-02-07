@@ -45,4 +45,6 @@ public class PaymentBankServiceResponse
 
     private String merchantId;
 
+    private Long paymentId;
+
 }

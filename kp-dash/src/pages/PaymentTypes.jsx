@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Select, Result, Form, Button, Input, notification } from 'antd';
+import { Select, Form, Button, Input, notification } from 'antd';
 
 import BankPaymentForm from '../forms/bank-payment-form';
 
@@ -13,7 +13,7 @@ import {
   PAYPAL_ADD_PAYMENT_URL,
   BANK_ADD_PAYMENT_URL,
 } from '../constants/url';
-import { post } from '../services/api';
+import { post, put } from '../services/api';
 import { responseOk } from '../utils/responseOk';
 
 const Container = styled.div`
@@ -42,17 +42,17 @@ const PaymentFormTypeContainer = styled.div`
 
 const resolveUrl = (type = 'PAYPAL') => {
   // TODO: Add another payment methods
-  if (type === 'BITCOIN') {
+  if (type === 'BTC') {
     return BTC_ADD_PAYMENT_URL;
   }
 
   return PAYPAL_ADD_PAYMENT_URL;
 };
-const addPaymentCredentials = async (data, type = 'PAYPAL') => {
+const addPaymentCredentials = async (data, type = 'PAYPAL', update = false) => {
   const authToken = localStorage.getItem('access_token');
 
   try {
-    const response = await post(resolveUrl(type), data, authToken);
+    const response = !update ? await post(resolveUrl(type), data, authToken) : await put(resolveUrl(type), data, authToken);
     if (responseOk(response)) {
       return await response.json();
     }
@@ -69,14 +69,24 @@ const handleAddBankPaymentType = async ({
   name = '',
   expiry = '',
   cvc: cvv = '',
-}) => {
+}, update = false) => {
   const pan = `${number}`.replace(/\s+/g, '');
   const cardHolder = name.trim();
   const [mm, yy] = expiry.split('/');
   const authToken = localStorage.getItem('access_token');
 
   try {
-    const response = await post(
+    const response = !update ? await post(
+      BANK_ADD_PAYMENT_URL,
+      {
+        pan,
+        cardHolder,
+        mm,
+        yy,
+        cvv,
+      },
+      authToken
+    ) : await put(
       BANK_ADD_PAYMENT_URL,
       {
         pan,
@@ -111,36 +121,40 @@ const PaymentTypes = () => {
   const paymentTypesNames = paymentTypes.map((v) => v.type);
 
   const onFinish = async (values) => {
-    const { error = false } = await addPaymentCredentials(values, value);
+    const update = paymentTypesNames.includes(value);
+    const { error = false } = await addPaymentCredentials(values, value, update);
     if (error) {
       api.error({
         placement: 'topRight',
-        message: 'Failed to add payment methods',
+        message: `Failed to ${update ? 'update' : 'add'} payment methods`,
       });
       return;
     }
 
     api.success({
       placement: 'topRight',
-      message: 'Payment method added',
+      message: `Payment method ${update ? 'updated' : 'added'
+        }`,
     });
     reloadPaymentTypes();
   };
 
   const handleBankSubmit = async (fields) => {
-    const { error = false } = await handleAddBankPaymentType(fields);
+    const update = paymentTypesNames.includes(value);
+    const { error = false } = await handleAddBankPaymentType(fields, update);
 
     if (error) {
       api.error({
         placement: 'topRight',
-        message: 'Failed to add payment methods',
+        message: `Failed to ${update ? 'update' : 'add'} payment methods`,
       });
       return;
     }
 
     api.success({
       placement: 'topRight',
-      message: 'Payment method added',
+      message: `Payment method ${update ? 'updated' : 'added'
+        }`,
     });
     reloadPaymentTypes();
   };
@@ -153,20 +167,15 @@ const PaymentTypes = () => {
         value={value}
         onChange={(value) => updatevalue(value)}
       >
-        {['PAYPAL', 'BITCOIN', 'BANK'].map((v) => (
+        {['PAYPAL', 'BTC', 'BANK'].map((v) => (
           <Select.Option key={v} value={v}>{`${v[0]}${v
             .slice(1)
-            .toLowerCase()}`}</Select.Option>
+            .toLowerCase()
+            }`}</Select.Option>
         ))}
       </Select>
       <InfoContainer>
-        {paymentTypesNames.includes(value) && (
-          <Result
-            title={`Payment credentials for ${value} already exists`}
-            status="success"
-          />
-        )}
-        {!paymentTypesNames.includes(value) && value && value !== 'BANK' && (
+        {value && value !== 'BANK' && (
           <PaymentFormTypeContainer>
             <h2 className="title">{value}</h2>
             <Form
@@ -201,12 +210,12 @@ const PaymentTypes = () => {
                   borderRadius: 4,
                 }}
               >
-                Add payment type
+                {paymentTypesNames.includes(value) ? 'Update payment type' : 'Add payment type'}
               </Button>
             </Form>
           </PaymentFormTypeContainer>
         )}
-        {!paymentTypesNames.includes(value) && value && value === 'BANK' && (
+        {value && value === 'BANK' && (
           <BankPaymentForm onSubmit={handleBankSubmit} />
         )}
       </InfoContainer>

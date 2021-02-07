@@ -13,6 +13,8 @@ public class OrderDTO {
 
     private int items_count;
 
+    private Long orderId;
+
     private Long item_id;
 
     private String currency;

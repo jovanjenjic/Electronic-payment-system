@@ -22,9 +22,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 
+import java.awt.*;
 import java.nio.file.FileAlreadyExistsException;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 @Service
@@ -147,8 +150,8 @@ public class CryptocurrencyService {
 
         params.put("title", transactionDetailsDTO.getTitle());
         params.put("description", transactionDetailsDTO.getDescription());
-        params.put("success_url", GlobalDataString.DASHBOARD + "/payments/" + paymentInformation.getId() + "/bitcoin/success");
-        params.put("cancel_url", GlobalDataString.DASHBOARD + "/payments/" + paymentInformation.getId() + "/bitcoin/cancel");
+        params.put("success_url", GlobalDataString.DASHBOARD + "/payments/" + paymentInformation.getOrderId() + "/bitcoin/success");
+        params.put("cancel_url", GlobalDataString.DASHBOARD + "/payments/" + paymentInformation.getOrderId() + "/bitcoin/cancel");
 
         HttpEntity<Map<String, String>> entity = new HttpEntity<>(params, headers);
         ResponseEntity<CreateOrderResponseDTO> response = restTemplate.postForEntity(GlobalDataString.SENDBOX_ORDERS, entity, CreateOrderResponseDTO.class);
@@ -156,8 +159,11 @@ public class CryptocurrencyService {
         paymentInformation.setPaymentId(response.getBody().getId());
         paymentInformarmationRepository.save(paymentInformation);
 
+        CreateOrderResponseDTO createOrderResponseDTO = response.getBody();
+        createOrderResponseDTO.setKp_id(paymentInformation.getId());
+
         logger.info("Successful create transaction. User ID: " + sellerId.toString());
-        return response.getBody();
+        return createOrderResponseDTO;
     }
 
     @Transactional
@@ -272,5 +278,43 @@ public class CryptocurrencyService {
             logger.info("Failed execute transaction.");
         }
         return retMessage;
+    }
+
+    @Transactional
+    public HashMap setApiKey(SetApiKeyDTO apiKey, String authToken) {
+        Long sellerId = jwtUtil.extractSellerId(authToken.substring(7));
+
+        if(!cryptocurrencyRepository.existsBySellerId(sellerId)) {
+            logger.error("SellerApiKey does not exist. User ID: " + sellerId);
+            throw new InvalidValueException("Seller api key", "SellerApiKey does not exist");
+        }
+
+        CryptocurrencyPayment data = cryptocurrencyRepository.findOneBySellerId(sellerId);
+        data.setApiKey(apiKey.getApiKey());
+
+        cryptocurrencyRepository.save(data);
+
+        HashMap<String, String> retMessage = new HashMap<>();
+        retMessage.put("status", "success");
+        retMessage.put("message", "Bitcoin api key set successfully!");
+
+        logger.info("Successful set api key. User ID: " + sellerId.toString());
+        return retMessage;
+    }
+
+    @Transactional
+    public Collection<PaymentInformation> getTransactions(String status, String authToken) {
+        Long sellerId = jwtUtil.extractSellerId(authToken.substring(7));
+
+        System.out.println("status" + status);
+
+        Collection<PaymentInformation> pis;
+        if(!status.isEmpty()) {
+            pis = paymentInformarmationRepository.findAllByStatusAndSellerId(status.toUpperCase(), sellerId);
+        } else {
+            pis = paymentInformarmationRepository.findAllBySellerId(sellerId);
+        }
+        logger.info("Successful get list of payments information. User ID: " + sellerId.toString());
+        return pis;
     }
 }

@@ -31,4 +31,6 @@ public class PaymentRequest
 
     private String bankUrl;
 
+    private Long paymentId;
+
 }

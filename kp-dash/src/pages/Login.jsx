@@ -20,25 +20,29 @@ const LoginContainer = () => {
   const history = useHistory();
 
   const onFinish = async values => {
-    const response = await post(LOGIN_URL, values);
+    try {
+      const response = await post(LOGIN_URL, values);
 
-    if (responseOk(response)) {
-      const result = await response.json();
-      api.success({
+      if (responseOk(response)) {
+        const result = await response.json();
+        api.success({
+          placement: 'topRight',
+          message: 'Login success'
+        });
+        localStorage.setItem('access_token', result.access_token);
+        setTimeout(() => {
+          history.push('/');
+        }, 1000)
+        return;
+      }
+
+      api.error({
         placement: 'topRight',
-        message: 'Login success'
-      });
-      localStorage.setItem('access_token', result.accessToken);
-      setTimeout(() => {
-        history.push('/');
-      }, 1000)
-      return;
+        message: 'Invalid credentials'
+      })
+    } catch (error) {
+      console.log(error)
     }
-
-    api.error({
-      placement: 'topRight',
-      message: 'Invalid credentials'
-    })
   };
 
   return <Container>{context}<Login form={form} onFinish={onFinish} /></Container>;

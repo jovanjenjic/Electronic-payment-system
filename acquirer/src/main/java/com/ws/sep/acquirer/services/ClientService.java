@@ -111,6 +111,8 @@ public class ClientService
         newTransaction.setAcquirerTimestamp( new Date() );
         newTransaction.setStatus( TransactionStatus.CREATED );
 
+        newTransaction.setPaymentId( request.getPaymentId() );
+
         Transaction save = this.iTransactionRepository.save( newTransaction );
 
         save.setErrorUrl( save.getErrorUrl() );
@@ -183,7 +185,7 @@ public class ClientService
 
                 Long sendBankServiceResponse = sendBankServiceResponse( responseToBankService );
 
-                return new ResponseEntity<>( transaction.getErrorUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
+                return new ResponseEntity<>( transaction.getErrorUrl(), HttpStatus.BAD_REQUEST );
 
             }
 
@@ -207,7 +209,7 @@ public class ClientService
 
                 // send error url
 
-                return new ResponseEntity<>( transaction.getErrorUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
+                return new ResponseEntity<>( transaction.getErrorUrl(), HttpStatus.BAD_REQUEST );
 
             }
             else
@@ -226,7 +228,7 @@ public class ClientService
                     Long sendBankServiceResponse = sendBankServiceResponse( responseToBankService );
 
                     // send failed url
-                    return new ResponseEntity<>( transaction.getFailedUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
+                    return new ResponseEntity<>( transaction.getFailedUrl(), HttpStatus.BAD_REQUEST );
                 }
                 else
                 {
@@ -244,7 +246,7 @@ public class ClientService
                     Long sendBankServiceResponse = sendBankServiceResponse( responseToBankService );
 
                     // send success url
-                    return new ResponseEntity<>( transaction.getSuccessUrl() + sendBankServiceResponse.toString(), HttpStatus.CREATED );
+                    return new ResponseEntity<>( transaction.getSuccessUrl(), HttpStatus.CREATED );
 
                 }
             }
@@ -302,7 +304,7 @@ public class ClientService
             merchant.setAvailableFounds( merchant.getAvailableFounds() + transaction.getAmount() );
             this.iClientRepository.save( merchant );
 
-            return new ResponseEntity<>( transaction.getSuccessUrl() + sendBankServiceResponse.toString(), HttpStatus.CREATED );
+            return new ResponseEntity<>( transaction.getSuccessUrl(), HttpStatus.CREATED );
 
         }
 
@@ -315,7 +317,7 @@ public class ClientService
             PaymentBankServiceResponse createBankServiceResponseIssuer = createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.ERROR,
                     body.getIssuerOrderId(), body.getIssuerTimestamp(), UrlUtil.CREDIT_CARD_NOT_AUTHENTICATED );
             Long sendBankServiceResponse = sendBankServiceResponse( createBankServiceResponseIssuer );
-            return new ResponseEntity<>( transaction.getErrorUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
+            return new ResponseEntity<>( transaction.getErrorUrl(), HttpStatus.BAD_REQUEST );
         }
 
         transaction.setStatus( TransactionStatus.FAILED );
@@ -324,7 +326,7 @@ public class ClientService
         PaymentBankServiceResponse createBankServiceResponseIssuer = createBankServiceResponseIssuer( card, transaction, false, PaymentStatus.FAILURE,
                 body.getIssuerOrderId(), body.getIssuerTimestamp(), UrlUtil.NO_FUNDS );
         Long sendBankServiceResponse = sendBankServiceResponse( createBankServiceResponseIssuer );
-        return new ResponseEntity<>( transaction.getFailedUrl() + sendBankServiceResponse.toString(), HttpStatus.BAD_REQUEST );
+        return new ResponseEntity<>( transaction.getFailedUrl(), HttpStatus.BAD_REQUEST );
 
     }
 
@@ -333,6 +335,7 @@ public class ClientService
     {
         RestTemplate restTemplate = new RestTemplate();
 
+        // FIXME ovde trebas da ixzmenis objekat iz bank servisa
         ResponseEntity< ApiResponse > response = restTemplate.postForEntity( UrlUtil.BANK_CREATE_PAYMENT_URL, responseToBankService, ApiResponse.class );
 
         return Long.parseLong( response.getBody().getMessage() );
@@ -359,6 +362,7 @@ public class ClientService
         responseToBankService.setMerchantId( transaction.getMerchantId() );
         responseToBankService.setYy( ( ( card.getYy() < 10 ) ? "0" : "" ) + card.getYy() );
         responseToBankService.setMessage( message );
+        responseToBankService.setPaymentId( transaction.getPaymentId() );
         return responseToBankService;
 
     }
@@ -373,6 +377,36 @@ public class ClientService
         createBankServiceResponseAcquirer.setIssuerTimestamp( timestamp );
 
         return createBankServiceResponseAcquirer;
+
+    }
+
+
+    public ResponseEntity< ApiResponse > updateClientAccount( CreateClientRequest request )
+    {
+
+        Optional< Client > findByMerchantIdAndMerchantPassword =
+                this.iClientRepository.findByMerchantIdAndMerchantPassword( request.getMerchantId(), request.getMerchantPassword() );
+
+        if ( !findByMerchantIdAndMerchantPassword.isPresent() )
+        {
+            return new ResponseEntity<>( new ApiResponse( "Credentials do not match", false ), HttpStatus.OK );
+        }
+
+        Client client = findByMerchantIdAndMerchantPassword.get();
+
+        String cvv = EncryptDecrypt.encryptString( request.getCvv() );
+        String pan = EncryptDecrypt.encryptString( request.getPan() );
+        String mm = EncryptDecrypt.encryptString( request.getMm() );
+        String yy = EncryptDecrypt.encryptString( request.getYy() );
+
+        client.setCardHolder( request.getCardHolder() );
+        client.setCvv( cvv );
+        client.setMm( mm );
+        client.setPan( pan );
+        client.setYy( yy );
+
+        this.iClientRepository.save( client );
+        return new ResponseEntity<>( new ApiResponse( "Updated", true ), HttpStatus.OK );
 
     }
 

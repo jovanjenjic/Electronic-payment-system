@@ -27,6 +27,8 @@ public class SellerOrders {
 
     private Long itemId;
 
+    private Long orderId;
+
     private String currency;
 
     private String description;

@@ -1,0 +1,159 @@
+2021-02-02 02:03:26,038 WARN com.zaxxer.hikari.pool.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h28s864ms350µs799ns).
+2021-02-02 09:36:06,152 WARN com.zaxxer.hikari.pool.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7h32m43s760ms394µs901ns).
+2021-02-02 09:36:08,504 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 09:41:08,505 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 09:46:08,507 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 09:51:08,509 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 09:56:08,512 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 09:56:09,864 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 09:56:09,939 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 10:01:08,515 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 10:06:08,517 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 10:11:08,518 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 10:16:08,519 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 10:21:08,520 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 10:26:08,522 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 10:26:09,941 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 10:26:09,987 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 10:31:08,524 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 10:36:08,527 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 10:41:08,530 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 10:46:08,532 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 10:51:08,534 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 10:56:08,536 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 10:56:09,989 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 10:56:10,004 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 11:01:08,538 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 11:06:08,540 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 11:11:08,543 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 11:16:08,546 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 11:21:08,549 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 11:26:08,551 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 11:26:10,019 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 11:26:10,166 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 11:31:05,114 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 13:50:17,776 WARN com.zaxxer.hikari.pool.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h16m44s829ms995µs100ns).
+2021-02-02 13:52:19,925 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 13:57:19,926 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 14:02:19,926 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 14:07:19,929 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 14:12:19,932 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 14:12:21,549 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 14:12:21,637 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 14:17:19,935 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 14:22:19,937 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 14:27:19,938 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 14:32:19,939 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 14:37:19,941 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 14:42:19,944 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 14:42:21,651 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 14:42:21,749 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 14:47:19,957 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 14:52:19,959 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 14:57:19,960 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 15:02:19,962 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 15:07:19,966 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 15:12:19,969 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 15:12:21,751 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 15:12:21,771 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 15:17:19,973 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 15:22:19,987 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 15:27:19,988 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 15:32:19,991 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 15:37:19,993 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 15:42:19,995 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 15:42:21,781 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 15:42:21,860 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 15:47:19,998 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 15:52:20,000 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 15:57:20,003 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 16:02:20,006 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 16:07:20,008 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 16:12:20,009 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 16:12:21,861 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 16:12:21,865 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 16:17:20,010 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 16:22:20,013 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 16:27:20,014 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 16:32:20,015 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 16:37:20,016 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 16:42:25,083 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 16:42:26,937 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 16:42:27,046 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 16:47:25,085 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 16:52:25,087 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 16:57:25,088 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 17:02:25,089 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 17:07:25,091 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 17:12:25,092 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 17:12:27,048 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 17:12:27,068 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 17:17:25,093 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 17:22:25,094 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 17:27:25,096 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 17:32:25,099 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 17:37:25,100 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 17:42:25,102 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 17:42:27,070 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 17:42:27,090 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 17:47:25,103 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 17:52:25,106 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 17:57:25,109 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 18:02:25,111 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 18:07:25,122 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 18:12:25,124 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 18:12:27,132 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 18:12:27,144 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 18:17:25,126 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 18:22:25,128 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 18:27:25,129 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 18:32:25,131 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 18:37:25,132 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 18:42:25,133 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 18:42:27,147 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 18:42:27,164 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 18:47:25,136 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 18:52:25,137 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 18:57:25,140 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 19:02:25,141 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 19:07:25,143 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 19:12:25,144 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 19:12:27,165 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 19:12:27,184 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 19:17:25,146 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 19:22:25,147 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 19:27:25,150 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 19:32:25,151 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 19:37:25,152 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 19:42:25,153 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 19:42:27,185 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 19:42:27,199 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 19:47:25,155 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 19:52:25,156 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 19:57:25,158 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 20:02:25,160 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 20:07:25,161 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 20:12:25,161 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 20:12:27,201 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 20:12:27,223 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 20:17:25,164 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 20:22:25,166 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 20:27:25,168 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 20:32:25,170 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 20:37:25,172 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 20:42:25,174 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 20:42:27,225 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 20:42:27,243 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 20:47:25,176 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 20:52:25,177 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 20:57:25,179 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 21:02:25,181 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 21:07:25,183 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 21:12:25,185 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 21:12:27,244 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] Start scheduling
+2021-02-02 21:12:27,250 INFO com.ws.sep.paypalservice.tasks.PendingTasksSchedule [scheduling-1] End scheduling
+2021-02-02 21:17:25,186 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 21:22:25,187 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 21:27:25,189 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 21:32:25,190 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-02 21:37:25,192 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration

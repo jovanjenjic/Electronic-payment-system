@@ -1,1193 +1,232 @@
-2020-12-20 13:59:26,773 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
-2020-12-20 13:59:26,813 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-12-20 13:59:27,401 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2020-12-20 13:59:28,107 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-12-20 13:59:28,241 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 79ms. Found 2 JPA repository interfaces.
-2020-12-20 13:59:28,352 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2020-12-20 13:59:28,480 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=36a97c5f-7786-3958-8a31-d12f5035127b
-2020-12-20 13:59:28,874 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (https)
-2020-12-20 13:59:28,889 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8081"]
-2020-12-20 13:59:28,889 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2020-12-20 13:59:28,897 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-12-20 13:59:28,995 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2020-12-20 13:59:28,995 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1578 ms
-2020-12-20 13:59:29,043 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
-2020-12-20 13:59:29,051 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2020-12-20 13:59:29,059 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@4f6fa006
-2020-12-20 13:59:29,195 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-20 13:59:29,203 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
-2020-12-20 13:59:29,243 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-20 13:59:29,283 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
-2020-12-20 13:59:29,379 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2020-12-20 13:59:29,459 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-12-20 13:59:29,579 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
-2020-12-20 13:59:29,587 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-20 13:59:29,765 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
-2020-12-20 13:59:29,765 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
-2020-12-20 13:59:29,905 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
-2020-12-20 13:59:29,905 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
-2020-12-20 13:59:30,254 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-20 13:59:30,254 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-20 13:59:30,300 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
-2020-12-20 13:59:30,300 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2020-12-20 13:59:30,316 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
-2020-12-20 13:59:30,373 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-20 13:59:31,102 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2020-12-20 13:59:31,133 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-12-20 13:59:31,197 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
-2020-12-20 13:59:31,206 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
-2020-12-20 13:59:31,222 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
-2020-12-20 13:59:31,358 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
-2020-12-20 13:59:31,364 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
-2020-12-20 13:59:31,364 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
-2020-12-20 13:59:31,370 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
-2020-12-20 13:59:31,370 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
-2020-12-20 13:59:31,371 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
-2020-12-20 13:59:31,371 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
-2020-12-20 13:59:31,550 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
-2020-12-20 13:59:31,550 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
-2020-12-20 13:59:31,550 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
-2020-12-20 13:59:31,550 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1608469171550 with initial instances count: 4
-2020-12-20 13:59:31,558 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application BITCOIN-SERVICE with eureka with status UP
-2020-12-20 13:59:31,558 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1608469171558, current=UP, previous=STARTING]
-2020-12-20 13:59:31,558 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8081"]
-2020-12-20 13:59:31,558 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/HP:bitcoin-service:8081: registering service...
-2020-12-20 13:59:31,590 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/HP:bitcoin-service:8081 - registration status: 204
-2020-12-20 13:59:31,784 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (https) with context path ''
-2020-12-20 13:59:31,784 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8081
-2020-12-20 13:59:31,960 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
-2020-12-20 13:59:32,192 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
-2020-12-20 13:59:32,200 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] Start scheduling
-2020-12-20 13:59:32,200 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started BitcoinServiceApplication in 5.991 seconds (JVM running for 7.06)
-2020-12-20 13:59:32,256 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] End scheduling
-2020-12-20 13:59:32,602 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(2)-127.0.0.1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-20 13:59:32,602 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(2)-127.0.0.1] Initializing Servlet 'dispatcherServlet'
-2020-12-20 13:59:32,602 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(2)-127.0.0.1] Completed initialization in 0 ms
-2020-12-20 13:59:48,036 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-8] INFO - /form
-2020-12-20 13:59:48,048 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-8] Successfully returned form
-2020-12-20 13:59:50,005 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-10] INFO - /form
-2020-12-20 13:59:50,013 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-10] Successfully returned form
-2020-12-20 14:00:49,457 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
-2020-12-20 14:00:49,499 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-12-20 14:00:50,167 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2020-12-20 14:00:50,870 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-12-20 14:00:50,932 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 64ms. Found 2 JPA repository interfaces.
-2020-12-20 14:00:51,026 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2020-12-20 14:00:51,135 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=36a97c5f-7786-3958-8a31-d12f5035127b
-2020-12-20 14:00:51,530 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (https)
-2020-12-20 14:00:51,530 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8081"]
-2020-12-20 14:00:51,530 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2020-12-20 14:00:51,530 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-12-20 14:00:51,640 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2020-12-20 14:00:51,640 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1457 ms
-2020-12-20 14:00:51,686 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
-2020-12-20 14:00:51,702 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2020-12-20 14:00:51,702 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@f554bb0
-2020-12-20 14:00:51,843 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-20 14:00:51,843 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
-2020-12-20 14:00:51,874 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-20 14:00:51,921 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
-2020-12-20 14:00:52,024 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2020-12-20 14:00:52,110 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-12-20 14:00:52,236 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
-2020-12-20 14:00:52,252 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-20 14:00:52,435 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
-2020-12-20 14:00:52,435 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
-2020-12-20 14:00:52,563 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
-2020-12-20 14:00:52,563 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
-2020-12-20 14:00:52,938 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-20 14:00:52,946 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-20 14:00:52,979 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
-2020-12-20 14:00:52,979 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2020-12-20 14:00:53,010 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
-2020-12-20 14:00:53,073 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-20 14:00:53,837 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2020-12-20 14:00:53,869 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-12-20 14:00:53,933 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
-2020-12-20 14:00:53,941 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
-2020-12-20 14:00:53,957 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
-2020-12-20 14:00:54,093 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
-2020-12-20 14:00:54,101 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
-2020-12-20 14:00:54,101 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
-2020-12-20 14:00:54,109 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
-2020-12-20 14:00:54,109 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
-2020-12-20 14:00:54,109 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
-2020-12-20 14:00:54,109 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
-2020-12-20 14:00:54,293 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
-2020-12-20 14:00:54,301 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
-2020-12-20 14:00:54,301 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
-2020-12-20 14:00:54,301 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1608469254301 with initial instances count: 4
-2020-12-20 14:00:54,309 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application BITCOIN-SERVICE with eureka with status UP
-2020-12-20 14:00:54,309 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1608469254309, current=UP, previous=STARTING]
-2020-12-20 14:00:54,309 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8081"]
-2020-12-20 14:00:54,309 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/HP:bitcoin-service:8081: registering service...
-2020-12-20 14:00:54,347 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/HP:bitcoin-service:8081 - registration status: 204
-2020-12-20 14:00:54,558 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (https) with context path ''
-2020-12-20 14:00:54,558 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8081
-2020-12-20 14:00:54,778 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
-2020-12-20 14:00:54,998 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
-2020-12-20 14:00:55,014 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] Start scheduling
-2020-12-20 14:00:55,014 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started BitcoinServiceApplication in 6.138 seconds (JVM running for 7.23)
-2020-12-20 14:00:55,092 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] End scheduling
-2020-12-20 14:00:55,280 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(1)-127.0.0.1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-20 14:00:55,280 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-127.0.0.1] Initializing Servlet 'dispatcherServlet'
-2020-12-20 14:00:55,280 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-127.0.0.1] Completed initialization in 0 ms
-2020-12-20 14:01:02,237 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-6] INFO - /registerPayment
-2020-12-20 14:01:02,526 ERROR com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-6] User already exists. User ID: 1
-2020-12-20 14:01:02,538 ERROR org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8081-exec-6] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
-java.nio.file.FileAlreadyExistsException: Payment already exists for the user
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService.registerPayment(CryptocurrencyService.java:57)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$FastClassBySpringCGLIB$$ca1aa7f5.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$EnhancerBySpringCGLIB$$fad727c8.registerPayment(<generated>)
-	at com.ws.sep.bitcoinservice.controllers.CryptocurrencyController.registerPayment(CryptocurrencyController.java:32)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-12-20 14:01:58,313 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-2] INFO - /createOrder
-2020-12-20 14:01:58,418 ERROR org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8081-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://api-sandbox.coingate.com/v2/orders": api-sandbox.coingate.com; nested exception is java.net.UnknownHostException: api-sandbox.coingate.com] with root cause
-java.net.UnknownHostException: api-sandbox.coingate.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:608)
-	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:287)
-	at java.base/sun.security.ssl.BaseSSLSocketImpl.connect(BaseSSLSocketImpl.java:173)
-	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
-	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
-	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:372)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
-	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:168)
-	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:737)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:672)
-	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:447)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService.createOrder(CryptocurrencyService.java:162)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$FastClassBySpringCGLIB$$ca1aa7f5.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$EnhancerBySpringCGLIB$$fad727c8.createOrder(<generated>)
-	at com.ws.sep.bitcoinservice.controllers.CryptocurrencyController.createOrder(CryptocurrencyController.java:38)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-12-20 14:04:17,525 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-4] INFO - /createOrder
-2020-12-20 14:04:17,545 ERROR org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8081-exec-4] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://api-sandbox.coingate.com/v2/orders": api-sandbox.coingate.com; nested exception is java.net.UnknownHostException: api-sandbox.coingate.com] with root cause
-java.net.UnknownHostException: api-sandbox.coingate.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:608)
-	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:287)
-	at java.base/sun.security.ssl.BaseSSLSocketImpl.connect(BaseSSLSocketImpl.java:173)
-	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
-	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
-	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:372)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
-	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:168)
-	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:737)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:672)
-	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:447)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService.createOrder(CryptocurrencyService.java:162)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$FastClassBySpringCGLIB$$ca1aa7f5.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$EnhancerBySpringCGLIB$$fad727c8.createOrder(<generated>)
-	at com.ws.sep.bitcoinservice.controllers.CryptocurrencyController.createOrder(CryptocurrencyController.java:38)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-12-20 14:05:54,123 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
-2020-12-20 14:07:47,134 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
-2020-12-20 14:07:47,166 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-12-20 14:07:47,665 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2020-12-20 14:07:48,368 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-12-20 14:07:48,431 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 64ms. Found 2 JPA repository interfaces.
-2020-12-20 14:07:48,525 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2020-12-20 14:07:48,634 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=36a97c5f-7786-3958-8a31-d12f5035127b
-2020-12-20 14:07:49,040 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (https)
-2020-12-20 14:07:49,056 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8081"]
-2020-12-20 14:07:49,056 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2020-12-20 14:07:49,056 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-12-20 14:07:49,149 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2020-12-20 14:07:49,149 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1468 ms
-2020-12-20 14:07:49,217 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
-2020-12-20 14:07:49,224 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2020-12-20 14:07:49,229 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@39b23d54
-2020-12-20 14:07:49,365 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-20 14:07:49,373 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
-2020-12-20 14:07:49,397 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-20 14:07:49,444 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
-2020-12-20 14:07:49,538 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2020-12-20 14:07:49,616 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-12-20 14:07:49,741 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
-2020-12-20 14:07:49,757 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-20 14:07:49,944 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
-2020-12-20 14:07:49,944 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
-2020-12-20 14:07:50,085 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
-2020-12-20 14:07:50,085 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
-2020-12-20 14:07:50,397 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-20 14:07:50,413 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-20 14:07:50,475 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
-2020-12-20 14:07:50,475 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2020-12-20 14:07:50,491 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
-2020-12-20 14:07:50,556 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-20 14:07:51,347 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2020-12-20 14:07:51,387 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-12-20 14:07:51,483 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
-2020-12-20 14:07:51,499 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
-2020-12-20 14:07:51,515 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
-2020-12-20 14:07:51,686 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
-2020-12-20 14:07:51,686 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
-2020-12-20 14:07:51,686 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
-2020-12-20 14:07:51,686 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
-2020-12-20 14:07:51,702 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
-2020-12-20 14:07:51,702 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
-2020-12-20 14:07:51,702 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
-2020-12-20 14:07:51,954 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
-2020-12-20 14:07:51,954 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
-2020-12-20 14:07:51,969 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
-2020-12-20 14:07:51,969 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1608469671969 with initial instances count: 4
-2020-12-20 14:07:51,969 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application BITCOIN-SERVICE with eureka with status UP
-2020-12-20 14:07:51,969 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1608469671969, current=UP, previous=STARTING]
-2020-12-20 14:07:51,969 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/HP:bitcoin-service:8081: registering service...
-2020-12-20 14:07:51,969 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8081"]
-2020-12-20 14:07:52,016 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/HP:bitcoin-service:8081 - registration status: 204
-2020-12-20 14:07:52,212 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (https) with context path ''
-2020-12-20 14:07:52,212 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8081
-2020-12-20 14:07:52,421 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
-2020-12-20 14:07:52,658 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
-2020-12-20 14:07:52,674 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] Start scheduling
-2020-12-20 14:07:52,674 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started BitcoinServiceApplication in 6.083 seconds (JVM running for 7.441)
-2020-12-20 14:07:52,787 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] End scheduling
-2020-12-20 14:07:52,819 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(2)-127.0.0.1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-20 14:07:52,819 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(2)-127.0.0.1] Initializing Servlet 'dispatcherServlet'
-2020-12-20 14:07:52,834 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(2)-127.0.0.1] Completed initialization in 15 ms
-2020-12-20 14:08:03,864 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-6] INFO - /createOrder
-2020-12-20 14:08:04,269 ERROR org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8081-exec-6] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://api-sandbox.coingate.com/v2/orders": api-sandbox.coingate.com; nested exception is java.net.UnknownHostException: api-sandbox.coingate.com] with root cause
-java.net.UnknownHostException: api-sandbox.coingate.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:608)
-	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:287)
-	at java.base/sun.security.ssl.BaseSSLSocketImpl.connect(BaseSSLSocketImpl.java:173)
-	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
-	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
-	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:372)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
-	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:168)
-	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:737)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:672)
-	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:447)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService.createOrder(CryptocurrencyService.java:162)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$FastClassBySpringCGLIB$$ca1aa7f5.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$EnhancerBySpringCGLIB$$a9950303.createOrder(<generated>)
-	at com.ws.sep.bitcoinservice.controllers.CryptocurrencyController.createOrder(CryptocurrencyController.java:38)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-12-20 14:12:21,550 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-2] INFO - /getOrder
-2020-12-20 14:12:21,562 ERROR org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8081-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.ResourceAccessException: I/O error on GET request for "https://api-sandbox.coingate.com/v2/orders/256088": api-sandbox.coingate.com; nested exception is java.net.UnknownHostException: api-sandbox.coingate.com] with root cause
-java.net.UnknownHostException: api-sandbox.coingate.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:608)
-	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:287)
-	at java.base/sun.security.ssl.BaseSSLSocketImpl.connect(BaseSSLSocketImpl.java:173)
-	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
-	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
-	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:372)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
-	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:168)
-	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:737)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:672)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:581)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService.getOrder(CryptocurrencyService.java:224)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$FastClassBySpringCGLIB$$ca1aa7f5.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$EnhancerBySpringCGLIB$$a9950303.getOrder(<generated>)
-	at com.ws.sep.bitcoinservice.controllers.CryptocurrencyController.getOrder(CryptocurrencyController.java:50)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-12-20 14:12:27,541 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-8] INFO - /registerPayment
-2020-12-20 14:12:27,553 ERROR com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-8] User already exists. User ID: 1
-2020-12-20 14:12:27,557 ERROR org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8081-exec-8] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
-java.nio.file.FileAlreadyExistsException: Payment already exists for the user
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService.registerPayment(CryptocurrencyService.java:57)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$FastClassBySpringCGLIB$$ca1aa7f5.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$EnhancerBySpringCGLIB$$a9950303.registerPayment(<generated>)
-	at com.ws.sep.bitcoinservice.controllers.CryptocurrencyController.registerPayment(CryptocurrencyController.java:32)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-12-20 14:12:31,187 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-4] INFO - /form
-2020-12-20 14:12:31,195 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-4] Successfully returned form
-2020-12-20 14:12:51,715 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
-2020-12-20 14:13:18,916 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-5] INFO - /form
-2020-12-20 14:13:18,924 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-5] Successfully returned form
-2020-12-20 14:13:21,275 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-6] INFO - /createOrder
-2020-12-20 14:13:21,299 ERROR org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8081-exec-6] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://api-sandbox.coingate.com/v2/orders": api-sandbox.coingate.com; nested exception is java.net.UnknownHostException: api-sandbox.coingate.com] with root cause
-java.net.UnknownHostException: api-sandbox.coingate.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:608)
-	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:287)
-	at java.base/sun.security.ssl.BaseSSLSocketImpl.connect(BaseSSLSocketImpl.java:173)
-	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
-	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
-	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:372)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
-	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:168)
-	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:737)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:672)
-	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:447)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService.createOrder(CryptocurrencyService.java:162)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$FastClassBySpringCGLIB$$ca1aa7f5.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$EnhancerBySpringCGLIB$$a9950303.createOrder(<generated>)
-	at com.ws.sep.bitcoinservice.controllers.CryptocurrencyController.createOrder(CryptocurrencyController.java:38)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-12-20 14:13:42,915 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-2] INFO - /createOrder
-2020-12-20 14:13:42,943 ERROR org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8081-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://api-sandbox.coingate.com/v2/orders": api-sandbox.coingate.com; nested exception is java.net.UnknownHostException: api-sandbox.coingate.com] with root cause
-java.net.UnknownHostException: api-sandbox.coingate.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:608)
-	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:287)
-	at java.base/sun.security.ssl.BaseSSLSocketImpl.connect(BaseSSLSocketImpl.java:173)
-	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
-	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
-	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:372)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
-	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:168)
-	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:737)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:672)
-	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:447)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService.createOrder(CryptocurrencyService.java:162)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$FastClassBySpringCGLIB$$ca1aa7f5.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$EnhancerBySpringCGLIB$$a9950303.createOrder(<generated>)
-	at com.ws.sep.bitcoinservice.controllers.CryptocurrencyController.createOrder(CryptocurrencyController.java:38)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-12-20 14:13:59,105 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-8] INFO - /registerPayment
-2020-12-20 14:13:59,113 ERROR com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-8] User already exists. User ID: 1
-2020-12-20 14:13:59,117 ERROR org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8081-exec-8] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
-java.nio.file.FileAlreadyExistsException: Payment already exists for the user
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService.registerPayment(CryptocurrencyService.java:57)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$FastClassBySpringCGLIB$$ca1aa7f5.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$EnhancerBySpringCGLIB$$a9950303.registerPayment(<generated>)
-	at com.ws.sep.bitcoinservice.controllers.CryptocurrencyController.registerPayment(CryptocurrencyController.java:32)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-12-20 14:14:06,240 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-4] INFO - /listAllOrderOfSeller
-2020-12-20 14:14:06,265 ERROR org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8081-exec-4] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.ResourceAccessException: I/O error on GET request for "https://api-sandbox.coingate.com/v2/orders": api-sandbox.coingate.com; nested exception is java.net.UnknownHostException: api-sandbox.coingate.com] with root cause
-java.net.UnknownHostException: api-sandbox.coingate.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:608)
-	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:287)
-	at java.base/sun.security.ssl.BaseSSLSocketImpl.connect(BaseSSLSocketImpl.java:173)
-	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
-	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
-	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
-	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:372)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187)
-	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
-	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
-	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:168)
-	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:737)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:672)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:581)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService.listAllPaymentOfSeller(CryptocurrencyService.java:247)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$FastClassBySpringCGLIB$$ca1aa7f5.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at com.ws.sep.bitcoinservice.services.CryptocurrencyService$$EnhancerBySpringCGLIB$$a9950303.listAllPaymentOfSeller(<generated>)
-	at com.ws.sep.bitcoinservice.controllers.CryptocurrencyController.listAllOrderOfSeller(CryptocurrencyController.java:56)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-12-20 14:17:51,723 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
-2020-12-20 14:22:51,726 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
-2020-12-20 14:26:13,203 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
-2020-12-20 14:26:13,250 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-12-20 14:26:13,691 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2020-12-20 14:26:14,359 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-12-20 14:26:14,429 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 64ms. Found 2 JPA repository interfaces.
-2020-12-20 14:26:14,511 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2020-12-20 14:26:14,610 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=36a97c5f-7786-3958-8a31-d12f5035127b
-2020-12-20 14:26:15,007 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (https)
-2020-12-20 14:26:15,007 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8081"]
-2020-12-20 14:26:15,007 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2020-12-20 14:26:15,022 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-12-20 14:26:15,100 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2020-12-20 14:26:15,100 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1393 ms
-2020-12-20 14:26:15,163 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
-2020-12-20 14:26:15,163 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2020-12-20 14:26:15,163 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@22adeb89
-2020-12-20 14:26:15,304 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-20 14:26:15,304 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
-2020-12-20 14:26:15,352 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-20 14:26:15,394 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
-2020-12-20 14:26:15,473 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2020-12-20 14:26:15,583 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-12-20 14:26:15,692 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
-2020-12-20 14:26:15,708 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-20 14:26:15,879 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
-2020-12-20 14:26:15,879 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
-2020-12-20 14:26:16,004 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
-2020-12-20 14:26:16,004 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
-2020-12-20 14:26:16,301 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-20 14:26:16,317 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-20 14:26:16,405 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
-2020-12-20 14:26:16,411 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
-2020-12-20 14:26:16,411 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2020-12-20 14:26:16,444 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-20 14:26:17,210 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2020-12-20 14:26:17,241 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-12-20 14:26:17,345 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
-2020-12-20 14:26:17,362 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
-2020-12-20 14:26:17,390 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
-2020-12-20 14:26:17,651 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
-2020-12-20 14:26:17,667 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
-2020-12-20 14:26:17,667 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
-2020-12-20 14:26:17,667 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
-2020-12-20 14:26:17,667 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
-2020-12-20 14:26:17,667 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
-2020-12-20 14:26:17,682 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
-2020-12-20 14:26:17,979 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
-2020-12-20 14:26:17,979 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
-2020-12-20 14:26:17,979 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
-2020-12-20 14:26:17,979 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1608470777979 with initial instances count: 4
-2020-12-20 14:26:17,995 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application BITCOIN-SERVICE with eureka with status UP
-2020-12-20 14:26:17,995 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1608470777995, current=UP, previous=STARTING]
-2020-12-20 14:26:17,995 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/HP:bitcoin-service:8081: registering service...
-2020-12-20 14:26:17,995 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8081"]
-2020-12-20 14:26:18,026 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/HP:bitcoin-service:8081 - registration status: 204
-2020-12-20 14:26:18,214 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (https) with context path ''
-2020-12-20 14:26:18,214 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8081
-2020-12-20 14:26:18,395 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
-2020-12-20 14:26:18,653 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
-2020-12-20 14:26:18,669 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] Start scheduling
-2020-12-20 14:26:18,669 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started BitcoinServiceApplication in 5.981 seconds (JVM running for 7.364)
-2020-12-20 14:26:18,747 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] End scheduling
-2020-12-20 14:26:19,091 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(4)-192.168.1.4] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-20 14:26:19,091 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(4)-192.168.1.4] Initializing Servlet 'dispatcherServlet'
-2020-12-20 14:26:19,091 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(4)-192.168.1.4] Completed initialization in 0 ms
-2020-12-20 14:26:29,729 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-7] INFO - /createOrder
-2020-12-20 14:26:30,727 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-7] Successful create transaction. User ID: 1
-2020-12-20 14:26:43,321 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-4] INFO - /getOrder
-2020-12-20 14:26:43,650 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-4] Successful returned transaction. User ID: 1
-2020-12-20 14:26:49,000 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-8] INFO - /listAllOrderOfSeller
-2020-12-20 14:26:49,468 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-8] Successful returned all transactions. User ID: 1
-2020-12-20 14:41:03,543 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
-2020-12-20 14:41:03,582 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-12-20 14:41:04,093 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2020-12-20 14:41:04,786 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-12-20 14:41:04,864 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 65ms. Found 2 JPA repository interfaces.
-2020-12-20 14:41:04,942 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2020-12-20 14:41:05,051 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=36a97c5f-7786-3958-8a31-d12f5035127b
-2020-12-20 14:41:05,601 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (https)
-2020-12-20 14:41:05,616 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8081"]
-2020-12-20 14:41:05,616 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2020-12-20 14:41:05,616 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-12-20 14:41:05,757 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2020-12-20 14:41:05,757 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1650 ms
-2020-12-20 14:41:05,819 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
-2020-12-20 14:41:05,819 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2020-12-20 14:41:05,835 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@4065c6d1
-2020-12-20 14:41:05,960 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-20 14:41:05,976 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
-2020-12-20 14:41:06,007 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-20 14:41:06,038 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
-2020-12-20 14:41:06,147 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2020-12-20 14:41:06,225 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-12-20 14:41:06,340 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
-2020-12-20 14:41:06,351 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-20 14:41:06,510 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
-2020-12-20 14:41:06,510 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
-2020-12-20 14:41:06,651 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
-2020-12-20 14:41:06,651 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
-2020-12-20 14:41:06,948 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-20 14:41:06,948 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-20 14:41:07,042 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
-2020-12-20 14:41:07,042 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2020-12-20 14:41:07,057 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
-2020-12-20 14:41:07,104 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-20 14:41:07,810 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2020-12-20 14:41:07,841 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-12-20 14:41:07,903 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
-2020-12-20 14:41:07,903 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
-2020-12-20 14:41:07,919 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
-2020-12-20 14:41:08,044 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
-2020-12-20 14:41:08,044 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
-2020-12-20 14:41:08,044 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
-2020-12-20 14:41:08,044 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
-2020-12-20 14:41:08,044 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
-2020-12-20 14:41:08,044 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
-2020-12-20 14:41:08,044 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
-2020-12-20 14:41:08,247 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
-2020-12-20 14:41:08,247 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
-2020-12-20 14:41:08,247 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
-2020-12-20 14:41:08,247 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1608471668247 with initial instances count: 4
-2020-12-20 14:41:08,263 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application BITCOIN-SERVICE with eureka with status UP
-2020-12-20 14:41:08,263 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1608471668263, current=UP, previous=STARTING]
-2020-12-20 14:41:08,263 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8081"]
-2020-12-20 14:41:08,263 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/HP:bitcoin-service:8081: registering service...
-2020-12-20 14:41:08,294 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/HP:bitcoin-service:8081 - registration status: 204
-2020-12-20 14:41:08,490 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (https) with context path ''
-2020-12-20 14:41:08,491 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8081
-2020-12-20 14:41:08,704 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
-2020-12-20 14:41:08,923 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
-2020-12-20 14:41:08,938 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] Start scheduling
-2020-12-20 14:41:08,938 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started BitcoinServiceApplication in 6.116 seconds (JVM running for 7.154)
-2020-12-20 14:41:09,297 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(5)-192.168.1.4] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-20 14:41:09,297 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(5)-192.168.1.4] Initializing Servlet 'dispatcherServlet'
-2020-12-20 14:41:09,297 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(5)-192.168.1.4] Completed initialization in 0 ms
-2020-12-20 14:41:09,590 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] End scheduling
+2021-02-07 09:32:12,694 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2021-02-07 09:32:12,735 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-02-07 09:32:13,385 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-02-07 09:32:14,178 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-02-07 09:32:14,250 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 67ms. Found 2 JPA repository interfaces.
+2021-02-07 09:32:14,395 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-02-07 09:32:14,519 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=36a97c5f-7786-3958-8a31-d12f5035127b
+2021-02-07 09:32:15,208 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (https)
+2021-02-07 09:32:15,218 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8081"]
+2021-02-07 09:32:15,218 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-02-07 09:32:15,219 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-02-07 09:32:15,388 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-02-07 09:32:15,388 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1975 ms
+2021-02-07 09:32:15,461 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-02-07 09:32:15,461 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-02-07 09:32:15,468 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@67239bf4
+2021-02-07 09:32:15,625 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-07 09:32:15,633 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
+2021-02-07 09:32:15,672 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-07 09:32:15,729 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-02-07 09:32:15,849 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-02-07 09:32:15,936 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2021-02-07 09:32:16,055 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2021-02-07 09:32:16,067 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-02-07 09:32:16,192 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
+2021-02-07 09:32:16,192 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
+2021-02-07 09:32:16,337 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
+2021-02-07 09:32:16,337 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
+2021-02-07 09:32:16,783 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-02-07 09:32:16,784 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-02-07 09:32:16,793 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-07 09:32:16,801 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-02-07 09:32:16,836 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
+2021-02-07 09:32:16,883 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-07 09:32:22,524 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2021-02-07 09:32:22,582 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-02-07 09:32:22,678 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2021-02-07 09:32:22,687 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2021-02-07 09:32:22,708 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2021-02-07 09:32:22,979 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
+2021-02-07 09:32:22,980 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2021-02-07 09:32:22,980 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
+2021-02-07 09:32:22,980 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
+2021-02-07 09:32:22,980 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2021-02-07 09:32:22,980 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
+2021-02-07 09:32:22,980 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2021-02-07 09:32:23,227 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
+2021-02-07 09:32:23,230 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
+2021-02-07 09:32:23,233 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2021-02-07 09:32:23,239 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1612686743237 with initial instances count: 0
+2021-02-07 09:32:23,241 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application BITCOIN-SERVICE with eureka with status UP
+2021-02-07 09:32:23,241 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1612686743241, current=UP, previous=STARTING]
+2021-02-07 09:32:23,244 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/DESKTOP-B4MQFE7:bitcoin-service:8081: registering service...
+2021-02-07 09:32:23,244 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8081"]
+2021-02-07 09:32:23,302 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/DESKTOP-B4MQFE7:bitcoin-service:8081 - registration status: 204
+2021-02-07 09:32:23,482 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (https) with context path ''
+2021-02-07 09:32:23,629 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8081
+2021-02-07 09:32:26,492 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2021-02-07 09:32:27,916 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2021-02-07 09:32:27,947 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] Start scheduling
+2021-02-07 09:32:27,950 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started BitcoinServiceApplication in 16.211 seconds (JVM running for 18.217)
+2021-02-07 09:32:28,083 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] End scheduling
+2021-02-07 09:32:28,829 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(5)-192.168.0.11] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-07 09:32:28,830 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(5)-192.168.0.11] Initializing Servlet 'dispatcherServlet'
+2021-02-07 09:32:28,854 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(5)-192.168.0.11] Completed initialization in 24 ms
+2021-02-07 09:32:53,232 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Disable delta property : false
+2021-02-07 09:32:53,232 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Single vip registry refresh property : null
+2021-02-07 09:32:53,232 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Force full registry fetch : false
+2021-02-07 09:32:53,232 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Application is null : false
+2021-02-07 09:32:53,233 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Registered Applications size is zero : true
+2021-02-07 09:32:53,233 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Application version is -1: false
+2021-02-07 09:32:53,233 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Getting all instance registry info from the eureka server
+2021-02-07 09:32:53,302 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] The response status is 200
+2021-02-07 09:35:19,439 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-6] INFO - /form
+2021-02-07 09:37:22,983 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 09:38:15,933 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-3] INFO - /form
+2021-02-07 09:38:29,552 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-4] INFO - /form
+2021-02-07 09:38:36,637 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-7] INFO - /form
+2021-02-07 09:39:23,630 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-6] INFO - /form
+2021-02-07 09:42:22,985 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 09:43:49,222 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-3] INFO - /form
+2021-02-07 09:44:12,325 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-4] INFO - /form
+2021-02-07 09:44:31,863 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-7] INFO - /form
+2021-02-07 09:44:38,774 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-6] INFO - /form
+2021-02-07 09:47:22,987 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 09:48:40,561 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-3] INFO - /form
+2021-02-07 09:48:50,042 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-4] INFO - /form
+2021-02-07 09:48:59,487 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-7] INFO - /form
+2021-02-07 09:52:22,988 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 09:57:22,990 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 10:01:14,529 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-1] INFO - /registerPayment
+2021-02-07 10:01:15,627 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-1] Successful user registration on payment system. User ID: 3
+2021-02-07 10:02:22,992 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 10:07:22,994 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 10:12:22,996 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 10:14:08,244 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-8] INFO - /form
+2021-02-07 10:16:21,037 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-7] INFO - /form
+2021-02-07 10:17:23,001 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 10:21:05,548 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-2] INFO - /form
+2021-02-07 10:22:23,003 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 10:27:23,007 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 10:32:23,010 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 10:32:28,097 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] Start scheduling
+2021-02-07 10:32:28,187 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] End scheduling
+2021-02-07 10:37:23,010 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 10:42:23,012 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 10:47:23,013 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 10:52:23,015 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 10:57:23,019 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 11:02:23,020 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 11:07:23,022 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 11:12:23,023 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 11:17:23,027 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 11:20:51,235 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-9] INFO - /form
+2021-02-07 11:22:23,030 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 11:23:48,827 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-6] INFO - /form
+2021-02-07 11:27:23,031 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 15:50:22,967 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2021-02-07 15:50:23,032 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-02-07 15:50:24,473 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-02-07 15:50:26,850 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-02-07 15:50:27,036 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 161ms. Found 2 JPA repository interfaces.
+2021-02-07 15:50:27,326 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-02-07 15:50:27,646 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=36a97c5f-7786-3958-8a31-d12f5035127b
+2021-02-07 15:50:29,029 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (https)
+2021-02-07 15:50:29,043 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8081"]
+2021-02-07 15:50:29,044 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-02-07 15:50:29,045 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-02-07 15:50:29,350 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-02-07 15:50:29,350 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 4843 ms
+2021-02-07 15:50:29,514 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-02-07 15:50:29,515 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-02-07 15:50:29,530 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@29fa8453
+2021-02-07 15:50:30,261 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-07 15:50:30,296 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'taskScheduler'
+2021-02-07 15:50:30,365 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-07 15:50:30,514 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-02-07 15:50:31,887 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-02-07 15:50:32,115 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2021-02-07 15:50:32,646 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2021-02-07 15:50:32,666 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-02-07 15:50:33,235 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
+2021-02-07 15:50:33,235 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
+2021-02-07 15:50:33,545 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
+2021-02-07 15:50:33,546 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
+2021-02-07 15:50:34,347 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2021-02-07 15:50:34,348 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-02-07 15:50:34,390 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-07 15:50:34,402 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-02-07 15:50:34,458 WARN org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] Unable to start LiveReload server
+2021-02-07 15:50:34,523 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-07 15:50:36,159 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2021-02-07 15:50:36,207 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-02-07 15:50:36,312 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2021-02-07 15:50:36,319 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2021-02-07 15:50:36,345 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2021-02-07 15:50:36,637 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
+2021-02-07 15:50:36,638 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2021-02-07 15:50:36,638 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
+2021-02-07 15:50:36,638 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
+2021-02-07 15:50:36,639 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2021-02-07 15:50:36,639 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
+2021-02-07 15:50:36,639 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2021-02-07 15:50:36,903 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
+2021-02-07 15:50:37,370 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
+2021-02-07 15:50:37,374 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2021-02-07 15:50:37,379 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1612709437378 with initial instances count: 2
+2021-02-07 15:50:37,383 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application BITCOIN-SERVICE with eureka with status UP
+2021-02-07 15:50:37,384 INFO com.netflix.discovery.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1612709437384, current=UP, previous=STARTING]
+2021-02-07 15:50:37,386 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8081"]
+2021-02-07 15:50:37,386 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/DESKTOP-B4MQFE7:bitcoin-service:8081: registering service...
+2021-02-07 15:50:37,448 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_BITCOIN-SERVICE/DESKTOP-B4MQFE7:bitcoin-service:8081 - registration status: 204
+2021-02-07 15:50:38,304 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (https) with context path ''
+2021-02-07 15:50:38,307 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8081
+2021-02-07 15:50:39,950 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2021-02-07 15:50:40,392 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2021-02-07 15:50:40,411 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] Start scheduling
+2021-02-07 15:50:40,413 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started BitcoinServiceApplication in 18.776 seconds (JVM running for 23.373)
+2021-02-07 15:50:40,557 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] End scheduling
+2021-02-07 15:50:41,075 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(6)-192.168.0.10] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-07 15:50:41,075 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(6)-192.168.0.10] Initializing Servlet 'dispatcherServlet'
+2021-02-07 15:50:41,085 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(6)-192.168.0.10] Completed initialization in 10 ms
+2021-02-07 15:55:36,643 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 16:00:36,645 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 16:05:36,648 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 16:10:36,654 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 16:15:36,655 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 16:20:36,658 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 16:25:36,660 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 16:30:36,662 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 16:35:36,665 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 16:40:36,675 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 16:45:36,675 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 16:50:36,677 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 16:50:40,573 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] Start scheduling
+2021-02-07 16:50:40,782 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] End scheduling
+2021-02-07 16:55:36,684 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 17:00:36,700 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 17:05:36,703 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 17:10:36,706 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 17:14:53,556 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-1] INFO - /form
+2021-02-07 17:15:07,245 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-4] INFO - /form
+2021-02-07 17:15:13,487 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-5] INFO - /form
+2021-02-07 17:15:36,708 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 17:15:47,099 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-8] INFO - /createOrder
+2021-02-07 17:15:48,339 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-8] Successful create transaction. User ID: 3
+2021-02-07 17:16:04,283 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-9] INFO - /setStateOfTransaction
+2021-02-07 17:16:04,317 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-9] Successful execute transaction.
+2021-02-07 17:17:09,359 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-4] INFO - /form
+2021-02-07 17:20:36,709 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 17:25:36,711 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 17:30:36,715 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 17:35:36,717 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 17:39:12,425 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-7] INFO - /setStateOfTransaction
+2021-02-07 17:39:12,471 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-7] Successful execute transaction.
+2021-02-07 17:40:36,720 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 17:45:36,722 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 17:45:47,521 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-2] INFO - /createOrder
+2021-02-07 17:45:48,142 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-2] Successful create transaction. User ID: 3
+2021-02-07 17:46:05,345 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-3] INFO - /setStateOfTransaction
+2021-02-07 17:46:05,349 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-3] Successful execute transaction.
+2021-02-07 17:48:37,200 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-8] INFO - /createOrder
+2021-02-07 17:48:37,642 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-8] Successful create transaction. User ID: 3
+2021-02-07 17:48:47,589 INFO com.ws.sep.bitcoinservice.controllers.CryptocurrencyController [https-jsse-nio-8081-exec-9] INFO - /setStateOfTransaction
+2021-02-07 17:48:47,598 INFO com.ws.sep.bitcoinservice.services.CryptocurrencyService [https-jsse-nio-8081-exec-9] Failed execute transaction.
+2021-02-07 17:50:36,723 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 17:50:40,790 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] Start scheduling
+2021-02-07 17:50:40,834 INFO com.ws.sep.bitcoinservice.helperMethods.SchedulingMethods [scheduling-1] End scheduling
+2021-02-07 17:55:36,725 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 18:00:36,726 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 18:05:36,727 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2021-02-07 18:10:36,729 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration

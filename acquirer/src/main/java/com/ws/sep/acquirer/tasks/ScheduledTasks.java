@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.List;
 
 
-import com.ws.sep.acquirer.dtos.ApiResponse;
 import com.ws.sep.acquirer.dtos.PaymentBankServiceResponse;
 import com.ws.sep.acquirer.dtos.PaymentStatus;
 import com.ws.sep.acquirer.models.Transaction;
@@ -17,10 +16,6 @@ import com.ws.sep.acquirer.repositories.ITransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
-
-
-import util.UrlUtil;
 
 @Component
 public class ScheduledTasks
@@ -59,10 +54,11 @@ public class ScheduledTasks
         responseToBankService.setMerchantTimestamp( transaction.getMerchantTimestamp() );
         responseToBankService.setStatus( PaymentStatus.EXPIRED );
         responseToBankService.setMessage( "EXPIRED" );
+        responseToBankService.setPaymentId( transaction.getPaymentId() );
 
-        RestTemplate restTemplate = new RestTemplate();
-
-        restTemplate.postForEntity( UrlUtil.BANK_CREATE_PAYMENT_URL, responseToBankService, ApiResponse.class );
+        // RestTemplate restTemplate = new RestTemplate();
+// 
+        // restTemplate.postForEntity( UrlUtil.BANK_CREATE_PAYMENT_URL, responseToBankService, ApiResponse.class );
 
     }
 

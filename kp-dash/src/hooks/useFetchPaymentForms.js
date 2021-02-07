@@ -14,12 +14,12 @@ const fetchForms = async ({ authToken }) => {
     const responses = await Promise.all(requests);
 
     if (!responses.some((response) => !responseOk(response))) {
-      const [BITCOIN, PAYPAL] = await Promise.all(
+      const [BTC, PAYPAL] = await Promise.all(
         responses.map((response) => response.json())
       );
 
       return {
-        BITCOIN,
+        BTC,
         PAYPAL,
       };
     }
@@ -27,7 +27,7 @@ const fetchForms = async ({ authToken }) => {
     console.error(error);
   }
   return {
-    BITCOIN: {},
+    BTC: {},
     PAYPAL: {},
   };
 };

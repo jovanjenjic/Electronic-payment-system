@@ -10,7 +10,6 @@ import { post } from '../services/api';
 import { responseOk } from '../utils/responseOk';
 
 import { ShopContext } from '../context/shop';
-import { PAYPAL, BITCOIN, BANK } from '../constants/paymentTypes';
 import {
   BTC_CREATE_PAYMENT_URL,
   PAYPAL_PAYMENT_URL,
@@ -52,7 +51,6 @@ const Title = styled.div`
 
 const createPaymentPaypal = async ({
   price,
-  description,
   count,
   currency = 'EUR',
   id,
@@ -63,10 +61,10 @@ const createPaymentPaypal = async ({
     PAYPAL_PAYMENT_URL,
     {
       price,
-      items_count: count,
-      item_id: id,
+      itemsCount: count,
+      itemId: id,
       currency,
-      description,
+      paymentType: 'PAYPAL'
     },
     authToken
   );
@@ -83,7 +81,6 @@ const createPaymentPaypal = async ({
 
 const createPaymentBtc = async ({
   price,
-  description,
   count,
   currency = 'EUR',
   id,
@@ -93,13 +90,11 @@ const createPaymentBtc = async ({
   const response = await post(
     BTC_CREATE_PAYMENT_URL,
     {
-      priceAmount: price * count,
-      orderId: id,
-      priceCurrency: currency,
-      receiveCurrency: 'BTC',
-      description,
-      title: description,
-      customToken: 'bla bla',
+      price,
+      itemsCount: count,
+      itemId: id,
+      currency,
+      paymentType: 'BTC'
     },
     authToken
   );
@@ -114,16 +109,20 @@ const createPaymentBtc = async ({
   return { error: true };
 };
 
-const createPaymentBank = async ({ price, count, id }, history) => {
+// TODO: update bank also later
+
+const createPaymentBank = async ({ price, count, id, currency = 'EUR' }, history) => {
   const authToken = localStorage.getItem('access_token');
 
   try {
     const response = await post(
       BANK_CREATE_PAYMENT_URL,
       {
-        amount: count * price,
-        timestamp: new Date().toISOString(),
-        merchantOrderId: id,
+        price,
+        itemsCount: count,
+        itemId: id,
+        currency,
+        paymentType: 'BANK'
       },
       authToken
     );
@@ -143,32 +142,35 @@ const createPaymentBank = async ({ price, count, id }, history) => {
 const ShoppingCart = () => {
   const history = useHistory();
 
-  const { items = [], paymentTypes, updateItems } = React.useContext(
+  const { items = [], paymentTypes, updateItems, user = {} } = React.useContext(
     ShopContext
   );
 
   const [item = { count: 0 }] = items;
+
+  /** `discount` for the memberships */
+  const maxDiscount = user?.subscriptionList?.length ? Math.max(...user.subscriptionList.map(v => v.discount)) : 0;
 
   // TODO: Send request for payments here payments here
   /** `types` name */
   const types = paymentTypes.map((v) => v.type);
 
   const handlePaypal = async () => {
-    const { error } = await createPaymentPaypal(item);
+    const { error } = await createPaymentPaypal({ ...item, price: (item.price * (1 - maxDiscount / 100)).toFixed(2) });
     if (!error) {
       updateItems(() => []);
     }
   };
 
   const handleBtc = async () => {
-    const { error } = await createPaymentBtc(item);
+    const { error } = await createPaymentBtc({ ...item, price: (item.price * (1 - maxDiscount / 100)).toFixed(2) });
     if (!error) {
       updateItems(() => []);
     }
   };
 
   const handleBank = async () => {
-    const { error } = await createPaymentBank(item, history);
+    const { error } = await createPaymentBank({ ...item, price: (item.price * (1 - maxDiscount / 100)).toFixed(2) }, history);
     if (!error) {
       updateItems(() => []);
     }
@@ -185,23 +187,23 @@ const ShoppingCart = () => {
         }
         content={
           <div>
-            <ItemList items={items} />
+            <ItemList items={items} user={user} />
             <PaymentGroup>
-              {types.includes(PAYPAL) && (
-                <ImgContainer onClick={handlePaypal}>
-                  <img src="../img/paypal.png" style={imgStyle} />
-                </ImgContainer>
-              )}
-              {types.includes(BITCOIN) && (
-                <ImgContainer onClick={handleBtc}>
-                  <img src="../img/btc.png" style={imgStyle} />
-                </ImgContainer>
-              )}
-              {types.includes(BANK) && (
-                <ImgContainer onClick={handleBank}>
-                  <CreditCardOutlined />
-                </ImgContainer>
-              )}
+              {/* {types.includes(PAYPAL) && ( */}
+              <ImgContainer onClick={handlePaypal}>
+                <img src="../img/paypal.png" style={imgStyle} />
+              </ImgContainer>
+              {/* )} */}
+              {/* {types.includes(BITCOIN) && ( */}
+              <ImgContainer onClick={handleBtc}>
+                <img src="../img/btc.png" style={imgStyle} />
+              </ImgContainer>
+              {/* )} */}
+              {/* {types.includes(BANK) && ( */}
+              <ImgContainer onClick={handleBank}>
+                <CreditCardOutlined />
+              </ImgContainer>
+              {/* )} */}
             </PaymentGroup>
           </div>
         }
