@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.nio.file.FileAlreadyExistsException;
+import java.util.Map;
 
 @RestController
 @RequestMapping( "/api" )
@@ -61,4 +62,16 @@ public class CryptocurrencyController {
         logger.info("INFO - /setStateOfTransaction");
         return new ResponseEntity<>(cryptocurrencyService.setStateOnSuccessOrCancel(successCancelDTO, token), HttpStatus.OK);
     }
+
+    @PutMapping( value = "/addPayment" )
+    public ResponseEntity<?> setApiKey(@RequestBody SetApiKeyDTO apiKey, @RequestHeader("Authorization") String token) {
+        logger.info("INFO - /setApiKey");
+        return new ResponseEntity<>(cryptocurrencyService.setApiKey(apiKey, token), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/getTransactions")
+    public ResponseEntity<?> getTransactions(@RequestParam Map<String, String> params, @RequestHeader("Authorization") String token) {
+        return new ResponseEntity<>(cryptocurrencyService.getTransactions(params.getOrDefault("state", ""), token), HttpStatus.OK);
+    }
+
 }

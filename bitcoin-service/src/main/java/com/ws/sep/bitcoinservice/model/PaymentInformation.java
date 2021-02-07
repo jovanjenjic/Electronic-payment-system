@@ -1,5 +1,6 @@
 package com.ws.sep.bitcoinservice.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class PaymentInformation {
     private String orderId;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name="seller_info_id", nullable=false)
     private CryptocurrencyPayment cryptocurrencyPayment;
 }
