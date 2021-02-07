@@ -7,7 +7,7 @@ spring:
     initialization-mode: always
     url: jdbc:mysql://localhost:3306/lu?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
     username: root
-    password: mandicnikola
+    password: JovanJenjic123!
   jpa:
     hibernate:
       ddl-auto: update

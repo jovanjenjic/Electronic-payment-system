@@ -16,5 +16,14 @@ public interface    PaymentInformarmationRepository extends JpaRepository<Paymen
             nativeQuery = true)
     Collection<PaymentInformation> findAllByStatus(String status01, String status02, String status03);
 
+    @Query(
+            value = "SELECT * FROM PAYMENT_INFORMATION u WHERE u.status = ?1 && u.seller_info_id = ?2",
+            nativeQuery = true)
+    Collection<PaymentInformation> findAllByStatusAndSellerId(String status, Long id);
+
+    @Query(
+            value = "SELECT * FROM PAYMENT_INFORMATION u WHERE u.seller_info_id = ?1",
+            nativeQuery = true)
+    Collection<PaymentInformation> findAllBySellerId(Long id);
 }
 
