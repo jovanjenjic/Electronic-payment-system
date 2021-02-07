@@ -13,6 +13,8 @@ import Shop from '../components/Shop';
 import PaymentMethods from './PaymentTypes';
 import ShoppingCart from '../components/ShoppingCart';
 import Subscriptions from './Subscriptions';
+import Items from './Items';
+import Orders from './Orders';
 
 import { withAuth } from '../hoc/withAuth';
 import useFetchPaymentTypes from '../hooks/useFetchPaymentTypes';
@@ -112,6 +114,14 @@ const Home = () => {
                 <PaymentMethods />
               </Route>
             )}
+            {isUserSeller && (
+              <Route path="/seller-items">
+                <Items />
+              </Route>
+            )}
+            <Route path="/orders">
+              <Orders />
+            </Route>
             <Route path="/memberships">
               <Subscriptions />
             </Route>

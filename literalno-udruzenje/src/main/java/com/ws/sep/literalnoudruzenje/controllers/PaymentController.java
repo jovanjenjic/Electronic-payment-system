@@ -61,6 +61,11 @@ public class PaymentController {
         return paymentService.registerPayment(bankInfoDTO, token);
     }
 
+    @PutMapping(value ="/bank/register")
+    public ResponseEntity<?> updateBank(@RequestBody @Valid BankInfoDTO bankInfoDTO, @RequestHeader("Authorization") String token) {
+        return paymentService.updatePaymentType(bankInfoDTO, token);
+    }
+
     @PostMapping(value = "bank/{id}/success")
     public ResponseEntity<?> successBankPayment(@PathVariable("id") Long orderId) {
         return paymentService.setSuccessBankPayment(orderId);
@@ -81,6 +86,11 @@ public class PaymentController {
         return paymentService.registerPayment(btcInfoDTO, token);
     }
 
+    @PutMapping(value ="/btc/register")
+    public ResponseEntity<?> updateBtc(@RequestBody @Valid BtcInfoDTO btcInfoDTO, @RequestHeader("Authorization") String token) {
+        return paymentService.updatePaymentType(btcInfoDTO, token);
+    }
+
     @PostMapping(value = "/btc/transaction/update", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateBtcTransaction(@RequestBody @Valid BtcExecuteDTO btcExecuteDTO) {
         return paymentService.updateBtcTransaction(btcExecuteDTO);
@@ -96,5 +106,8 @@ public class PaymentController {
         return paymentService.getSellerPaymentTypes(token);
     }
 
-
+    @GetMapping(value = "/orders", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getCustomerOrders(@RequestHeader("Authorization") String token) {
+        return ResponseEntity.ok(paymentService.getUserOrders(token));
+    }
 }

@@ -56,7 +56,7 @@ const ItemList = ({ items = [], user = {} }) => {
   const totalPrice = items.reduce((acc, curr) => acc + curr.price * curr.count, 0);
 
   /** `discount` for the memberships */
-  const maxDiscount = Math.max(...(user.subscriptionList || []).map(v => v.discount));
+  const maxDiscount = user?.subscriptionList?.length ? Math.max(...user.subscriptionList.map(v => v.discount)) : 0;
 
   return (
     <ItemTable>

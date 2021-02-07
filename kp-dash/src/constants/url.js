@@ -57,5 +57,7 @@ export const BANK_PAYMENT_CANCEL_URL = `${LU_URL}/payment/bank/{paymentId}/cance
 export const BANK_PAYMENT_FAILED_URL = `${LU_URL}/payment/bank/{paymentId}/failed`;
 
 export const ITEMS_URL = `${LU_URL}/item`;
+export const ADD_ITEM_URL = `${ITEMS_URL}/add`;
 export const ALL_ITEMS_URL = `${ITEMS_URL}/all`;
+export const ORDERS_URL = `${LU_URL}/payment/orders`;
 export const MEMBERSHIPS_URL = `${ITEMS_URL}/memberships`;

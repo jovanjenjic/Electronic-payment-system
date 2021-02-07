@@ -142,14 +142,14 @@ const createPaymentBank = async ({ price, count, id, currency = 'EUR' }, history
 const ShoppingCart = () => {
   const history = useHistory();
 
-  const { items = [], paymentTypes, updateItems, user } = React.useContext(
+  const { items = [], paymentTypes, updateItems, user = {} } = React.useContext(
     ShopContext
   );
 
   const [item = { count: 0 }] = items;
 
   /** `discount` for the memberships */
-  const maxDiscount = Math.max(...(user.subscriptionList || []).map(v => v.discount));
+  const maxDiscount = user?.subscriptionList?.length ? Math.max(...user.subscriptionList.map(v => v.discount)) : 0;
 
   // TODO: Send request for payments here payments here
   /** `types` name */

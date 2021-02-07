@@ -5,6 +5,8 @@ import {
   DollarOutlined,
   ShopOutlined,
   PoundCircleOutlined,
+  StarOutlined,
+  UnorderedListOutlined
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
@@ -55,6 +57,14 @@ const Sidebar = () => {
             <Link to="/payment-methods" >Payment methods</Link>
           </Menu.Item>
         )}
+        {isUserSeller && (
+          <Menu.Item key="4" icon={<StarOutlined />}>
+            <Link to="/seller-items" >My items</Link>
+          </Menu.Item>
+        )}
+        <Menu.Item key="5" icon={<UnorderedListOutlined />}>
+          <Link to="/orders" >My orders</Link>
+        </Menu.Item>
       </Menu>
     </Sider>
   );

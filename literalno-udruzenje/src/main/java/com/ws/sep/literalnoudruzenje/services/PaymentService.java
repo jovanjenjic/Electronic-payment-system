@@ -3,6 +3,7 @@ package com.ws.sep.literalnoudruzenje.services;
 import com.google.gson.Gson;
 import com.ws.sep.literalnoudruzenje.dto.*;
 import com.ws.sep.literalnoudruzenje.exceptions.SimpleException;
+import com.ws.sep.literalnoudruzenje.mappers.OrderMapper;
 import com.ws.sep.literalnoudruzenje.model.*;
 import com.ws.sep.literalnoudruzenje.repository.*;
 import com.ws.sep.literalnoudruzenje.utils.EncryptionDecryption;
@@ -19,7 +20,9 @@ import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PaymentService {
@@ -480,5 +483,15 @@ public class PaymentService {
         order = orderRepository.save(order);
         return ResponseEntity.ok(order);
     }
+
+    public List<OrderListDTO> getUserOrders(String token) throws SimpleException {
+        // id used to set user which has order
+        Long userId = jwtUtil.extractUserId(token.substring(7));
+
+        User user = userRepository.findById(userId).orElseThrow(() -> new SimpleException(404, "User not found"));
+
+        return orderRepository.findAllByUser(user).stream().map(v -> OrderMapper.INSTANCE.mapOrderToListResponse(v)).collect(Collectors.toList());
+    }
+
 
 }
